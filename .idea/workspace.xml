@@ -10,8 +10,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
         <option value="Interface" />
+        <option value="Enum" />
         <option value="Class" />
       </list>
     </option>
@@ -61,29 +61,31 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="552" y="179" key="#Project_Structure/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1596444169805" />
-    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1597183708646">
+    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1599232604899">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1597183708646" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1596546624932">
+    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599232604899" />
+    <state x="2685" y="-354" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-559.1920.1040@1920.-559.1920.1040" timestamp="1599138160285" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599232559306">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1596546624932" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599232559306" />
     <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1596649496286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1596649496286" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1598722214927">
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1599223508294">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1598722214927" />
+    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599223508294" />
+    <state x="2576" y="-213" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-559.1920.1040@1920.-559.1920.1040" timestamp="1599135136203" />
     <state x="342" y="141" key="new project wizard" timestamp="1596649557096">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="141" key="new project wizard/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1596649557096" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1598860286946">
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1599138778446">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1598860286946" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599138778446" />
   </component>
 </project>
