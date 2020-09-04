@@ -1,0 +1,43 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 3/9 13:15-14:45
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Moa Berglund
+
+## Objectives 
+
+- Göra gruppkontrakt
+- Fördela roller (mer som ansvarsområden, alla är ändå delaktiga i "allt")
+- Se till att git fungerar för alla, skapa repo
+- Brainstorma projektidé
+- Bestämma kontinuerliga tider som vi kommer arbeta varje vecka
+
+
+## Reports from previous meeting
+
+- Detta är första mötet så inget från tidigare.
+
+
+## Discussion items 
+
+1. Hur ska ett gruppkontrakt se ut?
+2. Hur ska rollerna fördelas? Någon som känner sig extra intresserad av något?
+3. Fungerar git för alla? 
+4. Finns det några projektideér? 
+5. Vilka tider passar för alla?
+
+## Outcomes and assignments 
+
+1. Gruppkontrakt finns i separat pdf.
+2. Alla roller står i gruppkontraktet och fördelades genom att var och en valde vad hen kände sig manad till
+3. Git fungerar och repository finns.
+4. Oliver kom med förslaget av någon form av namn-slumpgenerator. Det diskuterades och kom fram till att detta är en bra idé som går att utveckla på olika sätt, i mån om tid. Markus ansåg att det finns behov för att även kunna slumpa ut olika roller till olika personer, vilket övriga höll med om. Det bestämdes att lyfta dessa tankar med handledare innan user stories och design utvecklas.
+5. Tider är bestämda: tisdag 10:00, torsdag 13:15 samt fredag 13:15, á 1,5h. Veckomöte måndagar kl 15, i ca 15 min för att få en överblick av veckan. Fredagar kl 15 är det handledning.
+
+
+## Wrap up
+ 
+- Nästa möte: 4/9 14:45 för att förbereda för handledningen 15:15 där idén ska diskuteras

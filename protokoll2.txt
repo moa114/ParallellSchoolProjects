@@ -1,0 +1,35 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 4/9 14:45-16:00
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Moa Berglund
+
+## Objectives 
+
+- Skapa slackgrupp för oss 5 och bjud in handledare
+- Ha första handledarmöte
+- Specifiera projektidé
+
+## Reports from previous meeting
+
+- På första mötet framtogs ett projektidé-förslag, Oliver har nu tagit fram en "skal"-prototyp i git för att visa en uppfattning om idén av namn-slumpgeneratorn.
+
+
+## Discussion items 
+
+1. Vad säger handledare om vår slumpgenerator-idé?  
+
+## Outcomes and assignments 
+
+Slackgrupp finns nu där kommunikation med handledare kan hållas.
+
+1. Projektidén är något för simpel enligt handledare. Det spånades mycket på nya idér och mynnade ut i att skapa ett program för livsmedelsbutiker att använda till schemaläggning av personal.
+Handledare ledde mötet och sammanfattade projektstrukturen till oss, vilket gjorde att vi nu har en klarare bild av vad som administrativt behöver göras. 
+Fortfarande är idén under bearbetning, men förhoppningen är att färdigställa idén inför måndag.
+
+## Wrap up
+ 
+- Nästa möte: 5/9 14:00 för att göra färdigt domänmodell, bekanta oss med Trello (tips från handledare) och påbörja RAD. Detta skickas till handledare för att säkerställa att idén är på rätt väg.
