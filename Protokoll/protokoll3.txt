@@ -1,0 +1,36 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 5/9 14:00-15:45
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Christian Lind
+
+## Objectives 
+
+- Göra en domänmodell
+- Bekanta oss med Trello
+- Påbörja introduktionen i RAD
+
+## Reports from previous meeting
+
+- På andra mötet framtogs ett nytt projektidé-förslag som går ut på att skapa ett schemaläggningsprogram för företagsanställda,
+förslaget ska sedan redovisas i form av en första domänmodell för Oliver Karmetun så att han kan godkänna idéen.
+
+
+## Discussion items 
+
+1. Vilka klasser ska vår schemaläggare innehålla?
+2. Hur fungerar Trello och hur ska vi använda det?
+3. Vad ska introduktionen i RAD innehålla
+
+## Outcomes and assignments 
+
+1. Vi började skissa på en domänmodell där allt centralt lagts till, dock så behövs det mer tid för att mer i detalj gå igenom olika beroenden och vilken mer funktionalitet som skall läggas till.
+2. Eftersom det tog så lång tid att göra domänmodellen valde vi att förskjuta Trello till nästa möte.
+3. Påbörjade RAD med att skriva introduktion och user stories.
+
+## Wrap up
+ 
+- Nästa möte: 7/9 15:00 För att kolla på Trello och göra färdigt domänmodellen samt fortsätta med RAD.
