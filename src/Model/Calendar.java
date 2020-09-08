@@ -8,6 +8,9 @@ public class Calendar {
     List<Date> dates;
     public void init(){
         calendar = java.util.Calendar.getInstance();
-        
+    }
+
+    Date getDate(long date){
+        return null;
     }
 }

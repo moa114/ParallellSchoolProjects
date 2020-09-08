@@ -66,10 +66,14 @@
     </state>
     <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599232604899" />
     <state x="2685" y="-354" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-559.1920.1040@1920.-559.1920.1040" timestamp="1599138160285" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599232559306">
+    <state x="676" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1599553895034">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599232559306" />
+    <state x="676" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599553895034" />
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599553929669">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599553929669" />
     <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1596649496286">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
