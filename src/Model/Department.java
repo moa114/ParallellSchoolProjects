@@ -1,11 +1,5 @@
 package Model;
 
-public enum Department {
-    warehouse(4),
-    dairy(2);
-    int nRequiredPersons;
+public class Department {
 
-    Department(int nRequiredPersons) {
-        this.nRequiredPersons = nRequiredPersons;
-    }
 }

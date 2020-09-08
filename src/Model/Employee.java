@@ -2,8 +2,7 @@ package Model;
 
 import java.util.List;
 
-public class Person {
-    List<Certification> licenses;
+public class Employee {
     List<OccupiedTime> occupiedTimes;
     String name;
 

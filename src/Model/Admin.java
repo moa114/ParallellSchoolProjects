@@ -2,15 +2,14 @@ package Model;
 
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
-public class Engine {
-    List<Person> employees;
+public class Admin {
+    List<Employee> employees;
 
-    public List<Person> getAvailablePersons(long start,long end, List<Certification> certificationRequirements){
-        List<Person> sublist = new ArrayList<>();
-        for (Person p : employees){
+    public List<Employee> getAvailablePersons(long start, long end, List<Certification> certificationRequirements){
+        List<Employee> sublist = new ArrayList<>();
+        for (Employee p : employees){
             if (p.licenses.containsAll(certificationRequirements))
                 sublist.add(p);
         } //Hitta alla personer med de rätta kvalifikationer
