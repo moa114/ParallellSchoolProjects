@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 public class CertificateHandler {
@@ -14,6 +15,15 @@ public class CertificateHandler {
         this.availableCertificates = new ArrayList<>();
         this.departmentAssociations = new ArrayList<>();
         this.employeeAssociations = new ArrayList<>();
+    }
+
+    public List<String> getCertificates(Employee e){
+        List<String> tmp = new ArrayList<>();
+        for (AssociationEmployee a : employeeAssociations){
+            if (a.employee == e)
+                tmp.add(a.certificate.name);
+        }
+        return tmp;
     }
 
     static CertificateHandler getInstance(){
