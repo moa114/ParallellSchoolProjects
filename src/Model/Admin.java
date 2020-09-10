@@ -12,11 +12,15 @@ import java.util.Scanner;
 public class Admin {
     List<Employee> employees;
     CertificateHandler certificateHandler;
-
+    Date throwAwayDate;
+    OurCalendar calendar;
 
     public Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
+        this.throwAwayDate = new Date();
+        this.calendar = new OurCalendar();
+        this.calendar.init();
     }
 
     public List<Employee> getAvailablePersons(long start, long end){
@@ -24,6 +28,10 @@ public class Admin {
         sublist.removeIf(p -> p.isOccupied(start, end)); //ta bort alla som är upptagna
         return sublist;
     }
+
+
+
+
 
     public void consoleCommandCreateEmployee(){
         Scanner sc = new Scanner(System.in);
