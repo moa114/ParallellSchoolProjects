@@ -3,7 +3,7 @@ package Model;
 import java.util.Collection;
 import java.util.List;
 
-public class Date {
+public class OurDate {
     boolean allDepartmentsFilled(){return true;};
     List<Employee> getWorkingPersonel(Department department){return null;}
     List<Department> getAllDepartments(){return null;}

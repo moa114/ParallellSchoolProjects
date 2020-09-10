@@ -2,15 +2,15 @@ package Model;
 
 import java.util.List;
 
-public class Calendar {
+public class OurCalendar {
     java.util.Calendar calendar;
     boolean initialized = false;
-    List<Date> dates;
+    List<OurDate> ourDates;
     public void init(){
         calendar = java.util.Calendar.getInstance();
     }
 
-    Date getDate(long date){
+    OurDate getDate(long date){
         return null;
     }
 }
