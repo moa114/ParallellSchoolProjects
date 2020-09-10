@@ -1,0 +1,42 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 8/9 10:00-11:45
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Christian Lind
+
+## Objectives 
+
+- Kolla på Oliver Karmetuns kommentarer
+- Fortsätta med RAD, Class responsibilities
+- Lägga in user stories i Trello
+- Göra färdigt alla skalklasser
+- Kolla på vilka beroenden som finns mellan klasser
+- Börja skissa på design
+
+## Reports from previous meeting
+
+- På det förra mötet gjordes domänmodellen färdig och det fortsattes med introduktionen av RAD-dokumentet samt att lägga in User stories och DoD.
+
+
+## Discussion items 
+
+1. Vad har Oliver Karmetun gett oss för kommentarer och vad behöver vi förbättra?
+2. Hur kan vi sammarbeta i Trello?
+3. Hur ska vår design se ut?
+4. Vilka beroenden finns mellan olika klasser och hur kan vi effektivast koda utan att beroenden blir ett problem?
+
+## Outcomes and assignments 
+
+1. Vi delades upp i två grupper där Moa och Victor fortsatte arbeta med RAD, User stories utifrån Oliver Karmetuns kommentarer, medan Markus, Christian och Oliver färdigställde kom på att de hade gjort en designmodell så det gjorde om den till en domänmodellen.
+2. I RAD så skapade Christian Class responsibilities
+3. Christian fick Trello att fungera och Oliver Andersson bekräftade att det gick att sammarbeta, De la även in alla User Stories i Trello. 
+4. Oliver Andersson gjorde alla skalklasser 
+5. Oliver Andersson och Christian gick igenom hur man på bästa sätt kan dela upp arbetet med att koda alla klasser som ledde till ett drive dokument.
+6. Moa, Victor och Markus började disskutera och skissa på designen där Moa skapade ett dokument för att hålla reda på alla funktioner.
+7. Oliver Andersson började koda lite.
+## Wrap up
+ 
+- Nästa möte: 10/9 13:15 Fortsätter och gör färdigt designskisserna

@@ -1,0 +1,34 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 7/9 15:00-15:45
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Victor Cousin
+
+## Objectives 
+
+- Göra färdigt domänmodell
+- Fortsätta med RAD
+
+## Reports from previous meeting
+
+- På det förra mötet framtogs en domänmodell och det påbörjades även på introduktionen av RAD-dokumentet. Moa har även sedan dess påbörjat med user stories och skapat några sådana. Ett skal för kodningen har skapats.
+
+
+## Discussion items 
+
+1. Vilka klasser ska vår schemaläggare innehålla?
+2. Vilka User Stories ska finnas finnas?
+3. Vad ska DoD innehålla?
+
+## Outcomes and assignments 
+
+1. Vi delades upp i två grupper där Moa och Victor fortsatte arbeta med RAD, medan Markus, Christian och Oliver färdigställde domänmodellen.
+2. I RAD så skapades User Stories och DoD skrevs.
+3. Alla kollade igenom Trello separat.
+4. Domänmodellen och RAD skickades till handledare för att få feedback.
+## Wrap up
+ 
+- Nästa möte: 8/9 10:00 Delar upp oss i två grupper där några gör GUI och några arbetar med kod.

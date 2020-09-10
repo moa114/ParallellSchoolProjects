@@ -1,6 +1,6 @@
 package Controller;
 
-import Model.Engine;
+import Model.Admin;
 
 import java.awt.event.KeyAdapter;
 
@@ -8,11 +8,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 
-public class Controller extends KeyAdapter {
-    Engine engine;
+public class AdminController extends KeyAdapter {
+    Admin admin;
 
-    public Controller(Engine engine) {
-        this.engine = engine;
+    public AdminController(Admin admin) {
+        this.admin = admin;
     }
 
     @Override
