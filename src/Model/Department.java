@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
-    List<WorkShift> allShifts;
-    String name;
-    List<Certificate> certificates;
+    private List<WorkShift> allShifts;
+    private String name;
+    private List<Certificate> certificates;
 
     public Department(String name, List<Certificate> certificates) {
         this.allShifts = new ArrayList<>();

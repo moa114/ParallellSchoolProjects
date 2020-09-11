@@ -4,10 +4,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
-    List<OccupiedTime> occupiedTimes;
-    String name;
-    int personalId;
-    List<Certificate> certificates;
+    public List<OccupiedTime> occupiedTimes;
+    public String name;
+    public String email;
+    public int personalId;
+    public List<Certificate> certificates;
 
     public Employee(String name, int personalId) {
         this.occupiedTimes = new ArrayList<>();
