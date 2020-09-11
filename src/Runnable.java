@@ -1,5 +1,5 @@
 import Model.OurCalendar;
-import Model.OurDate;
+import Model.WorkDay;
 
 
 import java.util.Date;
@@ -10,7 +10,7 @@ public class Runnable {
         System.out.println(System.currentTimeMillis());
         calendar.init();
         System.out.println(System.currentTimeMillis());
-        for (OurDate d : calendar.getOurDates()){
+        for (WorkDay d : calendar.getOurDates()) {
             System.out.println(new Date(d.date));
         }
     }

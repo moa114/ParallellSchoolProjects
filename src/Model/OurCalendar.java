@@ -8,44 +8,57 @@ import java.util.List;
 
 
 public class OurCalendar {
-    java.util.Calendar calendar;
-    boolean initialized = false;
-    private List<OurDate> ourDates;
-    Date throwAwayDate;
-    public void init(){
-        calendar = java.util.Calendar.getInstance();
-        throwAwayDate = new Date();
-        ourDates = new ArrayList<>();
-        generateDates();
+    private Calendar calendar;
+    private static boolean initialized = false;
+    private List<WorkDay> workDays;
+
+    /**
+     * Initalizes the class with a Java calender as singleton
+     */
+    public void init() {
+        if (!initialized) {
+            calendar = java.util.Calendar.getInstance();
+            workDays = new ArrayList<>();
+            generateDates();
+            initialized = true;
+        }
     }
 
-    private void generateDates(){
+    /**
+     * Generates Date objects for the calender and places it in a sorted list
+     */
+    private void generateDates() {
+        Date throwAwayDate = new Date();
         int startingMonth = throwAwayDate.getMonth();
-        for (int month = 0; month<12; month++) { //variabeln month är hur många månader fram man vill generera kalendern
-            for (int day = 1; day <= YearMonth.of(throwAwayDate.getYear(), throwAwayDate.getMonth()+1).lengthOfMonth(); day++){
+        for (int month = 0; month < 12; month++) { //how many months you want to generate in the future
+            for (int day = 1; day <= YearMonth.of(throwAwayDate.getYear(), throwAwayDate.getMonth() + 1).lengthOfMonth(); day++) {
                 throwAwayDate.setDate(day);
-                throwAwayDate.setMonth((startingMonth + month)%12);
-                resetThrowable();
-                ourDates.add(new OurDate(throwAwayDate.getTime()));
+                throwAwayDate.setMonth((startingMonth + month) % 12);
+                resetThrowable(throwAwayDate);
+                workDays.add(new WorkDay(throwAwayDate.getTime()));
             }
-            if (throwAwayDate.getMonth()==Calendar.DECEMBER) {
+            if (throwAwayDate.getMonth() == Calendar.DECEMBER) {
                 throwAwayDate.setYear(throwAwayDate.getYear() + 1);
                 throwAwayDate.setMonth(Calendar.JANUARY);
             }
         }
     }
 
-    public List<OurDate> getOurDates() {
-        return ourDates;
+    public List<WorkDay> getOurDates() {
+        return workDays;
     }
 
-    private void resetThrowable(){
+    /**
+     * As we only want to get the day, month and year We reset seconds, minutes and hours
+     * @param throwAwayDate The Date to reset
+     */
+    private void resetThrowable(Date throwAwayDate) {
         throwAwayDate.setSeconds(0);
         throwAwayDate.setMinutes(0);
         throwAwayDate.setHours(0);
     }
 
-    OurDate getDate(long date){
+    WorkDay getDate(long date) {
         return null;
     }
 }
