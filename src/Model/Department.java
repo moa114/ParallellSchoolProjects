@@ -4,21 +4,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Department {
-    List<WorkShift> allShifts;
+    int requiredPersonnel;
     String name;
     List<Certificate> certificates;
 
-    public Department(String name, List<Certificate> certificates) {
-        this.allShifts = new ArrayList<>();
+    public Department(int requiredPersonnel, String name) {
+        this.requiredPersonnel = requiredPersonnel;
+        this.name = name;
+        this.certificates = new ArrayList<>();
+    }
+
+    public Department(int requiredPersonnel, String name, List<Certificate> certificates) {
+        this.requiredPersonnel = requiredPersonnel;
         this.name = name;
         this.certificates = certificates;
-    }
-
-    public void CreateShift(long start, long stop, int nEmployees){
-        allShifts.add(new WorkShift(start, stop, nEmployees));
-    }
-
-    public List<WorkShift> getAllShifts() {
-        return allShifts;
     }
 }
