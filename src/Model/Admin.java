@@ -31,8 +31,6 @@ public class Admin {
 
 
 
-
-
     public void consoleCommandCreateEmployee(){
         Scanner sc = new Scanner(System.in);
         String name;
