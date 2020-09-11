@@ -1,14 +1,12 @@
 package Model;
 
-import java.util.Random;
-
 public class Certificate {
     final String name;
-    final long ID;
-    private final static Random rn = new Random();
+    private static long IDSTART = 0;
+    public final long ID;
 
     public Certificate(String name){
         this.name = name;
-        this.ID = rn.nextLong();
+        this.ID = IDSTART++;
     }
 }
