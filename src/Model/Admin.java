@@ -1,16 +1,19 @@
 package Model;
 
 
+import jdk.jshell.execution.StreamingExecutionControl;
+
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
 public class Admin {
-    private List<Employee> employees;
-    private CertificateHandler certificateHandler;
-    private Date throwAwayDate;
-    private OurCalendar calendar;
+    List<Employee> employees;
+    CertificateHandler certificateHandler;
+    Date throwAwayDate;
+    OurCalendar calendar;
 
     public Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
@@ -25,8 +28,6 @@ public class Admin {
         sublist.removeIf(p -> p.isOccupied(start, end)); //ta bort alla som är upptagna
         return sublist;
     }
-
-
 
 
 
@@ -46,9 +47,8 @@ public class Admin {
         boolean running = true;
         while (running){
             System.out.println("Vad heter certifikatet?");
-            String tmp = sc.nextLine();
+            String tmp =sc.nextLine();
             certificateHandler.createNewCertificate(tmp);
-            certificateHandler.assignCertificateToEmployee(tmp, employees.get(employees.size()-1));
             System.out.println("Vill du lägga till ett till certifikat? (y/n)");
             if (sc.nextLine().contains("n"))
                 running = false;
@@ -56,13 +56,13 @@ public class Admin {
         }
         for (Employee e : employees){
             System.out.println("____________________");
-            System.out.println(e.getname());
-            System.out.println(e.getpersonalId());
-            System.out.println(certificateHandler.getCertificates(e));
+            System.out.println(e.name);
+            System.out.println(e.personalId);
+            System.out.println(e.certificates);
         }
     }
 
-    public void createNewEmployee(String name, int personalId) {
+    public void createNewEmployee(String name, int personalId){
         employees.add(new Employee(name, personalId));
     }
 

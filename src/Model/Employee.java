@@ -4,14 +4,24 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
-    private List<OccupiedTime> occupiedTimes;
-    private String name;
-    private int personalId;
+    List<OccupiedTime> occupiedTimes;
+    String name;
+    int personalId;
+    List<Certificate> certificates;
 
     public Employee(String name, int personalId) {
         this.occupiedTimes = new ArrayList<>();
         this.name = name;
         this.personalId = personalId;
+        this.certificates = new ArrayList<>();
+    }
+
+    public void assignCertificate(Certificate certificate){
+        certificates.add(certificate);
+    }
+
+    public void assignCertificate(List<Certificate> certificates){
+        this.certificates.addAll(certificates);
     }
 
     public boolean isOccupied(long start, long end){
@@ -20,13 +30,5 @@ public class Employee {
                 return true;
         }
         return false;
-    }
-
-    public String getname() {
-        return name;
-    }
-
-    public int getpersonalId() {
-        return personalId;
     }
 }

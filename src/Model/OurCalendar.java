@@ -8,32 +8,24 @@ import java.util.List;
 
 
 public class OurCalendar {
-    private Calendar calendar;
-    private static boolean initialized = false;
+    java.util.Calendar calendar;
+    boolean initialized = false;
     private List<OurDate> ourDates;
-
+    Date throwAwayDate;
     public void init(){
-        if(!initialized){
-            calendar = Calendar.getInstance();
-            ourDates = new ArrayList<>();
-            generateDates();
-            initialized = true;
-        }
-
-
+        calendar = java.util.Calendar.getInstance();
+        throwAwayDate = new Date();
+        ourDates = new ArrayList<>();
+        generateDates();
     }
 
-    /**
-     * Generates Date objects for the calender and places it in a sorted list
-     */
     private void generateDates(){
-        Date throwAwayDate = new Date();
         int startingMonth = throwAwayDate.getMonth();
-        for (int month = 0; month<12; month++) { //how many months you want to generate in the future
+        for (int month = 0; month<12; month++) { //variabeln month är hur många månader fram man vill generera kalendern
             for (int day = 1; day <= YearMonth.of(throwAwayDate.getYear(), throwAwayDate.getMonth()+1).lengthOfMonth(); day++){
                 throwAwayDate.setDate(day);
                 throwAwayDate.setMonth((startingMonth + month)%12);
-                resetThrowable(throwAwayDate);
+                resetThrowable();
                 ourDates.add(new OurDate(throwAwayDate.getTime()));
             }
             if (throwAwayDate.getMonth()==Calendar.DECEMBER) {
@@ -47,7 +39,7 @@ public class OurCalendar {
         return ourDates;
     }
 
-    private void resetThrowable( Date throwAwayDate){
+    private void resetThrowable(){
         throwAwayDate.setSeconds(0);
         throwAwayDate.setMinutes(0);
         throwAwayDate.setHours(0);
