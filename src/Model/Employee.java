@@ -4,9 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Employee {
-    List<OccupiedTime> occupiedTimes;
-    String name;
-    int personalId;
+    private List<OccupiedTime> occupiedTimes;
+    private String name;
+    private int personalId;
 
     public Employee(String name, int personalId) {
         this.occupiedTimes = new ArrayList<>();
@@ -20,5 +20,13 @@ public class Employee {
                 return true;
         }
         return false;
+    }
+
+    public String getname() {
+        return name;
+    }
+
+    public int getpersonalId() {
+        return personalId;
     }
 }
