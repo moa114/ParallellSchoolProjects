@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class CertificateHandler {
@@ -26,7 +25,7 @@ public class CertificateHandler {
         return tmp;
     }
 
-    static CertificateHandler getInstance(){
+    public static CertificateHandler getInstance(){
         if (single_instance == null)
             single_instance = new CertificateHandler();
         return single_instance;

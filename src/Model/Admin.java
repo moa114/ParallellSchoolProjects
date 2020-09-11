@@ -1,10 +1,7 @@
 package Model;
 
 
-import jdk.jshell.execution.StreamingExecutionControl;
-
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -49,7 +46,7 @@ public class Admin {
         boolean running = true;
         while (running){
             System.out.println("Vad heter certifikatet?");
-            String tmp =sc.nextLine();
+            String tmp = sc.nextLine();
             certificateHandler.createNewCertificate(tmp);
             certificateHandler.assignCertificateToEmployee(tmp, employees.get(employees.size()-1));
             System.out.println("Vill du lägga till ett till certifikat? (y/n)");
@@ -65,7 +62,7 @@ public class Admin {
         }
     }
 
-    public void createNewEmployee(String name, int personalId){
+    public void createNewEmployee(String name, int personalId) {
         employees.add(new Employee(name, personalId));
     }
 
