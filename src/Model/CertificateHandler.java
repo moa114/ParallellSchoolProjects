@@ -25,6 +25,25 @@ public class CertificateHandler {
         return allCertificates.iterator();
     }
 
+    public Certificate getCertificate(String name) {
+        for (Certificate c : allCertificates){
+            if (c.name.equals(name))
+                return c;
+        }
+        System.out.println("invalid name");
+        return null;
+    }
+
+    public Certificate getCertificate(long ID) {
+        for (Certificate c : allCertificates){
+            if (c.ID == ID)
+                return c;
+        }
+        System.out.println("invalid ID");
+        return null;
+    }
+
+
     public void createNewCertificate(String nameOfCertificate){
         this.allCertificates.add(new Certificate(nameOfCertificate));
     }
