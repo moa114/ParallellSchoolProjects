@@ -28,6 +28,8 @@ public class Admin {
 
 
 
+
+
     public void consoleCommandCreateEmployee(){
         Scanner sc = new Scanner(System.in);
         String name;
@@ -46,6 +48,7 @@ public class Admin {
             System.out.println("Vad heter certifikatet?");
             String tmp = sc.nextLine();
             certificateHandler.createNewCertificate(tmp);
+            certificateHandler.assignCertificateToEmployee(tmp, employees.get(employees.size()-1));
             System.out.println("Vill du lägga till ett till certifikat? (y/n)");
             if (sc.nextLine().contains("n"))
                 running = false;
@@ -55,7 +58,7 @@ public class Admin {
             System.out.println("____________________");
             System.out.println(e.name);
             System.out.println(e.personalId);
-            System.out.println(e.certificates);
+            System.out.println(certificateHandler.getCertificates(e));
         }
     }
 
