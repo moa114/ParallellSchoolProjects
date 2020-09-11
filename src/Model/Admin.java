@@ -7,10 +7,10 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Admin {
-    private List<Employee> employees;
-    private CertificateHandler certificateHandler;
-    private Date throwAwayDate;
-    private OurCalendar calendar;
+    List<Employee> employees;
+    CertificateHandler certificateHandler;
+    Date throwAwayDate;
+    OurCalendar calendar;
 
     public Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
@@ -56,8 +56,8 @@ public class Admin {
         }
         for (Employee e : employees){
             System.out.println("____________________");
-            System.out.println(e.getname());
-            System.out.println(e.getpersonalId());
+            System.out.println(e.name);
+            System.out.println(e.personalId);
             System.out.println(certificateHandler.getCertificates(e));
         }
     }
