@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
@@ -18,6 +19,10 @@ public class CertificateHandler {
         if (single_instance == null)
             single_instance = new CertificateHandler();
         return single_instance;
+    }
+
+    public Iterator<Certificate> getAllCertificates(){
+        return allCertificates.iterator();
     }
 
     public void createNewCertificate(String nameOfCertificate){
