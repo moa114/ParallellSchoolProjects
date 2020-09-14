@@ -1,0 +1,39 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 14/9 10:00-11:45
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Victor Cousin
+
+## Objectives 
+
+- Skriva mer acceptans; functional/icke-functional
+- Bestämma namn på user stories
+- Arbeta med trello
+- Göra färdigt GUI i figma
+- Planera inför seminarie
+
+## Reports from previous meeting
+
+- Domänmodellen är klar och inskickad
+- Fått feedback om user stories
+
+
+## Discussion items 
+
+1. Vad ska vi namnge våra User stories?
+2. Hur ska Trello se ut?
+3. Hur ska vår GUI i Figma se ut?
+4. Hur ska seminariet gå till?
+
+## Outcomes and assignments 
+
+1. Moa, Markus och Victor gjorde färdigt skisserna i figma
+2. Christian och Oliver skrev på user stories och arbetade med trello
+3. Det planerades inför seminarie och varje person fick ett eget ansvar.
+
+## Wrap up
+ 
+- Nästa möte: 15/9 10:00 Alla arbetar med kod utifrån trello. 
