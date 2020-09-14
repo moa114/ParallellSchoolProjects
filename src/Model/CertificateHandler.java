@@ -47,6 +47,22 @@ public class CertificateHandler {
     public void createNewCertificate(String nameOfCertificate){
         this.allCertificates.add(new Certificate(nameOfCertificate));
     }
+    
+    public void deleteCertificate(Certificate certificate){
+        this.allCertificates.remove(certificate);
+    }
+    public void deleteCertificate(int ID){
+        this.allCertificates.remove(ID);
+    }
+    public void deleteCertificate(String name){
+        Certificate tmp = null;
+        for (Certificate c: allCertificates) {
+            if (c.name.equalsIgnoreCase(name))
+                tmp = c;
+        }
+        try {allCertificates.remove(tmp);}
+        catch (Exception e){e.printStackTrace();}
+    }
 
     public void assignCertificateToEmployees(Certificate certificate, List<Employee> employees){
         for (Employee e : employees){

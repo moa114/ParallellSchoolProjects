@@ -1,0 +1,34 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 11/9 15:00-16:00
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Markus Grahn
+
+## Objectives 
+
+- Veta hur mycket som ska vara klart för tisdag
+- Får en utverdering av vår domänmodell
+
+## Reports from previous meeting
+
+- Demoverisionen av programmet var nästan klart
+- Skissrna är fördiga
+- Userstories är sorterade
+
+## Discussion items 
+
+1. Vad ska vara färdigt tills tisdag?
+2. Vad ska förändras i Domänmodellen?
+
+## Outcomes and assignments 
+
+1. Frågan om demoverisionen ska vara klar tills på tisdag skickades till Pelle.
+2. Demoverisionen ska vara klar tills på fredag (18/9) oavsätt. 
+3. Domänmodellen uppdaterades i samband med handledare för att bli mert förståelig och lättläst. 
+4. Fick feedback på userstories och att vi behöver lägga till funktionell och icke funktionell aseptans. 
+## Wrap up
+ 
+- Nästa möte: 14/9 10:00 Fixa userstories efter handledarens rekomentation och uppdatera trello bättre. 
