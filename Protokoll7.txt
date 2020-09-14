@@ -1,0 +1,37 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 11/9 13:15-15:00
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Markus Grahn
+
+## Objectives 
+
+- Sotera färtigt våra userstories
+- Arbeta mot ett körbart demoprogram
+- Färdigställa alla skisser på whiteboarden
+- Rätta eventuella fel i userstories
+
+## Reports from previous meeting
+
+- Design av GUI var nästan helt komplett
+- Kodande av klassers betende startade
+- Userstories började sorteras
+
+## Discussion items 
+
+1. Hur ska userstories rangordnas/prioriteras?
+2. Hur ska vi förbättra skisserna?
+3. Hur ska certifikat och arbetslats klasserna hålla sin information?
+
+## Outcomes and assignments 
+
+1. Vi delade upp oss i två grupper, Markus Moa och Viktor arbetade med skiss och user stories medan Christian och Oliver kodade mot demoprogrammet. 
+2. Userstories har prioriterats och fixats.
+3. Skisserna är färdiga i whiteboard men en ytterligare iteration i figma kan komma.
+4. En delvis färdig demoverision kodades. 
+## Wrap up
+ 
+- Nästa möte: 11/9 15:00 Diskution med handledare om hur mycket som ska vara klart till på tisdag samt utverdering av domänmodell. 
