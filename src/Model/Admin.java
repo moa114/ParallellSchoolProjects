@@ -55,11 +55,11 @@ public class Admin {
         }
     }
 
-    public List<Employee> getEmployees() {
+    public List<Employee> getEmployees (){
         return employees;
     }
 
-    public CertificateHandler getCertificateHandler() {
+    public CertificateHandler getCertificatehandler (){
         return certificateHandler;
     }
 
