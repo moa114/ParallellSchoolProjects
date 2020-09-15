@@ -21,15 +21,4 @@ public class Department {
     public List<WorkShift> getAllShifts() {
         return allShifts;
     }
-
-    public void addCertificate(Certificate c){
-        certificates.add(c);
-    }
-    public List<Certificate> getAllCertificate(){
-        return certificates;
-    }
-
-    public void removeCertificate(Certificate c){
-        certificates.remove(c);
-    }
 }
