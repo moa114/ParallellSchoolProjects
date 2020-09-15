@@ -1,5 +1,6 @@
 package Model;
 
+import java.security.cert.Certificate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -56,6 +57,14 @@ public class Admin {
 
     public void createNewEmployee(String name, int personalId) {
         employees.add(new Employee(name, personalId));
+    }
+
+    public List<Employee> getEmployees (){
+        return employees;
+    }
+
+    public CertificateHandler getCertificatehandler (){
+        return certificateHandler;
     }
 
 }
