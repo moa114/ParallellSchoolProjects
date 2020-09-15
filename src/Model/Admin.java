@@ -1,7 +1,7 @@
 package Model;
 
+import java.security.cert.Certificate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -55,39 +55,16 @@ public class Admin {
         }
     }
 
+    public void createNewEmployee(String name, int personalId) {
+        employees.add(new Employee(name, personalId));
+    }
+
     public List<Employee> getEmployees (){
         return employees;
     }
 
     public CertificateHandler getCertificatehandler (){
         return certificateHandler;
-    }
-
-    public void createNewEmployee(String name, int personalId) {
-        employees.add(new Employee(name, personalId));
-    }
-
-    public void createEmployeeCertificate(Certificate certificate, Employee e, Date expiryDate) {
-        e.assignCertificate(new EmployeeCertificate(certificate, expiryDate));
-        certificateHandler.linkEmployeeToCertificate(certificate, e);
-    }
-
-    public void removeEmployeeCertificate(Certificate certificate, Employee e) {
-        e.unAssignCertificate(e.getEmployeeCertificate(certificate));
-        certificateHandler.unlinkEmployeeToCertificate(certificate, e);
-    }
-
-    public void removeEmployee(Employee e) {
-        employees.remove(e);
-    }
-
-    public void removeEmployee(int personalId) {
-        for (Employee e: employees) {
-            if (e.getPersonalId() == personalId) {
-                employees.remove(e);
-            }
-        }
-
     }
 
 }
