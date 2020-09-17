@@ -8,7 +8,7 @@ public class Employee {
     public String name;
     public String email;
     public int personalId;
-    public List<Certificate> certificates;
+    public List<EmployeeCertificate> certificates;
 
     public Employee(String name, int personalId) {
         this.occupiedTimes = new ArrayList<>();
@@ -17,19 +17,41 @@ public class Employee {
         this.certificates = new ArrayList<>();
     }
 
-    public void assignCertificate(Certificate certificate){
-        certificates.add(certificate);
+    public List<EmployeeCertificate> getAllCertificates() {
+        return certificates;
     }
 
-    public void assignCertificate(List<Certificate> certificates){
+    public EmployeeCertificate getEmployeeCertificate(Certificate certificate){
+        for (EmployeeCertificate c : certificates) {
+            if (c.getCertificate() == certificate){
+                return c;
+            }
+        }
+        return null;
+    }
+
+    public void assignCertificate(EmployeeCertificate certificate) {
+        this.certificates.add(certificate);
+
+    }
+
+    public void assignCertificate(List<EmployeeCertificate> certificates) {
         this.certificates.addAll(certificates);
     }
 
-    public boolean isOccupied(long start, long end){
-        for (OccupiedTime occupiedTime : occupiedTimes){
-            if (occupiedTime.inBetween(start,end))
+    public void unAssignCertificate(EmployeeCertificate certificate){
+        certificates.remove(certificate);
+    }
+
+    public boolean isOccupied(long start, long end) {
+        for (OccupiedTime occupiedTime : occupiedTimes) {
+            if (occupiedTime.inBetween(start, end))
                 return true;
         }
         return false;
+    }
+
+    public int getPersonalId() {
+        return personalId;
     }
 }

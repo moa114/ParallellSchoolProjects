@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
 
@@ -8,12 +9,24 @@ import java.util.List;
 public class CertificateHandler {
     private static CertificateHandler single_instance = null;
     private List<Certificate> allCertificates;
+    private HashMap<Certificate, List<Employee>> employeeLinkCertificate;
 
+    public void linkEmployeeToCertificate(Certificate c, Employee e){
+        employeeLinkCertificate.get(c).add(e);
+    }
+
+    public void unlinkEmployeeToCertificate(Certificate c, Employee e){
+        employeeLinkCertificate.get(c).remove(e);
+    }
+
+    //TODO Immutable
+    public List<Employee> getEmployeeWithCertificate(Certificate c){
+        return employeeLinkCertificate.get(c);
+    }
 
     private CertificateHandler(){
         this.allCertificates = new ArrayList<>();
     }
-
 
     static CertificateHandler getInstance(){
         if (single_instance == null)
@@ -45,15 +58,22 @@ public class CertificateHandler {
 
 
     public void createNewCertificate(String nameOfCertificate){
-        this.allCertificates.add(new Certificate(nameOfCertificate));
+        Certificate tmp = new Certificate(nameOfCertificate);
+        this.allCertificates.add(tmp);
+        employeeLinkCertificate.put(tmp, new ArrayList<Employee>());
     }
     
     public void deleteCertificate(Certificate certificate){
+        for (Employee e:employeeLinkCertificate.get(certificate)) {
+            e.unAssignCertificate(e.getEmployeeCertificate(certificate));
+        }
         this.allCertificates.remove(certificate);
     }
+
     public void deleteCertificate(int ID){
         this.allCertificates.remove(ID);
     }
+
     public void deleteCertificate(String name){
         Certificate tmp = null;
         for (Certificate c: allCertificates) {
@@ -64,7 +84,7 @@ public class CertificateHandler {
         catch (Exception e){e.printStackTrace();}
     }
 
-    public void assignCertificateToEmployees(Certificate certificate, List<Employee> employees){
+    public void assignCertificateToEmployees(EmployeeCertificate certificate, List<Employee> employees){
         for (Employee e : employees){
             e.assignCertificate(certificate);
         }
