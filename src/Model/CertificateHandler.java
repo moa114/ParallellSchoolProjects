@@ -26,6 +26,7 @@ public class CertificateHandler {
 
     private CertificateHandler(){
         this.allCertificates = new ArrayList<>();
+        employeeLinkCertificate = new HashMap<>();
     }
 
     static CertificateHandler getInstance(){
