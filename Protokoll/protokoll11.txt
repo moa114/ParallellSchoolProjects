@@ -1,0 +1,45 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 15/9 10:00-11:45
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Moa Berglund
+
+## Objectives 
+
+- Alla 5 engagerar sig i koden och arbetar utifrån User Stories inlagda i trello
+- inkludera junit i projektet
+- fundera på hur gränssnittet ska implementeras
+- uppdatera domänmodellen utefter feedback på seminarie
+
+## Reports from previous meeting
+
+User stories färdigställdes i en andra iteration baserat på feedback från handledare.
+GUI förfining (från whiteboardskisser) mha figma färdigställdes och lades in i RAD.
+Det förbereddes inför Seminariet.
+Trello uppdaterades med de nya user stories.
+
+## Discussion items 
+
+1. Vad fick vi för feedback på domänmodellen? Vad bör förändras? 
+2. Hur vill vi jobba med koden? 
+3. Vem påbörjar vilka user stories idag? 
+4. Med vilket ramverk ska vi bygga gui? JavaFX/Swing?
+5. Hur implementerar vi Junit? 
+
+
+## Outcomes and assignments 
+
+1. Utvärderingen efter seminariet ledde till att Oliver gjorde små förändringar i domänmodellen, såsom att ändra klassnamn.
+2. Programmerandet struktureras på så vis att vi alla 5 samlas på våra planerade tider och då väljer user story man vill jobba med.
+Beroende på hur omfattande uppgifterna är/ hur säker man känner sig på uppgiften arbetar några tillsammans med den eller inte.
+Dock är det bra att vara i alla fall 2 på en uppgift för att undvika problem. Turas om att skriva koden (även skärmdela). 
+Smidigt att dela upp sig men alla ändå jobbar samma tider ifall något kräver att diskuteras. 
+3. Moa och Victor har skapat fler tester på "krav på avdelning" och gjorde färdigt krav på avdelning. Det upptäcktes att userstorien överlappade med "Hantera anställdas certifikat".
+Oliver Gjorde en körbar konsollversion
+
+## Wrap up
+ 
+- Nästa möte: 18/9 13:15 Revidering av kod från kollisionerna.

@@ -9,19 +9,27 @@ import java.util.List;
 
 public class OurCalendar {
     private Calendar calendar;
-    private static boolean initialized = false;
     private List<WorkDay> workDays;
+    private static OurCalendar instance = null;
 
     /**
      * Initalizes the class with a Java calender as singleton
      */
+
+    public static OurCalendar getInstance(){
+        if (instance==null)
+            instance = new OurCalendar();
+        return instance;
+    }
+
+    private OurCalendar() {
+        init();
+    }
+
     public void init() {
-        if (!initialized) {
-            calendar = java.util.Calendar.getInstance();
-            workDays = new ArrayList<>();
-            generateDates();
-            initialized = true;
-        }
+        this.calendar = java.util.Calendar.getInstance();
+        this.workDays = new ArrayList<>();
+        this.generateDates();
     }
 
     /**

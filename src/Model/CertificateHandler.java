@@ -77,8 +77,10 @@ public class CertificateHandler {
 
     public void deleteCertificate(String name){
         for (Certificate c: allCertificates) {
-            if (c.name.equalsIgnoreCase(name))
+            if (c.name.equalsIgnoreCase(name)){
                 deleteCertificate(c);
+                break;
+            }
         }
     }
 
