@@ -10,7 +10,7 @@ public class Runnable {
     public static void main(String[] args) {
         Admin admin = new Admin();
         CertificateHandler certificateHandler = admin.getCertificatehandler();
-        OurCalendar calendar = new OurCalendar();
+        OurCalendar calendar = OurCalendar.getInstance();
         calendar.init();
         int index = askQuestionInt("How many persons?");
         for (int i = 0; i<index; i++)

@@ -1,0 +1,33 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 15/9 10:00-11:45
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Moa Berglund
+
+## Objectives 
+
+- Alla 5 engagerar sig i koden och arbetar utifrån User Stories inlagda i trello
+- Göra klart de antagna user stories från förra gången
+- gör en körbar konsollversion
+
+## Reports from previous meeting
+
+User stories fördelades och alla har ett jobb att göra.
+
+## Discussion items 
+
+1. N/A
+
+## Outcomes and assignments 
+
+1. Markus och Christian gjorde klart "Hantera anställdas certifikat". Oliver hjälpte till med tester
+2. Moa och Victor har skapat fler tester på "krav på avdelning" och gjorde färdigt krav på avdelning. Det upptäcktes att userstorien överlappade med "Hantera anställdas certifikat".
+3. Oliver Gjorde en körbar konsollversion
+4. JavaFX blev GUI-biblioteket
+
+## Wrap up
+ 
+- Nästa möte: 18/9 13:15 Revidering av kod från kollisionerna.

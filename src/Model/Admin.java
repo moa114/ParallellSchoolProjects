@@ -13,7 +13,7 @@ public class Admin {
     public Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
-        this.calendar = new OurCalendar();
+        this.calendar = OurCalendar.getInstance();
         this.calendar.init();
     }
 
@@ -87,6 +87,7 @@ public class Admin {
         for (Employee e: employees) {
             if (e.getPersonalId() == personalId) {
                 employees.remove(e);
+                break;
             }
         }
 

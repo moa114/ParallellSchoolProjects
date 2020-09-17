@@ -12,9 +12,10 @@ public class test {
 
     @Test
     public void testInit() {
-        OurCalendar calendar = new OurCalendar();
-        calendar.init();         // Call method to test
-        assertTrue(calendar.getOurDates().size() == 365);  // kollar om kalendern skapar ett helt år
+        OurCalendar calendar = OurCalendar.getInstance();
+        calendar.init();// Call method to test
+        List<WorkDay> list = calendar.getOurDates().subList(0, 365);
+        assertEquals(365, list.size());  // kollar om kalendern skapar ett helt år
     }
 
     @Test
