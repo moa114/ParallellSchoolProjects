@@ -19,7 +19,9 @@ public class Admin {
 
     public List<Employee> getAvailablePersons(long start, long end) {
         List<Employee> sublist = new ArrayList<>();
-        sublist.removeIf(p -> p.isOccupied(start, end)); //ta bort alla som är upptagna
+        for (Employee e : employees)
+            if (!e.isOccupied(start, end))
+                sublist.add(e);
         return sublist;
     }
 
