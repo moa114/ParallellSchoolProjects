@@ -26,7 +26,7 @@ public class CertificateHandler {
 
     private CertificateHandler(){
         this.allCertificates = new ArrayList<>();
-        employeeLinkCertificate = new HashMap<>();
+        this.employeeLinkCertificate = new HashMap<>();
     }
 
     static CertificateHandler getInstance(){
@@ -76,13 +76,10 @@ public class CertificateHandler {
     }
 
     public void deleteCertificate(String name){
-        Certificate tmp = null;
         for (Certificate c: allCertificates) {
             if (c.name.equalsIgnoreCase(name))
-                tmp = c;
+                deleteCertificate(c);
         }
-        try {allCertificates.remove(tmp);}
-        catch (Exception e){e.printStackTrace();}
     }
 
     public void assignCertificateToEmployees(EmployeeCertificate certificate, List<Employee> employees){
