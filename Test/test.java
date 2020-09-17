@@ -52,4 +52,18 @@ public class test {
         dep.removeCertificate(ch.getCertificate("Kassa"));
         assertTrue(dep.getAllCertificate().size()==0);
     }
+
+    @Test
+    public void testQualifiedEmployee(){
+            Admin admin = new Admin();
+            Date date = new Date();
+            CertificateHandler ch= admin.getCertificatehandler();
+            admin.createNewEmployee("Moa",23);
+            admin.getCertificatehandler().createNewCertificate("Kassa");
+             List<Certificate> allcert= new ArrayList<>();
+             allcert.add(ch.getCertificate("Kassa"));
+            Department department = new Department("TestAvdelning",allcert);
+            admin.createEmployeeCertificate(ch.getCertificate("Kassa"),admin.getEmployee("Moa"),(date));
+
+        assertTrue(admin.getQualifiedPersons(department,admin.getEmployees()).size()==1);}
     }
