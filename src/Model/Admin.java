@@ -15,7 +15,6 @@ public class Admin {
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
-        this.calendar.init();
         this.employeeSorter = new EmployeeSorter();
     }
 

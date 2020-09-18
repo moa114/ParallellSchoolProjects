@@ -38,7 +38,6 @@ public class test {
 
     @Test
     public void testAddCertificateToDepartment() {
-        Admin admin = new Admin();
         CertificateHandler ch = CertificateHandler.getInstance();
         List<Certificate> allcert = new ArrayList<>();
         ch.createNewCertificate("Frukt");
@@ -51,7 +50,6 @@ public class test {
 
     @Test
     public void testRemoveCertificateFromDepartment() {
-        Admin admin = new Admin();
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         List<Certificate> allcert = new ArrayList<>();
