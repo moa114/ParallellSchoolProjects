@@ -40,7 +40,7 @@ public class WorkDay {
         employee.occupiedTimes.add(workShift);
     }
 
-    public void scheduleEmployees(List<Employee> employees, Department department, WorkShift workShift){
+    public void scheduleEmployees(List<Employee> employees, Department department, WorkShift workShift) {
         departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
         departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
         departmentListHashMap.get(department).get(workShift).addAll(employees);
