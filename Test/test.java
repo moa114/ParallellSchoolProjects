@@ -141,7 +141,7 @@ public class test {
         allcert.add(ch.getCertificate("Kassa"));
         allcert.add(ch.getCertificate("Frukt"));
         Department department = new Department("TestAvdelning",allcert);
-        assertTrue(admin.getQualifiedPersons(department,admin.getEmployees()).size()==2);
+        assertTrue(admin.getEmployeeSorter().getQualifiedPersons(department,admin.getEmployees()).size()==2);
     }
 
 }
