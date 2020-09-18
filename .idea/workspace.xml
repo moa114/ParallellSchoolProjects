@@ -51,7 +51,6 @@
     </configuration>
     <configuration name="test" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
-      <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
       <option name="METHOD_NAME" value="" />
@@ -63,7 +62,6 @@
     </configuration>
     <configuration name="test.testCreateNewEmployee" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
-      <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
       <option name="METHOD_NAME" value="testCreateNewEmployee" />
@@ -75,7 +73,6 @@
     </configuration>
     <configuration name="test.testInit" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
-      <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
       <option name="METHOD_NAME" value="testInit" />
