@@ -50,8 +50,25 @@ public class Employee {
         }
         return false;
     }
+    public boolean isQualified(Department department){
+        int count =0;
+        for (Certificate certificate : department.getAllCertificate()){
+            for(EmployeeCertificate certificate1: certificates){
+                if (certificate1.getCertificate()==certificate){
+                    count++;
+                }
+            }
+        }
+        if (count==department.getAllCertificate().size()){
+            return true;
+        }
+        return false;
+    }
 
     public int getPersonalId() {
         return personalId;
+    }
+    public String getName() {
+        return name;
     }
 }

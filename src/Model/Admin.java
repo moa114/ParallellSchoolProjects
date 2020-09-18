@@ -17,13 +17,21 @@ public class Admin {
         this.calendar.init();
     }
 
-    public List<Employee> getAvailablePersons(long start, long end) {
-        List<Employee> sublist = new ArrayList<>();
-        for (Employee e : employees)
+    public List<Employee> getAvailablePersons(long start, long end,List<Employee>employeeList) { //skickar in lista med anställda i parametern för att kunna göra denna och getQualifiedPersons i valfri ordning
+        List<Employee> availableList = new ArrayList<>();
+        for (Employee e : employeeList)
             if (!e.isOccupied(start, end))
-                sublist.add(e);
-        return sublist;
+                availableList.add(e);
+        return availableList;
     }
+
+    public List<Employee> getQualifiedPersons(Department department, List<Employee> employeeList) {
+        List<Employee> qualifiedList = new ArrayList<>();
+        for (Employee e : employeeList)
+            if (e.isQualified(department))
+                qualifiedList.add(e);
+        return qualifiedList;
+   }
 
 
     public void consoleCommandCreateEmployee() {
@@ -60,6 +68,13 @@ public class Admin {
     public List<Employee> getEmployees (){
         return employees;
     }
+
+    public Employee getEmployee (String name){
+        for(Employee e: employees)
+            if(e.getName().equals(name))
+                return e;
+
+    return null; }
 
     public CertificateHandler getCertificatehandler (){
         return certificateHandler;
