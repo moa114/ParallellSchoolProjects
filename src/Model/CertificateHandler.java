@@ -29,10 +29,14 @@ public class CertificateHandler {
         this.employeeLinkCertificate = new HashMap<>();
     }
 
-    static CertificateHandler getInstance(){
+    public static CertificateHandler getInstance(){
         if (single_instance == null)
             single_instance = new CertificateHandler();
         return single_instance;
+    }
+
+    public void deleteAllCertificates(){
+        this.allCertificates.clear();
     }
 
     public Iterator<Certificate> getAllCertificates(){
