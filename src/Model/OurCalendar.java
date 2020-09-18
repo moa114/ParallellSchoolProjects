@@ -16,8 +16,8 @@ public class OurCalendar {
      * Initalizes the class with a Java calender as singleton
      */
 
-    public static OurCalendar getInstance(){
-        if (instance==null)
+    public static OurCalendar getInstance() {
+        if (instance == null)
             instance = new OurCalendar();
         return instance;
     }
@@ -58,6 +58,7 @@ public class OurCalendar {
 
     /**
      * As we only want to get the day, month and year We reset seconds, minutes and hours
+     *
      * @param throwAwayDate The Date to reset
      */
     private void resetThrowable(Date throwAwayDate) {
