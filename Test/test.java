@@ -143,4 +143,9 @@ public class test {
         assertTrue(admin.getQualifiedPersons(department,admin.getEmployees()).size()==2);
     }
 
+    @Test
+    public void testDepartmentFilled(){
+        Admin admin = new Admin();
+        
+    }
 }
