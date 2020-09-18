@@ -124,5 +124,23 @@ public class test {
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Kassa")).size() == 1);
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Frukt")).size() == 1);
     }
+    @Test
+    public void testGetQualifiedPersons(){
+        Admin admin = new Admin();
+        CertificateHandler ch = admin.getCertificatehandler();
+        admin.createNewEmployee("moa", 1);
+        admin.createNewEmployee("Victor", 2);
+        ch.createNewCertificate("Kassa");
+        ch.createNewCertificate("Frukt");
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployees().get(0), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(1), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployees().get(1), new Date());
+        List<Certificate> allcert = new ArrayList<>();
+        allcert.add(ch.getCertificate("Kassa"));
+        allcert.add(ch.getCertificate("Frukt"));
+        Department department = new Department("TestAvdelning",allcert);
+        assertTrue(admin.getQualifiedPersons(department,admin.getEmployees()).size()==2);
+    }
 
 }

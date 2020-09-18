@@ -53,8 +53,8 @@ public class Employee {
     public boolean isQualified(Department department){
         int count =0;
         for (Certificate certificate : department.getAllCertificate()){
-            for(Certificate certificate1: certificates){
-                if (certificate1==certificate){
+            for(EmployeeCertificate certificate1: certificates){
+                if (certificate1.getCertificate()==certificate){
                     count++;
                 }
             }

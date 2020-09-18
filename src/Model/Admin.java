@@ -24,13 +24,14 @@ public class Admin {
                 availableList.add(e);
         return availableList;
     }
+
     public List<Employee> getQualifiedPersons(Department department, List<Employee> employeeList) {
         List<Employee> qualifiedList = new ArrayList<>();
         for (Employee e : employeeList)
             if (e.isQualified(department))
                 qualifiedList.add(e);
         return qualifiedList;
-    }
+   }
 
 
     public void consoleCommandCreateEmployee() {
@@ -72,6 +73,7 @@ public class Admin {
         for(Employee e: employees)
             if(e.getName().equals(name))
                 return e;
+
     return null; }
 
     public CertificateHandler getCertificatehandler (){
