@@ -3,12 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="8543c1a0-41ab-4dc6-a8c7-90b4eeb4ad4d" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/Test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/test.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Employee.java" afterDir="false" />
-=======
->>>>>>> Stashed changes
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,23 +41,14 @@
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-<<<<<<< Updated upstream
   <component name="RunManager" selected="JUnit.test.testgetQualifiedPersons">
     <configuration name="Runnable" type="Application" factoryName="Application" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Runnable" />
-=======
-  <component name="RunManager" selected="JUnit.test.testRemoveEmployeeCertificate">
-    <configuration name="test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
->>>>>>> Stashed changes
       <module name="ParallellSchoolProjects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< Updated upstream
     <configuration name="test" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <useClassPathOnly />
@@ -68,22 +56,11 @@
       <option name="MAIN_CLASS_NAME" value="test" />
       <option name="METHOD_NAME" value="" />
       <option name="TEST_OBJECT" value="class" />
-=======
-    <configuration name="test.testCreateNewEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-      <option name="ALTERNATIVE_JRE_PATH" value="13" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testCreateNewEmployee" />
-      <option name="TEST_OBJECT" value="method" />
->>>>>>> Stashed changes
       <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< Updated upstream
     <configuration name="test.testCreateNewEmployee" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <useClassPathOnly />
@@ -92,38 +69,22 @@
       <option name="METHOD_NAME" value="testCreateNewEmployee" />
       <option name="TEST_OBJECT" value="method" />
       <option name="PARAMETERS" value="" />
-=======
-    <configuration name="test.testInit" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testInit" />
-      <option name="TEST_OBJECT" value="method" />
->>>>>>> Stashed changes
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< Updated upstream
     <configuration name="test.testInit" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <useClassPathOnly />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
       <option name="METHOD_NAME" value="testInit" />
-=======
-    <configuration name="test.testRemoveEmployeeCertificate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testRemoveEmployeeCertificate" />
->>>>>>> Stashed changes
       <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-<<<<<<< Updated upstream
     <configuration name="test.testRemoveCertificateFromDepartment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
@@ -169,23 +130,16 @@
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
       <option name="METHOD_NAME" value="testgetQualifiedPersons" />
-=======
-    <configuration name="test.testWhoHasCertificate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testWhoHasCertificate" />
->>>>>>> Stashed changes
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Runnable" />
+      <item itemvalue="JUnit.test" />
       <item itemvalue="JUnit.test.testCreateNewEmployee" />
-      <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
       <item itemvalue="JUnit.test.testInit" />
-<<<<<<< Updated upstream
       <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
       <item itemvalue="JUnit.test.testRemoveGlobalCertificate" />
       <item itemvalue="JUnit.test.testRemoveCertificateFromDepartment" />
@@ -199,18 +153,6 @@
         <item itemvalue="JUnit.test.testRemoveGlobalCertificate" />
         <item itemvalue="JUnit.test.testRemoveCertificateFromDepartment" />
         <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
-=======
-      <item itemvalue="JUnit.test" />
-      <item itemvalue="JUnit.test.testWhoHasCertificate" />
-    </list>
-    <recent_temporary>
-      <list>
-        <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
-        <item itemvalue="JUnit.test.testWhoHasCertificate" />
-        <item itemvalue="JUnit.test" />
-        <item itemvalue="JUnit.test.testCreateNewEmployee" />
-        <item itemvalue="JUnit.test.testInit" />
->>>>>>> Stashed changes
       </list>
     </recent_temporary>
   </component>
@@ -284,7 +226,6 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600342789642" />
-<<<<<<< Updated upstream
     <state x="740" y="287" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1600349844333" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1600429863075">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -306,28 +247,6 @@
     </state>
     <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600348442841" />
     <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600429863074" />
-=======
-    <state width="1458" height="256" key="GridCell.Tab.0.bottom" timestamp="1600428280655">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state width="1458" height="256" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1600428280655" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600350695461" />
-    <state width="1458" height="256" key="GridCell.Tab.0.center" timestamp="1600428280655">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state width="1458" height="256" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1600428280655" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600350695461" />
-    <state width="1458" height="256" key="GridCell.Tab.0.left" timestamp="1600428280655">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state width="1458" height="256" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1600428280655" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600350695461" />
-    <state width="1458" height="256" key="GridCell.Tab.0.right" timestamp="1600428280655">
-      <screen x="0" y="0" width="1500" height="960" />
-    </state>
-    <state width="1458" height="256" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1600428280655" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600350695461" />
->>>>>>> Stashed changes
     <state x="625" y="220" key="NewModule_or_Project.wizard" timestamp="1600342758677">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
