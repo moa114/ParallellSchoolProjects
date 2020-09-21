@@ -18,16 +18,31 @@ public class Admin {
         this.employeeSorter = new EmployeeSorter();
     }
 
+    public List<Employee> getAvailablePersons(long start, long end, List<Employee> employeeList) { //skickar in lista med anställda i parametern för att kunna göra denna och getQualifiedPersons i valfri ordning
+        List<Employee> availableList = new ArrayList<>();
+        for (Employee e : employeeList)
+            if (!e.isOccupied(start, end))
+                availableList.add(e);
+        return availableList;
+    }
+
+    public List<Employee> getQualifiedPersons(Department department, List<Employee> employeeList) {
+        List<Employee> qualifiedList = new ArrayList<>();
+        for (Employee e : employeeList)
+            if (e.isQualified(department))
+                qualifiedList.add(e);
+        return qualifiedList;
+    }
 
     public void consoleCommandCreateEmployee() {
         Scanner sc = new Scanner(System.in);
         String name;
-        int personalId;
+        String personalId;
         System.out.println("Information om den nya anställda");
         System.out.println("Namn: ");
         name = sc.nextLine();
         System.out.println("Personnummer: ");
-        personalId = sc.nextInt();
+        personalId = sc.next();
         createNewEmployee(name, personalId);
         sc.nextLine();
         System.out.println("Do you want to give this person A Certificate? (y/n)");
@@ -50,27 +65,47 @@ public class Admin {
         }
     }
 
-    public List<Employee> getEmployees (){
+    public List<Employee> getEmployees() {
         return employees;
     }
+
 
     public EmployeeSorter getEmployeeSorter(){
         return employeeSorter;
     }
 
-    public Employee getEmployee (String name){
-        for(Employee e: employees)
-            if(e.getName().equals(name))
+    public Employee getEmployee(String name) {
+        for (Employee e : employees)
+            if (e.getName().equals(name))
                 return e;
+        return null;
+    }
 
-    return null; }
-
-    public CertificateHandler getCertificatehandler (){
+    public CertificateHandler getCertificatehandler() {
         return certificateHandler;
     }
 
-    public void createNewEmployee(String name, int personalId) {
-        employees.add(new Employee(name, personalId));
+    public void createNewEmployee(String name, String personalId) {
+        if (checkLengthEmployeeId(personalId) && checkIfExistsEmployeeId(personalId)) {
+            employees.add(new Employee(name, personalId));
+        }
+    }
+
+    private boolean checkIfExistsEmployeeId(String PersonalId) {
+        for (Employee e : employees) {
+            if (e.getPersonalId().equals(PersonalId)) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean checkLengthEmployeeId(String PersonalId) {
+        if (PersonalId.length() == 12) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public void createEmployeeCertificate(Certificate certificate, Employee e, Date expiryDate) {
@@ -87,9 +122,9 @@ public class Admin {
         employees.remove(e);
     }
 
-    public void removeEmployee(int personalId) {
-        for (Employee e: employees) {
-            if (e.getPersonalId() == personalId) {
+    public void removeEmployee(String personalId) {
+        for (Employee e : employees) {
+            if (e.getPersonalId().equals(personalId)) {
                 employees.remove(e);
                 break;
             }

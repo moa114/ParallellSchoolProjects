@@ -1,0 +1,32 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 18/9 13:15-15:00
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Christian Lind
+
+## Objectives 
+
+- Alla 5 engagerar sig i koden och arbetar färdigt med alla user stories för denna sprinten
+- förbättra den körbara konsollversion
+
+## Reports from previous meeting
+
+Fortsatte jobba med koden och Oliver, Christian och Markus gjorde färdigt tester med "Hantera anställdas certifikat".
+Samtidigt som Moa och Victor skrev fler tester på "krav på avdelningar". Oliver gjorde en körbar konsollverision och det bestämmdes att JavaFX skulle anvbändas istället för Swing. 
+
+## Discussion items 
+
+1. N/A
+
+## Outcomes and assignments 
+
+1. Markus och Christian och Oliver har gått igenom hela koden för att hitta ställen där det behövde förbättras i förhållande till Principer.
+2. Moa och Victor började koda Employeesorter samt skrev färdigt testerna för sina user stories om "krav på avdelningar" (getQualifiedPersons) så att de blev färdiga med sina user stories denna sprinten.
+3. Oliver la till funktioner för det körbara programmet tills handledarmötet.
+
+## Wrap up
+ 
+- Nästa möte: 18/9 15:00 Handledarmöte, kolla om vi behöver använda travis och maven.

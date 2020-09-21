@@ -18,21 +18,27 @@ public class test {
     }
 
     @Test
-    public void testCreateNewEmployee() { //kollar så createNewEmployee lägger till i listan
+    public void testCreateNewEmployee() {  //kollar så createNewEmployee lägger till i listan och att man inte kan lägga till om personnummret inte är 12 långt samt om det redan finns
         Admin admin = new Admin();
-        admin.createNewEmployee("moa", 1);
+        admin.createNewEmployee("moa", "1234789123");
+        assertTrue(admin.getEmployees().size() == 0);
+        admin.createNewEmployee("moa", "123456789123");
         assertTrue(admin.getEmployees().size() == 1);
+        admin.createNewEmployee("moa", "123456789123");
+        assertTrue(admin.getEmployees().size() == 1);
+        admin.createNewEmployee("moa", "123456089123");
+        assertTrue(admin.getEmployees().size() == 2);
     }
 
     @Test
     public void testDeleteEmployee() {
         Admin admin = new Admin();
-        admin.createNewEmployee("moa", 1);
-        admin.createNewEmployee("markus", 2);
+        admin.createNewEmployee("moa", "123456789123");
+        admin.createNewEmployee("markus", "213456789123");
         admin.removeEmployee(admin.getEmployees().get(0));
         assertTrue(admin.getEmployees().size() == 1);
-        admin.createNewEmployee("Crille", 3);
-        admin.removeEmployee(3);
+        admin.createNewEmployee("Crille", "312456789123");
+        admin.removeEmployee("312456789123");
         assertTrue(admin.getEmployees().size() == 1);
     }
 
@@ -62,23 +68,23 @@ public class test {
     @Test
     public void testDeligateCertificate() {
         Admin admin = new Admin();
-        admin.createNewEmployee("moa", 1);
+        admin.createNewEmployee("moa", "123456789123");
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
         Employee e = admin.getEmployees().get(0);
         Certificate kassa = ch.getCertificate("Kassa");
         EmployeeCertificate ec = e.getEmployeeCertificate(kassa);
-        assertEquals(ec.getCertificateName() , "Kassa");
+        assertEquals(ec.getCertificateName(), "Kassa");
     }
 
     @Test
     public void testWhoHasCertificate() {
         Admin admin = new Admin();
-        admin.createNewEmployee("moa", 1); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
-        admin.createNewEmployee("moa", 2);
-        admin.createNewEmployee("crilllle", 3);
-        CertificateHandler ch = CertificateHandler.getInstance();
+        admin.createNewEmployee("moa", "123456789231"); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
+        admin.createNewEmployee("moa", "213456789123");
+        admin.createNewEmployee("crilllle", "312123456789");
+        CertificateHandler ch = admin.getCertificatehandler();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
@@ -92,26 +98,26 @@ public class test {
     @Test
     public void testRemoveGlobalCertificate() {
         Admin admin = new Admin();
-        admin.createNewEmployee("moa", 1);
-        admin.createNewEmployee("moa", 2);
-        admin.createNewEmployee("crilllle", 3);
-        CertificateHandler ch = CertificateHandler.getInstance();
+        admin.createNewEmployee("moa", "123456789231");
+        admin.createNewEmployee("moa", "123456789232");
+        admin.createNewEmployee("crilllle", "1234567892315");
+        CertificateHandler ch = admin.getCertificatehandler();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(1), new Date());
         admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployees().get(1), new Date());
         ch.deleteCertificate("Kassa");
-        assertTrue(admin.getEmployees().get(1).certificates.size()==1);
+        assertTrue(admin.getEmployees().get(1).certificates.size() == 1);
     }
 
     @Test
     public void testRemoveEmployeeCertificate() {
         Admin admin = new Admin();
-        admin.createNewEmployee("moa", 1); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
-        admin.createNewEmployee("moa", 2);
-        admin.createNewEmployee("crilllle", 3);
-        CertificateHandler ch = CertificateHandler.getInstance();
+        admin.createNewEmployee("moa", "123456789231"); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
+        admin.createNewEmployee("moa", "123456789235");
+        admin.createNewEmployee("crilllle", "123456789239");
+        CertificateHandler ch = admin.getCertificatehandler();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
@@ -122,12 +128,13 @@ public class test {
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Kassa")).size() == 1);
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Frukt")).size() == 1);
     }
+
     @Test
-    public void testGetQualifiedPersons(){
+    public void testGetQualifiedPersons() {
         Admin admin = new Admin();
-        CertificateHandler ch = CertificateHandler.getInstance();
-        admin.createNewEmployee("moa", 1);
-        admin.createNewEmployee("Victor", 2);
+        CertificateHandler ch = admin.getCertificatehandler();
+        admin.createNewEmployee("moa", "123456789231");
+        admin.createNewEmployee("Victor", "123456789234");
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
@@ -137,13 +144,13 @@ public class test {
         List<Certificate> allcert = new ArrayList<>();
         allcert.add(ch.getCertificate("Kassa"));
         allcert.add(ch.getCertificate("Frukt"));
-        Department department = new Department("TestAvdelning",allcert);
-        assertTrue(admin.getEmployeeSorter().getQualifiedPersons(department,admin.getEmployees()).size()==2);
+        Department department = new Department("TestAvdelning", allcert);
+        assertTrue(admin.getQualifiedPersons(department, admin.getEmployees()).size() == 2);
     }
 
     @Test
-    public void testDepartmentFilled(){
+    public void testDepartmentFilled() {
         Admin admin = new Admin();
-        
+
     }
 }
