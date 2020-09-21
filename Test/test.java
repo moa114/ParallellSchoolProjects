@@ -155,10 +155,7 @@ public class test {
 =======
         Department department = new Department("TestAvdelning",allcert);
         assertTrue(admin.getEmployeeSorter().getQualifiedPersons(department,admin.getEmployees()).size()==2);
-<<<<<<< Updated upstream
 >>>>>>> upstream/master
-=======
->>>>>>> Stashed changes
     }
 
     @Test

@@ -14,7 +14,6 @@ public class Admin {
     public Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
-<<<<<<< Updated upstream
         this.calendar = OurCalendar.getInstance();
         this.employeeSorter = new EmployeeSorter();
     }
@@ -35,14 +34,6 @@ public class Admin {
                 qualifiedList.add(e);
         return qualifiedList;
     }
-=======
-        this.calendar = new OurCalendar();
-        this.calendar.init();
-        this.employeeSorter= new EmployeeSorter();
-    }
-
-
->>>>>>> Stashed changes
 
 =======
 >>>>>>> upstream/master
@@ -150,7 +141,5 @@ public class Admin {
         }
 
     }
-    public EmployeeSorter getEmployeeSorter(){
-    return employeeSorter;}
 
 }
