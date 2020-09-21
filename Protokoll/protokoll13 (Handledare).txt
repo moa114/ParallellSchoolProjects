@@ -1,0 +1,36 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 18/9 15:10-15:50
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Markus Grahn
+
+## Objectives 
+
+- Få reda på im maven och travis var obligatoriskt
+- Hur mycket ska koden dokumenteras
+
+## Reports from previous meeting
+
+Första sprinten är klar och alla userstpries uppnåddes för sprinten. 
+
+## Discussion items 
+
+1. Finns det ett obligatoriskt arbetsätt som vi måste följa?
+2. Vad är obligatoriskt att få med i koden?
+3. Är våra tester ok?
+
+## Outcomes and assignments 
+
+1. Det är viktigt att kodandet är jämnt fördelat då det annars kan dra ner på betyget.
+2. Testklassen ska delas upp i mindre testklasser för att det ska bli lättare att hitta olika tester men det vi har testat än så länge är bra. 
+3. GUI måsta vi börja arbeta med i samband med modellen för att ha ett bra workflow. 
+4. Maven är obligatoriskt men travis är fivilligt. 
+5. Koden ska dokumenteras med javadoc. 
+6. Exakt vad som är obligatoriskt ska handledaren ta upp med kursansvariga. 
+
+## Wrap up
+ 
+- Nästa möte: 21/9 15:00 Måndagsmöte, Struktuera upp nästa sprint. 

@@ -18,7 +18,6 @@ public class Admin {
         this.employeeSorter = new EmployeeSorter();
     }
 
-<<<<<<< HEAD
     public List<Employee> getAvailablePersons(long start, long end, List<Employee> employeeList) { //skickar in lista med anställda i parametern för att kunna göra denna och getQualifiedPersons i valfri ordning
         List<Employee> availableList = new ArrayList<>();
         for (Employee e : employeeList)
@@ -34,9 +33,6 @@ public class Admin {
                 qualifiedList.add(e);
         return qualifiedList;
     }
-
-=======
->>>>>>> upstream/master
 
     public void consoleCommandCreateEmployee() {
         Scanner sc = new Scanner(System.in);
@@ -73,21 +69,15 @@ public class Admin {
         return employees;
     }
 
-<<<<<<< HEAD
-    public Employee getEmployee(String name) {
-        for (Employee e : employees)
-            if (e.getName().equals(name))
-=======
+
     public EmployeeSorter getEmployeeSorter(){
         return employeeSorter;
     }
 
-    public Employee getEmployee (String name){
-        for(Employee e: employees)
-            if(e.getName().equals(name))
->>>>>>> upstream/master
+    public Employee getEmployee(String name) {
+        for (Employee e : employees)
+            if (e.getName().equals(name))
                 return e;
-
         return null;
     }
 
