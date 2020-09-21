@@ -21,7 +21,7 @@ public class StartPage extends AnchorPane{
     }
 
     public void loadPersonnelView(){
-        this.getChildren().add(new PersonList())
+        this.getChildren().add(new PersonList());
     }
     public void loadScheduleView(){}
 

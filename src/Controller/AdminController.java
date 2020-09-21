@@ -26,6 +26,6 @@ public class AdminController extends KeyAdapter {
     }
 
     public void loadFile(){
-        admin.loadFile();
+        //admin.loadFile();
     }
 }
