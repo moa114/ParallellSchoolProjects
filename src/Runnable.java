@@ -13,7 +13,7 @@ public class Runnable {
         OurCalendar calendar = OurCalendar.getInstance();
         int index = askQuestionInt("How many persons?");
         for (int i = 0; i<index; i++)
-            admin.createNewEmployee(askQuestionString("Name " + (1+i)), askQuestionInt("Personal ID"));
+            admin.createNewEmployee(askQuestionString("Name " + (1+i)), askQuestionString("Personal ID"));
         for (int i = askQuestionInt("How many certificates?"); i>0; i--)
             certificateHandler.createNewCertificate(askQuestionString("Name of certificate?"));
         Iterator<Certificate> iterator = certificateHandler.getAllCertificates();

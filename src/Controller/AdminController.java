@@ -24,4 +24,8 @@ public class AdminController extends KeyAdapter {
     public void keyReleased(KeyEvent e) {
         super.keyReleased(e);
     }
+
+    public void loadFile(){
+        admin.loadFile();
+    }
 }
