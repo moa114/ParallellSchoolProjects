@@ -14,7 +14,7 @@ public class Department {
         this.certificates = certificates;
     }
 
-    public void CreateShift(long start, long stop, int nEmployees){
+    public void CreateShift(long start, long stop, int nEmployees) {
         allShifts.add(new WorkShift(start, stop, nEmployees));
     }
 
@@ -22,14 +22,15 @@ public class Department {
         return allShifts;
     }
 
-    public void addCertificate(Certificate c){
+    public void addCertificate(Certificate c) {
         certificates.add(c);
     }
-    public List<Certificate> getAllCertificate(){
+
+    public List<Certificate> getAllCertificate() {
         return certificates;
     }
 
-    public void removeCertificate(Certificate c){
+    public void removeCertificate(Certificate c) {
         certificates.remove(c);
     }
 }
