@@ -44,8 +44,12 @@ public class test {
 
     @Test
     public void testAddCertificateToDepartment() {
+<<<<<<< HEAD
         Admin admin = new Admin();
         CertificateHandler ch = admin.getCertificatehandler();
+=======
+        CertificateHandler ch = CertificateHandler.getInstance();
+>>>>>>> upstream/master
         List<Certificate> allcert = new ArrayList<>();
         ch.createNewCertificate("Frukt");
         allcert.add(ch.getCertificate("Frukt"));
@@ -57,7 +61,6 @@ public class test {
 
     @Test
     public void testRemoveCertificateFromDepartment() {
-        Admin admin = new Admin();
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         List<Certificate> allcert = new ArrayList<>();
@@ -146,8 +149,13 @@ public class test {
         List<Certificate> allcert = new ArrayList<>();
         allcert.add(ch.getCertificate("Kassa"));
         allcert.add(ch.getCertificate("Frukt"));
+<<<<<<< HEAD
         Department department = new Department("TestAvdelning", allcert);
         assertTrue(admin.getQualifiedPersons(department, admin.getEmployees()).size() == 2);
+=======
+        Department department = new Department("TestAvdelning",allcert);
+        assertTrue(admin.getEmployeeSorter().getQualifiedPersons(department,admin.getEmployees()).size()==2);
+>>>>>>> upstream/master
     }
 
     @Test

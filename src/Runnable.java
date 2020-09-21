@@ -22,7 +22,8 @@ public class Runnable {
         for (Employee e : admin.getEmployees())
             System.out.println(e.name);
         admin.getEmployees().get(askQuestionInt("which employee(0, 1, 2, 3...)")).assignCertificate(new EmployeeCertificate(certificateHandler.getCertificate(askQuestionString("name of certificate")), new Date()));
-
+        for (Employee e : admin.getEmployees())
+            System.out.println(e.certificates);
     }
 
     public static int askQuestionInt(String question){
