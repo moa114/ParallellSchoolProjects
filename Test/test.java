@@ -13,7 +13,6 @@ public class test {
     @Test
     public void testInit() {
         OurCalendar calendar = OurCalendar.getInstance();
-        calendar.init();// Call method to test
         List<WorkDay> list = calendar.getOurDates().subList(0, 365);
         assertEquals(365, list.size());  // kollar om kalendern skapar ett helt år
     }
@@ -39,8 +38,7 @@ public class test {
 
     @Test
     public void testAddCertificateToDepartment() {
-        Admin admin = new Admin();
-        CertificateHandler ch = admin.getCertificatehandler();
+        CertificateHandler ch = CertificateHandler.getInstance();
         List<Certificate> allcert = new ArrayList<>();
         ch.createNewCertificate("Frukt");
         allcert.add(ch.getCertificate("Frukt"));
@@ -52,8 +50,7 @@ public class test {
 
     @Test
     public void testRemoveCertificateFromDepartment() {
-        Admin admin = new Admin();
-        CertificateHandler ch = admin.getCertificatehandler();
+        CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         List<Certificate> allcert = new ArrayList<>();
         allcert.add(ch.getCertificate("Kassa"));
@@ -66,7 +63,7 @@ public class test {
     public void testDeligateCertificate() {
         Admin admin = new Admin();
         admin.createNewEmployee("moa", 1);
-        CertificateHandler ch = admin.getCertificatehandler();
+        CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
         Employee e = admin.getEmployees().get(0);
@@ -81,7 +78,7 @@ public class test {
         admin.createNewEmployee("moa", 1); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
         admin.createNewEmployee("moa", 2);
         admin.createNewEmployee("crilllle", 3);
-        CertificateHandler ch = admin.getCertificatehandler();
+        CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
@@ -98,7 +95,7 @@ public class test {
         admin.createNewEmployee("moa", 1);
         admin.createNewEmployee("moa", 2);
         admin.createNewEmployee("crilllle", 3);
-        CertificateHandler ch = admin.getCertificatehandler();
+        CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
@@ -114,7 +111,7 @@ public class test {
         admin.createNewEmployee("moa", 1); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
         admin.createNewEmployee("moa", 2);
         admin.createNewEmployee("crilllle", 3);
-        CertificateHandler ch = admin.getCertificatehandler();
+        CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
@@ -128,7 +125,7 @@ public class test {
     @Test
     public void testGetQualifiedPersons(){
         Admin admin = new Admin();
-        CertificateHandler ch = admin.getCertificatehandler();
+        CertificateHandler ch = CertificateHandler.getInstance();
         admin.createNewEmployee("moa", 1);
         admin.createNewEmployee("Victor", 2);
         ch.createNewCertificate("Kassa");
@@ -141,7 +138,12 @@ public class test {
         allcert.add(ch.getCertificate("Kassa"));
         allcert.add(ch.getCertificate("Frukt"));
         Department department = new Department("TestAvdelning",allcert);
-        assertTrue(admin.getQualifiedPersons(department,admin.getEmployees()).size()==2);
+        assertTrue(admin.getEmployeeSorter().getQualifiedPersons(department,admin.getEmployees()).size()==2);
     }
 
+    @Test
+    public void testDepartmentFilled(){
+        Admin admin = new Admin();
+        
+    }
 }

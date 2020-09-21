@@ -11,7 +11,6 @@ public class Runnable {
         Admin admin = new Admin();
         CertificateHandler certificateHandler = admin.getCertificatehandler();
         OurCalendar calendar = OurCalendar.getInstance();
-        calendar.init();
         int index = askQuestionInt("How many persons?");
         for (int i = 0; i<index; i++)
             admin.createNewEmployee(askQuestionString("Name " + (1+i)), askQuestionInt("Personal ID"));
@@ -23,7 +22,8 @@ public class Runnable {
         for (Employee e : admin.getEmployees())
             System.out.println(e.name);
         admin.getEmployees().get(askQuestionInt("which employee(0, 1, 2, 3...)")).assignCertificate(new EmployeeCertificate(certificateHandler.getCertificate(askQuestionString("name of certificate")), new Date()));
-
+        for (Employee e : admin.getEmployees())
+            System.out.println(e.certificates);
     }
 
     public static int askQuestionInt(String question){

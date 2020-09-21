@@ -33,9 +33,19 @@ public class WorkDay {
         return null;
     }
 
-    public void ScheduleEmployee(Employee employee, Department department, WorkShift workShift) {
+    public void scheduleEmployee(Employee employee, Department department, WorkShift workShift) {
+        departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
+        departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
         departmentListHashMap.get(department).get(workShift).add(employee);
         employee.occupiedTimes.add(workShift);
+    }
+
+    public void scheduleEmployees(List<Employee> employees, Department department, WorkShift workShift) {
+        departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
+        departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
+        departmentListHashMap.get(department).get(workShift).addAll(employees);
+        for (Employee employee : employees)
+            employee.occupiedTimes.add(workShift);
     }
 
     private long plusHours(int hours) {

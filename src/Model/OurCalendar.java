@@ -26,7 +26,7 @@ public class OurCalendar {
         init();
     }
 
-    public void init() {
+    private void init() {
         this.calendar = java.util.Calendar.getInstance();
         this.workDays = new ArrayList<>();
         this.generateDates();
