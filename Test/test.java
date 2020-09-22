@@ -21,13 +21,13 @@ public class test {
     public void testCreateNewEmployee() {  //kollar så createNewEmployee lägger till i listan och att man inte kan lägga till om personnummret inte är 12 långt samt om det redan finns
         Admin admin = new Admin();
         admin.createNewEmployee("moa", "1234789123");
-        assertTrue(admin.getEmployees().size() == 0);
+        assertTrue(admin.getEmployeeListSize() == 0);
         admin.createNewEmployee("moa", "123456789123");
-        assertTrue(admin.getEmployees().size() == 1);
+        assertTrue(admin.getEmployeeListSize() == 1);
         admin.createNewEmployee("moa", "123456789123");
-        assertTrue(admin.getEmployees().size() == 1);
+        assertTrue(admin.getEmployeeListSize() == 1);
         admin.createNewEmployee("moa", "123456089123");
-        assertTrue(admin.getEmployees().size() == 2);
+        assertTrue(admin.getEmployeeListSize() == 2);
     }
 
     @Test
@@ -35,11 +35,11 @@ public class test {
         Admin admin = new Admin();
         admin.createNewEmployee("moa", "123456789123");
         admin.createNewEmployee("markus", "213456789123");
-        admin.removeEmployee(admin.getEmployees().get(0));
-        assertTrue(admin.getEmployees().size() == 1);
+        admin.removeEmployee(admin.getEmployeeByName("moa"));
+        assertTrue(admin.getEmployeeListSize() == 1);
         admin.createNewEmployee("Crille", "312456789123");
         admin.removeEmployee("312456789123");
-        assertTrue(admin.getEmployees().size() == 1);
+        assertTrue(admin.getEmployeeListSize() == 1);
     }
 
     @Test
@@ -71,8 +71,8 @@ public class test {
         admin.createNewEmployee("moa", "123456789123");
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
-        Employee e = admin.getEmployees().get(0);
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789123"), new Date());
+        Employee e = admin.getEmployeeByName("moa");
         Certificate kassa = ch.getCertificate("Kassa");
         EmployeeCertificate ec = e.getEmployeeCertificate(kassa);
         assertEquals(ec.getCertificateName(), "Kassa");
@@ -87,12 +87,12 @@ public class test {
         CertificateHandler ch = admin.getCertificatehandler();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(1), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployees().get(1), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789231"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("213456789123"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployeeByID("213456789123"), new Date());
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Kassa")).size() == 2);
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Frukt")).size() == 1);
-        assertTrue(!ch.getEmployeeWithCertificate(ch.getCertificate("Kassa")).contains(admin.getEmployees().get(2)));
+        assertTrue(!ch.getEmployeeWithCertificate(ch.getCertificate("Kassa")).contains(admin.getEmployeeByID("312123456789")));
     }
 
     @Test
@@ -104,11 +104,11 @@ public class test {
         CertificateHandler ch = admin.getCertificatehandler();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(1), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployees().get(1), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789231"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789232"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployeeByID("123456789232"), new Date());
         ch.deleteCertificate("Kassa");
-        assertTrue(admin.getEmployees().get(1).certificates.size() == 1);
+        assertTrue(admin.getEmployeeByID("123456789232").certificates.size() == 1);
     }
 
     @Test
@@ -120,11 +120,11 @@ public class test {
         CertificateHandler ch = admin.getCertificatehandler();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(1), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployees().get(1), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789231"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789235"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployeeByID("123456789235"), new Date());
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Kassa")).size() == 2);
-        admin.removeEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(1));
+        admin.removeEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789235"));
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Kassa")).size() == 1);
         assertTrue(ch.getEmployeeWithCertificate(ch.getCertificate("Frukt")).size() == 1);
     }
@@ -134,18 +134,18 @@ public class test {
         Admin admin = new Admin();
         CertificateHandler ch = admin.getCertificatehandler();
         admin.createNewEmployee("moa", "123456789231");
-        admin.createNewEmployee("Victor", "123456789234");
+        admin.createNewEmployee("Victor", "123456789234");;
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(0), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployees().get(0), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployees().get(1), new Date());
-        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployees().get(1), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByName("moa"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployeeByName("moa"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByName("Victor"), new Date());
+        admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployeeByName("Victor"), new Date());
         List<Certificate> allcert = new ArrayList<>();
         allcert.add(ch.getCertificate("Kassa"));
         allcert.add(ch.getCertificate("Frukt"));
         Department department = new Department("TestAvdelning", allcert);
-        assertTrue(admin.getQualifiedPersons(department, admin.getEmployees()).size() == 2);
+        assertTrue(admin.getEmployeeSorter().getQualifiedPersons(department, admin.getEmployees()).size() == 2);
     }
 
     @Test

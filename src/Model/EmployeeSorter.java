@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EmployeeSorter {
-    public static List<Employee> getAvailablePersonnel(List<Employee> employees, List<String> certificates, long start, long stop) {
+    public static List<Employee> getAvailableQualifiedPersonnel(List<Employee> employees, List<String> certificates, long start, long stop) {
         List<Employee> newList = new ArrayList<>();
         for (Employee e : employees) {
             if (e.certificates.containsAll(certificates) && !e.isOccupied(start, stop))
@@ -29,5 +29,5 @@ public class EmployeeSorter {
     }
 
 
-    //här vill vi kolla om employee har workshit i occupied time för att kolla så de får tillräcklig ledighet mellan passen
+    //här vill vi kolla om employee har workshift i occupied time för att kolla så de får tillräcklig ledighet mellan passen
 }

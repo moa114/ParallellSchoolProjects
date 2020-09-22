@@ -18,21 +18,6 @@ public class Admin {
         this.employeeSorter = new EmployeeSorter();
     }
 
-    public List<Employee> getAvailablePersons(long start, long end, List<Employee> employeeList) { //skickar in lista med anställda i parametern för att kunna göra denna och getQualifiedPersons i valfri ordning
-        List<Employee> availableList = new ArrayList<>();
-        for (Employee e : employeeList)
-            if (!e.isOccupied(start, end))
-                availableList.add(e);
-        return availableList;
-    }
-
-    public List<Employee> getQualifiedPersons(Department department, List<Employee> employeeList) {
-        List<Employee> qualifiedList = new ArrayList<>();
-        for (Employee e : employeeList)
-            if (e.isQualified(department))
-                qualifiedList.add(e);
-        return qualifiedList;
-    }
 
     public void consoleCommandCreateEmployee() {
         Scanner sc = new Scanner(System.in);
@@ -64,23 +49,39 @@ public class Admin {
             System.out.println(e.certificates);
         }
     }
-
+    //Behöver vara public för att printa ut lista av alla anställda?
     public List<Employee> getEmployees() {
         return employees;
     }
+    public int getEmployeeListSize(){return employees.size();}
 
 
     public EmployeeSorter getEmployeeSorter(){
         return employeeSorter;
     }
 
-    public Employee getEmployee(String name) {
-        for (Employee e : employees)
-            if (e.getName().equals(name))
-                return e;
-        return null;
+    public Employee getEmployeeByName(String name) {
+        int count=0;
+        Employee tmp= null;
+        for (Employee e : employees){
+            if (e.getName().equals(name)){
+                count++;
+                tmp=e;
+            }
+        }
+        if(count==1){ return tmp; }
+        System.out.println("invalid name");
+        return null;//TODO exception?
     }
 
+
+    public Employee getEmployeeByID(String ID){
+        for (Employee e : employees)
+            if (e.getPersonalId().equals(ID))
+                return e;
+        System.out.println("invalid name");
+        return null;
+    }
     public CertificateHandler getCertificatehandler() {
         return certificateHandler;
     }
