@@ -7,10 +7,10 @@ public class Employee {
     public List<OccupiedTime> occupiedTimes;
     public String name;
     public String email;
-    public int personalId;
+    public String personalId;
     public List<EmployeeCertificate> certificates;
 
-    public Employee(String name, int personalId) {
+    public Employee(String name, String personalId) {
         this.occupiedTimes = new ArrayList<>();
         this.name = name;
         this.personalId = personalId;
@@ -65,7 +65,7 @@ public class Employee {
         return false;
     }
 
-    public int getPersonalId() {
+    public String getPersonalId() {
         return personalId;
     }
     public String getName() {

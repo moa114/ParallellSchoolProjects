@@ -15,6 +15,7 @@ public class EmployeeCertificate {
     protected Certificate getCertificate() {
         return certificate;
     }
+
     public String getCertificateName() {
         return this.certificate.name;
     }
