@@ -1,21 +1,20 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
-public class Admin {
+public class Admin implements Observable{
     private List<Employee> employees;
     private CertificateHandler certificateHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
+    private List<Observer> observers;
 
     public Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
         this.employeeSorter = new EmployeeSorter();
+        this.observers = new ArrayList<>();
     }
 
     public List<Employee> getAvailablePersons(long start, long end, List<Employee> employeeList) { //skickar in lista med anställda i parametern för att kunna göra denna och getQualifiedPersons i valfri ordning
@@ -64,11 +63,19 @@ public class Admin {
             System.out.println(e.certificates);
         }
     }
+    public void addObserver(Observer o){
+        observers.add(o);
+    }
+    public void removeObserver(Observer o){
+        observers.remove(o);
+    }
+    public void notifyObservers(){
+        observers.forEach(Observer::update);
+    }
 
     public List<Employee> getEmployees() {
         return employees;
     }
-
 
     public EmployeeSorter getEmployeeSorter(){
         return employeeSorter;
