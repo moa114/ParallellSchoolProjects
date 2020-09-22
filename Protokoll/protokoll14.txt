@@ -1,0 +1,30 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 18/9 13:15-15:00
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Christian Lind
+
+## Objectives 
+
+- Alla 5 fortsätter med tilldelade user stories
+
+## Reports from previous meeting
+
+Fortsatte jobba med koden och Oliver, Christian och Markus gjorde färdigt tester med "Hantera anställdas certifikat".
+
+## Discussion items 
+
+1. N/A
+
+## Outcomes and assignments 
+
+1. moa och victor har gjort färdigt 2 user stories och testat dem: optimerat koden från ver 1, och separerat testerna i olika testklasser
+2. Oliver har gjort en körbar javafx-applikation
+3. Markus och christian har fixat designmodellen samt implementerat maven i projektet
+
+## Wrap up
+ 
+- Nästa möte: 24/9 10:00, Fortsättning av user stories
