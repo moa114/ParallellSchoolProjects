@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.EmployeeView"
-            prefHeight="400.0" prefWidth="600.0">
 
-</AnchorPane>
+<fx:root prefHeight="100.0" prefWidth="417.0" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" styleClass="View.EmployeeView">
+   <children>
+      <Label fx:id="name" layoutX="78.0" layoutY="42.0" text="Label" />
+      <Label fx:id="personalID" layoutX="195.0" layoutY="42.0" text="Label" />
+      <CheckBox fx:id="select" layoutX="327.0" layoutY="42.0" mnemonicParsing="false" text="Test" />
+   </children>
+</fx:root>

@@ -23,12 +23,29 @@ public class StartPage implements Observer, Initializable {
     @FXML Button buttonNewFile;
     @FXML Button buttonSaveAndExit; //TODO Implement load and save functionality
     @FXML Button buttonLoadFile; //TODO Implement load and save functionality
+    @FXML Tab tabSchedule;
+    @FXML Tab tabEmployees;
+    @FXML Tab tabDepartments;
+    @FXML Tab tabCertificates;
+    @FXML AnchorPane tabEmployeesPane;
+    private Admin admin;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setButtons();
+        admin = Admin.getInstance();
+        setTabs();
     }
 
+    private void setTabs(){
+        //tabSchedule.setContent(); //TODO fixa scheduleView
+        tabEmployees.setContent(new PersonList(admin.getEmployees()));
+        tabEmployeesPane.getChildren().clear();
+        PersonList personList = new PersonList(admin.getEmployees());
+        tabEmployeesPane.getChildren().clear();
+        tabEmployeesPane.getChildren().add(personList);
+        admin.addObserver(personList);
+    }
     private void setButtons(){
         buttonSaveAndExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override

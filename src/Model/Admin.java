@@ -3,13 +3,20 @@ package Model;
 import java.util.*;
 
 public class Admin implements Observable{
+    private static Admin instance = null;
     private List<Employee> employees;
     private CertificateHandler certificateHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
     private List<Observer> observers;
 
-    public Admin() {
+    public static Admin getInstance() {
+        if (instance == null)
+            instance = new Admin();;
+        return instance;
+    }
+
+    private Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
@@ -74,7 +81,7 @@ public class Admin implements Observable{
     }
 
     public List<Employee> getEmployees() {
-        return employees;
+        return new ArrayList<>(employees);
     }
 
     public EmployeeSorter getEmployeeSorter(){

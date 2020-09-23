@@ -11,22 +11,22 @@
          <children>
             <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
               <tabs>
-                <Tab text="Schema">
+                <Tab fx:id="tabSchedule" text="Schema">
                   <content>
                     <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
                   </content>
                 </Tab>
-                <Tab text="Anställda">
+                <Tab fx:id="tabEmployees" text="Anställda">
                   <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
+                    <AnchorPane fx:id="tabEmployeesPane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
                   </content>
                 </Tab>
-                 <Tab text="Avdelningar">
+                 <Tab fx:id="tabDepartments" text="Avdelningar">
                     <content>
                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
                     </content>
                  </Tab>
-                 <Tab text="Certifikationer">
+                 <Tab fx:id="tabCertificates" text="Certifikationer">
                     <content>
                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
                     </content>

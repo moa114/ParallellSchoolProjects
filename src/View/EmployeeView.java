@@ -5,20 +5,29 @@ import Model.Observer;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 public class EmployeeView extends AnchorPane implements Observer {
     public void addCertificate(){};
-    Employee e;
+    Employee employee;
+    @FXML Label name, personalID;
+    @FXML CheckBox select;
 
-    public EmployeeView(Employee e) {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonList.fxml"));
+    public EmployeeView(Employee employee) {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EmployeeView.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        this.e = e;
+        try {
+            fxmlLoader.load();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        this.employee = employee;
+        name.setText(employee.name);
+        personalID.setText(employee.personalId);
     }
-
-    @FXML CheckBox select;
 
     @Override
     public void update() {

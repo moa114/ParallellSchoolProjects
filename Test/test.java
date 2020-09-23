@@ -19,7 +19,7 @@ public class test {
 
     @Test
     public void testCreateNewEmployee() {  //kollar så createNewEmployee lägger till i listan och att man inte kan lägga till om personnummret inte är 12 långt samt om det redan finns
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "1234789123");
         assertTrue(admin.getEmployees().size() == 0);
         admin.createNewEmployee("moa", "123456789123");
@@ -32,7 +32,7 @@ public class test {
 
     @Test
     public void testDeleteEmployee() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789123");
         admin.createNewEmployee("markus", "213456789123");
         admin.removeEmployee(admin.getEmployees().get(0));
@@ -67,7 +67,7 @@ public class test {
 
     @Test
     public void testDeligateCertificate() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789123");
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
@@ -80,7 +80,7 @@ public class test {
 
     @Test
     public void testWhoHasCertificate() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789231"); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
         admin.createNewEmployee("moa", "213456789123");
         admin.createNewEmployee("crilllle", "312123456789");
@@ -97,7 +97,7 @@ public class test {
 
     @Test
     public void testRemoveGlobalCertificate() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789231");
         admin.createNewEmployee("moa", "123456789232");
         admin.createNewEmployee("crilllle", "1234567892315");
@@ -113,7 +113,7 @@ public class test {
 
     @Test
     public void testRemoveEmployeeCertificate() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789231"); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
         admin.createNewEmployee("moa", "123456789235");
         admin.createNewEmployee("crilllle", "123456789239");
@@ -131,7 +131,7 @@ public class test {
 
     @Test
     public void testGetQualifiedPersons() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         CertificateHandler ch = admin.getCertificatehandler();
         admin.createNewEmployee("moa", "123456789231");
         admin.createNewEmployee("Victor", "123456789234");
@@ -146,11 +146,5 @@ public class test {
         allcert.add(ch.getCertificate("Frukt"));
         Department department = new Department("TestAvdelning", allcert);
         assertTrue(admin.getQualifiedPersons(department, admin.getEmployees()).size() == 2);
-    }
-
-    @Test
-    public void testDepartmentFilled() {
-        Admin admin = new Admin();
-
     }
 }
