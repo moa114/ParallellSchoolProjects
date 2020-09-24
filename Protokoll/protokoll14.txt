@@ -1,30 +1,34 @@
 # Meeting Agenda
 
 Group: 1 (gruppnamn: New Five)
-Date: 18/9 13:15-15:00
+Date: 21/9 15:00-16:00
 Chair: TDA 367, Chalmers
 Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
 Facilitator: Oliver Karmetun
-Sekreterare: Christian Lind
+Sekreterare: Victor Cousin
 
 ## Objectives 
 
-- Alla 5 fortsätter med tilldelade user stories
+- Planera hur denna veckas sprint ska se ut
+- Planera vilka tillfällen och möten vi ska ha under veckan
 
 ## Reports from previous meeting
 
-Fortsatte jobba med koden och Oliver, Christian och Markus gjorde färdigt tester med "Hantera anställdas certifikat".
+Koden behöver kommenteras och Maven ska implementeras. Testklassen kan behövas delas upp. 
 
 ## Discussion items 
 
-1. N/A
+1. Vad ska prioteras att bli färdigt denna sprint? 
+2. Vem ska göra vad?
+2. Ska SDD påbörjas?
 
 ## Outcomes and assignments 
 
-1. moa och victor har gjort färdigt 2 user stories och testat dem: optimerat koden från ver 1, och separerat testerna i olika testklasser
-2. Oliver har gjort en körbar javafx-applikation
-3. Markus och christian har fixat designmodellen samt implementerat maven i projektet
+1. Den nya sprinten organiserades upp i trello utifrån user stories.
+2. Moa och Victor ska ha hand om att optimera kod från förra sprinten, seperera testklassen och kommentera kod.
+3. Oliver påbörjar en första version av GUI och sedan skriver i SDD tillsammans med Christian.
+4. Christian och Markus ska implementera Maven, färdigställa designmodellen och vid tid över fortsätta arbeta med hanteringen av arbetspass.
 
 ## Wrap up
  
-- Nästa möte: 24/9 10:00, Fortsättning av user stories
+- Nästa möte: 22/9 10:00 Handledarmöte, arbeta med sprinten.
