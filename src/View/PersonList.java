@@ -16,6 +16,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 
 import java.io.IOException;
@@ -30,6 +31,7 @@ public class PersonList extends AnchorPane implements Observer {
     @FXML ListView<EmployeeView> employeeViewListView;
     @FXML Button buttonDeleteEmployee, buttonCreateEmployee;
     @FXML TextField textFieldName, textFieldPersonalID;
+    @FXML AnchorPane paneDetailView;
     private String name="", personalID="";
 
     public void selectAll(){}
@@ -49,6 +51,11 @@ public class PersonList extends AnchorPane implements Observer {
         this.employeeEmployeeViewMap = new HashMap<>();
         generatePersonViews(employees);
         generateButtons();
+        generateDetailView();
+    }
+
+    private void generateDetailView(){
+        paneDetailView.getChildren().clear();
     }
 
     private void generateButtons(){
@@ -104,6 +111,13 @@ public class PersonList extends AnchorPane implements Observer {
         for (Employee e : employees) {
             EmployeeView employeeView = new EmployeeView(e);
             employeeEmployeeViewMap.put(e, employeeView);
+            employeeView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    paneDetailView.getChildren().clear();
+                    paneDetailView.getChildren().add(new DetailEmployeeView(e));
+                }
+            });
             employeeViewListView.getItems().add(employeeEmployeeViewMap.get(e));
         }
     }
