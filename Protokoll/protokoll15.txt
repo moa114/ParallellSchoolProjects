@@ -1,11 +1,11 @@
 # Meeting Agenda
 
 Group: 1 (gruppnamn: New Five)
-Date: 18/9 13:15-15:00
+Date: 22/9 13:15-15:00
 Chair: TDA 367, Chalmers
 Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
 Facilitator: Oliver Karmetun
-Sekreterare: Christian Lind
+Sekreterare: Oliver Andersson
 
 ## Objectives 
 
