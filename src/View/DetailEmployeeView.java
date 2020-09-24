@@ -26,9 +26,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
     }
     private void generateFXMLObjects(){
         this.firstName.setText(employee.name);
-        this.firstName.setEditable(false);
         this.personalID.setText(employee.personalId);
-        this.personalID.setEditable(false);
     }
 
     @Override

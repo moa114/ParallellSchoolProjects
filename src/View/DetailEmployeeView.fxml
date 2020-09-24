@@ -6,22 +6,22 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <fx:root prefHeight="400.0" prefWidth="296.0" styleClass="DetailEmployeeView" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <SplitPane dividerPositions="0.8919597989949749" orientation="VERTICAL" prefHeight="400.0" prefWidth="296.0">
         <items>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="300.0">
                <children>
-                  <ListView layoutY="135.0" prefHeight="217.0" prefWidth="296.0" />
-                  <TextField fx:id="firstName" layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="266.0" AnchorPane.topAnchor="20.0" />
-                  <TextField fx:id="lastName" layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="266.0" AnchorPane.topAnchor="60.0" />
-                  <TextField fx:id="personalID" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="266.0" AnchorPane.topAnchor="100.0" />
+                  <ListView fx:id="certificateList" layoutY="135.0" prefHeight="217.0" prefWidth="300.0" />
+                  <TextField fx:id="firstName" layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="266.0" promptText="Förnamn" AnchorPane.topAnchor="20.0" />
+                  <TextField fx:id="lastName" layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="266.0" promptText="Efternamn" AnchorPane.topAnchor="60.0" />
+                  <TextField fx:id="personalID" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="266.0" promptText="Personnummer" AnchorPane.topAnchor="100.0" />
                </children>
             </AnchorPane>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+          <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
                <children>
-                  <Button layoutX="63.0" layoutY="-2.0" mnemonicParsing="false" style="-fx-background-color: #FF0000; -fx-font-size: 20; -fx-border-radius: 10;" text="Ta Bort Anställd" />
+                  <Button fx:id="deleteEmployee" layoutX="153.0" layoutY="1.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #FF0000; -fx-font-size: 16; -fx-border-radius: 10;" text="Ta Bort Anställd" />
+                  <Button fx:id="saveChanges" layoutY="1.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #00FF00; -fx-font-size: 16;" text="Spara Ändringar" />
                </children>
             </AnchorPane>
         </items>
