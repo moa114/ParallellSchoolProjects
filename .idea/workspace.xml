@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="18c3fc82-4c61-4042-9b7c-07995e939768" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/test.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Department.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Employee.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/WorkShift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/WorkShift.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,18 +152,6 @@
         <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
