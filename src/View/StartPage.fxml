@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane fx:id="backGround" prefHeight="600" prefWidth="800" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="View.StartPage">
+   <children>
+      <AnchorPane fx:id="startPage" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <TabPane prefHeight="600.0" prefWidth="800.0" tabClosingPolicy="UNAVAILABLE">
+              <tabs>
+                <Tab fx:id="tabSchedule" text="Schema">
+                  <content>
+                    <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
+                  </content>
+                </Tab>
+                <Tab fx:id="tabEmployees" text="Anställda">
+                  <content>
+                    <AnchorPane fx:id="tabEmployeesPane" minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
+                  </content>
+                </Tab>
+                 <Tab fx:id="tabDepartments" text="Avdelningar">
+                    <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
+                    </content>
+                 </Tab>
+                 <Tab fx:id="tabCertificates" text="Certifikationer">
+                    <content>
+                       <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="800.0" />
+                    </content>
+                 </Tab>
+              </tabs>
+            </TabPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="defaultPage" prefHeight="600.0" prefWidth="800.0">
+         <children>
+            <Button fx:id="buttonNewFile" layoutX="139.0" layoutY="288.0" mnemonicParsing="false" text="New File" />
+            <Button fx:id="buttonLoadFile" layoutX="368.0" layoutY="288.0" mnemonicParsing="false" text="Load File" />
+            <Button fx:id="buttonSaveAndExit" layoutX="575.0" layoutY="288.0" mnemonicParsing="false" text="Save &amp; Exit" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
