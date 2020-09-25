@@ -1,5 +1,6 @@
 package View;
 
+import Model.Admin;
 import Model.Employee;
 import Model.Observer;
 import javafx.fxml.FXML;
@@ -12,7 +13,7 @@ public class EmployeeView extends AnchorPane implements Observer {
     public void addCertificate(){};
     Employee employee;
     @FXML Label name, personalID;
-    @FXML CheckBox select;
+    boolean selected;
 
     public EmployeeView(Employee employee) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EmployeeView.fxml"));
@@ -27,10 +28,12 @@ public class EmployeeView extends AnchorPane implements Observer {
         this.employee = employee;
         name.setText(employee.name);
         personalID.setText(employee.personalId);
+        Admin.getInstance().addObserver(this);
     }
 
     @Override
     public void update() {
-
+        name.setText(employee.name);
+        personalID.setText(employee.personalId);
     }
 }

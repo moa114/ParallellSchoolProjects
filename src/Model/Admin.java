@@ -8,7 +8,7 @@ public class Admin implements Observable{
     private CertificateHandler certificateHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
-    private List<Observer> observers;
+    private List<Observer> observers, toBeAdded, toBeRemoved;
 
     public static Admin getInstance() {
         if (instance == null)
@@ -22,6 +22,8 @@ public class Admin implements Observable{
         this.calendar = OurCalendar.getInstance();
         this.employeeSorter = new EmployeeSorter();
         this.observers = new ArrayList<>();
+        this.toBeAdded = new ArrayList<>();
+        this.toBeRemoved = new ArrayList<>();
     }
 
     public List<Employee> getAvailablePersons(long start, long end, List<Employee> employeeList) { //skickar in lista med anställda i parametern för att kunna göra denna och getQualifiedPersons i valfri ordning
@@ -70,14 +72,24 @@ public class Admin implements Observable{
             System.out.println(e.certificates);
         }
     }
+
+    public void changeEmployeeName(Employee employee, String name){
+        employee.name = name;
+        notifyObservers();
+    }
+
     public void addObserver(Observer o){
-        observers.add(o);
+        toBeAdded.add(o);
     }
     public void removeObserver(Observer o){
-        observers.remove(o);
+        toBeRemoved.add(o);
     }
     public void notifyObservers(){
+        observers.removeAll(toBeRemoved);
+        toBeRemoved.clear();
         observers.forEach(Observer::update);
+        observers.addAll(toBeAdded);
+        toBeAdded.clear();
     }
 
     public List<Employee> getEmployees() {
@@ -103,6 +115,7 @@ public class Admin implements Observable{
         if (checkLengthEmployeeId(personalId) && checkIfExistsEmployeeId(personalId)) {
             employees.add(new Employee(name, personalId));
         }
+        notifyObservers();
     }
 
     private boolean checkIfExistsEmployeeId(String PersonalId) {
@@ -125,15 +138,18 @@ public class Admin implements Observable{
     public void createEmployeeCertificate(Certificate certificate, Employee e, Date expiryDate) {
         e.assignCertificate(new EmployeeCertificate(certificate, expiryDate));
         certificateHandler.linkEmployeeToCertificate(certificate, e);
+        notifyObservers();
     }
 
     public void removeEmployeeCertificate(Certificate certificate, Employee e) {
         e.unAssignCertificate(e.getEmployeeCertificate(certificate));
         certificateHandler.unlinkEmployeeToCertificate(certificate, e);
+        notifyObservers();
     }
 
     public void removeEmployee(Employee e) {
         employees.remove(e);
+        notifyObservers();
     }
 
     public void removeEmployee(String personalId) {
@@ -143,7 +159,7 @@ public class Admin implements Observable{
                 break;
             }
         }
-
+        notifyObservers();
     }
 
 }

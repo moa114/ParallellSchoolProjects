@@ -44,7 +44,6 @@ public class StartPage implements Observer, Initializable {
         PersonList personList = new PersonList(admin.getEmployees());
         tabEmployeesPane.getChildren().clear();
         tabEmployeesPane.getChildren().add(personList);
-        admin.addObserver(personList);
     }
     private void setButtons(){
         buttonSaveAndExit.setOnAction(new EventHandler<ActionEvent>() {

@@ -1,6 +1,4 @@
-import Controller.AdminController;
 import Model.Admin;
-import View.StartPage;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,7 +7,7 @@ import javafx.stage.Stage;
 
 import java.io.File;
 import java.net.URL;
-import java.util.ResourceBundle;
+
 
 public class Runnable extends Application {
     public static void main(String[] args) {
@@ -17,6 +15,8 @@ public class Runnable extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
+        for (int index = 0; index<10; index++)
+            Admin.getInstance().createNewEmployee("Oliver Andersson", Long.toString(200006010000L+index));
         URL url = new File("src/View/StartPage.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         primaryStage.setTitle("Hello World");
