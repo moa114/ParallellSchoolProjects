@@ -4,18 +4,19 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.Phaser;
 
 public class WorkDay {
     public final long date;
-    private HashMap<Department, HashMap<WorkShift, List<Employee>>> departmentListHashMap;
     private static List<Department> departments = new ArrayList<>();
+    private HashMap<Department, List<WorkShift>>  departmentLinks;
 
     public WorkDay(long date) {
         this.date = date;
-        departmentListHashMap = new HashMap<>();
+        this.departmentLinks = new HashMap<>();
     }
 
-    boolean allDepartmentsFilled() {
+    /*boolean allDepartmentsFilled() {
         for (Department d : departments) {
             for (WorkShift w : d.getAllShifts()) {
                 if (w.requiredPersonnel > departmentListHashMap.get(d).get(w).size())
@@ -23,7 +24,7 @@ public class WorkDay {
             }
         }
         return true;
-    }
+    }*/
 
     List<Employee> getWorkingPersonnel(Department department) {
         return null;
@@ -31,21 +32,6 @@ public class WorkDay {
 
     List<Department> getAllDepartments() {
         return null;
-    }
-
-    public void scheduleEmployee(Employee employee, Department department, WorkShift workShift) {
-        departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
-        departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
-        departmentListHashMap.get(department).get(workShift).add(employee);
-        employee.occupiedTimes.add(workShift);
-    }
-
-    public void scheduleEmployees(List<Employee> employees, Department department, WorkShift workShift) {
-        departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
-        departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
-        departmentListHashMap.get(department).get(workShift).addAll(employees);
-        for (Employee employee : employees)
-            employee.occupiedTimes.add(workShift);
     }
 
     private long plusHours(int hours) {
@@ -61,5 +47,18 @@ public class WorkDay {
     }
 
     private void ScheduleEmployees(Collection<? extends Employee> employees, Department department) {
+    }
+
+    public void setWorkShifts(ArrayList<WorkShift> wss){
+        for (Department d : departments){
+            for (WorkShift ws1 : d.getAllShifts()){
+                for (WorkShift ws2 : wss){
+                    if (ws1 == ws2) {
+                        departmentLinks.computeIfAbsent(d, k -> new ArrayList<WorkShift>());
+                        departmentLinks.get(d).add(new WorkShift(ws2));
+                    }
+                }
+            }
+        }
     }
 }

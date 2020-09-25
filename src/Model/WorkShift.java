@@ -16,6 +16,13 @@ public class WorkShift {
         this.deligatedEmployees = new ArrayList<>();
     }
 
+    public WorkShift(WorkShift ws) {
+        this.start = ws.start;
+        this.end = ws.end;
+        this.requiredPersonnel = ws.requiredPersonnel;
+        this.deligatedEmployees = new ArrayList<>();
+    }
+
     public void registerOccupation(Employee e, OccupiedTime ot){
         deligatedEmployees.add(e);
         occupiedLinks.put(e, ot);

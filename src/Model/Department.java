@@ -14,6 +14,12 @@ public class Department {
         this.certificates = certificates;
     }
 
+    public Department(String name) {
+        this.allShifts = new ArrayList<>();
+        this.name = name;
+        this.certificates = new ArrayList<>();
+    }
+
     public void createShift(long start, long stop, int nEmployees) {
         allShifts.add(new WorkShift(start, stop, nEmployees));
     }

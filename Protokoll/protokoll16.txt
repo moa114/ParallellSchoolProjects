@@ -12,6 +12,7 @@ Sekreterare: Markus Grahn
 - Fortsätta arbete på GUI
 - Start på SDD
 - Fortsättning med user stories
+- Påbörja komentera koden
 
 ## Reports from previous meeting
 
@@ -20,7 +21,7 @@ Koden refaktorerades, en körbar javaFX vi skapades och designmodellen och maven
 ## Discussion items 
 
 1. Vad kan vi skriva i SDD?
-2. Hur ska man kunna ta bort occupied time från anställda samtidigt som ett workshift? 
+2. Hur ska man kunna ta bort occupiedtime från anställda samtidigt som ett workshift? 
 
 ## Outcomes and assignments 
 
@@ -29,4 +30,4 @@ Koden refaktorerades, en körbar javaFX vi skapades och designmodellen och maven
 3. Moa och Victor har sorterat och rättat protokollen samt java dokumenterat/kommenterat helften av all kod. 
 ## Wrap up
  
-- Nästa möte: 25/9 13:15, Fortsättning av user stories, GUI samt planering för SDD
+- Nästa möte: 25/9 13:15, Fortsättning av user stories, GUI samt planering för SDD punkt 4 samt 5
