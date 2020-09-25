@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
-
+/**
+ * Represents an static admin for the project with a list for all employees, a certificatehandler, a calendar and a employeesorter
+ */
 public class Admin {
     private List<Employee> employees;
     private CertificateHandler certificateHandler;
@@ -18,7 +20,9 @@ public class Admin {
         this.employeeSorter = new EmployeeSorter();
     }
 
-
+    /**
+     * creates an employee based on input from the keyboard
+     */
     public void consoleCommandCreateEmployee() {
         Scanner sc = new Scanner(System.in);
         String name;
@@ -49,6 +53,7 @@ public class Admin {
             System.out.println(e.certificates);
         }
     }
+
     //Behöver vara public för att printa ut lista av alla anställda?
     public List<Employee> getEmployees() {
         return employees;
@@ -86,12 +91,22 @@ public class Admin {
         return certificateHandler;
     }
 
+    /**
+     * creates an employee with a specific name and a specific personal ID
+     * @param name name of the employee
+     * @param personalId personal ID of the employee
+     */
     public void createNewEmployee(String name, String personalId) {
         if (checkLengthEmployeeId(personalId) && checkIfExistsEmployeeId(personalId)) {
             employees.add(new Employee(name, personalId));
         }
     }
 
+    /**
+     * checks if an chosen personal ID belongs to an employee
+     * @param PersonalId personal ID that shall be checked
+     * @return true if the ID doesn't match an employee's and false if it does
+     */
     private boolean checkIfExistsEmployeeId(String PersonalId) {
         for (Employee e : employees) {
             if (e.getPersonalId().equals(PersonalId)) {
@@ -101,6 +116,11 @@ public class Admin {
         return true;
     }
 
+    /**
+     * checks so a chosen personal ID is 12 characters long
+     * @param PersonalId the personal ID
+     * @return true if it's 12 characters long and false if it is not
+     */
     private boolean checkLengthEmployeeId(String PersonalId) {
         if (PersonalId.length() == 12) {
             return true;
@@ -109,20 +129,39 @@ public class Admin {
         }
     }
 
+    /**
+     * creates an employeecertificate with a chosen expire date to a chosen employee
+     * @param certificate the certificate that should be assigned to the employee
+     * @param e the employee who shall get a certificate
+     * @param expiryDate the expire date of the employeecertificate
+     */
     public void createEmployeeCertificate(Certificate certificate, Employee e, Date expiryDate) {
         e.assignCertificate(new EmployeeCertificate(certificate, expiryDate));
         certificateHandler.linkEmployeeToCertificate(certificate, e);
     }
 
+    /**
+     * Removes a chosen certificate from a chosen employee
+     * @param certificate the certificate that should be removed
+     * @param e the employee who's chosen certificate shall be removed
+     */
     public void removeEmployeeCertificate(Certificate certificate, Employee e) {
         e.unAssignCertificate(e.getEmployeeCertificate(certificate));
         certificateHandler.unlinkEmployeeToCertificate(certificate, e);
     }
 
+    /**
+     * removes an chosen employee from the admins list of employees
+     * @param e the employee that shall be removed
+     */
     public void removeEmployee(Employee e) {
         employees.remove(e);
     }
 
+    /**
+     * Removes an chosen employee based on its personal ID from the admins list of employees
+     * @param personalId the personal ID that belongs to the employee that shall be removed
+     */
     public void removeEmployee(String personalId) {
         for (Employee e : employees) {
             if (e.getPersonalId().equals(personalId)) {
