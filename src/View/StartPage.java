@@ -35,6 +35,7 @@ public class StartPage implements Observer, Initializable {
         setButtons();
         admin = Admin.getInstance();
         setTabs();
+        startPage.setVisible(false);
     }
 
     private void setTabs(){
@@ -44,6 +45,8 @@ public class StartPage implements Observer, Initializable {
         PersonList personList = new PersonList(admin.getEmployees());
         tabEmployeesPane.getChildren().clear();
         tabEmployeesPane.getChildren().add(personList);
+
+        tabCertificates.setContent();
     }
     private void setButtons(){
         buttonSaveAndExit.setOnAction(new EventHandler<ActionEvent>() {
@@ -64,6 +67,7 @@ public class StartPage implements Observer, Initializable {
         startPage.toFront();
         defaultPage.toBack();
         defaultPage.setVisible(false);
+        startPage.setVisible(true);
     }
     public void loadPersonnelView(){}
 
