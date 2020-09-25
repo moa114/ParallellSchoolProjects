@@ -1,8 +1,10 @@
 package Model;
 
-import java.time.DayOfWeek;
 import java.time.YearMonth;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.List;
 
 /**
  * Represents a calendar filled with work days
@@ -79,6 +81,4 @@ public class OurCalendar {
     WorkDay getDate(long date) {
         return null;
     }
-
-    private HashMap<DayOfWeek, List<WorkShift>> weekDays;
 }

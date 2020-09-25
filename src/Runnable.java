@@ -1,31 +1,38 @@
-import Model.Admin;
-import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.stage.Stage;
+import Model.*;
 
-import java.io.File;
-import java.net.URL;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.Scanner;
 
 
-public class Runnable extends Application {
-    public static void main(String[] args) {
-        launch(args);
+public class Runnable {
+
+    public static void main(String[] args) {/*
+        Admin admin = new Admin();
+        CertificateHandler certificateHandler = admin.getCertificatehandler();
+        OurCalendar calendar = OurCalendar.getInstance();
+        int index = askQuestionInt("How many persons?");
+        for (int i = 0; i<index; i++)
+            admin.createNewEmployee(askQuestionString("Name " + (1+i)), askQuestionInt("Personal ID"));
+        for (int i = askQuestionInt("How many certificates?"); i>0; i--)
+            certificateHandler.createNewCertificate(askQuestionString("Name of certificate?"));
+        Iterator<Certificate> iterator = certificateHandler.getAllCertificates();
+        while (iterator.hasNext())
+            System.out.println(iterator.next().name);
+        for (Employee e : admin.getEmployees())
+            System.out.println(e.name);
+        admin.getEmployees().get(askQuestionInt("which employee(0, 1, 2, 3...)")).assignCertificate(new EmployeeCertificate(certificateHandler.getCertificate(askQuestionString("name of certificate")), new Date()));
+        for (Employee e : admin.getEmployees())
+            System.out.println(e.certificates);*/
     }
-    @Override
-    public void start(Stage primaryStage) throws Exception {
-        for (int index = 0; index<10; index++)
-            Admin.getInstance().createNewEmployee("Oliver Andersson", Long.toString(200006010000L+index));
-        URL url = new File("src/View/StartPage.fxml").toURI().toURL();
-        Parent root = FXMLLoader.load(url);
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 800, 600));
-        primaryStage.show();
-        Runtime.getRuntime().addShutdownHook(new Thread(){
-            public void run(){
-                //TODO shutdownhook
-            }
-        });
+
+    public static int askQuestionInt(String question){
+        System.out.println(question);
+        return new Scanner(System.in).nextInt();
+    }
+
+    public static String askQuestionString(String question){
+        System.out.println(question);
+        return new Scanner(System.in).next();
     }
 }
