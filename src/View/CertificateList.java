@@ -1,19 +1,23 @@
 package View;
 
-import Model.Admin;
+import Model.Admin;;
 import Model.Certificate;
 import Model.Observer;
 import javafx.fxml.FXML;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 
-import javax.swing.text.html.ListView;
+import java.util.Iterator;
 
 public class CertificateList extends AnchorPane implements Observer {
-    @FXML ListView listOfCertificates;
+    @FXML
+    ListView<CertificateObject> listOfCertificates;
     public CertificateList() {
-        while (Admin.getInstance().getCertificatehandler().getAllCertificates().hasNext()){
-            
+        Iterator<Certificate> certificateIterator = Admin.getInstance().getCertificatehandler().getAllCertificates();
+        while (certificateIterator.hasNext()){
+            listOfCertificates.getItems().add(new CertificateObject(certificateIterator.next()));
         }
+        Admin.getInstance().addObserver(this);
     }
 
     @Override

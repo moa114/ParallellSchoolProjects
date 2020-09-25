@@ -46,7 +46,7 @@ public class StartPage implements Observer, Initializable {
         tabEmployeesPane.getChildren().clear();
         tabEmployeesPane.getChildren().add(personList);
 
-        tabCertificates.setContent();
+        tabCertificates.setContent(new CertificateList());
     }
     private void setButtons(){
         buttonSaveAndExit.setOnAction(new EventHandler<ActionEvent>() {

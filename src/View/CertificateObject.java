@@ -1,5 +1,6 @@
 package View;
 
+import Model.Certificate;
 import Model.EmployeeCertificate;
 import Model.Observer;
 import javafx.fxml.FXML;
@@ -10,16 +11,16 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
 public class CertificateObject extends AnchorPane implements Observer {
-    EmployeeCertificate certificate;
+    Certificate certificate;
     @FXML Label labelName;
     @FXML Button remove;
 
-    public CertificateObject(EmployeeCertificate certificate) {
+    public CertificateObject(Certificate certificate) {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CertificateObject.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
         this.certificate = certificate;
-        this.labelName.setText(certificate.getCertificateName());
+        this.labelName.setText(certificate.getName());
     }
 
     @Override
