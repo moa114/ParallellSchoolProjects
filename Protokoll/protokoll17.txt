@@ -1,0 +1,34 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 25/9 13:15-15:00
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Christian Lind
+
+## Objectives 
+
+- Fortsätta arbete på GUI
+- Fortsättning med user stories
+- Slutföra komentering av den gamla koden
+
+## Reports from previous meeting
+
+Arbetet med GUIt har fortsatt, punkt 1 och 2 har skrivits i SDD samt att alla tidigare protokoll har blivit rättade och hälften av koden har blivit kommenterat.
+
+## Discussion items 
+
+1. Hur kan man använda ListView i JavaFX för att lägga till och ta bort anställda?
+2. Vad kan vi skriva i punkt 4, 5 och 5.1 i SDD?
+3. Hur ska de olika klasserna hänga ihop när det gäller olika WorkShift på olika Workdays? 
+
+## Outcomes and assignments 
+
+1. Oliver har fortsatt arbeta med javaFX på GUI och fått det körbart på så sätt att man kan lägga till och ta bort anställdasamt kommit med förslag på en ny klass WeekHandler ska kunna se till att man kan upprepa schemat för WorkShift. 
+2. Alla i gruppen disskuterade om hur man skulle göra angå punkt 4 och 5 i SDD där det togs beslut om att i punk 4 så kom alla överäns om hur data ska lagras via textfiler. I punkt 5 så kom alla överäns om att det endast ska skrivas om att jUnit har används och att det inte ska användas några andra verktyg. I punkt 5.1 så var överänskommelsen att det skulle skapas en logga in sida före man kan köra programmet, detta då applikationen kommer att hantera känsliga data.
+3. Markus och Christian har fortsatt arbetat med workshift user storyn där den nästa gång ska testas. 
+4. Moa och Victor har Java dokumenterat/kommenterat resten av all kod samt börjat kolla på css för JavaFX vyn. 
+## Wrap up
+ 
+- Nästa möte: 25/9 15:00, Handledarmöte där frågan ska ställas om hur man ska tolka sista stycket i punkt 5 i SDD.
