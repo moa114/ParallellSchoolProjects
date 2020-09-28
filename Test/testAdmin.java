@@ -13,7 +13,7 @@ public class testAdmin {
 
     @Test
     public void testCreateNewEmployee() {  //kollar så createNewEmployee lägger till i listan och att man inte kan lägga till om personnummret inte är 12 långt samt om det redan finns
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "1234789123");
         assertTrue(admin.getEmployeeListSize() == 0);
         admin.createNewEmployee("moa", "123456789123");
@@ -26,7 +26,7 @@ public class testAdmin {
 
     @Test
     public void testDeleteEmployee() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789123");
         admin.createNewEmployee("markus", "213456789123");
         admin.removeEmployee(admin.getEmployeeByName("moa"));
@@ -40,7 +40,7 @@ public class testAdmin {
 
     @Test
     public void testRemoveEmployeeCertificate() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789231"); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
         admin.createNewEmployee("moa", "123456789235");
         admin.createNewEmployee("crilllle", "123456789239");

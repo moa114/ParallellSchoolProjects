@@ -17,7 +17,7 @@ import java.util.Date;
 public class Runnable extends Application {
     public static void main(String[] args) {
         launch(args);
-        
+    }
     @Override
     public void start(Stage primaryStage) throws Exception {
         for (int index = 0; index<10; index++)

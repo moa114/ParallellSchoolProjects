@@ -8,7 +8,7 @@ import static org.junit.Assert.assertEquals;
 public class testEmployeeCertificate {
     @Test
     public void testDeligateCertificate() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789123");
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");

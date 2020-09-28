@@ -1,23 +1,21 @@
 package Model;
 
 import java.util.*;
-
-public class Admin implements Observable{
-    private static Admin instance = null;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
+
 /**
  * Represents an static admin for the project with a list for all employees, a certificatehandler, a calendar and a employeesorter
  */
-public class Admin {
+public class Admin implements Observable{
     private List<Employee> employees;
     private List<Department> departments;
     private CertificateHandler certificateHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
     private List<Observer> observers, toBeAdded, toBeRemoved;
+    private static Admin instance = null;
 
     public static Admin getInstance() {
         if (instance == null)
@@ -34,6 +32,7 @@ public class Admin {
         this.toBeAdded = new ArrayList<>();
         this.toBeRemoved = new ArrayList<>();
         this.departments = new ArrayList<>();
+    }
 
     public void changeEmployeeName(Employee employee, String name){
         employee.name = name;

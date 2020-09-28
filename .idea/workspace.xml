@@ -21,10 +21,11 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.testDepartment.testRemoveCertificateFromDepartment">
+  <component name="RunManager" selected="Application.Runnable">
     <configuration name="Runnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Runnable" />
       <module name="ParallellSchoolProjects" />
+      <option name="VM_PARAMETERS" value="--module-path C:\Users\User\IdeaLibs\javafx-sdk-14\lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -70,21 +71,33 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Runnable" />
       <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
       <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
-      <item itemvalue="Application.Runnable" />
       <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
         <item itemvalue="Application.Runnable" />
+        <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
         <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
         <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
         <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -100,25 +113,33 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1458" height="226" key="GridCell.Tab.0.bottom" timestamp="1601037405404">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state x="420" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601300365771">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="420" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601300365771" />
+    <state width="1860" height="279" key="GridCell.Tab.0.bottom" timestamp="1601300380391">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1458" height="226" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1860" height="279" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601300380391" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1458" height="226" key="GridCell.Tab.0.center" timestamp="1601037405404">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state width="1860" height="279" key="GridCell.Tab.0.center" timestamp="1601300380391">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1458" height="226" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1860" height="279" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601300380391" />
     <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1458" height="226" key="GridCell.Tab.0.left" timestamp="1601037405404">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state width="1860" height="279" key="GridCell.Tab.0.left" timestamp="1601300380391">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1458" height="226" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1860" height="279" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601300380391" />
     <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1458" height="226" key="GridCell.Tab.0.right" timestamp="1601037405404">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state width="1860" height="279" key="GridCell.Tab.0.right" timestamp="1601300380391">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1458" height="226" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1860" height="279" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601300380391" />
     <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
     <state width="1458" height="316" key="GridCell.Tab.1.bottom" timestamp="1601037381773">
       <screen x="0" y="0" width="1500" height="960" />

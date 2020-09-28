@@ -9,7 +9,7 @@ import static org.junit.Assert.assertTrue;
 public class testCertificateHandler {
     @Test
     public void testWhoHasCertificate() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789231"); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
         admin.createNewEmployee("moa", "213456789123");
         admin.createNewEmployee("crilllle", "312123456789");
@@ -27,7 +27,7 @@ public class testCertificateHandler {
 
     @Test
     public void testRemoveGlobalCertificate() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         admin.createNewEmployee("moa", "123456789231");
         admin.createNewEmployee("moa", "123456789232");
         admin.createNewEmployee("crilllle", "1234567892315");

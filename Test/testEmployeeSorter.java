@@ -13,7 +13,7 @@ import static org.junit.Assert.assertTrue;
 public class testEmployeeSorter {
     @Test
     public void testGetQualifiedPersons() {
-        Admin admin = new Admin();
+        Admin admin = Admin.getInstance();
         CertificateHandler ch = admin.getCertificatehandler();
         admin.createNewEmployee("moa", "123456789231");
         admin.createNewEmployee("Victor", "123456789234");;
