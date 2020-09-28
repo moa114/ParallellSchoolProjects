@@ -1,0 +1,37 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 28/9 15:00-16:00
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Victor Cousin
+
+## Objectives 
+
+- Planera inför denna vecka
+- Bestämma hur veckans sprint ska se ut, vilka user stories ska vara klara?
+
+## Reports from previous meeting
+
+RAD behöver uppdateras med user stories som finns i trello och vi behöver bli bättre på att namnge våra commits.
+
+## Discussion items 
+
+1. Vad ska hinna bli färdigt denna sprint? Vem ska göra vad?
+2. Hur många arbetstillfällen krävs denna vecka?
+3. Hur ligger vi till med SDD, kommer den bli klar tills fredag?
+4. Vilka user stories prioriteras?
+
+## Outcomes and assignments 
+
+1. SDD kommer att arbetas vidare med för att få en fullständing version tills fredag. Christian,Markus och Oliver har fortsatt ansvar över detta.
+2. User storien Hantera arbetspass behöver testas.
+3. Moa och Victor ska under denna sprint ha hand om de två user stories som heter Välja hur ofta man jobbar och Garantera alla rast.
+4. Markus och Christian ska arbeta med user storien Inga felaktiga pass.
+5. Oliver ska arbeta med Designmodell ver 2.
+6. Moa och Markus har uppdaterat RAD med user stories och har rangordnat dem.
+7. Vi har bestämt att vi ska försöka bli tydligare med våra namn på våra commits, t.ex börja namnen med add,delete och fix.
+## Wrap up
+ 
+- Nästa möte: 29/9 10:00, Vi fortsätter arbeta utifrån den nya sprinten.
