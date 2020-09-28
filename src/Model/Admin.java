@@ -9,6 +9,7 @@ import java.util.Scanner;
  */
 public class Admin {
     private List<Employee> employees;
+    private List<Department> departments;
     private CertificateHandler certificateHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
@@ -18,6 +19,7 @@ public class Admin {
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
         this.employeeSorter = new EmployeeSorter();
+        this.departments = new ArrayList<>();
     }
 
     /**
@@ -170,6 +172,22 @@ public class Admin {
             }
         }
 
+    }
+
+    public void createNewDepartment(String name) {
+        departments.add(new Department(name));
+    }
+
+    public void createNewDepartment(String name, ArrayList<Certificate> cl) {
+        departments.add(new Department(name, cl));
+    }
+
+    public void createWorkshift(Department d, long start, long end, int personell){
+        d.createShift(start, end, personell);
+    }
+
+    public void createWorkshift(Department d, WorkShift ws){
+        d.removeShift(ws);
     }
 
 }

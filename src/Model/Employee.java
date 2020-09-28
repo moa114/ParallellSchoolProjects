@@ -102,4 +102,8 @@ public class Employee {
     public String getName() {
         return name;
     }
+
+    public void unRegisterOccupation(OccupiedTime ot){
+        occupiedTimes.remove(ot);
+    }
 }
