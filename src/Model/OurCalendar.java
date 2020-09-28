@@ -4,7 +4,9 @@ import java.time.DayOfWeek;
 import java.time.YearMonth;
 import java.util.*;
 
-
+/**
+ * Represents a calendar filled with work days
+ */
 public class OurCalendar {
     private Calendar calendar;
     private List<WorkDay> workDays;
@@ -50,6 +52,10 @@ public class OurCalendar {
         }
     }
 
+    /**
+     * Gets the list of work days
+     * @return a list of work days
+     */
     public List<WorkDay> getOurDates() {
         return workDays;
     }
@@ -65,6 +71,11 @@ public class OurCalendar {
         throwAwayDate.setHours(0);
     }
 
+    /**
+     * Gets the work day of the specified date
+     * @param date The date
+     * @return the work day of the date
+     */
     WorkDay getDate(long date) {
         return null;
     }

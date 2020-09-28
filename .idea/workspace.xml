@@ -1,318 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8543c1a0-41ab-4dc6-a8c7-90b4eeb4ad4d" name="Default Changelist" comment="">
+    <list default="true" id="42be1be4-4c95-465e-9ca2-9669c01d090e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/test.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/Employee.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Employee.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="JavaFXApplication" />
-        <option value="Interface" />
-        <option value="Class" />
-        <option value="FxmlFile" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="1fa70L9Xab8rZnTX9p3mODUssj5" />
+  <component name="ProjectId" id="1hrIaZ2ADtJb0Z9IOIcQCy7d1VM" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="false" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/IdeaLibs/javafx-sdk-14/lib" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
-  <component name="RunManager" selected="Application.Runnable">
-    <configuration name="BasePlate" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.BasePlate" />
-      <module name="ParallellSchoolProjects" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="View.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Runnable" type="Application" factoryName="Application" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.testDepartment.testRemoveCertificateFromDepartment">
+    <configuration name="Runnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Runnable" />
       <module name="ParallellSchoolProjects" />
-      <option name="VM_PARAMETERS" value="--module-path C:\Users\User\IdeaLibs\javafx-sdk-14\lib --add-modules javafx.controls,javafx.fxml" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StartPage" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="View.StartPage" />
-      <module name="ParallellSchoolProjects" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="View.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <configuration name="testAdmin.testCreateNewEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="" />
-      <option name="TEST_OBJECT" value="class" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test.testCreateNewEmployee" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="MAIN_CLASS_NAME" value="testAdmin" />
       <option name="METHOD_NAME" value="testCreateNewEmployee" />
       <option name="TEST_OBJECT" value="method" />
-      <option name="PARAMETERS" value="" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testInit" type="JUnit" factoryName="JUnit" nameIsGenerated="true">
+    <configuration name="testDepartment.testRemoveCertificateFromDepartment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testInit" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="PARAMETERS" value="" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test.testRemoveGlobalCertificate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testRemoveGlobalCertificate" />
+      <option name="MAIN_CLASS_NAME" value="testDepartment" />
+      <option name="METHOD_NAME" value="testRemoveCertificateFromDepartment" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testWhoHasCertificate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.testGetQualifiedPersons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testWhoHasCertificate" />
+      <option name="METHOD_NAME" value="testGetQualifiedPersons" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testgetQualifiedPersons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="test.testRemoveEmployeeCertificate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testgetQualifiedPersons" />
+      <option name="METHOD_NAME" value="testRemoveEmployeeCertificate" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
+      <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
+      <item itemvalue="JUnit.test.testGetQualifiedPersons" />
+      <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
       <item itemvalue="Application.Runnable" />
-      <item itemvalue="Application.BasePlate" />
-      <item itemvalue="Application.StartPage" />
-      <item itemvalue="JUnit.test" />
-      <item itemvalue="JUnit.test.testCreateNewEmployee" />
-      <item itemvalue="JUnit.test.testInit" />
-      <item itemvalue="JUnit.test.testRemoveGlobalCertificate" />
-      <item itemvalue="JUnit.test.testWhoHasCertificate" />
-      <item itemvalue="JUnit.test.testgetQualifiedPersons" />
+      <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.StartPage" />
-        <item itemvalue="Application.BasePlate" />
-        <item itemvalue="JUnit.test.testgetQualifiedPersons" />
-        <item itemvalue="JUnit.test.testWhoHasCertificate" />
-        <item itemvalue="JUnit.test.testRemoveGlobalCertificate" />
+        <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
+        <item itemvalue="Application.Runnable" />
+        <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
+        <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
+        <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="8543c1a0-41ab-4dc6-a8c7-90b4eeb4ad4d" name="Default Changelist" comment="" />
-      <created>1596444125817</created>
+      <changelist id="42be1be4-4c95-465e-9ca2-9669c01d090e" name="Default Changelist" comment="" />
+      <created>1600761893425</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1596444125817</updated>
+      <updated>1600761893425</updated>
     </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="552" y="186" key="#Project_Structure" timestamp="1600349872394">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1458" height="226" key="GridCell.Tab.0.bottom" timestamp="1601037405404">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="552" y="179" key="#Project_Structure/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1596444169805" />
-    <state x="552" y="186" key="#Project_Structure/0.0.1920.1080@0.0.1920.1080" timestamp="1600349872394" />
-    <state x="677" y="236" key="#Runnable" timestamp="1600349623354">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1458" height="226" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
+    <state width="1458" height="226" key="GridCell.Tab.0.center" timestamp="1601037405404">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="677" y="236" key="#Runnable/0.0.1920.1080@0.0.1920.1080" timestamp="1600349623354" />
-    <state x="414" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600767984461">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="226" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
+    <state width="1458" height="226" key="GridCell.Tab.0.left" timestamp="1601037405404">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="414" y="188" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600767984461" />
-    <state x="414" y="195" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600350127197" />
-    <state x="719" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600767431727">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="226" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
+    <state width="1458" height="226" key="GridCell.Tab.0.right" timestamp="1601037405404">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="719" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600767431727" />
-    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser" timestamp="1601034948897">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="226" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
+    <state width="1458" height="316" key="GridCell.Tab.1.bottom" timestamp="1601037381773">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="765" y="205" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601034948897" />
-    <state x="2685" y="-354" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040/1920.-559.1920.1040@1920.-559.1920.1040" timestamp="1599138160285" />
-    <state x="808" y="429" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1600349386426">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1458" height="316" key="GridCell.Tab.1.bottom/0.0.1500.960@0.0.1500.960" timestamp="1601037381773" />
+    <state width="1877" height="363" key="GridCell.Tab.1.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600765694072" />
+    <state width="1458" height="316" key="GridCell.Tab.1.center" timestamp="1601037381773">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="808" y="429" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1600349386426" />
-    <state x="676" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1600764634591">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="316" key="GridCell.Tab.1.center/0.0.1500.960@0.0.1500.960" timestamp="1601037381773" />
+    <state width="1877" height="363" key="GridCell.Tab.1.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600765694072" />
+    <state width="1458" height="316" key="GridCell.Tab.1.left" timestamp="1601037381773">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="676" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600764634591" />
-    <state x="901" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.2560.1400@0.0.2560.1400" timestamp="1599832448735" />
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1599553929669">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="316" key="GridCell.Tab.1.left/0.0.1500.960@0.0.1500.960" timestamp="1601037381773" />
+    <state width="1877" height="363" key="GridCell.Tab.1.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600765694072" />
+    <state width="1458" height="316" key="GridCell.Tab.1.right" timestamp="1601037381773">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state x="690" y="268" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1599553929669" />
-    <state x="557" y="216" key="#test.testCreateNewEmployee" timestamp="1600350277324">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="557" y="216" key="#test.testCreateNewEmployee/0.0.1920.1080@0.0.1920.1080" timestamp="1600350277324" />
-    <state x="557" y="216" key="#test.testInit" timestamp="1600350268718">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="557" y="216" key="#test.testInit/0.0.1920.1080@0.0.1920.1080" timestamp="1600350268718" />
-    <state x="740" y="276" key="FileChooserDialogImpl" timestamp="1600702504392">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="740" y="276" key="FileChooserDialogImpl/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600702504392" />
-    <state x="740" y="287" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1600349844333" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1601042635446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601042635446" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600429863075" />
-    <state width="1236" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1600438156655" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1601042635446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601042635446" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600429863073" />
-    <state width="1236" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1600438156655" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1601042635446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601042635446" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600429863072" />
-    <state width="1236" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1600438156655" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1601042635446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601042635446" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600429863074" />
-    <state width="1236" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1600438156655" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1601042635446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601042635446" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1601042635446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601042635446" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1601042635446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601042635446" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1601042635446">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601042635446" />
-    <state x="625" y="220" key="NewModule_or_Project.wizard" timestamp="1600342758677">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="625" y="220" key="NewModule_or_Project.wizard/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600342758677" />
-    <state x="586" y="191" key="SettingsEditor" timestamp="1600702509952">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="586" y="191" key="SettingsEditor/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600702509952" />
-    <state x="586" y="229" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1600349914672" />
-    <state x="781" y="344" key="SettingsEditor/0.0.2560.1400@0.0.2560.1400" timestamp="1600159801213" />
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog" timestamp="1600941121763">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600941121763" />
-    <state x="2576" y="-213" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-559.1920.1040@1920.-559.1920.1040" timestamp="1599135136203" />
-    <state x="664" y="430" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1600349557726">
-      <screen x="0" y="0" width="1920" height="1080" />
-    </state>
-    <state x="664" y="414" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1600342825822" />
-    <state x="664" y="430" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1920.1080@0.0.1920.1080" timestamp="1600349557726" />
-    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1599829310988">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="1097" y="613" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400@0.0.2560.1400" timestamp="1599829310988" />
-    <state x="987" y="299" width="585" height="801" key="find.popup" timestamp="1600159754575">
-      <screen x="0" y="0" width="2560" height="1400" />
-    </state>
-    <state x="987" y="299" width="585" height="801" key="find.popup/0.0.2560.1400@0.0.2560.1400" timestamp="1600159754575" />
-    <state x="342" y="141" key="new project wizard" timestamp="1596649557096">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="342" y="141" key="new project wizard/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1596649557096" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601038995105">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601038995105" />
+    <state width="1458" height="316" key="GridCell.Tab.1.right/0.0.1500.960@0.0.1500.960" timestamp="1601037381773" />
+    <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600765694072" />
   </component>
 </project>
