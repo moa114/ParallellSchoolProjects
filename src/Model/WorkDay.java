@@ -4,14 +4,15 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.Phaser;
 
 /**
  * Represents a work day with a specified date, a hash map(with departments, work shifts and employees),and a list of departments
  */
 public class WorkDay {
     public final long date;
-    private HashMap<Department, HashMap<WorkShift, List<Employee>>> departmentListHashMap;
     private static List<Department> departments = new ArrayList<>();
+    private HashMap<Department, List<WorkShift>>  departmentLinks;
 
     /**
      * Constructs a work day with a specified date and with hash map
@@ -19,7 +20,7 @@ public class WorkDay {
      */
     public WorkDay(long date) {
         this.date = date;
-        departmentListHashMap = new HashMap<>();
+        this.departmentLinks = new HashMap<>();
     }
 
     /**
@@ -34,7 +35,7 @@ public class WorkDay {
             }
         }
         return true;
-    }
+    }*/
 
     /**
      * Gets the employees that are working in a specified department
@@ -93,5 +94,18 @@ public class WorkDay {
     }
 
     private void ScheduleEmployees(Collection<? extends Employee> employees, Department department) {
+    }
+
+    public void setWorkShifts(ArrayList<WorkShift> wss){
+        for (Department d : departments){
+            for (WorkShift ws1 : d.getAllShifts()){
+                for (WorkShift ws2 : wss){
+                    if (ws1 == ws2) {
+                        departmentLinks.computeIfAbsent(d, k -> new ArrayList<WorkShift>());
+                        departmentLinks.get(d).add(new WorkShift(ws2));
+                    }
+                }
+            }
+        }
     }
 }
