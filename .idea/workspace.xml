@@ -7,6 +7,15 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+        <option value="FxmlFile" />
+        <option value="Interface" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -19,7 +28,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="JUnit.testDepartment.testRemoveCertificateFromDepartment">
+  <component name="RunManager" selected="Application.Runnable">
     <configuration name="Runnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Runnable" />
       <module name="ParallellSchoolProjects" />
@@ -68,21 +77,33 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Runnable" />
       <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
       <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
-      <item itemvalue="Application.Runnable" />
       <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
         <item itemvalue="Application.Runnable" />
+        <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
         <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
         <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
         <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -98,6 +119,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601368912156">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601368912156" />
     <state width="1458" height="226" key="GridCell.Tab.0.bottom" timestamp="1601037405404">
       <screen x="0" y="0" width="1500" height="960" />
     </state>

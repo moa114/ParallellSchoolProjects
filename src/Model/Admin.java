@@ -30,6 +30,10 @@ public class Admin implements Observable{
         this.calendar = OurCalendar.getInstance();
         this.employeeSorter = new EmployeeSorter();
         this.departments = new ArrayList<>();
+        this.observers = new ArrayList<>();
+        this.toBeAdded = new ArrayList<>();
+        this.toBeRemoved = new ArrayList<>();
+        this.departments = new ArrayList<>();
     }
 
     /**
@@ -69,10 +73,7 @@ public class Admin implements Observable{
     //Behöver vara public för att printa ut lista av alla anställda?
     public List<Employee> getEmployees() {
         return employees;
-        this.observers = new ArrayList<>();
-        this.toBeAdded = new ArrayList<>();
-        this.toBeRemoved = new ArrayList<>();
-        this.departments = new ArrayList<>();
+
     }
 
     public void changeEmployeeName(Employee employee, String name){
