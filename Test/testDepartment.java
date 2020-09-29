@@ -34,9 +34,4 @@ public class testDepartment {
         assertTrue(dep.getAllCertificate().size() == 0);
     }
 
-    @Test
-    public void testDepartmentFilled() { //TODO  ?
-        Admin admin = new Admin();
-
-    }
 }

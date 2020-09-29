@@ -1,18 +1,28 @@
 package Model;
 
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Scanner;
+
 /**
  * Represents an static admin for the project with a list for all employees, a certificatehandler, a calendar and a employeesorter
  */
-public class Admin {
+
+public class Admin implements Observable{
     private List<Employee> employees;
     private List<Department> departments;
     private CertificateHandler certificateHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
+    private List<Observer> observers, toBeAdded, toBeRemoved;
+    private static Admin instance = null;
+
+    public static Admin getInstance() {
+        if (instance == null)
+            instance = new Admin();;
+        return instance;
+    }
 
     public Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
@@ -59,6 +69,29 @@ public class Admin {
     //Behöver vara public för att printa ut lista av alla anställda?
     public List<Employee> getEmployees() {
         return employees;
+        this.observers = new ArrayList<>();
+        this.toBeAdded = new ArrayList<>();
+        this.toBeRemoved = new ArrayList<>();
+        this.departments = new ArrayList<>();
+    }
+
+    public void changeEmployeeName(Employee employee, String name){
+        employee.name = name;
+        notifyObservers();
+    }
+
+    public void addObserver(Observer o){
+        toBeAdded.add(o);
+    }
+    public void removeObserver(Observer o){
+        toBeRemoved.add(o);
+    }
+    public void notifyObservers(){
+        observers.removeAll(toBeRemoved);
+        toBeRemoved.clear();
+        observers.forEach(Observer::update);
+        observers.addAll(toBeAdded);
+        toBeAdded.clear();
     }
     public int getEmployeeListSize(){return employees.size();}
 
