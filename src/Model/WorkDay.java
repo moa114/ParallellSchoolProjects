@@ -13,6 +13,8 @@ public class WorkDay {
     public final long date;
     private static List<Department> departments = new ArrayList<>();
     private HashMap<Department, List<WorkShift>>  departmentLinks;
+    private long guaranteedFreeTime;
+
 
     /**
      * Constructs a work day with a specified date and with hash map
@@ -23,14 +25,23 @@ public class WorkDay {
         this.departmentLinks = new HashMap<>();
     }
 
+    public void setGuaranteedFreeTime(int hours){
+        this.guaranteedFreeTime=(plusHours(hours)-date);
+    }
+
     /**
      * Checks if all departments are filled
      * @return true if all the departments are filled and otherwise false
      */
-    boolean allDepartmentsFilled() {
-
+ /*   boolean allDepartmentsFilled() {
+        for (Department d : departments) {
+            for (WorkShift w : d.getAllShifts()) {
+                if (w.requiredPersonnel > departmentListHashMap.get(d).get(w).size())
+                    return false;
+            }
+        }
         return true;
-    }
+    }*/
 
     /**
      * Gets the employees that are working in a specified department
@@ -56,9 +67,17 @@ public class WorkDay {
      * @param workShift The work shift the employee will be scheduled on
      */
     public void scheduleEmployee(Employee employee, Department department, WorkShift workShift) {
+       /* departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
+        departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
+        departmentListHashMap.get(department).get(workShift).add(employee);*/
+        occupiesEmployee(workShift, employee);
 
     }
 
+    public void occupiesEmployee(WorkShift workShift, Employee e){
+        long endOccupiedTime= (workShift.end)+guaranteedFreeTime;
+        e.occupiedTimes.add(new OccupiedTime(workShift.start, endOccupiedTime));
+    }
     /**
      * A method that schedules employees on a work shift in a department
      * @param employees The list of employees that will be scheduled
@@ -67,6 +86,11 @@ public class WorkDay {
      */
     public void scheduleEmployees(List<Employee> employees, Department department, WorkShift workShift) {
 
+      /*  departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
+        departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
+        departmentListHashMap.get(department).get(workShift).addAll(employees);*/
+        for (Employee employee : employees)
+           occupiesEmployee(workShift, employee);
     }
 
     private long plusHours(int hours) {

@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="42be1be4-4c95-465e-9ca2-9669c01d090e" name="Default Changelist" comment="" />
+    <list default="true" id="42be1be4-4c95-465e-9ca2-9669c01d090e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/testWorkday.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/testWorkday.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/WorkDay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/WorkDay.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -27,8 +31,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Application.Runnable">
+  <component name="RunManager" selected="JUnit.testWorkday.testoccupiesEmployee">
     <configuration name="Runnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Runnable" />
       <module name="ParallellSchoolProjects" />
@@ -57,11 +64,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testGetQualifiedPersons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testWorkday.testoccupiesEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testGetQualifiedPersons" />
+      <option name="MAIN_CLASS_NAME" value="testWorkday" />
+      <option name="METHOD_NAME" value="testoccupiesEmployee" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -80,17 +87,17 @@
     <list>
       <item itemvalue="Application.Runnable" />
       <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
-      <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
       <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
+      <item itemvalue="JUnit.testWorkday.testoccupiesEmployee" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testWorkday.testoccupiesEmployee" />
         <item itemvalue="Application.Runnable" />
         <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
         <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
         <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
-        <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       </list>
     </recent_temporary>
   </component>
@@ -124,28 +131,28 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601368970881" />
-    <state width="1877" height="348" key="GridCell.Tab.0.bottom" timestamp="1601369142211">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="256" key="GridCell.Tab.0.bottom" timestamp="1601556704640">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state width="1458" height="226" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1458" height="256" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1601556704640" />
     <state width="1877" height="348" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601369142211" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1877" height="348" key="GridCell.Tab.0.center" timestamp="1601369142210">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="256" key="GridCell.Tab.0.center" timestamp="1601556704640">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state width="1458" height="226" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1458" height="256" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1601556704640" />
     <state width="1877" height="348" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601369142210" />
     <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1877" height="348" key="GridCell.Tab.0.left" timestamp="1601369142210">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="256" key="GridCell.Tab.0.left" timestamp="1601556704640">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state width="1458" height="226" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1458" height="256" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1601556704640" />
     <state width="1877" height="348" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601369142210" />
     <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1877" height="348" key="GridCell.Tab.0.right" timestamp="1601369142210">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="256" key="GridCell.Tab.0.right" timestamp="1601556704640">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state width="1458" height="226" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1458" height="256" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1601556704640" />
     <state width="1877" height="348" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601369142210" />
     <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1601369142211">
@@ -172,5 +179,9 @@
     <state width="1458" height="316" key="GridCell.Tab.1.right/0.0.1500.960@0.0.1500.960" timestamp="1601037381773" />
     <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601369142211" />
     <state width="1877" height="363" key="GridCell.Tab.1.right/0.0.1920.1080@0.0.1920.1080" timestamp="1600765694072" />
+    <state x="231" y="55" key="SettingsEditor" timestamp="1601556661310">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="231" y="55" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1601556661310" />
   </component>
 </project>
