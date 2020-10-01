@@ -183,11 +183,33 @@ public class Admin {
     }
 
     public void createWorkshift(Department d, long start, long end, int personell){
-        d.createShift(start, end, personell);
+        if (validateTimeSpan(start, end)) {
+            d.createShift(start, end, personell);
+        } else {
+            System.out.println("invalid time span");
+        }
     }
 
     public void createWorkshift(Department d, WorkShift ws){
+        d.createShift(ws);
+    }
+
+    public void removeWorkshift(Department d, WorkShift ws){
         d.removeShift(ws);
+    }
+
+    public Department getDepartmentByName(String name) {
+        for (Department d : departments){
+            if (d.getName().equals(name)){
+                return d;
+            }
+        }
+        System.out.println("invalid name");
+        return null;//TODO exception?
+    }
+
+    private boolean validateTimeSpan(long start, long end){
+        return start < end;
     }
 
 }

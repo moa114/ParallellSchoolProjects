@@ -27,6 +27,7 @@ public class WorkDay {
      * Checks if all departments are filled
      * @return true if all the departments are filled and otherwise false
      */
+    /*
     boolean allDepartmentsFilled() {
         for (Department d : departments) {
             for (WorkShift w : d.getAllShifts()) {
@@ -60,12 +61,13 @@ public class WorkDay {
      * @param department The department where the employee will be scheduled
      * @param workShift The work shift the employee will be scheduled on
      */
+    /*
     public void scheduleEmployee(Employee employee, Department department, WorkShift workShift) {
         departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
         departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
         departmentListHashMap.get(department).get(workShift).add(employee);
         employee.occupiedTimes.add(workShift);
-    }
+    }*/
 
     /**
      * A method that schedules employees on a work shift in a department
@@ -73,13 +75,14 @@ public class WorkDay {
      * @param department The department where the employees will be scheduled
      * @param workShift The work shift the employees will be scheduled on
      */
+    /*
     public void scheduleEmployees(List<Employee> employees, Department department, WorkShift workShift) {
         departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
         departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
         departmentListHashMap.get(department).get(workShift).addAll(employees);
         for (Employee employee : employees)
             employee.occupiedTimes.add(workShift);
-    }
+    }*/
 
     private long plusHours(int hours) {
         return date + 1000 * 60 * 60 * hours;

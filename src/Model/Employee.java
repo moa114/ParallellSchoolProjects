@@ -106,4 +106,9 @@ public class Employee {
     public void unRegisterOccupation(OccupiedTime ot){
         occupiedTimes.remove(ot);
     }
+
+    public void registerOccupation(){
+
+    }
+
 }
