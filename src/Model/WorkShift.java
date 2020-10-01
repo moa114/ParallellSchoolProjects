@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WorkShift {
-    private Certificate certificate;
+    private ArrayList<Certificate> certificates;
     private Employee employee;
     private OccupiedTime occupiedTime;
     private boolean occupied = false;
@@ -19,7 +19,19 @@ public class WorkShift {
     public WorkShift(long start, long end, Certificate certificate) {
         this.start = start;
         this.end = end;
-        this.certificate = certificate;
+        this.certificates.add(certificate);
+    }
+
+    /**
+     * Creates a new workshift
+     * @param start The starting time for the Workshift
+     * @param end The ending time for the Workshift
+     * @param certificates A list of required Certificates 
+     */
+    public WorkShift(long start, long end, ArrayList<Certificate> certificates) {
+        this.start = start;
+        this.end = end;
+        this.certificates.addAll(certificates);
     }
 
     /**
@@ -39,7 +51,7 @@ public class WorkShift {
     public WorkShift(WorkShift ws) {
         this.start = ws.start;
         this.end = ws.end;
-        this.certificate = ws.certificate;
+        this.certificates = ws.certificates;
     }
 
     /**
