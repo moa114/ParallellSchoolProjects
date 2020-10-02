@@ -17,7 +17,6 @@ public class OurCalendar {
     /**
      * Initalizes the class with a Java calender as singleton
      */
-
     public static OurCalendar getInstance() {
         if (instance == null)
             instance = new OurCalendar();
@@ -56,6 +55,7 @@ public class OurCalendar {
 
     /**
      * Gets the list of work days
+     *
      * @return a list of work days
      */
     public List<WorkDay> getOurDates() {
@@ -75,10 +75,11 @@ public class OurCalendar {
 
     /**
      * Gets the work day of the specified date
+     *
      * @param date The date
      * @return the work day of the date
      */
-    WorkDay getDate(long date) {
+    public WorkDay getDate(long date) {
         return null;
     }
 }

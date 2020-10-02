@@ -2,64 +2,70 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class WorkShift {
-    private ArrayList<Certificate> certificates;
+    private List<Certificate> certificates = new ArrayList<>();
     private Employee employee;
     private OccupiedTime occupiedTime;
     private boolean occupied = false;
-    final public long start, end;
+    final public long START, END;
 
     /**
      * Creates a new workshift
-     * @param start The starting time for the Workshift
-     * @param end The ending time for the Workshift
-     * @param certificate Required Certificate for the Workshift
+     *
+     * @param start        The starting time for the Workshift
+     * @param end          The ending time for the Workshift
+     * @param certificate Required Certificates for the Workshift
      */
     public WorkShift(long start, long end, Certificate certificate) {
-        this.start = start;
-        this.end = end;
+        this.START = start;
+        this.END = end;
         this.certificates.add(certificate);
     }
 
     /**
      * Creates a new workshift
-     * @param start The starting time for the Workshift
-     * @param end The ending time for the Workshift
-     * @param certificates A list of required Certificates 
+     *
+     * @param start        The starting time for the Workshift
+     * @param end          The ending time for the Workshift
+     * @param certificates A list of required Certificates
      */
-    public WorkShift(long start, long end, ArrayList<Certificate> certificates) {
-        this.start = start;
-        this.end = end;
+    public WorkShift(long start, long end, List<Certificate> certificates) {
+        this.START = start;
+        this.END = end;
         this.certificates.addAll(certificates);
     }
 
     /**
      * Creates a new Workshift
+     *
      * @param start The starting time for the Workshift
-     * @param end The ending time for the Workshift
+     * @param end   The ending time for the Workshift
      */
     public WorkShift(long start, long end) {
-        this.start = start;
-        this.end = end;
+        this.START = start;
+        this.END = end;
     }
 
     /**
      * Creates a copy of a previous Workshift without employee and occupation
+     *
      * @param ws The Workshift you wish to copy
      */
     public WorkShift(WorkShift ws) {
-        this.start = ws.start;
-        this.end = ws.end;
+        this.START = ws.START;
+        this.END = ws.END;
         this.certificates = ws.certificates;
     }
 
     /**
      * Registers a new Employee to the Workshift
-     * @param e The Employee
+     *
+     * @param e  The Employee
      * @param ot The Employees OccupiedTime
      */
-    public void registerOccupation(Employee e, OccupiedTime ot){
+    public void registerOccupation(Employee e, OccupiedTime ot) {
         if (!occupied) {
             //TODO checka att employee har certificate via metod
             this.employee = e;
@@ -70,6 +76,7 @@ public class WorkShift {
 
     /**
      * Checks if the Workshift is properly occupied
+     *
      * @return occupied
      */
     public boolean isOccupied() {
@@ -79,8 +86,25 @@ public class WorkShift {
     /**
      * Clears the occupation for the Workshift
      */
-    public void clearWorkShift(){
+    public void clearWorkShift() {
         employee.unRegisterOccupation(occupiedTime);
         occupied = false;
+    }
+
+    public void addCertificate(Certificate c) {
+        certificates.add(c);
+    }
+
+    public List<Certificate> getAllCertificate() {
+        return certificates;
+    }
+
+    /**
+     * Removes a specified certificate from being required by the employees
+     *
+     * @param c the certificate that shall be removed
+     */
+    public void removeCertificate(Certificate c) {
+        certificates.remove(c);
     }
 }
