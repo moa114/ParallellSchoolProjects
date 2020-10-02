@@ -84,7 +84,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         if (employee != null){
             this.firstName.setText(employee.getName().split(" ")[0]);
             this.lastName.setText(employee.getName().split(" ")[1]);
-            this.personalID.setText(employee.PERSONAL_ID);
+            this.personalID.setText(employee.getPersonalId());
         }
     }
 
