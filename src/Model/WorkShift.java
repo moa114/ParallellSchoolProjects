@@ -4,45 +4,83 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class WorkShift {
-    final public int requiredPersonnel;
-    private ArrayList<Employee> deligatedEmployees;
-    private HashMap<Employee, OccupiedTime> occupiedLinks;
+    private ArrayList<Certificate> certificates;
+    private Employee employee;
+    private OccupiedTime occupiedTime;
+    private boolean occupied = false;
     final public long start, end;
 
-    public WorkShift(long start, long end, int requiredPersonnel) {
+    /**
+     * Creates a new workshift
+     * @param start The starting time for the Workshift
+     * @param end The ending time for the Workshift
+     * @param certificate Required Certificate for the Workshift
+     */
+    public WorkShift(long start, long end, Certificate certificate) {
         this.start = start;
         this.end = end;
-        this.requiredPersonnel = requiredPersonnel;
-        this.deligatedEmployees = new ArrayList<>();
+        this.certificates.add(certificate);
     }
 
+    /**
+     * Creates a new workshift
+     * @param start The starting time for the Workshift
+     * @param end The ending time for the Workshift
+     * @param certificates A list of required Certificates 
+     */
+    public WorkShift(long start, long end, ArrayList<Certificate> certificates) {
+        this.start = start;
+        this.end = end;
+        this.certificates.addAll(certificates);
+    }
+
+    /**
+     * Creates a new Workshift
+     * @param start The starting time for the Workshift
+     * @param end The ending time for the Workshift
+     */
+    public WorkShift(long start, long end) {
+        this.start = start;
+        this.end = end;
+    }
+
+    /**
+     * Creates a copy of a previous Workshift without employee and occupation
+     * @param ws The Workshift you wish to copy
+     */
     public WorkShift(WorkShift ws) {
         this.start = ws.start;
         this.end = ws.end;
-        this.requiredPersonnel = ws.requiredPersonnel;
-        this.deligatedEmployees = new ArrayList<>();
+        this.certificates = ws.certificates;
     }
 
+    /**
+     * Registers a new Employee to the Workshift
+     * @param e The Employee
+     * @param ot The Employees OccupiedTime
+     */
     public void registerOccupation(Employee e, OccupiedTime ot){
-        deligatedEmployees.add(e);
-        occupiedLinks.put(e, ot);
-    }
-
-    public void unRegisterOccupation(Employee e){
-        deligatedEmployees.remove(e);
-        e.unRegisterOccupation(occupiedLinks.get(e));
-        occupiedLinks.remove(e);
-    }
-
-    public boolean isFilled() { //TODO en algoritm som testar hur många subworkshifts som finns
-        return deligatedEmployees.size() >= requiredPersonnel;
-    }
-
-    public void clearWorkShift(){
-        for (Employee e : deligatedEmployees){
-            e.unRegisterOccupation(occupiedLinks.get(e));
+        if (!occupied) {
+            //TODO checka att employee har certificate via metod
+            this.employee = e;
+            this.occupiedTime = ot;
+            occupied = true;
         }
-        deligatedEmployees.clear();
-        occupiedLinks.clear();
+    }
+
+    /**
+     * Checks if the Workshift is properly occupied
+     * @return occupied
+     */
+    public boolean isOccupied() {
+        return occupied;
+    }
+
+    /**
+     * Clears the occupation for the Workshift
+     */
+    public void clearWorkShift(){
+        employee.unRegisterOccupation(occupiedTime);
+        occupied = false;
     }
 }

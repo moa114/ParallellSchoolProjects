@@ -13,8 +13,6 @@ public class WorkDay {
     public final long date;
     private static List<Department> departments = new ArrayList<>();
     private HashMap<Department, List<WorkShift>>  departmentLinks;
-    private long guaranteedFreeTime;
-
 
     /**
      * Constructs a work day with a specified date and with hash map
@@ -25,15 +23,12 @@ public class WorkDay {
         this.departmentLinks = new HashMap<>();
     }
 
-    public void setGuaranteedFreeTime(int hours){
-        this.guaranteedFreeTime=(plusHours(hours)-date);
-    }
-
     /**
      * Checks if all departments are filled
      * @return true if all the departments are filled and otherwise false
      */
- /*   boolean allDepartmentsFilled() {
+    /*
+    boolean allDepartmentsFilled() {
         for (Department d : departments) {
             for (WorkShift w : d.getAllShifts()) {
                 if (w.requiredPersonnel > departmentListHashMap.get(d).get(w).size())
@@ -66,32 +61,28 @@ public class WorkDay {
      * @param department The department where the employee will be scheduled
      * @param workShift The work shift the employee will be scheduled on
      */
+    /*
     public void scheduleEmployee(Employee employee, Department department, WorkShift workShift) {
-       /* departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
+        departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
         departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
-        departmentListHashMap.get(department).get(workShift).add(employee);*/
-        occupiesEmployee(workShift, employee);
+        departmentListHashMap.get(department).get(workShift).add(employee);
+        employee.occupiedTimes.add(workShift);
+    }*/
 
-    }
-
-    public void occupiesEmployee(WorkShift workShift, Employee e){
-        long endOccupiedTime= (workShift.end)+guaranteedFreeTime;
-        e.occupiedTimes.add(new OccupiedTime(workShift.start, endOccupiedTime));
-    }
     /**
      * A method that schedules employees on a work shift in a department
      * @param employees The list of employees that will be scheduled
      * @param department The department where the employees will be scheduled
      * @param workShift The work shift the employees will be scheduled on
      */
+    /*
     public void scheduleEmployees(List<Employee> employees, Department department, WorkShift workShift) {
-
-      /*  departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
+        departmentListHashMap.computeIfAbsent(department, k -> new HashMap<>());
         departmentListHashMap.get(department).computeIfAbsent(workShift, k -> new ArrayList<>());
-        departmentListHashMap.get(department).get(workShift).addAll(employees);*/
+        departmentListHashMap.get(department).get(workShift).addAll(employees);
         for (Employee employee : employees)
-           occupiesEmployee(workShift, employee);
-    }
+            employee.occupiedTimes.add(workShift);
+    }*/
 
     private long plusHours(int hours) {
         return date + 1000 * 60 * 60 * hours;
