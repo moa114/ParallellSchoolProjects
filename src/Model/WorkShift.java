@@ -2,9 +2,10 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 public class WorkShift {
-    private ArrayList<Certificate> certificates;
+    private List<Certificate> certificates;
     private Employee employee;
     private OccupiedTime occupiedTime;
     private boolean occupied = false;
@@ -28,7 +29,7 @@ public class WorkShift {
      * @param end The ending time for the Workshift
      * @param certificates A list of required Certificates 
      */
-    public WorkShift(long start, long end, ArrayList<Certificate> certificates) {
+    public WorkShift(long start, long end, List<Certificate> certificates) {
         this.start = start;
         this.end = end;
         this.certificates.addAll(certificates);

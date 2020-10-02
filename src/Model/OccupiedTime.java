@@ -4,7 +4,7 @@ package Model;
  * Represents a time span when someone is not available, has a start and an end value
  */
 public class OccupiedTime {
-    long start, end;
+    public long start, end;
 
     /**
      * Constructs an occupied time with a start and an end value

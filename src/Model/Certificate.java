@@ -8,7 +8,7 @@ import java.util.Date;
 
 public class Certificate {
     public final String name;
-    private static long IDSTART = 0;
+    private static long idStart = 0;
     public final long ID;
 
 
@@ -19,7 +19,7 @@ public class Certificate {
 
     public Certificate(String name) {
         this.name = name;
-        this.ID = IDSTART++;
+        this.ID = idStart++;
     }
 
     public String getName() {
