@@ -4,7 +4,7 @@ package Model;
  * Represents a time span when someone is not available, has a start and an end value
  */
 public class OccupiedTime {
-    private long start, end;
+    public long start, end;
 
     /**
      * Constructs an occupied time with a start and an end value
@@ -18,8 +18,8 @@ public class OccupiedTime {
     }
 
     public OccupiedTime(WorkShift ws) {
-        this.start = ws.START;
-        this.end = ws.END;
+        this.start = ws.start;
+        this.end = ws.end;
     }
 
     /**
