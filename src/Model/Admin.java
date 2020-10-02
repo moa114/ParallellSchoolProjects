@@ -24,7 +24,7 @@ public class Admin implements Observable{
         return instance;
     }
 
-    public Admin() {
+    private Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
