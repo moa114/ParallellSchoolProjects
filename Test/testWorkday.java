@@ -15,11 +15,7 @@ public class testWorkday {
     public void testoccupiesEmployee(){
         Employee e=new Employee("moa", "000211444444");
         Date d= new Date();
-        CertificateHandler ch = CertificateHandler.getInstance();
-        ch.createNewCertificate("Kassa");
-        List<Certificate> allcert = new ArrayList<>();
-        allcert.add(ch.getCertificate("Kassa"));
-        WorkShift w= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),allcert);
+        WorkShift w= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),1);
         WorkDay workday= new WorkDay(d.getTime());
         workday.setGuaranteedFreeTime(10);
         workday.occupiesEmployee(w,e);

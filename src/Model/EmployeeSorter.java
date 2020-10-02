@@ -18,7 +18,7 @@ public class EmployeeSorter {
     public static List<Employee> getAvailableQualifiedPersonnel(List<Employee> employees, List<String> certificates, long start, long stop) {
         List<Employee> newList = new ArrayList<>();
         for (Employee e : employees) {
-            if (e.getAllCertificates().containsAll(certificates) && !e.isOccupied(start, stop))
+            if (e.certificates.containsAll(certificates) && !e.isOccupied(start, stop))
                 newList.add(e);
         }
         return newList;

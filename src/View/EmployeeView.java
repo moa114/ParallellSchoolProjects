@@ -26,15 +26,14 @@ public class EmployeeView extends AnchorPane implements Observer {
             e.printStackTrace();
         }
         this.employee = employee;
-        name.setText(employee.getName());
-        personalID.setText(employee.getPersonalId());
+        name.setText(employee.name);
+        personalID.setText(employee.personalId);
         Admin.getInstance().addObserver(this);
     }
 
     @Override
     public void update() {
-        name.setText(employee.getName());
-
-        personalID.setText(employee.getPersonalId());
+        name.setText(employee.name);
+        personalID.setText(employee.personalId);
     }
 }

@@ -69,6 +69,9 @@ public class StartPage implements Observer, Initializable {
         defaultPage.setVisible(false);
         startPage.setVisible(true);
     }
+    public void loadPersonnelView(){}
+
+    public void loadScheduleView(){}
 
     private void exit(){
         System.exit(0);

@@ -19,17 +19,13 @@ public class Department {
         this.name = name;
     }
 
-    public String getName(){
-        return name;
-    }
-
+    public void createShift(long start, long stop, List<Certificate> certificates ) {
     /**
      * Creates a work shift with a specified time span to the department where a chosen amount certificates are required from the employee
      * @param start start time of the shift
      * @param stop end time of the shift
      * @param certificates list of which certificates are required at the shift
      */
-    public void createShift(long start, long stop, List<Certificate> certificates ) {
         allShifts.add(new WorkShift(start, stop, certificates));
     }
 
@@ -47,7 +43,7 @@ public class Department {
      */
     public boolean isAllShiftsFilled(){
         for(WorkShift ws: allShifts){
-            if(!ws.isOccupied())
+            if(!ws.isFilled())
                 return false;
         }
         return true;

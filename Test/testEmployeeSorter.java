@@ -1,4 +1,7 @@
-import Model.*;
+import Model.Admin;
+import Model.Certificate;
+import Model.CertificateHandler;
+import Model.Department;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -11,7 +14,6 @@ public class testEmployeeSorter {
     @Test
     public void testGetQualifiedPersons() {
         Admin admin = Admin.getInstance();
-        Date d= new Date();
         CertificateHandler ch = admin.getCertificatehandler();
         admin.createNewEmployee("moa", "123456789231");
         admin.createNewEmployee("Victor", "123456789234");;
@@ -24,7 +26,7 @@ public class testEmployeeSorter {
         List<Certificate> allcert = new ArrayList<>();
         allcert.add(ch.getCertificate("Kassa"));
         allcert.add(ch.getCertificate("Frukt"));
-        WorkShift w= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)));
-        assertTrue(admin.getEmployeeSorter().getQualifiedPersons(w, admin.getEmployees()).size() == 2);
+        Department department = new Department("TestAvdelning", allcert);
+        assertTrue(admin.getEmployeeSorter().getQualifiedPersons(department, admin.getEmployees()).size() == 2);
     }
 }

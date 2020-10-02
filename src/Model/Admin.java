@@ -24,7 +24,7 @@ public class Admin implements Observable{
         return instance;
     }
 
-    private Admin() {
+    public Admin() {
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
@@ -64,9 +64,9 @@ public class Admin implements Observable{
         }
         for (Employee e : employees) {
             System.out.println("____________________");
-            System.out.println(e.getName());
-            System.out.println(e.PERSONAL_ID);
-            System.out.println(e.getAllCertificates());
+            System.out.println(e.name);
+            System.out.println(e.personalId);
+            System.out.println(e.certificates);
         }
     }
 
@@ -77,11 +77,9 @@ public class Admin implements Observable{
     }
 
     public void changeEmployeeName(Employee employee, String name){
-        employee.newName(name);
+        employee.name = name;
         notifyObservers();
     }
-
-    /*hej*/
 
     public void addObserver(Observer o){
         toBeAdded.add(o);
@@ -216,6 +214,10 @@ public class Admin implements Observable{
 
     public void createWorkshift(Department d, long start, long end, List <Certificate> certificates){
         d.createShift(start, end, certificates);
+    }
+
+    public void createWorkshift(Department d, WorkShift ws){
+        d.createShift(ws);
     }
 
     public void removeWorkshift(Department d, WorkShift ws){

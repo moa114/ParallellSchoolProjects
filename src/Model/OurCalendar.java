@@ -17,6 +17,7 @@ public class OurCalendar {
     /**
      * Initalizes the class with a Java calender as singleton
      */
+
     public static OurCalendar getInstance() {
         if (instance == null)
             instance = new OurCalendar();
