@@ -16,6 +16,11 @@ public class OccupiedTime {
         this.end = end;
     }
 
+    public OccupiedTime(WorkShift ws) {
+        this.start = ws.start;
+        this.end = ws.end;
+    }
+
     /**
      * Checks if a start value and an end value is in between the occupied time
      * @param start The start value of the time span

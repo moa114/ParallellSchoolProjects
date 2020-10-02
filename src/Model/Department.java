@@ -28,14 +28,18 @@ public class Department {
         this.certificates = new ArrayList<>();
     }
 
-    public void createShift(long start, long stop, int nEmployees) {
     /**
      * Creates a work shift with a specified time span to the department where a chosen amount of employees can be scheduled
      * @param start start time of the shift
      * @param stop end time of the shift
      * @param nEmployees number of how many employees that can work at the work shift
      */
+    public void createShift(long start, long stop, int nEmployees) {
         allShifts.add(new WorkShift(start, stop, nEmployees));
+    }
+
+    public void createShift(WorkShift ws) {
+        allShifts.add(new WorkShift(ws));
     }
 
     public void removeShift(WorkShift ws){
@@ -64,5 +68,9 @@ public class Department {
      */
     public void removeCertificate(Certificate c) {
         certificates.remove(c);
+    }
+
+    public String getName(){
+        return name;
     }
 }
