@@ -8,8 +8,8 @@ import java.util.List;
  */
 public class Employee {
     public List<OccupiedTime> occupiedTimes;
-    public String name;
-    public String email;
+    private String name;
+    private String email;
     public final String personalId;
     public List<EmployeeCertificate> certificates;
 
@@ -101,6 +101,9 @@ public class Employee {
     }
     public String getName() {
         return name;
+    }
+    public void setName(String name) {
+        this.name=name;
     }
 
     public void unRegisterOccupation(OccupiedTime ot){

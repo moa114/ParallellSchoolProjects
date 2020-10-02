@@ -13,7 +13,7 @@ public class WorkDay {
     public final long date;
     private static List<Department> departments = new ArrayList<>();
     private HashMap<Department, List<WorkShift>>  departmentLinks;
-
+    private long guaranteedFreeTime;
     /**
      * Constructs a work day with a specified date and with hash map
      * @param date Date of the work day
@@ -23,6 +23,9 @@ public class WorkDay {
         this.departmentLinks = new HashMap<>();
     }
 
+    public void setGuaranteedFreeTime(int hours){
+        this.guaranteedFreeTime=(plusHours(hours)-date);
+    }
     /**
      * Checks if all departments are filled
      * @return true if all the departments are filled and otherwise false
@@ -98,6 +101,12 @@ public class WorkDay {
 
     private void ScheduleEmployees(Collection<? extends Employee> employees, Department department) {
     }
+
+    public void occupiesEmployee(WorkShift workShift, Employee e){
+        long endOccupiedTime= (workShift.end)+guaranteedFreeTime;
+        e.occupiedTimes.add(new OccupiedTime(workShift.start, endOccupiedTime));
+    }
+
 
     public void setWorkShifts(ArrayList<WorkShift> wss){
         for (Department d : departments){
