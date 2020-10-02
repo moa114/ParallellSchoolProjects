@@ -18,8 +18,8 @@ public class OccupiedTime {
     }
 
     public OccupiedTime(WorkShift ws) {
-        this.start = ws.start;
-        this.end = ws.end;
+        this.start = ws.START;
+        this.end = ws.END;
     }
 
     /**

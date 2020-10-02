@@ -16,7 +16,7 @@ public class WorkShift {
      *
      * @param start        The starting time for the Workshift
      * @param end          The ending time for the Workshift
-     * @param certificates Required Certificates for the Workshift
+     * @param certificate Required Certificates for the Workshift
      */
     public WorkShift(long start, long end, Certificate certificate) {
         this.START = start;
