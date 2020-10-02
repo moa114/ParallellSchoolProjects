@@ -77,7 +77,7 @@ public class OurCalendar {
      * @param date The date
      * @return the work day of the date
      */
-    WorkDay getDate(long date) {
+    public WorkDay getDate(long date) {
         return null;
     }
 }

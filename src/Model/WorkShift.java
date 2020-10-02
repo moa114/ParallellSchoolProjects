@@ -1,11 +1,11 @@
 package Model;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.List;
 
 public class WorkShift {
-    private List<Certificate> certificates= new ArrayList<>();
+    private List<Certificate> certificates;
     private Employee employee;
     private OccupiedTime occupiedTime;
     private boolean occupied = false;
@@ -15,12 +15,12 @@ public class WorkShift {
      * Creates a new workshift
      * @param start The starting time for the Workshift
      * @param end The ending time for the Workshift
-     * @param certificates Required Certificates for the Workshift
+     * @param certificate Required Certificate for the Workshift
      */
-    public WorkShift(long start, long end, Certificate certificates) {
+    public WorkShift(long start, long end, Certificate certificate) {
         this.START = start;
         this.END = end;
-        this.certificates.add(certificates);
+        this.certificates.add(certificate);
     }
 
     /**
@@ -84,7 +84,6 @@ public class WorkShift {
         employee.unRegisterOccupation(occupiedTime);
         occupied = false;
     }
-
 
     public void addCertificate(Certificate c) {
         certificates.add(c);
