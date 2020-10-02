@@ -81,6 +81,8 @@ public class Admin implements Observable{
         notifyObservers();
     }
 
+    /*hej*/
+
     public void addObserver(Observer o){
         toBeAdded.add(o);
     }
