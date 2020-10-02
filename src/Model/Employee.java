@@ -127,6 +127,9 @@ public class Employee {
 
     }
 
+    public List<EmployeeCertificate> getCertificates(){
+        return certificates;
+    }
     public void newName(String name) {
         this.name = name;
     }
