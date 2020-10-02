@@ -216,10 +216,6 @@ public class Admin implements Observable{
         d.createShift(start, end, certificates);
     }
 
-    public void createWorkshift(Department d, WorkShift ws){
-        d.createShift(ws);
-    }
-
     public void removeWorkshift(Department d, WorkShift ws){
         d.removeShift(ws);
     }

@@ -1,10 +1,11 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.HashMap;
 
 public class WorkShift {
-    private ArrayList<Certificate> certificates;
+    private List<Certificate> certificates= new ArrayList<>();
     private Employee employee;
     private OccupiedTime occupiedTime;
     private boolean occupied = false;
@@ -14,12 +15,12 @@ public class WorkShift {
      * Creates a new workshift
      * @param start The starting time for the Workshift
      * @param end The ending time for the Workshift
-     * @param certificate Required Certificate for the Workshift
+     * @param certificates Required Certificates for the Workshift
      */
-    public WorkShift(long start, long end, Certificate certificate) {
+    public WorkShift(long start, long end, Certificate certificates) {
         this.start = start;
         this.end = end;
-        this.certificates.add(certificate);
+        this.certificates.add(certificates);
     }
 
     /**
@@ -28,7 +29,7 @@ public class WorkShift {
      * @param end The ending time for the Workshift
      * @param certificates A list of required Certificates 
      */
-    public WorkShift(long start, long end, ArrayList<Certificate> certificates) {
+    public WorkShift(long start, long end, List<Certificate> certificates) {
         this.start = start;
         this.end = end;
         this.certificates.addAll(certificates);
@@ -82,5 +83,22 @@ public class WorkShift {
     public void clearWorkShift(){
         employee.unRegisterOccupation(occupiedTime);
         occupied = false;
+    }
+
+
+    public void addCertificate(Certificate c) {
+        certificates.add(c);
+    }
+
+    public List<Certificate> getAllCertificate() {
+        return certificates;
+    }
+
+    /**
+     * Removes a specified certificate from being required by the employees
+     * @param c the certificate that shall be removed
+     */
+    public void removeCertificate(Certificate c) {
+        certificates.remove(c);
     }
 }
