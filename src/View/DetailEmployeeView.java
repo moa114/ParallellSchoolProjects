@@ -82,9 +82,9 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
 
     private void generateFXMLObjects(){
         if (employee != null){
-            this.firstName.setText(employee.name.split(" ")[0]);
-            this.lastName.setText(employee.name.split(" ")[1]);
-            this.personalID.setText(employee.personalId);
+            this.firstName.setText(employee.getName().split(" ")[0]);
+            this.lastName.setText(employee.getName().split(" ")[1]);
+            this.personalID.setText(employee.getPersonalId());
         }
     }
 

@@ -38,6 +38,6 @@ public class testCertificateHandler {
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789232"), new Date());
         admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployeeByID("123456789232"), new Date());
         ch.deleteCertificate("Kassa");
-        assertTrue(admin.getEmployeeByID("123456789232").certificates.size() == 1);
+        assertTrue(admin.getEmployeeByID("123456789232").getCertificates().size() == 1);
     }
 }
