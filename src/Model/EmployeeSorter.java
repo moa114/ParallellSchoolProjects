@@ -40,15 +40,15 @@ public class EmployeeSorter {
     }
 
     /**
-     * Gets a list of employees that are qualified for a certain department
-     * @param department A department
+     * Gets a list of employees that are qualified for a certain workshift
+     * @param ws A workshift
      * @param employeeList A list with employees that the method selects from
-     * @return A list with employees that are qualified for the department
+     * @return A list with employees that are qualified for the workshift
      */
-    public List<Employee> getQualifiedPersons(Department department, List<Employee> employeeList) {
+    public List<Employee> getQualifiedPersons(WorkShift ws, List<Employee> employeeList) {
         List<Employee> qualifiedList = new ArrayList<>();
         for (Employee e : employeeList)
-            if (e.isQualified(department))
+            if (e.isQualified(ws))
                 qualifiedList.add(e);
         return qualifiedList;
     }

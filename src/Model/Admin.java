@@ -212,16 +212,8 @@ public class Admin implements Observable{
         departments.add(new Department(name));
     }
 
-    public void createNewDepartment(String name, ArrayList<Certificate> cl) {
-        departments.add(new Department(name, cl));
-    }
-
-    public void createWorkshift(Department d, long start, long end, int personell){
-        if (validateTimeSpan(start, end)) {
-            d.createShift(start, end, personell);
-        } else {
-            System.out.println("invalid time span");
-        }
+    public void createWorkshift(Department d, long start, long end, List <Certificate> certificates){
+        d.createShift(start, end, certificates);
     }
 
     public void createWorkshift(Department d, WorkShift ws){

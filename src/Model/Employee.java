@@ -77,20 +77,20 @@ public class Employee {
     }
 
     /**
-     * checks if the employee is qualified, has the required certificates, for a chosen department or not
-     * @param department the chosen department
-     * @return true if the employee has the required certificates for the department and false if not
+     * checks if the employee is qualified, has the required certificates, for a chosen workshift or not
+     * @param ws the chosen workshift
+     * @return true if the employee has the required certificates for the workshift and false if not
      */
-    public boolean isQualified(Department department){
+    public boolean isQualified(WorkShift ws){
         int count =0;
-        for (Certificate certificate : department.getAllCertificate()){
+        for (Certificate certificate : ws.getAllCertificate()){
             for(EmployeeCertificate certificate1: certificates){
                 if (certificate1.getCertificate()==certificate){
                     count++;
                 }
             }
         }
-        if (count==department.getAllCertificate().size()){
+        if (count==ws.getAllCertificate().size()){
             return true;
         }
         return false;

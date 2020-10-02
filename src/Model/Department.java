@@ -4,42 +4,29 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Represents a department with a specified name, a list for certificates that is required for the employee to provide to be able to work at the department and a list for work shifts where the department can be manned
+ * Represents a department with a specified name and a list for work shifts where the department can be manned
  */
 public class Department {
     private List<WorkShift> allShifts;
     private String name;
-    private List<Certificate> certificates;
 
     /**
-     * Constructs a department with a list for the work shifts where the department can be manned, a specified name and assigns chosen certificates for the department to require
+     * Constructs a department with a list for the work shifts where the department can be manned and a specified name
      * @param name the name of the department
-     * @param certificates list of all certificates the department shall require from the employee
      */
-    public Department(String name, List<Certificate> certificates) {
-        this.allShifts = new ArrayList<>();
-        this.name = name;
-        this.certificates = certificates;
-    }
-
     public Department(String name) {
         this.allShifts = new ArrayList<>();
         this.name = name;
-        this.certificates = new ArrayList<>();
     }
 
+    public void createShift(long start, long stop, List<Certificate> certificates ) {
     /**
-     * Creates a work shift with a specified time span to the department where a chosen amount of employees can be scheduled
+     * Creates a work shift with a specified time span to the department where a chosen amount certificates are required from the employee
      * @param start start time of the shift
      * @param stop end time of the shift
-     * @param nEmployees number of how many employees that can work at the work shift
+     * @param certificates list of which certificates are required at the shift
      */
-    public void createShift(long start, long stop, int nEmployees) {
-        allShifts.add(new WorkShift(start, stop, nEmployees));
-    }
-
-    public void createShift(WorkShift ws) {
-        allShifts.add(new WorkShift(ws));
+        allShifts.add(new WorkShift(start, stop, certificates));
     }
 
     public void removeShift(WorkShift ws){
@@ -51,26 +38,14 @@ public class Department {
     }
 
     /**
-     * Adds a specified certificate to the department to require from the employees
-      * @param c certificate that shall be added
+     * Checks if all work shift of the department are manned
+     * @return true if all work shifts are manned, else false
      */
-    public void addCertificate(Certificate c) {
-        certificates.add(c);
+    public boolean isAllShiftsFilled(){
+        for(WorkShift ws: allShifts){
+            if(!ws.isFilled())
+                return false;
+        }
+        return true;
     }
-
-    public List<Certificate> getAllCertificate() {
-        return certificates;
     }
-
-    /**
-     * Removes a specified certificate from being required by the employees
-     * @param c the certificate that shall be removed
-     */
-    public void removeCertificate(Certificate c) {
-        certificates.remove(c);
-    }
-
-    public String getName(){
-        return name;
-    }
-}
