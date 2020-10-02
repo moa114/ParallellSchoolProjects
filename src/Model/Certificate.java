@@ -14,6 +14,7 @@ public class Certificate {
 
     /**
      * Constructs a certificate with a name and assigns a unique ID value to it
+     *
      * @param name the name of the certificate
      */
 

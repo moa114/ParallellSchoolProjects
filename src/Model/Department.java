@@ -12,6 +12,7 @@ public class Department {
 
     /**
      * Constructs a department with a list for the work shifts where the department can be manned and a specified name
+     *
      * @param name the name of the department
      */
     public Department(String name) {
@@ -19,21 +20,22 @@ public class Department {
         this.name = name;
     }
 
-    public String getName(){
+    public String getName() {
         return name;
     }
 
     /**
      * Creates a work shift with a specified time span to the department where a chosen amount certificates are required from the employee
-     * @param start start time of the shift
-     * @param stop end time of the shift
+     *
+     * @param start        start time of the shift
+     * @param stop         end time of the shift
      * @param certificates list of which certificates are required at the shift
      */
-    public void createShift(long start, long stop, List<Certificate> certificates ) {
+    public void createShift(long start, long stop, List<Certificate> certificates) {
         allShifts.add(new WorkShift(start, stop, certificates));
     }
 
-    public void removeShift(WorkShift ws){
+    public void removeShift(WorkShift ws) {
         allShifts.remove(ws);
     }
 
@@ -43,13 +45,14 @@ public class Department {
 
     /**
      * Checks if all work shift of the department are manned
+     *
      * @return true if all work shifts are manned, else false
      */
-    public boolean isAllShiftsFilled(){
-        for(WorkShift ws: allShifts){
-            if(!ws.isOccupied())
+    public boolean isAllShiftsFilled() {
+        for (WorkShift ws : allShifts) {
+            if (!ws.isOccupied())
                 return false;
         }
         return true;
     }
-    }
+}

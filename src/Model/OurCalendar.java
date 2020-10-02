@@ -55,6 +55,7 @@ public class OurCalendar {
 
     /**
      * Gets the list of work days
+     *
      * @return a list of work days
      */
     public List<WorkDay> getOurDates() {
@@ -74,6 +75,7 @@ public class OurCalendar {
 
     /**
      * Gets the work day of the specified date
+     *
      * @param date The date
      * @return the work day of the date
      */

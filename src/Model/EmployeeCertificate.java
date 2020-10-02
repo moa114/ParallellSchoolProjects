@@ -12,6 +12,7 @@ public class EmployeeCertificate {
 
     /**
      * Constructs an EmployeeCertificate with an expiry date and a certificate
+     *
      * @param c
      * @param expiryDate
      */
@@ -22,6 +23,7 @@ public class EmployeeCertificate {
 
     /**
      * Gets the linked certificate of the EmployeeCertificate
+     *
      * @return the certificate
      */
     protected Certificate getCertificate() {
@@ -30,6 +32,7 @@ public class EmployeeCertificate {
 
     /**
      * Gets the name of the certificate
+     *
      * @return the name of the certificate
      */
     public String getCertificateName() {
