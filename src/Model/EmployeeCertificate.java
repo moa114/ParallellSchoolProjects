@@ -33,6 +33,6 @@ public class EmployeeCertificate {
      * @return the name of the certificate
      */
     public String getCertificateName() {
-        return this.certificate.name;
+        return this.certificate.NAME;
     }
 }

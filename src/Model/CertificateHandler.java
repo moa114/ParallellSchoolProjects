@@ -78,7 +78,7 @@ public class CertificateHandler {
      */
     public Certificate getCertificate(String name) {
         for (Certificate c : allCertificates) {
-            if (c.name.equals(name))
+            if (c.NAME.equals(name))
                 return c;
         }
         System.out.println("invalid name");
@@ -134,7 +134,7 @@ public class CertificateHandler {
      */
     public void deleteCertificate(String name) {
         for (Certificate c : allCertificates) {
-            if (c.name.equalsIgnoreCase(name)) {
+            if (c.NAME.equalsIgnoreCase(name)) {
                 deleteCertificate(c);
                 break;
             }
