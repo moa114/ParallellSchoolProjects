@@ -10,7 +10,7 @@ public class Employee {
     public List<OccupiedTime> occupiedTimes;
     public String name;
     public String email;
-    public String personalId;
+    public final String personalId;
     public List<EmployeeCertificate> certificates;
 
     /**
