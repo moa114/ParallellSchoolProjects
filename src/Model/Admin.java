@@ -65,8 +65,8 @@ public class Admin implements Observable{
         for (Employee e : employees) {
             System.out.println("____________________");
             System.out.println(e.getName());
-            System.out.println(e.personalId);
-            System.out.println(e.certificates);
+            System.out.println(e.PERSONAL_ID);
+            System.out.println(e.getAllCertificates());
         }
     }
 
@@ -77,7 +77,7 @@ public class Admin implements Observable{
     }
 
     public void changeEmployeeName(Employee employee, String name){
-        employee.setName(name);
+        employee.newName(name);
         notifyObservers();
     }
 

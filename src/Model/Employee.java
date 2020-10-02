@@ -7,11 +7,11 @@ import java.util.List;
  * Represents an employee with a specified name, email, personal ID, certificates and time span where the employee is not available for work
  */
 public class Employee {
-    public List<OccupiedTime> occupiedTimes;
+    private List<OccupiedTime> occupiedTimes;
     private String name;
     private String email;
-    public final String personalId;
-    public List<EmployeeCertificate> certificates;
+    public final String PERSONAL_ID;
+    private List<EmployeeCertificate> certificates;
 
     /**
      * constructs an employee with a list for time span where the employee is not available for work, a specified name, specified personal ID and a list for provided certificates
@@ -21,7 +21,7 @@ public class Employee {
     public Employee(String name, String personalId) {
         this.occupiedTimes = new ArrayList<>();
         this.name = name;
-        this.personalId = personalId;
+        this.PERSONAL_ID = personalId;
         this.certificates = new ArrayList<>();
     }
 
@@ -97,7 +97,7 @@ public class Employee {
     }
 
     public String getPersonalId() {
-        return personalId;
+        return PERSONAL_ID;
     }
     public String getName() {
         return name;
@@ -114,4 +114,7 @@ public class Employee {
 
     }
 
+    public void newName(String name) {
+        this.name = name;
+    }
 }
