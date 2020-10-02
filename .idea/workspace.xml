@@ -27,6 +27,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/dependancyAnalysis/dependancy1.0" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -127,18 +128,22 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601368970881" />
-    <state x="590" y="258" key="#com.intellij.ide.util.ExportDialog" timestamp="1601630939257">
+    <state x="705" y="324" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601631472358">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="590" y="258" key="#com.intellij.ide.util.ExportDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601630939257" />
+    <state x="705" y="324" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601631472358" />
+    <state x="590" y="258" key="#com.intellij.ide.util.ExportDialog" timestamp="1601631484534">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="590" y="258" key="#com.intellij.ide.util.ExportDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601631484534" />
     <state x="689" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1601630176807">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601630176807" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601630392718">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601631483725">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601630392718" />
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601631483725" />
     <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1601565229367">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
