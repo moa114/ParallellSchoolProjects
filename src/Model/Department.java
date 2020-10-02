@@ -41,10 +41,6 @@ public class Department {
         return allShifts;
     }
 
-    public String getName(){
-        return this.name;
-    }
-
     /**
      * Checks if all work shift of the department are manned
      * @return true if all work shifts are manned, else false

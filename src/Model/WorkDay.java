@@ -12,10 +12,12 @@ import java.util.concurrent.Phaser;
 public class WorkDay {
     public final long date;
     private static List<Department> departments = new ArrayList<>();
-    private HashMap<Department, List<WorkShift>>  departmentLinks;
+    private HashMap<Department, List<WorkShift>> departmentLinks;
     private long guaranteedFreeTime;
+
     /**
      * Constructs a work day with a specified date and with hash map
+     *
      * @param date Date of the work day
      */
     public WorkDay(long date) {
@@ -23,8 +25,8 @@ public class WorkDay {
         this.departmentLinks = new HashMap<>();
     }
 
-    public void setGuaranteedFreeTime(int hours){
-        this.guaranteedFreeTime=(plusHours(hours)-date);
+    public void setGuaranteedFreeTime(int hours) {
+        this.guaranteedFreeTime = (plusHours(hours) - date);
     }
     /**
      * Checks if all departments are filled
@@ -43,6 +45,7 @@ public class WorkDay {
 
     /**
      * Gets the employees that are working in a specified department
+     *
      * @param department A department
      * @return the list of employees that are working in the department
      */
@@ -52,13 +55,14 @@ public class WorkDay {
 
     /**
      * Gets all the departments
+     *
      * @return a list of all the departments
      */
     List<Department> getAllDepartments() {
         return null;
     }
 
-    /**
+    /*
      * A method that schedules an employee on a work shift in a department
      * @param employee The employee that will be scheduled
      * @param department The department where the employee will be scheduled
@@ -72,7 +76,7 @@ public class WorkDay {
         employee.occupiedTimes.add(workShift);
     }*/
 
-    /**
+    /*
      * A method that schedules employees on a work shift in a department
      * @param employees The list of employees that will be scheduled
      * @param department The department where the employees will be scheduled
@@ -102,16 +106,16 @@ public class WorkDay {
     private void ScheduleEmployees(Collection<? extends Employee> employees, Department department) {
     }
 
-    public void occupiesEmployee(WorkShift workShift, Employee e){
-        long endOccupiedTime= (workShift.end)+guaranteedFreeTime;
-        e.occupiedTimes.add(new OccupiedTime(workShift.start, endOccupiedTime));
+    public void occupiesEmployee(WorkShift workShift, Employee e) {
+        long endOccupiedTime = (workShift.END) + guaranteedFreeTime;
+        e.getOccupiedTimes().add(new OccupiedTime(workShift.START, endOccupiedTime));
     }
 
 
-    public void setWorkShifts(ArrayList<WorkShift> wss){
-        for (Department d : departments){
-            for (WorkShift ws1 : d.getAllShifts()){
-                for (WorkShift ws2 : wss){
+    public void setWorkShifts(ArrayList<WorkShift> wss) {
+        for (Department d : departments) {
+            for (WorkShift ws1 : d.getAllShifts()) {
+                for (WorkShift ws2 : wss) {
                     if (ws1 == ws2) {
                         departmentLinks.computeIfAbsent(d, k -> new ArrayList<WorkShift>());
                         departmentLinks.get(d).add(new WorkShift(ws2));
