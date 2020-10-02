@@ -9,22 +9,24 @@ import java.util.List;
  * Represents an static admin for the project with a list for all employees, a certificatehandler, a calendar and a employeesorter
  */
 
-public class Admin implements Observable{
+public class Admin implements Observable {
     private List<Employee> employees;
     private List<Department> departments;
     private CertificateHandler certificateHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
     private List<Observer> observers, toBeAdded, toBeRemoved;
+    private Exporter export;
     private static Admin instance = null;
 
     public static Admin getInstance() {
         if (instance == null)
-            instance = new Admin();;
+            instance = new Admin();
         return instance;
     }
 
     private Admin() {
+        this.export = new Exporter();
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
@@ -76,62 +78,71 @@ public class Admin implements Observable{
 
     }
 
-    public void changeEmployeeName(Employee employee, String name){
+    public void changeEmployeeName(Employee employee, String name) {
         employee.newName(name);
         notifyObservers();
     }
 
     /*hej*/
 
-    public void addObserver(Observer o){
+    public void addObserver(Observer o) {
         toBeAdded.add(o);
     }
-    public void removeObserver(Observer o){
+
+    public void removeObserver(Observer o) {
         toBeRemoved.add(o);
     }
-    public void notifyObservers(){
+
+    public void notifyObservers() {
         observers.removeAll(toBeRemoved);
         toBeRemoved.clear();
         observers.forEach(Observer::update);
         observers.addAll(toBeAdded);
         toBeAdded.clear();
     }
-    public int getEmployeeListSize(){return employees.size();}
+
+    public int getEmployeeListSize() {
+        return employees.size();
+    }
 
 
-    public EmployeeSorter getEmployeeSorter(){
+    public EmployeeSorter getEmployeeSorter() {
         return employeeSorter;
     }
 
     public Employee getEmployeeByName(String name) {
-        int count=0;
-        Employee tmp= null;
-        for (Employee e : employees){
-            if (e.getName().equals(name)){
+        int count = 0;
+        Employee tmp = null;
+        for (Employee e : employees) {
+            if (e.getName().equals(name)) {
                 count++;
-                tmp=e;
+                tmp = e;
             }
         }
-        if(count==1){ return tmp; }
+        if (count == 1) {
+            return tmp;
+        }
         System.out.println("invalid name");
         return null;//TODO exception?
     }
 
 
-    public Employee getEmployeeByID(String ID){
+    public Employee getEmployeeByID(String ID) {
         for (Employee e : employees)
             if (e.getPersonalId().equals(ID))
                 return e;
         System.out.println("invalid name");
         return null;
     }
+
     public CertificateHandler getCertificatehandler() {
         return certificateHandler;
     }
 
     /**
      * creates an employee with a specific name and a specific personal ID
-     * @param name name of the employee
+     *
+     * @param name       name of the employee
      * @param personalId personal ID of the employee
      */
     public void createNewEmployee(String name, String personalId) {
@@ -142,6 +153,7 @@ public class Admin implements Observable{
 
     /**
      * checks if an chosen personal ID belongs to an employee
+     *
      * @param PersonalId personal ID that shall be checked
      * @return true if the ID doesn't match an employee's and false if it does
      */
@@ -156,6 +168,7 @@ public class Admin implements Observable{
 
     /**
      * checks so a chosen personal ID is 12 characters long
+     *
      * @param PersonalId the personal ID
      * @return true if it's 12 characters long and false if it is not
      */
@@ -169,9 +182,10 @@ public class Admin implements Observable{
 
     /**
      * creates an employeecertificate with a chosen expire date to a chosen employee
+     *
      * @param certificate the certificate that should be assigned to the employee
-     * @param e the employee who shall get a certificate
-     * @param expiryDate the expire date of the employeecertificate
+     * @param e           the employee who shall get a certificate
+     * @param expiryDate  the expire date of the employeecertificate
      */
     public void createEmployeeCertificate(Certificate certificate, Employee e, Date expiryDate) {
         e.assignCertificate(new EmployeeCertificate(certificate, expiryDate));
@@ -180,8 +194,9 @@ public class Admin implements Observable{
 
     /**
      * Removes a chosen certificate from a chosen employee
+     *
      * @param certificate the certificate that should be removed
-     * @param e the employee who's chosen certificate shall be removed
+     * @param e           the employee who's chosen certificate shall be removed
      */
     public void removeEmployeeCertificate(Certificate certificate, Employee e) {
         e.unAssignCertificate(e.getEmployeeCertificate(certificate));
@@ -190,6 +205,7 @@ public class Admin implements Observable{
 
     /**
      * removes an chosen employee from the admins list of employees
+     *
      * @param e the employee that shall be removed
      */
     public void removeEmployee(Employee e) {
@@ -198,6 +214,7 @@ public class Admin implements Observable{
 
     /**
      * Removes an chosen employee based on its personal ID from the admins list of employees
+     *
      * @param personalId the personal ID that belongs to the employee that shall be removed
      */
     public void removeEmployee(String personalId) {
@@ -214,17 +231,17 @@ public class Admin implements Observable{
         departments.add(new Department(name));
     }
 
-    public void createWorkshift(Department d, long start, long end, List <Certificate> certificates){
+    public void createWorkshift(Department d, long start, long end, List<Certificate> certificates) {
         d.createShift(start, end, certificates);
     }
 
-    public void removeWorkshift(Department d, WorkShift ws){
+    public void removeWorkshift(Department d, WorkShift ws) {
         d.removeShift(ws);
     }
 
     public Department getDepartmentByName(String name) {
-        for (Department d : departments){
-            if (d.getName().equals(name)){
+        for (Department d : departments) {
+            if (d.getName().equals(name)) {
                 return d;
             }
         }
@@ -232,7 +249,7 @@ public class Admin implements Observable{
         return null;//TODO exception?
     }
 
-    private boolean validateTimeSpan(long start, long end){
+    private boolean validateTimeSpan(long start, long end) {
         return start < end;
     }
 

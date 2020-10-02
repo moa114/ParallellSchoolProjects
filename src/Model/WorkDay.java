@@ -10,7 +10,7 @@ import java.util.concurrent.Phaser;
  * Represents a work day with a specified date, a hash map(with departments, work shifts and employees),and a list of departments
  */
 public class WorkDay {
-    public final long date;
+    public final long DATE;
     private static List<Department> departments = new ArrayList<>();
     private HashMap<Department, List<WorkShift>> departmentLinks;
     private long guaranteedFreeTime;
@@ -21,12 +21,12 @@ public class WorkDay {
      * @param date Date of the work day
      */
     public WorkDay(long date) {
-        this.date = date;
+        this.DATE = date;
         this.departmentLinks = new HashMap<>();
     }
 
     public void setGuaranteedFreeTime(int hours) {
-        this.guaranteedFreeTime = (plusHours(hours) - date);
+        this.guaranteedFreeTime = (plusHours(hours) - DATE);
     }
     /**
      * Checks if all departments are filled
@@ -92,15 +92,15 @@ public class WorkDay {
     }*/
 
     private long plusHours(int hours) {
-        return date + 1000 * 60 * 60 * hours;
+        return DATE + 1000 * 60 * 60 * hours;
     }
 
     private long plusMinutes(int minutes) {
-        return date + 1000 * 60 * minutes;
+        return DATE + 1000 * 60 * minutes;
     }
 
     private long plusHoursAndMinutes(int hours, int minutes) {
-        return date + 1000 * 60 * 60 * hours + 1000 * 60 * minutes;
+        return DATE + 1000 * 60 * 60 * hours + 1000 * 60 * minutes;
     }
 
     private void ScheduleEmployees(Collection<? extends Employee> employees, Department department) {
