@@ -9,7 +9,7 @@ public class WorkShift {
     private Employee employee;
     private OccupiedTime occupiedTime;
     private boolean occupied = false;
-    final public long start, end;
+    final public long START, END;
 
     /**
      * Creates a new workshift
@@ -18,8 +18,8 @@ public class WorkShift {
      * @param certificate Required Certificate for the Workshift
      */
     public WorkShift(long start, long end, Certificate certificate) {
-        this.start = start;
-        this.end = end;
+        this.START = start;
+        this.END = end;
         this.certificates.add(certificate);
     }
 
@@ -30,8 +30,8 @@ public class WorkShift {
      * @param certificates A list of required Certificates 
      */
     public WorkShift(long start, long end, List<Certificate> certificates) {
-        this.start = start;
-        this.end = end;
+        this.START = start;
+        this.END = end;
         this.certificates.addAll(certificates);
     }
 
@@ -41,8 +41,8 @@ public class WorkShift {
      * @param end The ending time for the Workshift
      */
     public WorkShift(long start, long end) {
-        this.start = start;
-        this.end = end;
+        this.START = start;
+        this.END = end;
     }
 
     /**
@@ -50,8 +50,8 @@ public class WorkShift {
      * @param ws The Workshift you wish to copy
      */
     public WorkShift(WorkShift ws) {
-        this.start = ws.start;
-        this.end = ws.end;
+        this.START = ws.START;
+        this.END = ws.END;
         this.certificates = ws.certificates;
     }
 
@@ -83,5 +83,21 @@ public class WorkShift {
     public void clearWorkShift(){
         employee.unRegisterOccupation(occupiedTime);
         occupied = false;
+    }
+
+    public void addCertificate(Certificate c) {
+        certificates.add(c);
+    }
+
+    public List<Certificate> getAllCertificate() {
+        return certificates;
+    }
+
+    /**
+     * Removes a specified certificate from being required by the employees
+     * @param c the certificate that shall be removed
+     */
+    public void removeCertificate(Certificate c) {
+        certificates.remove(c);
     }
 }
