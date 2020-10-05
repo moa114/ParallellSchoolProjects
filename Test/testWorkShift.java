@@ -10,7 +10,7 @@ import java.util.List;
 
 public class testWorkShift {
     @Test
-    public void testAddCertificateToDepartment() {
+    public void testAddCertificateToWorkShift() {
         CertificateHandler ch = CertificateHandler.getInstance();
         Date d= new Date();
         List<Certificate> allcert = new ArrayList<>();
@@ -24,7 +24,7 @@ public class testWorkShift {
 
 
     @Test
-    public void testRemoveCertificateFromDepartment() {
+    public void testRemoveCertificateFromWorkShift() {
         Date d= new Date();
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
@@ -33,5 +33,31 @@ public class testWorkShift {
         WorkShift ws = new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)), allcert,new OccupiedTime(2,2));
         ws.removeCertificate(ch.getCertificate("Kassa"));
         assertTrue(ws.getAllCertificate().size() == 0);
+    }
+
+    @Test
+    public void testRemoveWorkShift() {
+        Admin a = Admin.getInstance();
+        Date d = new Date();
+        a.createNewDepartment("Kassa");
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
+        a.removeWorkshift(a.getDepartmentByName("Kassa"), a.getDepartmentByName("Kassa").getAllShifts().get(1));
+        assertTrue(a.getDepartmentByName("Kassa").getAllShifts().size() == 1);
+    }
+
+    @Test
+    public void testEditEmployees() {
+        Admin a = Admin.getInstance();
+        Date d = new Date();
+        a.createNewDepartment("Kassa");
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
+        a.createNewEmployee("Cristian är kass", "133742042069");
+        a.createWorkshift(a.getDepartmentByName("Kassa"), a.getWorkday(1).DATE+10, a.getWorkday(1).DATE+1100);
+        a.getWorkday(1).occupiesEmployee(a.getDepartmentByName("Kassa").getAllShifts().get(0), a.getEmployeeByID("133742042069"));
+        assertTrue(a.getDepartmentByName("Kassa").getAllShifts().get(0).getEmployee().getPersonalId().equals("133742042069"));
+        a.createNewEmployee("Markus passar bättre här", "694201337420");
+        a.getWorkday(1).reOccupieEmployee(a.getDepartmentByName("Kassa").getAllShifts().get(0), a.getEmployeeByID("694201337420"));
+        assertTrue(a.getDepartmentByName("Kassa").getAllShifts().get(0).getEmployee().getPersonalId().equals("694201337420"));
     }
 }

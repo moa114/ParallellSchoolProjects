@@ -3,13 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="42be1be4-4c95-465e-9ca2-9669c01d090e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/testDepartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/testDepartment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/testEmployeeSorter.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/testEmployeeSorter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Test/testWorkShift.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/testWorkShift.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Test/testWorkday.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/testWorkday.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Year2.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Year2.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Department.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Model/OccupiedTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/OccupiedTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/WorkDay.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/WorkDay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Model/WorkShift.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/WorkShift.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -36,12 +34,12 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/dependancyAnalysis/dependancy1.0" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../../../Program Files/Java/javafx-sdk-14.0.1/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="JUnit.testDepartment.testCreateBreak">
+  <component name="RunManager" selected="JUnit.testWorkShift.testRemoveWorkShift">
     <configuration name="Runnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Runnable" />
       <module name="ParallellSchoolProjects" />
@@ -50,18 +48,8 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testDepartment.testCreateBreak" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="testDepartment" />
-      <option name="METHOD_NAME" value="testCreateBreak" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="testWorkShift.testAddCertificateToDepartment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
+      <module name="Year2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="testWorkShift" />
       <option name="METHOD_NAME" value="testAddCertificateToDepartment" />
@@ -70,8 +58,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testWorkShift.testEditEmployees" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Year2" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testWorkShift" />
+      <option name="METHOD_NAME" value="testEditEmployees" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="testWorkShift.testRemoveCertificateFromDepartment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
+      <module name="Year2" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="testWorkShift" />
       <option name="METHOD_NAME" value="testRemoveCertificateFromDepartment" />
@@ -80,11 +78,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testWorkday.testoccupiesEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
+    <configuration name="testWorkShift.testRemoveWorkShift" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Year2" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="testWorkday" />
-      <option name="METHOD_NAME" value="testoccupiesEmployee" />
+      <option name="MAIN_CLASS_NAME" value="testWorkShift" />
+      <option name="METHOD_NAME" value="testRemoveWorkShift" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -94,30 +92,18 @@
       <item itemvalue="Application.Runnable" />
       <item itemvalue="JUnit.testWorkShift.testAddCertificateToDepartment" />
       <item itemvalue="JUnit.testWorkShift.testRemoveCertificateFromDepartment" />
-      <item itemvalue="JUnit.testWorkday.testoccupiesEmployee" />
-      <item itemvalue="JUnit.testDepartment.testCreateBreak" />
+      <item itemvalue="JUnit.testWorkShift.testRemoveWorkShift" />
+      <item itemvalue="JUnit.testWorkShift.testEditEmployees" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.testDepartment.testCreateBreak" />
-        <item itemvalue="JUnit.testWorkday.testoccupiesEmployee" />
+        <item itemvalue="JUnit.testWorkShift.testRemoveWorkShift" />
+        <item itemvalue="JUnit.testWorkShift.testEditEmployees" />
         <item itemvalue="JUnit.testWorkShift.testRemoveCertificateFromDepartment" />
         <item itemvalue="JUnit.testWorkShift.testAddCertificateToDepartment" />
         <item itemvalue="Application.Runnable" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
@@ -134,6 +120,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="440" y="94" key="#Project_Structure" timestamp="1601905702710">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="#Project_Structure/0.0.1920.1040/-1920.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1601905702710" />
     <state x="414" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601368970881">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -150,32 +140,37 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="689" y="390" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601637446877" />
-    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601631483725">
+    <state x="740" y="275" key="FileChooserDialogImpl" timestamp="1601905690939">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/-1920.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1601905690939" />
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601631483725" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1601912917958">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1601909306745">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1458" height="226" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1920.1040/-1920.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1601909306745" />
     <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601565229367" />
-    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1601912917958" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center" timestamp="1601912917958">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1601909306745">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1458" height="226" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1920.1040/-1920.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1601909306745" />
     <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601565229367" />
-    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1601912917958" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left" timestamp="1601912917958">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1601909306745">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1458" height="226" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1920.1040/-1920.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1601909306745" />
     <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601565229367" />
-    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1601912917958" />
-    <state width="1877" height="295" key="GridCell.Tab.0.right" timestamp="1601912917958">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1601909306745">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="1458" height="226" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1920.1040/-1920.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1601909306745" />
     <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601565229367" />
     <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1601912917958" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1601369142211">
@@ -210,5 +205,9 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="345" key="com.intellij.ide.util.TipDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601637405621" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1601910946205">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040/-1920.0.1920.1040/1920.0.1360.728@0.0.1920.1040" timestamp="1601910946205" />
   </component>
 </project>
