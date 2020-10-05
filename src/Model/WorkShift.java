@@ -8,6 +8,7 @@ public class WorkShift {
     private List<Certificate> certificates = new ArrayList<>();
     private Employee employee;
     private OccupiedTime occupiedTime;
+    private OccupiedTime breakTime;
     private boolean occupied = false;
     final public long START, END;
 
@@ -18,10 +19,11 @@ public class WorkShift {
      * @param end          The ending time for the Workshift
      * @param certificate Required Certificates for the Workshift
      */
-    public WorkShift(long start, long end, Certificate certificate) {
+    public WorkShift(long start, long end, Certificate certificate, OccupiedTime breakTime) {
         this.START = start;
         this.END = end;
         this.certificates.add(certificate);
+        this.breakTime= breakTime;
     }
 
     /**
@@ -31,10 +33,11 @@ public class WorkShift {
      * @param end          The ending time for the Workshift
      * @param certificates A list of required Certificates
      */
-    public WorkShift(long start, long end, List<Certificate> certificates) {
+    public WorkShift(long start, long end, List<Certificate> certificates, OccupiedTime breakTime) {
         this.START = start;
         this.END = end;
         this.certificates.addAll(certificates);
+        this.breakTime=breakTime;
     }
 
     /**
@@ -43,9 +46,10 @@ public class WorkShift {
      * @param start The starting time for the Workshift
      * @param end   The ending time for the Workshift
      */
-    public WorkShift(long start, long end) {
+    public WorkShift(long start, long end, OccupiedTime breakTime) {
         this.START = start;
         this.END = end;
+        this.breakTime=breakTime;
     }
 
     /**
@@ -98,6 +102,7 @@ public class WorkShift {
     public List<Certificate> getAllCertificate() {
         return certificates;
     }
+    public OccupiedTime getBreakTime(){return breakTime;}
 
     /**
      * Removes a specified certificate from being required by the employees
