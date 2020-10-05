@@ -31,8 +31,20 @@ public class Department {
      * @param stop         end time of the shift
      * @param certificates list of which certificates are required at the shift
      */
-    public void createShift(long start, long stop, List<Certificate> certificates) {
+    protected void createShift(long start, long stop, List<Certificate> certificates) {
         allShifts.add(new WorkShift(start, stop, certificates));
+    }
+
+    protected void createShift(long start, long stop, Certificate certificates) {
+        allShifts.add(new WorkShift(start, stop, certificates));
+    }
+
+    protected void createShift(long start, long stop) {
+        allShifts.add(new WorkShift(start, stop));
+    }
+
+    protected void createShift(WorkShift ws) {
+        allShifts.add(new WorkShift(ws));
     }
 
     public void removeShift(WorkShift ws) {

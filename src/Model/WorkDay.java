@@ -106,11 +106,30 @@ public class WorkDay {
     private void ScheduleEmployees(Collection<? extends Employee> employees, Department department) {
     }
 
+    /**
+     * Registers an Employee for a Workshift and ensures they get their free time
+     * @param workShift A WorkShift
+     * @param e An Employee
+     */
     public void occupiesEmployee(WorkShift workShift, Employee e) {
         long endOccupiedTime = (workShift.END) + guaranteedFreeTime;
-        e.getOccupiedTimes().add(new OccupiedTime(workShift.START, endOccupiedTime));
+        OccupiedTime ot = new OccupiedTime(workShift.START, endOccupiedTime);
+        e.getOccupiedTimes().add(ot);
+        workShift.registerOccupation(e, ot);
     }
 
+    /**
+     * Swaps out an Employee for another one on that WorkShift
+     * @param workShift a WorkShift
+     * @param e an Employee
+     */
+    public void reOccupieEmployee(WorkShift workShift, Employee e) {
+        workShift.clearWorkShiftOccupation();
+        long endOccupiedTime = (workShift.END) + guaranteedFreeTime;
+        OccupiedTime ot = new OccupiedTime(workShift.START, endOccupiedTime);
+        e.getOccupiedTimes().add(ot);
+        workShift.registerOccupation(e, ot);
+    }
 
     public void setWorkShifts(ArrayList<WorkShift> wss) {
         for (Department d : departments) {

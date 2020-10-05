@@ -86,7 +86,7 @@ public class WorkShift {
     /**
      * Clears the occupation for the Workshift
      */
-    public void clearWorkShift() {
+    public void clearWorkShiftOccupation() {
         employee.unRegisterOccupation(occupiedTime);
         occupied = false;
     }
@@ -107,4 +107,6 @@ public class WorkShift {
     public void removeCertificate(Certificate c) {
         certificates.remove(c);
     }
+
+    public Employee getEmployee() {return employee;}
 }
