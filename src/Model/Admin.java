@@ -231,14 +231,73 @@ public class Admin implements Observable {
         departments.add(new Department(name));
     }
 
+    /**
+     * Creates a new WorkShift for a Department with multible required Certificates
+     * @param d a Department
+     * @param start a starting time
+     * @param end an ending time
+     * @param certificates A list of Certificates
+     */
     public void createWorkshift(Department d, long start, long end, List<Certificate> certificates) {
-        d.createShift(start, end, certificates);
+        if (validateTimeSpan(start, end) && validateStartTime(start)) {
+            d.createShift(start, end, certificates);
+        } else {
+            //TODO ex
+        }
     }
 
+    /**
+     * Creates a new WorkShift for a Department with a required Certificate
+     * @param d a Department
+     * @param start a starting time
+     * @param end an ending time
+     * @param certificate a Certificate
+     */
+    public void createWorkshift(Department d, long start, long end, Certificate certificate) {
+        if (validateTimeSpan(start, end) && validateStartTime(start)) {
+            d.createShift(start, end, certificate);
+        } else {
+            //TODO ex
+        }
+    }
+
+    /**
+     * Creates a new WorkShift for a Department
+     * @param d a Department
+     * @param start a starting time
+     * @param end an ending time
+     */
+    public void createWorkshift(Department d, long start, long end) {
+        if (validateTimeSpan(start, end) && validateStartTime(start)) {
+            d.createShift(start, end);
+        } else {
+            //TODO ex
+        }
+    }
+
+    /**
+     * Creates a copy of an existing WorkShift for an Department
+     * @param d a Department
+     * @param ws the WorkShift
+     */
+    public void createWorkshift(Department d, WorkShift ws) {
+        d.createShift(ws);
+    }
+
+    /**
+     * Removes a WorkShift
+     * @param d the Department where the WorkShift is
+     * @param ws the WorkShift
+     */
     public void removeWorkshift(Department d, WorkShift ws) {
         d.removeShift(ws);
     }
 
+    /**
+     * Get a Department based on its name
+     * @param name 
+     * @return
+     */
     public Department getDepartmentByName(String name) {
         for (Department d : departments) {
             if (d.getName().equals(name)) {
@@ -249,8 +308,35 @@ public class Admin implements Observable {
         return null;//TODO exception?
     }
 
+    /**
+     * Checks if the end time is after the start time
+     * @param start Starting time
+     * @param end Ending time
+     * @return Vailid or unvalid
+     */
     private boolean validateTimeSpan(long start, long end) {
         return start < end;
+    }
+
+    /**
+     * Checks if the start date is a valid date
+     * @param start WorkShift starting time
+     * @return Valid or invalid
+     */
+    private boolean validateStartTime(long start) {
+        Date d = new Date();
+        return d.getTime() < start;
+    }
+
+    /**
+     * Gets a specific Workday by an index
+     * @param index
+     * @return
+     */
+    public WorkDay getWorkday(int index) {
+        if (index < 0) index = -index;
+        index = index%365;
+        return calendar.getOurDates().get(index);
     }
 
 }
