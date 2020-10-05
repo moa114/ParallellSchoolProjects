@@ -90,9 +90,9 @@ public class Admin implements Observable{
     public void notifyObservers(){
         observers.removeAll(toBeRemoved);
         toBeRemoved.clear();
-        observers.forEach(Observer::update);
         observers.addAll(toBeAdded);
         toBeAdded.clear();
+        observers.forEach(Observer::update);
     }
     public int getEmployeeListSize(){return employees.size();}
 
@@ -135,6 +135,7 @@ public class Admin implements Observable{
     public void createNewEmployee(String name, String personalId) {
         if (checkLengthEmployeeId(personalId) && checkIfExistsEmployeeId(personalId)) {
             employees.add(new Employee(name, personalId));
+            notifyObservers();
         }
     }
 
@@ -174,6 +175,7 @@ public class Admin implements Observable{
     public void createEmployeeCertificate(Certificate certificate, Employee e, Date expiryDate) {
         e.assignCertificate(new EmployeeCertificate(certificate, expiryDate));
         certificateHandler.linkEmployeeToCertificate(certificate, e);
+        notifyObservers();
     }
 
     /**
@@ -184,6 +186,7 @@ public class Admin implements Observable{
     public void removeEmployeeCertificate(Certificate certificate, Employee e) {
         e.unAssignCertificate(e.getEmployeeCertificate(certificate));
         certificateHandler.unlinkEmployeeToCertificate(certificate, e);
+        notifyObservers();
     }
 
     /**
@@ -192,6 +195,7 @@ public class Admin implements Observable{
      */
     public void removeEmployee(Employee e) {
         employees.remove(e);
+        notifyObservers();
     }
 
     /**
@@ -205,23 +209,27 @@ public class Admin implements Observable{
                 break;
             }
         }
-
+        notifyObservers();
     }
 
     public void createNewDepartment(String name) {
         departments.add(new Department(name));
+        notifyObservers();
     }
 
     public void createNewDepartment(String name, ArrayList<Certificate> cl) {
         departments.add(new Department(name, cl));
+        notifyObservers();
     }
 
     public void createWorkshift(Department d, long start, long end, int personell){
         d.createShift(start, end, personell);
+        notifyObservers();
     }
 
     public void createWorkshift(Department d, WorkShift ws){
         d.removeShift(ws);
+        notifyObservers();
     }
 
 }

@@ -12,10 +12,12 @@
             <items>
                 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="300.0">
                     <children>
-                        <ListView fx:id="certificateList" layoutY="135.0" prefHeight="217.0" prefWidth="300.0" />
+                        <ListView fx:id="certificateList" layoutY="132.0" prefHeight="176.0" prefWidth="300.0" />
                         <TextField fx:id="firstName" layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="266.0" promptText="Förnamn" AnchorPane.topAnchor="20.0" />
                         <TextField fx:id="lastName" layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="266.0" promptText="Efternamn" AnchorPane.topAnchor="60.0" />
                         <TextField fx:id="personalID" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="266.0" promptText="Personnummer" AnchorPane.topAnchor="100.0" />
+                  <Button fx:id="addCertificate" layoutX="14.0" layoutY="321.0" mnemonicParsing="false" style="-fx-background-color: #00FF00;" text="Nytt Certifikat" />
+                  <Button fx:id="removeCertificate" layoutX="181.0" layoutY="321.0" mnemonicParsing="false" style="-fx-background-color: #FF0000;" text="Ta Bort Certifikat" />
                     </children>
                 </AnchorPane>
                 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
