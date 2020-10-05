@@ -13,6 +13,7 @@ public class Admin implements Observable {
     private List<Employee> employees;
     private List<Department> departments;
     private CertificateHandler certificateHandler;
+    private BreakHandler breakHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
     private List<Observer> observers, toBeAdded, toBeRemoved;
@@ -28,6 +29,7 @@ public class Admin implements Observable {
     private Admin() {
         this.export = new Exporter();
         this.certificateHandler = CertificateHandler.getInstance();
+        this.breakHandler = BreakHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
         this.employeeSorter = new EmployeeSorter();
@@ -138,6 +140,9 @@ public class Admin implements Observable {
     public CertificateHandler getCertificatehandler() {
         return certificateHandler;
     }
+    public BreakHandler getBreakHandler() {
+        return breakHandler;
+    }
 
     /**
      * creates an employee with a specific name and a specific personal ID
@@ -227,8 +232,8 @@ public class Admin implements Observable {
 
     }
 
-    public void createNewDepartment(String name) {
-        departments.add(new Department(name));
+    public void createNewDepartment(String name, int maxPersonsOnBreak) {
+        departments.add(new Department(name,maxPersonsOnBreak));
     }
 
     /**
