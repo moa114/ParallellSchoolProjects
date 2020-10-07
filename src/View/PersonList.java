@@ -17,7 +17,7 @@ import javafx.scene.layout.FlowPane;
 import java.util.*;
 /**
  * @author Oliver Andersson
- *
+ * EmployeeTab of the program. Root node for "employeetab"
  * @since 2020-10-07
  */
 public class PersonList extends AnchorPane implements Observer {

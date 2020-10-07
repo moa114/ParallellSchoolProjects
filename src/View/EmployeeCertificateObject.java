@@ -9,7 +9,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 /**
  * @author Oliver Andersson
- *
+ * Visual representation of an EmployeeCertificate. Is viewed in a ListView
  * @since 2020-10-07
  */
 public class EmployeeCertificateObject extends AnchorPane {

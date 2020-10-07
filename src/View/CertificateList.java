@@ -18,7 +18,7 @@ import java.util.Iterator;
 
 /**
  * @author Oliver Andersson
- *
+ * Root node for certificate-tab. Creation and deletion of certificates in done through here
  * @since 2020-10-07
  */
 

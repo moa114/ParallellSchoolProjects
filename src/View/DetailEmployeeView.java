@@ -17,7 +17,7 @@ import java.util.Iterator;
 
 /**
  * @author Oliver Andersson
- *
+ * Interface for editing and viewing information about an employee
  * @since 2020-10-07
  */
 

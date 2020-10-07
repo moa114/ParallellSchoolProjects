@@ -10,7 +10,7 @@ import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 /**
  * @author Oliver Andersson
- *
+ * Information on an employee. Is viewed in a ListView
  * @since 2020-10-07
  */
 public class EmployeeView extends AnchorPane implements Observer {
