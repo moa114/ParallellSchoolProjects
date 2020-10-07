@@ -3,6 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="42be1be4-4c95-465e-9ca2-9669c01d090e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/testAdmin.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/testAdmin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/testDepartment.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/testDepartment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Test/testWorkShift.java" beforeDir="false" afterPath="$PROJECT_DIR$/Test/testWorkShift.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Admin.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Admin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Model/Department.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Model/Department.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +38,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.Runnable">
+  <component name="RunManager" selected="JUnit.testAdmin.testCreateWorkshift">
     <configuration name="Runnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Runnable" />
       <module name="ParallellSchoolProjects" />
@@ -42,41 +47,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testAdmin.testCreateNewEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testAdmin.testCreateBreak" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="testAdmin" />
-      <option name="METHOD_NAME" value="testCreateNewEmployee" />
+      <option name="METHOD_NAME" value="testCreateBreak" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="testDepartment.testRemoveCertificateFromDepartment" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testAdmin.testCreateWorkshift" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParallellSchoolProjects" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testAdmin" />
+      <option name="METHOD_NAME" value="testCreateWorkshift" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testDepartment.testCreateBreak" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="testDepartment" />
-      <option name="METHOD_NAME" value="testRemoveCertificateFromDepartment" />
+      <option name="METHOD_NAME" value="testCreateBreak" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="test.testGetQualifiedPersons" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="testWorkShift.testEditEmployees" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="ParallellSchoolProjects" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testGetQualifiedPersons" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="test.testRemoveEmployeeCertificate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="ParallellSchoolProjects" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="test" />
-      <option name="METHOD_NAME" value="testRemoveEmployeeCertificate" />
+      <option name="MAIN_CLASS_NAME" value="testWorkShift" />
+      <option name="METHOD_NAME" value="testEditEmployees" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -84,18 +89,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Runnable" />
-      <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
-      <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
-      <item itemvalue="JUnit.test.testGetQualifiedPersons" />
-      <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
+      <item itemvalue="JUnit.testAdmin.testCreateBreak" />
+      <item itemvalue="JUnit.testWorkShift.testEditEmployees" />
+      <item itemvalue="JUnit.testDepartment.testCreateBreak" />
+      <item itemvalue="JUnit.testAdmin.testCreateWorkshift" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testAdmin.testCreateWorkshift" />
+        <item itemvalue="JUnit.testAdmin.testCreateBreak" />
+        <item itemvalue="JUnit.testDepartment.testCreateBreak" />
+        <item itemvalue="JUnit.testWorkShift.testEditEmployees" />
         <item itemvalue="Application.Runnable" />
-        <item itemvalue="JUnit.testDepartment.testRemoveCertificateFromDepartment" />
-        <item itemvalue="JUnit.testAdmin.testCreateNewEmployee" />
-        <item itemvalue="JUnit.test.testRemoveEmployeeCertificate" />
-        <item itemvalue="JUnit.test.testGetQualifiedPersons" />
       </list>
     </recent_temporary>
   </component>
@@ -134,28 +139,28 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="740" y="275" key="FileChooserDialogImpl/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601631483725" />
-    <state width="1877" height="284" key="GridCell.Tab.0.bottom" timestamp="1601565229367">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="256" key="GridCell.Tab.0.bottom" timestamp="1602059270131">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state width="1458" height="226" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1458" height="256" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1602059270131" />
     <state width="1877" height="284" key="GridCell.Tab.0.bottom/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601565229367" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1877" height="284" key="GridCell.Tab.0.center" timestamp="1601565229367">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="256" key="GridCell.Tab.0.center" timestamp="1602059270131">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state width="1458" height="226" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1458" height="256" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1602059270131" />
     <state width="1877" height="284" key="GridCell.Tab.0.center/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601565229367" />
     <state width="1877" height="295" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1877" height="284" key="GridCell.Tab.0.left" timestamp="1601565229367">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="256" key="GridCell.Tab.0.left" timestamp="1602059270131">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state width="1458" height="226" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1458" height="256" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1602059270131" />
     <state width="1877" height="284" key="GridCell.Tab.0.left/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601565229367" />
     <state width="1877" height="295" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1600766445739" />
-    <state width="1877" height="284" key="GridCell.Tab.0.right" timestamp="1601565229367">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state width="1458" height="256" key="GridCell.Tab.0.right" timestamp="1602059270131">
+      <screen x="0" y="0" width="1500" height="960" />
     </state>
-    <state width="1458" height="226" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1601037405404" />
+    <state width="1458" height="256" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1602059270131" />
     <state width="1877" height="284" key="GridCell.Tab.0.right/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1601565229367" />
     <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1601912917958" />
     <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1601369142211">

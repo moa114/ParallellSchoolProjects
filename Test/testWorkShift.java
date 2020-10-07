@@ -39,7 +39,7 @@ public class testWorkShift {
     public void testRemoveWorkShift() {
         Admin a = Admin.getInstance();
         Date d = new Date();
-        a.createNewDepartment("Kassa");
+        a.createNewDepartment("Kassa", 1);
         a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
         a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
         a.removeWorkshift(a.getDepartmentByName("Kassa"), a.getDepartmentByName("Kassa").getAllShifts().get(1));
@@ -50,7 +50,7 @@ public class testWorkShift {
     public void testEditEmployees() {
         Admin a = Admin.getInstance();
         Date d = new Date();
-        a.createNewDepartment("Kassa");
+        a.createNewDepartment("Kassa",1);
         a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
         a.createNewEmployee("Cristian är kass", "133742042069");
         a.createWorkshift(a.getDepartmentByName("Kassa"), a.getWorkday(1).DATE+10, a.getWorkday(1).DATE+1100);
