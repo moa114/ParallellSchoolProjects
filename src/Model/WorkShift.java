@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -10,6 +11,7 @@ public class WorkShift {
     private OccupiedTime occupiedTime;
     private OccupiedTime breakTime;
     private boolean occupied = false;
+    final public boolean REPEAT;
     final public long START, END;
 
     /**
@@ -19,11 +21,12 @@ public class WorkShift {
      * @param end          The ending time for the Workshift
      * @param certificate Required Certificates for the Workshift
      */
-    public WorkShift(long start, long end, Certificate certificate, OccupiedTime breakTime) {
+    public WorkShift(long start, long end, Certificate certificate, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
         this.certificates.add(certificate);
         this.breakTime= breakTime;
+        this.REPEAT = repeat;
     }
 
     /**
@@ -33,11 +36,12 @@ public class WorkShift {
      * @param end          The ending time for the Workshift
      * @param certificates A list of required Certificates
      */
-    public WorkShift(long start, long end, List<Certificate> certificates, OccupiedTime breakTime) {
+    public WorkShift(long start, long end, List<Certificate> certificates, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
         this.certificates.addAll(certificates);
         this.breakTime=breakTime;
+        this.REPEAT = repeat;
     }
 
     /**
@@ -46,21 +50,35 @@ public class WorkShift {
      * @param start The starting time for the Workshift
      * @param end   The ending time for the Workshift
      */
-    public WorkShift(long start, long end, OccupiedTime breakTime) {
+    public WorkShift(long start, long end, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
         this.breakTime=breakTime;
+        this.REPEAT = repeat;
     }
 
     /**
-     * Creates a copy of a previous Workshift without employee and occupation
+     * Creates a copy of a previous Workshift without employee and occupation and moves it forward a week
      *
      * @param ws The Workshift you wish to copy
      */
-    public WorkShift(WorkShift ws) {
-        this.START = ws.START;
-        this.END = ws.END;
+    public WorkShift(WorkShift ws, long date) {
+
+        Date wsStart = new Date(ws.START);
+        this.START = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
+        wsStart.setTime(ws.END);
+        this.END = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
         this.certificates = ws.certificates;
+        this.REPEAT = ws.REPEAT;
+        this.breakTime = ws.breakTime;
+    }
+
+    public WorkShift(WorkShift ws, int date){
+        this.START = ws.START+ date*24*60*60*1000;
+        this.END = ws.END + date*24*60*60*1000;
+        this.certificates = ws.certificates;
+        this.REPEAT = ws.REPEAT;
+        this.breakTime = ws.breakTime;
     }
 
     /**

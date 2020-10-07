@@ -233,7 +233,9 @@ public class Admin implements Observable {
     }
 
     public void createNewDepartment(String name, int maxPersonsOnBreak) {
-        departments.add(new Department(name,maxPersonsOnBreak));
+        Department d = new Department(name,maxPersonsOnBreak);
+        WorkDay.addDepartment(d);
+        departments.add(d);
     }
 
     /**
@@ -243,11 +245,11 @@ public class Admin implements Observable {
      * @param end an ending time
      * @param certificates A list of Certificates
      */
-    public void createWorkshift(Department d, long start, long end, List<Certificate> certificates) {
-        if (validateTimeSpan(start, end) && validateStartTime(start)) {
-            d.createShift(start, end, certificates);
+    public void createWorkshift(Department d, long start, long end, List<Certificate> certificates, boolean[] repeat) {
+        if((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))){
+            d.createShift(start, end, certificates, repeat); //TODO weekly booleans and not just true
         } else {
-            //TODO ex
+            //TODO exception
         }
     }
 
@@ -258,11 +260,11 @@ public class Admin implements Observable {
      * @param end an ending time
      * @param certificate a Certificate
      */
-    public void createWorkshift(Department d, long start, long end, Certificate certificate) {
-        if (validateTimeSpan(start, end) && validateStartTime(start)) {
-            d.createShift(start, end, certificate);
+    public void createWorkshift(Department d, long start, long end, Certificate certificate, boolean[] repeat) {
+        if((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))){
+            d.createShift(start, end, certificate, repeat); //TODO weekly booleans and not just true
         } else {
-            //TODO ex
+            //TODO exception
         }
     }
 
@@ -272,11 +274,11 @@ public class Admin implements Observable {
      * @param start a starting time
      * @param end an ending time
      */
-    public void createWorkshift(Department d, long start, long end) {
-        if (validateTimeSpan(start, end) && validateStartTime(start)) {
-            d.createShift(start, end);
+    public void createWorkshift(Department d, long start, long end, boolean[] repeat) {
+        if((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))){
+            d.createShift(start, end, repeat); //TODO weekly booleans and not just true
         } else {
-            //TODO ex
+            //TODO exception
         }
     }
 
@@ -343,5 +345,7 @@ public class Admin implements Observable {
         index = index%365;
         return calendar.getOurDates().get(index);
     }
+
+    //TODO boolean array
 
 }

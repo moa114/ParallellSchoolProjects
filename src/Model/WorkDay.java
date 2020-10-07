@@ -1,9 +1,6 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 import java.util.concurrent.Phaser;
 
 /**
@@ -131,6 +128,7 @@ public class WorkDay {
         workShift.registerOccupation(e, ot);
     }
 
+    /*
     public void setWorkShifts(ArrayList<WorkShift> wss) {
         for (Department d : departments) {
             for (WorkShift ws1 : d.getAllShifts()) {
@@ -142,5 +140,34 @@ public class WorkDay {
                 }
             }
         }
+    }*/
+
+    public List<WorkShift> getWorkShifts(Department d){
+        return departmentLinks.get(d);
+    }
+
+    public void setWorkDay(){
+        updateDepartments();
+        for (Department d : this.departments) {
+            for (WorkShift ws : d.getAllShifts()) {
+                Date wsDate = new Date(ws.START);
+                Date thisDate = new Date(this.DATE);
+                if(ws.REPEAT && (wsDate.getDay() == thisDate.getDay())){
+                    this.departmentLinks.get(d).add(new WorkShift(ws, this.DATE));
+                } else if (!ws.REPEAT && (wsDate.getDay() == thisDate.getDay()) && (wsDate.getDate() == thisDate.getDate())){
+                    this.departmentLinks.get(d).add(new WorkShift(ws, this.DATE));
+                }
+            }
+        }
+    }
+
+    public void updateDepartments(){
+        for (Department d : departments){
+            departmentLinks.computeIfAbsent(d, k -> new ArrayList<WorkShift>());
+        }
+    }
+
+    public static void addDepartment(Department d) {
+        departments.add(d);
     }
 }
