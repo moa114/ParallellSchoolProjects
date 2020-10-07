@@ -78,7 +78,6 @@ public class PersonList extends AnchorPane implements Observer {
             }
             employeeViewPane.getItems().add(employeeEmployeeViewMap.get(e));
         }
-        System.out.println(employeeViewPane.getItems().size());
     }
 
     @Override
