@@ -33,7 +33,7 @@ public class Runnable extends Application {
         URL url = new File("src/View/StartPage.fxml").toURI().toURL();
         Parent root = FXMLLoader.load(url);
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 800, 600));
+        primaryStage.setScene(new Scene(root, 800, 640));
         primaryStage.show();
         Runtime.getRuntime().addShutdownHook(new Thread(){
             public void run(){

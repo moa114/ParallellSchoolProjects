@@ -28,8 +28,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
     @FXML Button saveChanges, deleteEmployee, addCertificate, removeCertificate, createCertificate, discardCertificate;
     @FXML ListView<EmployeeCertificateObject> certificateList;
     @FXML ListView<CertificateObject> availableCertificates;
-    @FXML SplitPane information;
-    @FXML AnchorPane certificatePicker;
+    @FXML AnchorPane certificatePicker, information;
     Certificate selected;
 
     public DetailEmployeeView(Employee employee) {
