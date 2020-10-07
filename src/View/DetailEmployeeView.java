@@ -18,6 +18,7 @@ import java.util.Iterator;
 /**
  * @author Oliver Andersson
  *
+ * @since 2020-10-07
  */
 
 public class DetailEmployeeView extends AnchorPane implements Observer {

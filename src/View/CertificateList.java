@@ -16,6 +16,12 @@ import javafx.scene.layout.AnchorPane;
 
 import java.util.Iterator;
 
+/**
+ * @author Oliver Andersson
+ *
+ * @since 2020-10-07
+ */
+
 public class CertificateList extends AnchorPane implements Observer {
     @FXML
     ListView<CertificateObject> listOfCertificates;

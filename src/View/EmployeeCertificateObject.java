@@ -7,7 +7,11 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-
+/**
+ * @author Oliver Andersson
+ *
+ * @since 2020-10-07
+ */
 public class EmployeeCertificateObject extends AnchorPane {
     @FXML Label name, expiryDate;
     @FXML CheckBox checked;

@@ -15,7 +15,11 @@ import java.time.DayOfWeek;
 import java.util.Calendar;
 import java.util.Date;
 
-
+/**
+ * @author Oliver Andersson
+ * Runnable class for the project
+ * @since 2020-10-07
+ */
 public class Runnable extends Application {
     public static void main(String[] args) {
         launch(args);

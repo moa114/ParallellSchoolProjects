@@ -195,7 +195,7 @@ public class Admin implements Observable{
         certificateHandler.deleteCertificate(certificate);
         notifyObservers();
     }
-    
+
     /**
      * Removes a chosen certificate from a chosen employee
      * @param certificate the certificate that should be removed

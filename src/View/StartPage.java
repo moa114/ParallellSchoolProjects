@@ -15,7 +15,11 @@ import javafx.scene.layout.AnchorPane;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-
+/**
+ * @author Oliver Andersson
+ * Root node in the view, everything is build upon this
+ * @since 2020-10-07
+ */
 public class StartPage implements Observer, Initializable {
     @FXML AnchorPane backGround;
     @FXML AnchorPane startPage;

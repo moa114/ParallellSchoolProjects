@@ -10,7 +10,11 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-
+/**
+ * @author Oliver Andersson
+ *
+ * @since 2020-10-07
+ */
 public class CertificateObject extends AnchorPane{
     Certificate certificate;
     @FXML Label name;

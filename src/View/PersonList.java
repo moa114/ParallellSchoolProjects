@@ -15,7 +15,11 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 import java.util.*;
-
+/**
+ * @author Oliver Andersson
+ *
+ * @since 2020-10-07
+ */
 public class PersonList extends AnchorPane implements Observer {
     private Map<Employee, EmployeeView> employeeEmployeeViewMap;
     private List<EmployeeView> employeeViews;
