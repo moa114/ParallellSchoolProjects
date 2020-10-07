@@ -8,7 +8,7 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
 
-public class EmployeeCertificateObject extends AnchorPane implements Observer {
+public class EmployeeCertificateObject extends AnchorPane {
     @FXML Label name, expiryDate;
     @FXML CheckBox checked;
     EmployeeCertificate certificate;
@@ -29,10 +29,5 @@ public class EmployeeCertificateObject extends AnchorPane implements Observer {
     private void fixLabels(){
         this.name.setText(certificate.getCertificateName());
         this.expiryDate.setText(certificate.getExpiryDateAsString());
-    }
-
-    @Override
-    public void update() {
-
     }
 }

@@ -40,14 +40,13 @@ public class StartPage implements Observer, Initializable {
 
     private void setTabs(){
         //tabSchedule.setContent(); //TODO fixa scheduleView
-        tabEmployees.setContent(new PersonList(admin.getEmployees()));
-        tabEmployeesPane.getChildren().clear();
         PersonList personList = new PersonList(admin.getEmployees());
+        tabEmployees.setContent(personList);
         tabEmployeesPane.getChildren().clear();
         tabEmployeesPane.getChildren().add(personList);
-
         tabCertificates.setContent(new CertificateList());
     }
+
     private void setButtons(){
         buttonSaveAndExit.setOnAction(new EventHandler<ActionEvent>() {
             @Override

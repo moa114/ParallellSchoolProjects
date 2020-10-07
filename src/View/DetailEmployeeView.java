@@ -1,16 +1,19 @@
 package View;
 
-import Model.Admin;
-import Model.Employee;
-import Model.EmployeeCertificate;
-import Model.Observer;
+import Model.*;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.control.Button;
-import javafx.scene.control.ListView;
+import javafx.scene.control.*;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Date;
+import java.util.Iterator;
 
 /**
  * @author Oliver Andersson
@@ -19,9 +22,15 @@ import javafx.scene.layout.AnchorPane;
 
 public class DetailEmployeeView extends AnchorPane implements Observer {
     Employee employee;
+
+    @FXML DatePicker datePicker;
     @FXML javafx.scene.control.TextField firstName, lastName, personalID;
-    @FXML Button saveChanges, deleteEmployee, addCertificate, removeCertificate;
+    @FXML Button saveChanges, deleteEmployee, addCertificate, removeCertificate, createCertificate, discardCertificate;
     @FXML ListView<EmployeeCertificateObject> certificateList;
+    @FXML ListView<CertificateObject> availableCertificates;
+    @FXML SplitPane information;
+    @FXML AnchorPane certificatePicker;
+    Certificate selected;
 
     public DetailEmployeeView(Employee employee) {
         this.employee = employee;
@@ -36,6 +45,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         }
         generateFXMLObjects();
         generateButtons();
+        generateCertificates();
         Admin.getInstance().addObserver(this);
     }
 
@@ -50,9 +60,25 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             e.printStackTrace();
         }
         generateButtons();
+        generateCertificates();
         Admin.getInstance().addObserver(this);
     }
 
+    private void generateCertificates(){
+        availableCertificates.getItems().clear();
+        Iterator<Certificate> certificateIterator = Admin.getInstance().getCertificatehandler().getAllCertificates();
+        while (certificateIterator.hasNext()) {
+            CertificateObject tmp = new CertificateObject(certificateIterator.next());
+            tmp.checked.setDisable(true);
+            tmp.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                @Override
+                public void handle(MouseEvent mouseEvent) {
+                    selected = tmp.certificate;
+                }
+            });
+            availableCertificates.getItems().add(tmp);
+        }
+    }
     private void generateButtons(){
         saveChanges.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -76,7 +102,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             public void handle(ActionEvent actionEvent) {
                 for (EmployeeCertificateObject e: certificateList.getItems()){
                     if (e.checked.isSelected()){
-                        employee.unAssignCertificate(e.certificate);
+                        Admin.getInstance().removeEmployeeCertificate(e.certificate.getCertificate(), employee);
                         e.checked.setSelected(false);
                     }
                 }
@@ -85,7 +111,26 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         addCertificate.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                information.toBack();
+                certificatePicker.toFront();
+            }
+        });
+        discardCertificate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                information.toFront();
+                certificatePicker.toBack();
+            }
+        });
+        createCertificate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                LocalDate localDate = datePicker.getValue();
+                Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+                Date date = Date.from(instant);
+                Admin.getInstance().createEmployeeCertificate(selected, employee, date);
+                information.toFront();
+                certificatePicker.toBack();
             }
         });
     }

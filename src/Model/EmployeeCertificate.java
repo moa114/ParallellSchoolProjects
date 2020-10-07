@@ -24,7 +24,7 @@ public class EmployeeCertificate {
      * Gets the linked certificate of the EmployeeCertificate
      * @return the certificate
      */
-    protected Certificate getCertificate() {
+    public Certificate getCertificate() {
         return certificate;
     }
 
