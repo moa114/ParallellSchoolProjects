@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6d840153-421c-4db5-b7b3-7c686570cfb5" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RunManager" selected="Application.Runnable">
+    <configuration name="Runnable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Runnable" />
+      <module name="ParallellSchoolProjects" />
+      <option name="VM_PARAMETERS" value="--module-path C:\java-devel\javafx-sdk-11.0.2\lib --add-modules javafx.controls,javafx.fxml" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testCertificateHandler.testRemoveGlobalCertificate" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParallellSchoolProjects" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testCertificateHandler" />
+      <option name="METHOD_NAME" value="testRemoveGlobalCertificate" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testDepartment.testCreateBreak" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParallellSchoolProjects" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testDepartment" />
+      <option name="METHOD_NAME" value="testCreateBreak" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testWorkday.testoccupiesEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParallellSchoolProjects" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testWorkday" />
+      <option name="METHOD_NAME" value="testoccupiesEmployee" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="testWorkday.testoccuspiesEmployee" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ParallellSchoolProjects" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="testWorkday" />
+      <option name="METHOD_NAME" value="testoccuspiesEmployee" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Runnable" />
+      <item itemvalue="JUnit.testDepartment.testCreateBreak" />
+      <item itemvalue="JUnit.testWorkday.testoccuspiesEmployee" />
+      <item itemvalue="JUnit.testWorkday.testoccupiesEmployee" />
+      <item itemvalue="JUnit.testCertificateHandler.testRemoveGlobalCertificate" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Runnable" />
+        <item itemvalue="JUnit.testCertificateHandler.testRemoveGlobalCertificate" />
+        <item itemvalue="JUnit.testWorkday.testoccupiesEmployee" />
+        <item itemvalue="JUnit.testWorkday.testoccuspiesEmployee" />
+        <item itemvalue="JUnit.testDepartment.testCreateBreak" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602062983139">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.960@0.0.1500.960" timestamp="1602062983139" />
+    <state x="545" y="340" width="408" height="286" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1602060272750">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="545" y="340" width="408" height="286" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1500.960@0.0.1500.960" timestamp="1602060272750" />
+    <state width="1458" height="256" key="GridCell.Tab.0.bottom" timestamp="1602062987241">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="256" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
+    <state width="1458" height="256" key="GridCell.Tab.0.center" timestamp="1602062987241">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="256" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
+    <state width="1458" height="256" key="GridCell.Tab.0.left" timestamp="1602062987241">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="256" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
+    <state width="1458" height="256" key="GridCell.Tab.0.right" timestamp="1602062987241">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state width="1458" height="256" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
+    <state x="231" y="55" key="SettingsEditor" timestamp="1602061930359">
+      <screen x="0" y="0" width="1500" height="960" />
+    </state>
+    <state x="231" y="55" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1602061930359" />
+  </component>
+</project>
