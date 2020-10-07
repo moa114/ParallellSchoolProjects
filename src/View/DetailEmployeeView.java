@@ -2,6 +2,7 @@ package View;
 
 import Model.Admin;
 import Model.Employee;
+import Model.EmployeeCertificate;
 import Model.Observer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -11,11 +12,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 
+/**
+ * @author Oliver Andersson
+ *
+ */
 
 public class DetailEmployeeView extends AnchorPane implements Observer {
     Employee employee;
     @FXML javafx.scene.control.TextField firstName, lastName, personalID;
-    @FXML Button saveChanges, deleteEmployee;
+    @FXML Button saveChanges, deleteEmployee, addCertificate, removeCertificate;
     @FXML ListView<EmployeeCertificateObject> certificateList;
 
     public DetailEmployeeView(Employee employee) {
@@ -66,6 +71,23 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
                 deleteAction();
             }
         });
+        removeCertificate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                for (EmployeeCertificateObject e: certificateList.getItems()){
+                    if (e.checked.isSelected()){
+                        employee.unAssignCertificate(e.certificate);
+                        e.checked.setSelected(false);
+                    }
+                }
+            }
+        });
+        addCertificate.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+
+            }
+        });
     }
 
     private void deleteAction(){
@@ -85,6 +107,10 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             this.firstName.setText(employee.name.split(" ")[0]);
             this.lastName.setText(employee.name.split(" ")[1]);
             this.personalID.setText(employee.personalId);
+            this.certificateList.getItems().clear();
+            for (EmployeeCertificate employeeCertificate: employee.getAllCertificates()){
+                this.certificateList.getItems().add(new EmployeeCertificateObject(employeeCertificate));
+            }
         }
     }
 
