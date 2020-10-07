@@ -39,9 +39,6 @@ public class Department {
     protected void createShift(long start, long stop, List<Certificate> certificates) {
         allShifts.add(new WorkShift(start, stop, certificates, createBreak(start,stop)));
     }
-    public void createShift(long start, long stop) {
-        allShifts.add(new WorkShift(start, stop,  createBreak(start,stop)));
-    }
 
     /**
      * Creates a break for a work shift
@@ -74,11 +71,11 @@ public class Department {
     return null;}
 
     protected void createShift(long start, long stop, Certificate certificates) {
-        allShifts.add(new WorkShift(start, stop, certificates));
+        allShifts.add(new WorkShift(start, stop, certificates, createBreak(start, stop)));
     }
 
     protected void createShift(long start, long stop) {
-        allShifts.add(new WorkShift(start, stop));
+        allShifts.add(new WorkShift(start, stop, createBreak(start, stop)));
     }
 
     protected void createShift(WorkShift ws) {

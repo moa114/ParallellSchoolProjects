@@ -330,7 +330,7 @@ public class Admin implements Observable {
      */
     private boolean validateStartTime(long start) {
         Date d = new Date();
-        return d.getTime() < start;
+        return d.getTime() <= start;
     }
 
     /**
