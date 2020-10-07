@@ -25,7 +25,8 @@ public class WeekHandler {
     }
 
     public void setWorkDay(WorkDay wd) {
-        wd.setWorkShifts(weekDays.get(DayOfWeek.of(new Date(wd.DATE).getDay())));
+       // wd.setWorkShifts(weekDays.get(DayOfWeek.of(new Date(wd.DATE).getDay())));
     }
+
 
 }

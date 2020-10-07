@@ -60,10 +60,11 @@ public class testAdmin {
         Admin admin=Admin.getInstance();
         Department department = new Department("kassa", 3);
         Date date = new Date();
+        boolean repeat[] = {true, false, false, false, false, false, false};
         department.getBreakHandler().setMinBreakLength(1000*60*15);
-        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5));
-        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5));
-        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5));
+        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
+        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
+        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
 
         assertTrue(department.getAllShifts().size()==3);}
 }

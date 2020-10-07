@@ -16,7 +16,7 @@ public class testWorkShift {
         List<Certificate> allcert = new ArrayList<>();
         ch.createNewCertificate("Frukt");
         allcert.add(ch.getCertificate("Frukt"));
-        WorkShift ws = new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)), allcert,new OccupiedTime(2,2));
+        WorkShift ws = new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)), allcert,new OccupiedTime(2,2), true);
         ch.createNewCertificate("Kassa");
         ws.addCertificate(ch.getCertificate("Kassa"));
         assertTrue(ws.getAllCertificate().size() == 2);
@@ -30,7 +30,7 @@ public class testWorkShift {
         ch.createNewCertificate("Kassa");
         List<Certificate> allcert = new ArrayList<>();
         allcert.add(ch.getCertificate("Kassa"));
-        WorkShift ws = new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)), allcert,new OccupiedTime(2,2));
+        WorkShift ws = new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)), allcert,new OccupiedTime(2,2), true);
         ws.removeCertificate(ch.getCertificate("Kassa"));
         assertTrue(ws.getAllCertificate().size() == 0);
     }
@@ -39,9 +39,10 @@ public class testWorkShift {
     public void testRemoveWorkShift() {
         Admin a = Admin.getInstance();
         Date d = new Date();
+        boolean repeat[] = {true, true, true, true, true, true, true};
         a.createNewDepartment("Kassa", 1);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111, repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111, repeat);
         a.removeWorkshift(a.getDepartmentByName("Kassa"), a.getDepartmentByName("Kassa").getAllShifts().get(1));
         assertTrue(a.getDepartmentByName("Kassa").getAllShifts().size() == 1);
     }
@@ -50,10 +51,11 @@ public class testWorkShift {
     public void testEditEmployees() {
         Admin a = Admin.getInstance();
         Date d = new Date();
+        boolean repeat[] = {true, true, true, true, true, true, true};
         a.createNewDepartment("Kassa",1);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime()+1111,d.getTime()+11111, repeat);
         a.createNewEmployee("Cristian är kass", "133742042069");
-        a.createWorkshift(a.getDepartmentByName("Kassa"), a.getWorkday(1).DATE+10, a.getWorkday(1).DATE+1100);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), a.getWorkday(1).DATE+10, a.getWorkday(1).DATE+1100, repeat);
         a.getWorkday(1).occupiesEmployee(a.getDepartmentByName("Kassa").getAllShifts().get(0), a.getEmployeeByID("133742042069"));
         assertTrue(a.getDepartmentByName("Kassa").getAllShifts().get(0).getEmployee().getPersonalId().equals("133742042069"));
         a.createNewEmployee("Markus passar bättre här", "694201337420");

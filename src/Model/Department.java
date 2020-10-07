@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -36,8 +37,23 @@ public class Department {
      * @param stop         end time of the shift
      * @param certificates list of which certificates are required at the shift
      */
-    protected void createShift(long start, long stop, List<Certificate> certificates) {
-        allShifts.add(new WorkShift(start, stop, certificates, createBreak(start,stop)));
+    protected void createShift(long start, long stop, List<Certificate> certificates, boolean[] repeat) {
+        WorkShift ws = new WorkShift(start, stop, certificates, createBreak(start,stop), true);
+        setRepeat(ws, repeat);
+    }
+
+    private void setRepeat(WorkShift ws, boolean[] repeat){
+        boolean single = true;
+        int c = new Date(ws.START).getDay();
+        for (int i = 0; i < 7; i++) {
+            if (repeat[(i+c)%7]) {
+                createShift(ws, i);
+                single = false;
+            }
+        }
+        if (single){
+
+        }
     }
 
     /**
@@ -70,16 +86,22 @@ public class Department {
         }
     return null;}
 
-    protected void createShift(long start, long stop, Certificate certificates) {
-        allShifts.add(new WorkShift(start, stop, certificates, createBreak(start, stop)));
+    protected void createShift(long start, long stop, Certificate certificate, boolean[] repeat) {
+        WorkShift ws = new WorkShift(start, stop, certificate, createBreak(start,stop), true);
+        setRepeat(ws, repeat);
     }
 
-    protected void createShift(long start, long stop) {
-        allShifts.add(new WorkShift(start, stop, createBreak(start, stop)));
+    protected void createShift(long start, long stop, boolean[] repeat) {
+        WorkShift ws = new WorkShift(start, stop, createBreak(start,stop), true);
+        setRepeat(ws, repeat);
     }
 
     protected void createShift(WorkShift ws) {
-        allShifts.add(new WorkShift(ws));
+        allShifts.add(new WorkShift(ws, 0));
+    }
+
+    protected void createShift(WorkShift ws, int i) {
+        allShifts.add(new WorkShift(ws, i));
     }
 
     public void removeShift(WorkShift ws) {
