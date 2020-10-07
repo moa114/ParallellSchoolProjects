@@ -179,16 +179,23 @@ public class Admin implements Observable{
     }
 
     /**
-     *
+     * calls the certificatehandler and notifies the observers
+     * @param name The name of the new certificate
      */
     public void createCertificate(String name){
         certificateHandler.createNewCertificate(name);
         notifyObservers();
     }
+
+    /**
+     * calls the certificatehandler and notifies the observers
+     * @param certificate The certificate that will be removed
+     */
     public void deleteCertificate(Certificate certificate){
         certificateHandler.deleteCertificate(certificate);
         notifyObservers();
     }
+    
     /**
      * Removes a chosen certificate from a chosen employee
      * @param certificate the certificate that should be removed
