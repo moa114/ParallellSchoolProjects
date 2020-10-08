@@ -106,11 +106,7 @@ public class Admin implements Observable {
     public int getEmployeeListSize() {
         return employees.size();
     }
-
-    public int getEmployeeListSize() {
-        return employees.size();
-    }
-
+    
     public EmployeeSorter getEmployeeSorter() {
         return employeeSorter;
     }
@@ -273,10 +269,10 @@ public class Admin implements Observable {
     }
 
     public void createNewDepartment(String name, int maxPersonsOnBreak) {
-        Department d = new Department(name,maxPersonsOnBreak);
+        Department d = new Department(name, maxPersonsOnBreak);
         WorkDay.addDepartment(d);
         departments.add(d);
-
+    }
     /**
      * Creates a new WorkShift for a Department with a required Certificate
      * @param d a Department
@@ -290,7 +286,6 @@ public class Admin implements Observable {
         } else {
             //TODO exception
         }
-    }
         notifyObservers();
     }
 
