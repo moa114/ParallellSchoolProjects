@@ -132,4 +132,8 @@ public class WorkShift {
     }
 
     public Employee getEmployee() {return employee;}
+
+    public OccupiedTime getOccupation() {
+        return occupiedTime;
+    }
 }

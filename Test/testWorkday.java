@@ -83,6 +83,59 @@ public class testWorkday {
         assertTrue(e.getOccupiedTimes().size() == 1);
     }
 
+    @Test
+    public void testCertifiedEmployee() {
+        Employee e=new Employee("moa", "000211444444");
+        Date d= new Date();
+        Admin a = Admin.getInstance();
+        d.setTime(d.getTime()+(24*60*60*1000));
+        CertificateHandler ch = CertificateHandler.getInstance();
+        ch.createNewCertificate("Kassa");
+        ch.createNewCertificate("Frukt");
+        List<Certificate> allcert = new ArrayList<>();
+        allcert.add(ch.getCertificate("Kassa"));
+        allcert.add(ch.getCertificate("Frukt"));
+        a.createEmployeeCertificate(ch.getCertificate("Kassa"), e);
+        WorkShift w= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),allcert,new OccupiedTime(2,2), false);
+        WorkDay workday= new WorkDay(d.getTime());
+        workday.setGuaranteedFreeTime(10);
+        workday.occupiesEmployee(w,e);
+        assertTrue(w.getEmployee() != e);
+    }
+
+    @Test
+    public void testSwapOccupation(){
+        Employee e1=new Employee("moa", "000211444444");
+        Employee e2=new Employee("sam", "000211444442");
+        Employee e3=new Employee("mas", "000211444443");
+        Date d= new Date();
+        Admin a = Admin.getInstance();
+        d.setTime(d.getTime()+(24*60*60*1000));
+        CertificateHandler ch = CertificateHandler.getInstance();
+        ch.createNewCertificate("Kassa");
+        List<Certificate> allcert = new ArrayList<>();
+        allcert.add(ch.getCertificate("Kassa"));
+        a.createEmployeeCertificate(ch.getCertificate("Kassa"), e1);
+        a.createEmployeeCertificate(ch.getCertificate("Kassa"), e2);
+        WorkShift w1= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),new OccupiedTime(2,2), false);
+        WorkShift w2= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),new OccupiedTime(2,2), false);
+        WorkShift w3= new WorkShift(d.getTime() + 1000*60*60*24*1,(d.getTime()+(1000 * 60 * 60 * 8) + 1000*60*60*24*1),allcert,new OccupiedTime(2,2), false);
+        WorkShift w4= new WorkShift(d.getTime() + 1000*60*60*24*1,(d.getTime()+(1000 * 60 * 60 * 8) + 1000*60*60*24*1),new OccupiedTime(2,2), false);
+        WorkDay workday= new WorkDay(d.getTime());
+        workday.setGuaranteedFreeTime(10);
+        workday.occupiesEmployee(w1,e1);
+        workday.occupiesEmployee(w2,e3);
+        workday.occupiesEmployee(w3,e2);
+        workday.occupiesEmployee(w4,e3);
+
+        workday.swapOccupation(w1, w2);
+        assertTrue(w1.getEmployee() == e3);
+        workday.swapOccupation(w1, w3);
+        assertTrue(w1.getEmployee() == e3);
+        workday.swapOccupation(w2, w3);
+        assertTrue(w2.getEmployee() == e2);
+    }
+
 
 
 

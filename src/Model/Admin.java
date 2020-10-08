@@ -215,6 +215,11 @@ public class Admin implements Observable {
         notifyObservers();
     }
 
+    public void createEmployeeCertificate(Certificate certificate, Employee e) {
+        e.assignCertificate(new EmployeeCertificate(certificate));
+        certificateHandler.linkEmployeeToCertificate(certificate, e);
+    }
+
     /**
      * Removes a chosen certificate from a chosen employee
      *
@@ -371,6 +376,13 @@ public class Admin implements Observable {
         return calendar.getOurDates().get(index);
     }
 
-    //TODO boolean array
-
+    public void setVacation(Employee e, long start, long end) {
+        Date startDate = new Date(start);
+        Date endDate = new Date(end);
+        int stop = calendar.getDateIndex(endDate);
+        e.registerOccupation(start, end);
+        for (int i = calendar.getDateIndex(startDate) ; i <= stop+4 ; i++){
+            calendar.getOurDates().get(i).unRegisterOccupations(e, start, end);
+        }
+    }
 }
