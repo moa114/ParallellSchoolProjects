@@ -63,6 +63,27 @@ public class testWorkday {
     }
 
 
+    @Test
+    public void testOccupieAnOccupiedEmployee() {
+        Employee e=new Employee("moa", "000211444444");
+        Date d= new Date();
+        d.setTime(d.getTime()+(24*60*60*1000));
+        CertificateHandler ch = CertificateHandler.getInstance();
+        ch.createNewCertificate("Kassa");
+        List<Certificate> allcert = new ArrayList<>();
+        allcert.add(ch.getCertificate("Kassa"));
+        WorkShift w= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),allcert,new OccupiedTime(2,2), false);
+        WorkShift w2= new WorkShift(d.getTime()+1000,(d.getTime()+1000+(1000 * 60 * 60 * 8)),allcert,new OccupiedTime(2,2), false);
+        WorkShift w3= new WorkShift(d.getTime()-1000,(d.getTime()-1000+(1000 * 60 * 60 * 8)),allcert,new OccupiedTime(2,2), false);
+        WorkDay workday= new WorkDay(d.getTime());
+        workday.setGuaranteedFreeTime(10);
+        workday.occupiesEmployee(w,e);
+        workday.occupiesEmployee(w2,e);
+        workday.occupiesEmployee(w3,e);
+        assertTrue(e.getOccupiedTimes().size() == 1);
+    }
+
+
 
 
 }
