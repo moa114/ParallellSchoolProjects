@@ -15,11 +15,15 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
 import java.util.*;
-
+/**
+ * @author Oliver Andersson
+ * EmployeeTab of the program. Root node for "employeetab"
+ * @since 2020-10-07
+ */
 public class PersonList extends AnchorPane implements Observer {
     private Map<Employee, EmployeeView> employeeEmployeeViewMap;
     private List<EmployeeView> employeeViews;
-    @FXML FlowPane employeeViewPane;
+    @FXML ListView<EmployeeView> employeeViewPane;
     @FXML Button buttonCreateEmployee;
     @FXML AnchorPane paneDetailView;
 
@@ -62,7 +66,7 @@ public class PersonList extends AnchorPane implements Observer {
 
     private void generatePersonViews(List<Employee> employees){
         sortEmployeesAlphabetically(employees);
-        employeeViewPane.getChildren().clear();
+        employeeViewPane.getItems().clear();
         for (Employee e : employees) {
             if (employeeEmployeeViewMap.get(e) == null) {
                 EmployeeView employeeView = new EmployeeView(e);
@@ -76,7 +80,7 @@ public class PersonList extends AnchorPane implements Observer {
                     }
                 });
             }
-            employeeViewPane.getChildren().add(employeeEmployeeViewMap.get(e));
+            employeeViewPane.getItems().add(employeeEmployeeViewMap.get(e));
         }
     }
 

@@ -10,22 +10,32 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-
-public class CertificateObject extends AnchorPane implements Observer {
+/**
+ * @author Oliver Andersson
+ * Visual representation of an certificate. Is viewed in a ListView
+ * @since 2020-10-07
+ */
+public class CertificateObject extends AnchorPane{
     Certificate certificate;
-    @FXML Label labelName;
-    @FXML Button remove;
+    @FXML Label name;
+    @FXML CheckBox checked;
 
     public CertificateObject(Certificate certificate) {
+        this.certificate = certificate;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CertificateObject.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
-        this.certificate = certificate;
-        this.labelName.setText(certificate.getName());
+        try {
+            fxmlLoader.load();
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+        fixLabels();
     }
 
-    @Override
-    public void update() {
-
+    private void fixLabels(){
+        this.name.setText(certificate.getName());
     }
+
 }

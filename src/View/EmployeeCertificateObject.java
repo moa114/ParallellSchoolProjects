@@ -1,11 +1,23 @@
 package View;
 
+import Model.EmployeeCertificate;
 import Model.Observer;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
-
-public class EmployeeCertificateObject extends AnchorPane implements Observer {
-    public EmployeeCertificateObject() {
+/**
+ * @author Oliver Andersson
+ * Visual representation of an EmployeeCertificate. Is viewed in a ListView
+ * @since 2020-10-07
+ */
+public class EmployeeCertificateObject extends AnchorPane {
+    @FXML Label name, expiryDate;
+    @FXML CheckBox checked;
+    EmployeeCertificate certificate;
+    public EmployeeCertificateObject(EmployeeCertificate certificate) {
+        this.certificate = certificate;
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EmployeeCertificateObject.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -15,11 +27,11 @@ public class EmployeeCertificateObject extends AnchorPane implements Observer {
         catch (Exception e){
             e.printStackTrace();
         }
-
+        fixLabels();
     }
 
-    @Override
-    public void update() {
-
+    private void fixLabels(){
+        this.name.setText(certificate.getCertificateName());
+        this.expiryDate.setText(certificate.getExpiryDateAsString());
     }
 }
