@@ -182,4 +182,6 @@ public class WorkDay {
     public static void addDepartment(Department d) {
         departments.add(d);
     }
+    public static void deleteDepartment(Department d) { departments.remove(d); }//TODO eventuellt behöva ta bort i departmentLinks också?
+
 }
