@@ -13,8 +13,8 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Global Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Application.Runnable">
@@ -102,10 +102,15 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602062983139">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state x="264" y="146" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602164644295">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="206" y="135" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1500.960@0.0.1500.960" timestamp="1602062983139" />
+    <state x="264" y="146" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1602164644295" />
+    <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog" timestamp="1602164637523">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="808" y="410" key="#com.intellij.ide.util.projectWizard.JdkChooserPanel.MyDialog/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1602164637523" />
     <state x="545" y="340" width="408" height="286" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1602060272750">
       <screen x="0" y="0" width="1500" height="960" />
     </state>
@@ -126,9 +131,10 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state width="1458" height="256" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
-    <state x="231" y="55" key="SettingsEditor" timestamp="1602061930359">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state x="740" y="133" key="SettingsEditor" timestamp="1602164698628">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="231" y="55" key="SettingsEditor/0.0.1500.960@0.0.1500.960" timestamp="1602061930359" />
+    <state x="740" y="133" key="SettingsEditor/0.0.1920.1040/1920.-559.1920.1040@0.0.1920.1040" timestamp="1602164698628" />
   </component>
 </project>
