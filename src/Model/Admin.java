@@ -98,15 +98,18 @@ public class Admin implements Observable {
     public void notifyObservers() {
         observers.removeAll(toBeRemoved);
         toBeRemoved.clear();
-        observers.forEach(Observer::update);
         observers.addAll(toBeAdded);
         toBeAdded.clear();
+        observers.forEach(Observer::update);
     }
 
     public int getEmployeeListSize() {
         return employees.size();
     }
 
+    public int getEmployeeListSize() {
+        return employees.size();
+    }
 
     public EmployeeSorter getEmployeeSorter() {
         return employeeSorter;
@@ -153,6 +156,7 @@ public class Admin implements Observable {
     public void createNewEmployee(String name, String personalId) {
         if (checkLengthEmployeeId(personalId) && checkIfExistsEmployeeId(personalId)) {
             employees.add(new Employee(name, personalId));
+            notifyObservers();
         }
     }
 
@@ -195,6 +199,24 @@ public class Admin implements Observable {
     public void createEmployeeCertificate(Certificate certificate, Employee e, Date expiryDate) {
         e.assignCertificate(new EmployeeCertificate(certificate, expiryDate));
         certificateHandler.linkEmployeeToCertificate(certificate, e);
+        notifyObservers();
+    }
+    /**
+     * calls the certificatehandler and notifies the observers
+     * @param name The name of the new certificate
+     */
+    public void createCertificate(String name){
+        certificateHandler.createNewCertificate(name);
+        notifyObservers();
+    }
+
+    /**
+     *  calls the certificatehandler and notifies the observers
+     * @param certificate The certificate that will be removed
+     */
+    public void deleteCertificate(Certificate certificate){
+        certificateHandler.deleteCertificate(certificate);
+        notifyObservers();
     }
 
     /**
@@ -206,6 +228,7 @@ public class Admin implements Observable {
     public void removeEmployeeCertificate(Certificate certificate, Employee e) {
         e.unAssignCertificate(e.getEmployeeCertificate(certificate));
         certificateHandler.unlinkEmployeeToCertificate(certificate, e);
+        notifyObservers();
     }
 
     /**
@@ -215,6 +238,7 @@ public class Admin implements Observable {
      */
     public void removeEmployee(Employee e) {
         employees.remove(e);
+        notifyObservers();
     }
 
     /**
@@ -232,12 +256,6 @@ public class Admin implements Observable {
 
     }
 
-    public void createNewDepartment(String name, int maxPersonsOnBreak) {
-        Department d = new Department(name,maxPersonsOnBreak);
-        WorkDay.addDepartment(d);
-        departments.add(d);
-    }
-
     /**
      * Creates a new WorkShift for a Department with multible required Certificates
      * @param d a Department
@@ -251,7 +269,13 @@ public class Admin implements Observable {
         } else {
             //TODO exception
         }
+        notifyObservers();
     }
+
+    public void createNewDepartment(String name, int maxPersonsOnBreak) {
+        Department d = new Department(name,maxPersonsOnBreak);
+        WorkDay.addDepartment(d);
+        departments.add(d);
 
     /**
      * Creates a new WorkShift for a Department with a required Certificate
@@ -267,6 +291,9 @@ public class Admin implements Observable {
             //TODO exception
         }
     }
+        notifyObservers();
+    }
+
 
     /**
      * Creates a new WorkShift for a Department
@@ -280,6 +307,7 @@ public class Admin implements Observable {
         } else {
             //TODO exception
         }
+        notifyObservers();
     }
 
     /**
@@ -289,6 +317,7 @@ public class Admin implements Observable {
      */
     public void createWorkshift(Department d, WorkShift ws) {
         d.createShift(ws);
+        notifyObservers();
     }
 
     /**
@@ -298,6 +327,7 @@ public class Admin implements Observable {
      */
     public void removeWorkshift(Department d, WorkShift ws) {
         d.removeShift(ws);
+        notifyObservers();
     }
 
     /**

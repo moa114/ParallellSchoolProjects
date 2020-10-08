@@ -1,15 +1,12 @@
-
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="View.CertificateObject"
-            prefHeight="400.0" prefWidth="600.0">
-
-</AnchorPane>
+<fx:root prefHeight="42.0" prefWidth="300.0" styleClass="CertificateObject" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <CheckBox fx:id="checked" layoutX="370.0" layoutY="13.0" mnemonicParsing="false" AnchorPane.rightAnchor="14.0" />
+      <Label fx:id="name" layoutX="14.0" layoutY="13.0" text="name" AnchorPane.leftAnchor="14.0" />
+   </children>
+</fx:root>
