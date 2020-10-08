@@ -39,10 +39,12 @@ public class Department {
      */
     protected void createShift(long start, long stop, List<Certificate> certificates, boolean[] repeat) {
         WorkShift ws = new WorkShift(start, stop, certificates, createBreak(start,stop), true);
-        setRepeat(ws, repeat);
+        if(setRepeat(ws, repeat)){
+            allShifts.add(new WorkShift(start, stop, certificates, createBreak(start,stop), false));
+        }
     }
 
-    private void setRepeat(WorkShift ws, boolean[] repeat){
+    private boolean setRepeat(WorkShift ws, boolean[] repeat){
         boolean single = true;
         int c = new Date(ws.START).getDay();
         for (int i = 0; i < 7; i++) {
@@ -51,9 +53,7 @@ public class Department {
                 single = false;
             }
         }
-        if (single){
-
-        }
+        return single;
     }
 
     /**
@@ -88,12 +88,16 @@ public class Department {
 
     protected void createShift(long start, long stop, Certificate certificate, boolean[] repeat) {
         WorkShift ws = new WorkShift(start, stop, certificate, createBreak(start,stop), true);
-        setRepeat(ws, repeat);
+        if(setRepeat(ws, repeat)){
+            allShifts.add(new WorkShift(start, stop, certificate, createBreak(start,stop), false));
+        }
     }
 
     protected void createShift(long start, long stop, boolean[] repeat) {
         WorkShift ws = new WorkShift(start, stop, createBreak(start,stop), true);
-        setRepeat(ws, repeat);
+        if(setRepeat(ws, repeat)){
+            allShifts.add(new WorkShift(start, stop, createBreak(start,stop), false));
+        }
     }
 
     protected void createShift(WorkShift ws) {
