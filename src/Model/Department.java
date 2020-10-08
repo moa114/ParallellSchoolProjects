@@ -128,17 +128,14 @@ public class Department {
         }
         return true;
     }
-    public void setMaxPersonsOnBreak(int maxPersonsOnBreak1){
+    private void setMaxPersonsOnBreak(int maxPersonsOnBreak1){
         maxPersonsOnBreak=maxPersonsOnBreak1;
     }
-    public int getMaxPersonsOnBreak(){
+    private int getMaxPersonsOnBreak(){
         return maxPersonsOnBreak;
     }
     public BreakHandler getBreakHandler(){
         return breakHandler;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
 }

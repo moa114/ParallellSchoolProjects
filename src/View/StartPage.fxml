@@ -23,7 +23,7 @@
                         </Tab>
                         <Tab fx:id="tabDepartments" text="Avdelningar">
                             <content>
-                                <AnchorPane fx:id="tabDepartmentsPane" minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="800.0" />
+                                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="800.0" />
                             </content>
                         </Tab>
                         <Tab fx:id="tabCertificates" text="Certifikationer">
