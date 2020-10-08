@@ -277,6 +277,12 @@ public class Admin implements Observable {
         departments.add(d);
         notifyObservers();
     }
+    public void deleteDepartment(Department department) {
+        WorkDay.deleteDepartment(department);
+        departments.remove(department);
+        notifyObservers();
+    }
+
 
 
     /**
@@ -358,6 +364,13 @@ public class Admin implements Observable {
         if (index < 0) index = -index;
         index = index%365;
         return calendar.getOurDates().get(index);
+    }
+
+    public List<Department> getDepartments(){
+        return departments;
+    }
+    public void changeDepartmentName(Department department, String name){
+        department.setName(name);
     }
 
     //TODO boolean array
