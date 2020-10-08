@@ -28,7 +28,7 @@ public class testWorkday {
 
     @Test
     public void testWeekly() { //yes, this is an insane test and I dont know what to do about it
-        int dag = 15-1; //the date we wanna set the workshifts at -1 to account for index 0
+        int dag = new Date().getDate() + 3;//the date we wanna set the workshifts at + however many days in the future you wanna set
         Admin a = Admin.getInstance();
         boolean repeat[] = {true, true, true, false, false, true, false}; //what days we wanna set workshifts at
         boolean repeat2[] = {true, false, true, false, false, false, false};
