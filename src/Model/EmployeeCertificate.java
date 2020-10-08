@@ -26,7 +26,7 @@ public class EmployeeCertificate {
      *
      * @return the certificate
      */
-    public Certificate getCertificate() {
+    protected Certificate getCertificate() {
         return certificate;
     }
 
@@ -37,13 +37,5 @@ public class EmployeeCertificate {
      */
     public String getCertificateName() {
         return this.certificate.NAME;
-    }
-
-    /**
-     * Converts the expiryDate to a string and returns it
-     * @return the expiry date as a string
-     */
-    public String getExpiryDateAsString(){
-        return expiryDate.toString();
     }
 }
