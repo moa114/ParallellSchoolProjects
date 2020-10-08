@@ -1,37 +1,23 @@
 import Model.Admin;
-import Model.Certificate;
-import Model.CertificateHandler;
 import Model.Department;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Date;
 
+import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class testDepartment {
     @Test
-    public void testAddCertificateToDepartment() {
-        CertificateHandler ch = CertificateHandler.getInstance();
-        List<Certificate> allcert = new ArrayList<>();
-        ch.createNewCertificate("Frukt");
-        allcert.add(ch.getCertificate("Frukt"));
-        Department dep = new Department("TestAvdelning", allcert);
-        ch.createNewCertificate("Kassa");
-        dep.addCertificate(ch.getCertificate("Kassa"));
-        assertTrue(dep.getAllCertificate().size() == 2);
-    }
+    public void testCreateBreak() {
+        Admin admin=Admin.getInstance();
+        Department department = new Department("kassa", 3);
+        Date date = new Date();
+        boolean repeat[] = {true, true, true, true, true, true, true};
+        department.getBreakHandler().setMinBreakLength(1000*60*15);
+        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
+        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
+        admin.createWorkshift(department,date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
 
-
-    @Test
-    public void testRemoveCertificateFromDepartment() {
-        CertificateHandler ch = CertificateHandler.getInstance();
-        ch.createNewCertificate("Kassa");
-        List<Certificate> allcert = new ArrayList<>();
-        allcert.add(ch.getCertificate("Kassa"));
-        Department dep = new Department("TestAvdelning", allcert);
-        dep.removeCertificate(ch.getCertificate("Kassa"));
-        assertTrue(dep.getAllCertificate().size() == 0);
-    }
-
+        assertTrue(department.getAllShifts().get(0).getBreakTime().inBetween(department.getAllShifts().get(2).getBreakTime().start,department.getAllShifts().get(2).getBreakTime().end));}
 }
