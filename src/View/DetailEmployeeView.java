@@ -26,11 +26,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
 
     @FXML DatePicker datePicker;
     @FXML javafx.scene.control.TextField firstName, lastName, personalID;
-<<<<<<< Updated upstream
     @FXML Button saveChanges, deleteEmployee, addCertificate, removeCertificate, createCertificate, discardCertificate;
-=======
-    @FXML Button saveChanges, deleteEmployee, addCertificate, removeCertificate;
->>>>>>> Stashed changes
     @FXML ListView<EmployeeCertificateObject> certificateList;
     @FXML ListView<CertificateObject> availableCertificates;
     @FXML AnchorPane certificatePicker, information;
@@ -73,7 +69,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         Iterator<Certificate> certificateIterator = Admin.getInstance().getCertificatehandler().getAllCertificates();
         while (certificateIterator.hasNext()) {
             CertificateObject tmp = new CertificateObject(certificateIterator.next());
-            tmp.checked.setDisable(true);
+            tmp.checked.setVisible(false);
             tmp.setOnMouseClicked(new EventHandler<MouseEvent>() {
                 @Override
                 public void handle(MouseEvent mouseEvent) {
@@ -83,6 +79,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             availableCertificates.getItems().add(tmp);
         }
     }
+
     private void generateButtons(){
         saveChanges.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -101,7 +98,6 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
                 deleteAction();
             }
         });
-<<<<<<< Updated upstream
         removeCertificate.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -136,18 +132,6 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
                 Admin.getInstance().createEmployeeCertificate(selected, employee, date);
                 information.toFront();
                 certificatePicker.toBack();
-=======
-        addCertificate.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                
-            }
-        });
-        removeCertificate.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-
->>>>>>> Stashed changes
             }
         });
     }

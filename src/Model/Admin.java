@@ -98,9 +98,9 @@ public class Admin implements Observable {
     public void notifyObservers() {
         observers.removeAll(toBeRemoved);
         toBeRemoved.clear();
-        observers.forEach(Observer::update);
         observers.addAll(toBeAdded);
         toBeAdded.clear();
+        observers.forEach(Observer::update);
     }
 
     public int getEmployeeListSize() {

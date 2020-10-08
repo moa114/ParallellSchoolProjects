@@ -25,7 +25,6 @@ import java.util.Iterator;
 public class CertificateList extends AnchorPane implements Observer {
     @FXML
     ListView<CertificateObject> listOfCertificates;
-<<<<<<< Updated upstream
     @FXML Button create, delete, save;
     @FXML
     TextField name;
@@ -83,11 +82,8 @@ public class CertificateList extends AnchorPane implements Observer {
         });
     }
 
-    private void loadCertificates(){
+    private void loadCertificates() {
         listOfCertificates.getItems().clear();
-=======
-    public CertificateList(boolean employee) {
->>>>>>> Stashed changes
         Iterator<Certificate> certificateIterator = Admin.getInstance().getCertificatehandler().getAllCertificates();
         while (certificateIterator.hasNext()){
             CertificateObject tmp = new CertificateObject(certificateIterator.next());
@@ -112,6 +108,7 @@ public class CertificateList extends AnchorPane implements Observer {
         name.setText(selected.certificate.getName());
         iD.setText(Long.toString(selected.certificate.ID));
     }
+
     @Override
     public void update() {
         loadCertificates();
