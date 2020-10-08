@@ -34,7 +34,6 @@ public class EmployeeView extends AnchorPane implements Observer {
     @Override
     public void update() {
         name.setText(employee.getName());
-
         personalID.setText(employee.getPersonalId());
     }
 }

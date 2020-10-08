@@ -21,6 +21,10 @@ public class EmployeeCertificate {
         this.certificate = c;
     }
 
+    public EmployeeCertificate(Certificate c) {
+        this.certificate = c;
+    }
+
     /**
      * Gets the linked certificate of the EmployeeCertificate
      *

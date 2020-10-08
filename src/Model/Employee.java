@@ -123,8 +123,12 @@ public class Employee {
         return occupiedTimes;
     }
 
-    public void registerOccupation() {
+    public void registerOccupation(long start, long end) {
+        occupiedTimes.add(new OccupiedTime(start, end));
+    }
 
+    public void registerOccupation(OccupiedTime ot){
+        occupiedTimes.add(ot);
     }
 
     public List<EmployeeCertificate> getCertificates() {
@@ -136,9 +140,11 @@ public class Employee {
     }
 
     public boolean hasCertifices(List<Certificate> certificates) {
-        for (EmployeeCertificate ec : this.certificates){
-            if(!certificates.contains(ec.getCertificate())){
-                return false;
+        for (Certificate c : certificates) {
+            for (EmployeeCertificate ec : this.certificates) {
+                if (c!=ec.getCertificate()) {
+                    return false;
+                }
             }
         }
         return true;
