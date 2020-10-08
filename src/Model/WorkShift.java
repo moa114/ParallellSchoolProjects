@@ -1,48 +1,135 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 
 public class WorkShift {
-    final public int requiredPersonnel;
-    private ArrayList<Employee> deligatedEmployees;
-    private HashMap<Employee, OccupiedTime> occupiedLinks;
-    final public long start, end;
+    private List<Certificate> certificates = new ArrayList<>();
+    private Employee employee;
+    private OccupiedTime occupiedTime;
+    private OccupiedTime breakTime;
+    private boolean occupied = false;
+    final public boolean REPEAT;
+    final public long START, END;
 
-    public WorkShift(long start, long end, int requiredPersonnel) {
-        this.start = start;
-        this.end = end;
-        this.requiredPersonnel = requiredPersonnel;
-        this.deligatedEmployees = new ArrayList<>();
+    /**
+     * Creates a new workshift
+     *
+     * @param start        The starting time for the Workshift
+     * @param end          The ending time for the Workshift
+     * @param certificate Required Certificates for the Workshift
+     */
+    public WorkShift(long start, long end, Certificate certificate, OccupiedTime breakTime, boolean repeat) {
+        this.START = start;
+        this.END = end;
+        this.certificates.add(certificate);
+        this.breakTime= breakTime;
+        this.REPEAT = repeat;
     }
 
-    public WorkShift(WorkShift ws) {
-        this.start = ws.start;
-        this.end = ws.end;
-        this.requiredPersonnel = ws.requiredPersonnel;
-        this.deligatedEmployees = new ArrayList<>();
+    /**
+     * Creates a new workshift
+     *
+     * @param start        The starting time for the Workshift
+     * @param end          The ending time for the Workshift
+     * @param certificates A list of required Certificates
+     */
+    public WorkShift(long start, long end, List<Certificate> certificates, OccupiedTime breakTime, boolean repeat) {
+        this.START = start;
+        this.END = end;
+        this.certificates.addAll(certificates);
+        this.breakTime=breakTime;
+        this.REPEAT = repeat;
     }
 
-    public void registerOccupation(Employee e, OccupiedTime ot){
-        deligatedEmployees.add(e);
-        occupiedLinks.put(e, ot);
+    /**
+     * Creates a new Workshift
+     *
+     * @param start The starting time for the Workshift
+     * @param end   The ending time for the Workshift
+     */
+    public WorkShift(long start, long end, OccupiedTime breakTime, boolean repeat) {
+        this.START = start;
+        this.END = end;
+        this.breakTime=breakTime;
+        this.REPEAT = repeat;
     }
 
-    public void unRegisterOccupation(Employee e){
-        deligatedEmployees.remove(e);
-        e.unRegisterOccupation(occupiedLinks.get(e));
-        occupiedLinks.remove(e);
+    /**
+     * Creates a copy of a previous Workshift without employee and occupation and moves it forward a week
+     *
+     * @param ws The Workshift you wish to copy
+     */
+    public WorkShift(WorkShift ws, long date) {
+
+        Date wsStart = new Date(ws.START);
+        this.START = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
+        wsStart.setTime(ws.END);
+        this.END = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
+        this.certificates = ws.certificates;
+        this.REPEAT = ws.REPEAT;
+        this.breakTime = ws.breakTime;
     }
 
-    public boolean isFilled() { //TODO en algoritm som testar hur många subworkshifts som finns
-        return deligatedEmployees.size() >= requiredPersonnel;
+    public WorkShift(WorkShift ws, int date){
+        this.START = ws.START+ date*24*60*60*1000;
+        this.END = ws.END + date*24*60*60*1000;
+        this.certificates = ws.certificates;
+        this.REPEAT = ws.REPEAT;
+        this.breakTime = ws.breakTime;
     }
 
-    public void clearWorkShift(){
-        for (Employee e : deligatedEmployees){
-            e.unRegisterOccupation(occupiedLinks.get(e));
+    /**
+     * Registers a new Employee to the Workshift
+     *
+     * @param e  The Employee
+     * @param ot The Employees OccupiedTime
+     */
+    public void registerOccupation(Employee e, OccupiedTime ot) {
+        if (!occupied) {
+            //TODO checka att employee har certificate via metod
+            this.employee = e;
+            this.occupiedTime = ot;
+            occupied = true;
         }
-        deligatedEmployees.clear();
-        occupiedLinks.clear();
     }
+
+    /**
+     * Checks if the Workshift is properly occupied
+     *
+     * @return occupied
+     */
+    public boolean isOccupied() {
+        return occupied;
+    }
+
+    /**
+     * Clears the occupation for the Workshift
+     */
+    public void clearWorkShiftOccupation() {
+        employee.unRegisterOccupation(occupiedTime);
+        occupied = false;
+    }
+
+    public void addCertificate(Certificate c) {
+        certificates.add(c);
+    }
+
+    public List<Certificate> getAllCertificate() {
+        return certificates;
+    }
+    public OccupiedTime getBreakTime(){return breakTime;}
+
+    /**
+     * Removes a specified certificate from being required by the employees
+     *
+     * @param c the certificate that shall be removed
+     */
+    public void removeCertificate(Certificate c) {
+        certificates.remove(c);
+    }
+
+    public Employee getEmployee() {return employee;}
 }
