@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.ListView?>
-<?import javafx.scene.control.SplitPane?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<fx:root prefHeight="400.0" prefWidth="296.0" styleClass="DetailEmployeeView" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<fx:root prefHeight="600.0" prefWidth="396.0" styleClass="DetailEmployeeView" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-        <SplitPane dividerPositions="0.8919597989949749" orientation="VERTICAL" prefHeight="400.0" prefWidth="296.0">
-            <items>
-                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="354.0" prefWidth="300.0">
-                    <children>
-                        <ListView fx:id="certificateList" layoutY="135.0" prefHeight="217.0" prefWidth="300.0" />
-                        <TextField fx:id="firstName" layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="266.0" promptText="Förnamn" AnchorPane.topAnchor="20.0" />
-                        <TextField fx:id="lastName" layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="266.0" promptText="Efternamn" AnchorPane.topAnchor="60.0" />
-                        <TextField fx:id="personalID" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="266.0" promptText="Personnummer" AnchorPane.topAnchor="100.0" />
-                    </children>
-                </AnchorPane>
-                <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="40.0" prefWidth="300.0">
-                    <children>
-                        <Button fx:id="deleteEmployee" layoutX="153.0" layoutY="1.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #FF0000; -fx-font-size: 16; -fx-border-radius: 10;" text="Ta Bort Anställd" />
-                        <Button fx:id="saveChanges" layoutY="1.0" mnemonicParsing="false" prefHeight="37.0" prefWidth="147.0" style="-fx-background-color: #00FF00; -fx-font-size: 16;" text="Spara Ändringar" />
-                    </children>
-                </AnchorPane>
-            </items>
-        </SplitPane>
+      <AnchorPane fx:id="certificatePicker" prefHeight="600.0" prefWidth="396.0" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <ListView fx:id="availableCertificates" prefHeight="449.0" prefWidth="396.0" />
+            <DatePicker fx:id="datePicker" layoutY="447.0" prefHeight="25.0" prefWidth="396.0" />
+            <Button fx:id="createCertificate" layoutY="472.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Skapa" AnchorPane.bottomAnchor="0.0" />
+            <Button fx:id="discardCertificate" layoutX="198.0" layoutY="472.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="198.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Avbryt" AnchorPane.bottomAnchor="0.0" />
+         </children>
+      </AnchorPane>
+          <AnchorPane fx:id="information" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="396.0" AnchorPane.bottomAnchor="0.0">
+              <children>
+                  <ListView fx:id="certificateList" layoutY="132.0" prefHeight="340.0" prefWidth="396.0" />
+                  <TextField fx:id="firstName" layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="266.0" promptText="Förnamn" AnchorPane.topAnchor="20.0" />
+                  <TextField fx:id="lastName" layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="266.0" promptText="Efternamn" AnchorPane.topAnchor="60.0" />
+                  <TextField fx:id="personalID" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="266.0" promptText="Personnummer" AnchorPane.topAnchor="100.0" />
+            <Button fx:id="addCertificate" layoutY="472.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Nytt Certifikat" AnchorPane.bottomAnchor="64.0" />
+            <Button fx:id="removeCertificate" layoutX="198.0" layoutY="472.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Ta Bort Certifikat" AnchorPane.bottomAnchor="64.0" />
+                  <Button fx:id="saveChanges" layoutY="535.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Spara Ändringar" AnchorPane.bottomAnchor="0.0" />
+                  <Button fx:id="deleteEmployee" layoutX="198.0" layoutY="535.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Ta Bort Anställd" AnchorPane.bottomAnchor="0.0" />
+              </children>
+          </AnchorPane>
     </children>
 </fx:root>
