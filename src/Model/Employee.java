@@ -19,11 +19,12 @@ public class Employee {
      * @param name       the employee's name
      * @param personalId the employee's personal ID
      */
-    public Employee(String name, String personalId) {
+    protected Employee(String name, String personalId, String email) {
         this.occupiedTimes = new ArrayList<>();
         this.name = name;
         this.PERSONAL_ID = personalId;
         this.certificates = new ArrayList<>();
+        this.email = email;
     }
 
     public List<EmployeeCertificate> getAllCertificates() {
@@ -44,7 +45,7 @@ public class Employee {
      *
      * @param certificate the certificate that should be assigned
      */
-    public void assignCertificate(EmployeeCertificate certificate) {
+    protected void assignCertificate(EmployeeCertificate certificate) {
         this.certificates.add(certificate);
 
     }
@@ -54,7 +55,7 @@ public class Employee {
      *
      * @param certificates list with all the certificates that should be assigned
      */
-    public void assignCertificate(List<EmployeeCertificate> certificates) {
+    protected void assignCertificate(List<EmployeeCertificate> certificates) {
         this.certificates.addAll(certificates);
     }
 
@@ -63,7 +64,7 @@ public class Employee {
      *
      * @param certificate the certificate that should be taken from the employee
      */
-    public void unAssignCertificate(EmployeeCertificate certificate) {
+    protected void unAssignCertificate(EmployeeCertificate certificate) {
         certificates.remove(certificate);
     }
 
@@ -111,10 +112,6 @@ public class Employee {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public void unRegisterOccupation(OccupiedTime ot) {
         occupiedTimes.remove(ot);
     }
@@ -123,22 +120,30 @@ public class Employee {
         return occupiedTimes;
     }
 
-    public void registerOccupation() {
-
+    public void registerOccupation(long start, long end) {
+        occupiedTimes.add(new OccupiedTime(start, end));
     }
 
-    public List<EmployeeCertificate> getCertificates() {
-        return certificates;
+    public void registerOccupation(OccupiedTime ot){
+        occupiedTimes.add(ot);
     }
+
+    public EmployeeCertificate getCertificate(int index) {
+        return certificates.get(index);
+    }
+
+    public int getCertificatesSize(){ return this.certificates.size(); }
 
     public void newName(String name) {
         this.name = name;
     }
 
     public boolean hasCertifices(List<Certificate> certificates) {
-        for (EmployeeCertificate ec : this.certificates){
-            if(!certificates.contains(ec.getCertificate())){
-                return false;
+        for (Certificate c : certificates) {
+            for (EmployeeCertificate ec : this.certificates) {
+                if (c!=ec.getCertificate()) {
+                    return false;
+                }
             }
         }
         return true;

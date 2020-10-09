@@ -21,7 +21,7 @@ public class WorkShift {
      * @param end          The ending time for the Workshift
      * @param certificate Required Certificates for the Workshift
      */
-    public WorkShift(long start, long end, Certificate certificate, OccupiedTime breakTime, boolean repeat) {
+    protected WorkShift(long start, long end, Certificate certificate, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
         this.certificates.add(certificate);
@@ -36,7 +36,7 @@ public class WorkShift {
      * @param end          The ending time for the Workshift
      * @param certificates A list of required Certificates
      */
-    public WorkShift(long start, long end, List<Certificate> certificates, OccupiedTime breakTime, boolean repeat) {
+    protected WorkShift(long start, long end, List<Certificate> certificates, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
         this.certificates.addAll(certificates);
@@ -50,7 +50,7 @@ public class WorkShift {
      * @param start The starting time for the Workshift
      * @param end   The ending time for the Workshift
      */
-    public WorkShift(long start, long end, OccupiedTime breakTime, boolean repeat) {
+    protected WorkShift(long start, long end, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
         this.breakTime=breakTime;
@@ -62,7 +62,7 @@ public class WorkShift {
      *
      * @param ws The Workshift you wish to copy
      */
-    public WorkShift(WorkShift ws, long date) {
+    protected WorkShift(WorkShift ws, long date) {
 
         Date wsStart = new Date(ws.START);
         this.START = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
@@ -73,7 +73,7 @@ public class WorkShift {
         this.breakTime = ws.breakTime;
     }
 
-    public WorkShift(WorkShift ws, int date){
+    protected WorkShift(WorkShift ws, int date){
         this.START = ws.START+ date*24*60*60*1000;
         this.END = ws.END + date*24*60*60*1000;
         this.certificates = ws.certificates;
@@ -132,4 +132,8 @@ public class WorkShift {
     }
 
     public Employee getEmployee() {return employee;}
+
+    public OccupiedTime getOccupation() {
+        return occupiedTime;
+    }
 }

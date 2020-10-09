@@ -16,8 +16,12 @@ public class EmployeeCertificate {
      * @param c
      * @param expiryDate
      */
-    public EmployeeCertificate(Certificate c, Date expiryDate) {
+    protected EmployeeCertificate(Certificate c, Date expiryDate) {
         this.expiryDate = expiryDate;
+        this.certificate = c;
+    }
+
+    protected EmployeeCertificate(Certificate c) {
         this.certificate = c;
     }
 
