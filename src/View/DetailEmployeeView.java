@@ -85,7 +85,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (employee == null) {
-                    Admin.getInstance().createNewEmployee(firstName.getText() + " " + lastName.getText(), personalID.getText());
+                    Admin.getInstance().createNewEmployee(firstName.getText() + " " + lastName.getText(), personalID.getText(), "email@com"); //TODO add emails
                 }
                 else{
                     Admin.getInstance().changeEmployeeName(employee, firstName.getText() + " " + lastName.getText());

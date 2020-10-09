@@ -40,9 +40,9 @@ public class Admin implements Observable {
         this.departments = new ArrayList<>();
     }
 
-    /**
+    /*
      * creates an employee based on input from the keyboard
-     */
+     *
     public void consoleCommandCreateEmployee() {
         Scanner sc = new Scanner(System.in);
         String name;
@@ -52,7 +52,7 @@ public class Admin implements Observable {
         name = sc.nextLine();
         System.out.println("Personnummer: ");
         personalId = sc.next();
-        createNewEmployee(name, personalId);
+        //createNewEmployee(name, personalId);
         sc.nextLine();
         System.out.println("Do you want to give this person A Certificate? (y/n)");
         if (sc.nextLine().contains("y")) {
@@ -72,10 +72,10 @@ public class Admin implements Observable {
             System.out.println(e.PERSONAL_ID);
             System.out.println(e.getAllCertificates());
         }
-    }
+    } */
 
     //Behöver vara public för att printa ut lista av alla anställda?
-    public List<Employee> getEmployees() {
+    public List<Employee> getEmployees() { //TODO only one employee
         return employees;
 
     }
@@ -149,9 +149,9 @@ public class Admin implements Observable {
      * @param name       name of the employee
      * @param personalId personal ID of the employee
      */
-    public void createNewEmployee(String name, String personalId) {
+    public void createNewEmployee(String name, String personalId, String email) {
         if (checkLengthEmployeeId(personalId) && checkIfExistsEmployeeId(personalId)) {
-            employees.add(new Employee(name, personalId));
+            employees.add(new Employee(name, personalId, email));
             notifyObservers();
         }
     }
@@ -362,6 +362,7 @@ public class Admin implements Observable {
      */
     private boolean validateStartTime(long start) {
         Date d = new Date();
+        d.setSeconds(0);
         return d.getTime() <= start;
     }
 

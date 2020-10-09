@@ -13,7 +13,7 @@ public class testOccupiedTime {
     @Test
     public void testVacation() { //Kanske funkar men inte helt säkra
         Admin a = Admin.getInstance();
-        a.createNewEmployee("mark", "000000131324");
+        a.createNewEmployee("mark", "000000131324", "Mark@email.com");
         a.createNewDepartment("Kassa", 1);
         boolean b[] = {true, true, true, true, true, true, true};
         Date today = new Date();

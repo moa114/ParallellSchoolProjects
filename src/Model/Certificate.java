@@ -18,7 +18,7 @@ public class Certificate {
      * @param name the name of the certificate
      */
 
-    public Certificate(String name) {
+    protected Certificate(String name) {
         this.NAME = name;
         this.ID = idStart++;
     }
