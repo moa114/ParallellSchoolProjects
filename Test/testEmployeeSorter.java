@@ -11,10 +11,9 @@ public class testEmployeeSorter {
     @Test
     public void testGetQualifiedPersons() {
         Admin admin = Admin.getInstance();
-        Date d= new Date();
         CertificateHandler ch = admin.getCertificatehandler();
-        admin.createNewEmployee("moa", "123456789231");
-        admin.createNewEmployee("Victor", "123456789234");;
+        admin.createNewEmployee("moa", "123456789231", "moa@email.nej");
+        admin.createNewEmployee("Victor", "123456789234", "Victor@haha.ha");
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByName("moa"), new Date());

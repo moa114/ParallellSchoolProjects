@@ -40,9 +40,13 @@ public class CertificateHandler {
      * @return A list with employees that are linked to the certificate
      */
     //TODO Immutable
-    public List<Employee> getEmployeeWithCertificate(Certificate c) {
-        return employeeLinkCertificate.get(c);
+    public Iterator<Employee> getEmployeeWithCertificate(Certificate c) {
+        return employeeLinkCertificate.get(c).iterator();
     }
+
+    public int getEmployeeWithCertificateSize(Certificate c) { return employeeLinkCertificate.get(c).size(); }
+
+    public boolean checkEmployeeWithCertificate(Certificate c, Employee e) { return employeeLinkCertificate.get(c).contains(e); }
 
     private CertificateHandler() {
         this.allCertificates = new ArrayList<>();

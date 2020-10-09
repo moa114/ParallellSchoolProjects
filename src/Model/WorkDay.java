@@ -17,7 +17,7 @@ public class WorkDay {
      *
      * @param date Date of the work day
      */
-    public WorkDay(long date) {
+    protected WorkDay(long date) {
         this.DATE = date;
         this.departmentLinks = new HashMap<>();
     }
@@ -203,5 +203,10 @@ public class WorkDay {
                 }
             }
         }
+    }
+
+    protected void clearDay(){
+        departmentLinks = new HashMap<>();
+        updateDepartments();
     }
 }
