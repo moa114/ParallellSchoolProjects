@@ -8,6 +8,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Color;
 
 import java.time.Instant;
 import java.time.LocalDate;
@@ -27,6 +28,7 @@ public class DetailDepartmentView extends AnchorPane implements Observer {
     @FXML javafx.scene.control.TextField name;
     @FXML Spinner maxPersonsOnBreak;
     @FXML Button saveChanges, deleteDepartment;
+    @FXML ColorPicker colorPicker;
 
 
     public DetailDepartmentView(Department department) {
@@ -40,8 +42,8 @@ public class DetailDepartmentView extends AnchorPane implements Observer {
         catch (Exception e){
             e.printStackTrace();
         }
-        generateFXMLObjects();
         generateButtons();
+        generateFXMLObjects();
         Admin.getInstance().addObserver(this);
     }
 
@@ -56,6 +58,7 @@ public class DetailDepartmentView extends AnchorPane implements Observer {
             e.printStackTrace();
         }
         generateButtons();
+        generateFXMLObjects();
         Admin.getInstance().addObserver(this);
     }
 
@@ -66,10 +69,13 @@ public class DetailDepartmentView extends AnchorPane implements Observer {
             @Override
             public void handle(ActionEvent actionEvent) {
                 if (department == null) {
-                    Admin.getInstance().createNewDepartment(name.getText(), Integer.parseInt(maxPersonsOnBreak.getEditor().getText()));
+                    Admin.getInstance().createNewDepartment(name.getText(), Integer.parseInt(maxPersonsOnBreak.getEditor().getText()),colorPicker.getValue());
+                    department= Admin.getInstance().getDepartmentByName(name.getText());
+                    System.out.println( Admin.getInstance().getDepartmentByName(name.getText()).getColor());
                 }
                 else{
                     Admin.getInstance().changeDepartmentName(department, name.getText());
+                    Admin.getInstance().getDepartmentByName(name.getText()).setColor(colorPicker.getValue());
                     //TODO change maxPersonsOnBreak
                 }
             }
@@ -87,7 +93,6 @@ public class DetailDepartmentView extends AnchorPane implements Observer {
         if (department == null) {
             name.setText("");
             maxPersonsOnBreak.getEditor().setText("");
-
         }
         else
             Admin.getInstance().deleteDepartment(department);
@@ -98,6 +103,7 @@ public class DetailDepartmentView extends AnchorPane implements Observer {
         if (department != null){
             this.name.setText(department.getName().split(" ")[0]);
             this.maxPersonsOnBreak.getEditor().setText(String.valueOf(department.getMaxPersonsOnBreak()));
+            this.colorPicker.setValue(department.getColor());
         }
     }
 

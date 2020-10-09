@@ -1,5 +1,8 @@
 package Model;
 
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -12,6 +15,7 @@ public class Department {
     private String name;
     private int maxPersonsOnBreak;
     private BreakHandler breakHandler;
+    private Color paint=new Color(1, 1, 1, 1);
 
     /**
      * Constructs a department with a list for the work shifts where the department can be manned and a specified name and a max value of persons who can be on break at the same time
@@ -24,6 +28,14 @@ public class Department {
         this.name = name;
         this.maxPersonsOnBreak=maxPersonsOnBreak;
         this.breakHandler= BreakHandler.getInstance();
+    }
+
+    public Color getColor(){
+        return paint;
+    }
+
+    public void setColor(Color c){
+        this.paint=c;
     }
 
     public String getName() {

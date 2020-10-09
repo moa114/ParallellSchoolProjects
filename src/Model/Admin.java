@@ -1,5 +1,7 @@
 package Model;
 
+import javafx.scene.paint.Color;
+
 import java.util.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -270,7 +272,13 @@ public class Admin implements Observable {
         }
         notifyObservers();
     }
-
+    public void createNewDepartment(String name, int maxPersonsOnBreak, Color c) {
+        Department d = new Department(name,maxPersonsOnBreak);
+        d.setColor(c);
+        WorkDay.addDepartment(d);
+        departments.add(d);
+        notifyObservers();
+    }
     public void createNewDepartment(String name, int maxPersonsOnBreak) {
         Department d = new Department(name,maxPersonsOnBreak);
         WorkDay.addDepartment(d);

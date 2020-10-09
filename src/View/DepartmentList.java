@@ -87,6 +87,12 @@ public class DepartmentList extends AnchorPane implements Observer {
 
     @Override
     public void update() {
+        if(Admin.getInstance().getDepartments().size()==0){
+            paneDetailView.setVisible(false);
+        }
+        else
+            paneDetailView.setVisible(true);
+
         generateDepartmentViews(Admin.getInstance().getDepartments());
     }
 }
