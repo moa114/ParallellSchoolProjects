@@ -75,8 +75,8 @@ public class Admin implements Observable {
     } */
 
     //Behöver vara public för att printa ut lista av alla anställda?
-    public List<Employee> getEmployees() { //TODO only one employee
-        return employees;
+    public Employee getEmployee(int index) {
+        return employees.get(index);
 
     }
 
