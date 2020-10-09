@@ -26,7 +26,7 @@ public class PersonList extends AnchorPane implements Observer {
     @FXML ListView<EmployeeView> employeeViewPane;
     @FXML Button buttonCreateEmployee;
     @FXML AnchorPane paneDetailView;
-    private int sizeOfEmployees;
+    private int sizeOfEmployees = 0;
 
     public PersonList() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonList.fxml"));
@@ -66,27 +66,26 @@ public class PersonList extends AnchorPane implements Observer {
     }
 
     private void generatePersonViews(){
-        if (sizeOfEmployees != Admin.getInstance().getEmployeeListSize()) {
-            List<Employee> employees = new ArrayList<>();
-            for (int i = 0; i < Admin.getInstance().getEmployeeListSize() - 1; i++)
-                employees.add(Admin.getInstance().getEmployee(i));
-            sortEmployeesAlphabetically(employees);
-            employeeViewPane.getItems().clear();
-            for (Employee e : employees) {
-                if (employeeEmployeeViewMap.get(e) == null) {
-                    EmployeeView employeeView = new EmployeeView(e);
-                    employeeEmployeeViewMap.put(e, employeeView);
-                    employeeViews.add(employeeView);
-                    employeeView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                        @Override
-                        public void handle(MouseEvent mouseEvent) {
-                            paneDetailView.getChildren().clear();
-                            paneDetailView.getChildren().add(new DetailEmployeeView(e));
-                        }
-                    });
-                }
-                employeeViewPane.getItems().add(employeeEmployeeViewMap.get(e));
+        List<Employee> employees = new ArrayList<>();
+        sizeOfEmployees = Admin.getInstance().getEmployeeListSize();
+        for (int i = 0; i < sizeOfEmployees; i++)
+            employees.add(Admin.getInstance().getEmployee(i));
+        sortEmployeesAlphabetically(employees);
+        employeeViewPane.getItems().clear();
+        for (Employee e : employees) {
+            if (employeeEmployeeViewMap.get(e) == null) {
+                EmployeeView employeeView = new EmployeeView(e);
+                employeeEmployeeViewMap.put(e, employeeView);
+                employeeViews.add(employeeView);
+                employeeView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                    @Override
+                    public void handle(MouseEvent mouseEvent) {
+                        paneDetailView.getChildren().clear();
+                        paneDetailView.getChildren().add(new DetailEmployeeView(e));
+                    }
+                });
             }
+            employeeViewPane.getItems().add(employeeEmployeeViewMap.get(e));
         }
     }
 

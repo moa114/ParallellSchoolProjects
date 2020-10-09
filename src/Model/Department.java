@@ -32,9 +32,6 @@ public class Department {
     }
 
 
-
-
-
     /**
      * Creates a break for a work shift
      *
@@ -137,11 +134,11 @@ public class Department {
         return true;
     }
 
-    private void setMaxPersonsOnBreak(int maxPersonsOnBreak1) {
+    public void setMaxPersonsOnBreak(int maxPersonsOnBreak1) {
         maxPersonsOnBreak = maxPersonsOnBreak1;
     }
 
-    private int getMaxPersonsOnBreak() {
+    public int getMaxPersonsOnBreak() {
         return maxPersonsOnBreak;
     }
 
