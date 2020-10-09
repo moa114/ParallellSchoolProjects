@@ -191,9 +191,11 @@ public class WorkDay {
         }
     }
 
-    public static void addDepartment(Department d) {
+    protected static void addDepartment(Department d) {
         departments.add(d);
     }
+
+    protected static void removeDepartment(Department d) { departments.remove(d); }
 
     public void unRegisterOccupations(Employee e, long start, long end) {
         for (Department d : departments){

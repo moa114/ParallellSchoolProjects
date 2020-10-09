@@ -27,10 +27,6 @@ public class Employee {
         this.email = email;
     }
 
-    public List<EmployeeCertificate> getAllCertificates() {
-        return certificates;
-    }
-
     public EmployeeCertificate getEmployeeCertificate(Certificate certificate) {
         for (EmployeeCertificate c : certificates) {
             if (c.getCertificate() == certificate) {

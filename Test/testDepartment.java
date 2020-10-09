@@ -19,5 +19,5 @@ public class testDepartment {
         admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
         admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
 
-        assertTrue( admin.getDepartmentByName("Kassa").getAllShifts().get(0).getBreakTime().inBetween( admin.getDepartmentByName("Kassa").getAllShifts().get(2).getBreakTime().start, admin.getDepartmentByName("Kassa").getAllShifts().get(2).getBreakTime().end));}
+        assertTrue( admin.getDepartmentByName("Kassa").getAllShifts().get(0).getBreakTime().inBetween( admin.getDepartmentByName("Kassa").getAllShifts().get(2).getBreakTime().START, admin.getDepartmentByName("Kassa").getAllShifts().get(2).getBreakTime().END));}
 }

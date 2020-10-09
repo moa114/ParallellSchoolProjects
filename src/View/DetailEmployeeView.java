@@ -12,6 +12,7 @@ import javafx.scene.layout.AnchorPane;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Iterator;
 
@@ -154,7 +155,8 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             this.lastName.setText(employee.getName().split(" ")[1]);
             this.personalID.setText(employee.getPersonalId());
             this.certificateList.getItems().clear();
-            for (EmployeeCertificate employeeCertificate: employee.getAllCertificates()){
+            for (int i = 0 ; i < employee.getCertificatesSize() ; i++){
+                EmployeeCertificate employeeCertificate = employee.getCertificate(i);
                 this.certificateList.getItems().add(new EmployeeCertificateObject(employeeCertificate));
             }
         }

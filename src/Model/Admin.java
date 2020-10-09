@@ -13,7 +13,6 @@ public class Admin implements Observable {
     private List<Employee> employees;
     private List<Department> departments;
     private CertificateHandler certificateHandler;
-    private BreakHandler breakHandler;
     private OurCalendar calendar;
     private EmployeeSorter employeeSorter;
     private List<Observer> observers, toBeAdded, toBeRemoved;
@@ -105,6 +104,10 @@ public class Admin implements Observable {
 
     public int getEmployeeListSize() {
         return employees.size();
+    }
+
+    public int getDepartmentListSize() {
+        return departments.size();
     }
     
     public EmployeeSorter getEmployeeSorter() {
@@ -278,6 +281,12 @@ public class Admin implements Observable {
         WorkDay.addDepartment(d);
         departments.add(d);
     }
+
+    public void removeDepartment(Department d) {
+        WorkDay.removeDepartment(d);
+        departments.remove(d);
+    }
+
     /**
      * Creates a new WorkShift for a Department with a required Certificate
      * @param d a Department
@@ -366,24 +375,13 @@ public class Admin implements Observable {
         return d.getTime() <= start;
     }
 
-    /**
-     * Gets a specific Workday by an index
-     * @param index
-     * @return
-     */
-    public WorkDay getWorkday(int index) {
-        if (index < 0) index = -index;
-        index = index%365;
-        return calendar.getOurDates().get(index);
-    }
-
     public void setVacation(Employee e, long start, long end) {
         Date startDate = new Date(start);
         Date endDate = new Date(end);
         int stop = calendar.getDateIndex(endDate);
         e.registerOccupation(start, end);
         for (int i = calendar.getDateIndex(startDate) ; i <= stop+4 ; i++){
-            calendar.getOurDates().get(i).unRegisterOccupations(e, start, end);
+            calendar.getWorkday(i).unRegisterOccupations(e, start, end);
         }
     }
 }

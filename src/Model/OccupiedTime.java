@@ -4,7 +4,7 @@ package Model;
  * Represents a time span when someone is not available, has a start and an end value
  */
 public class OccupiedTime {
-    public long start, end;
+    public final long START, END;
 
     /**
      * Constructs an occupied time with a start and an end value
@@ -13,8 +13,8 @@ public class OccupiedTime {
      * @param end   The end value of the time span
      */
     public OccupiedTime(long start, long end) {
-        this.start = start;
-        this.end = end;
+        this.START = start;
+        this.END = end;
     }
 
 
@@ -26,6 +26,6 @@ public class OccupiedTime {
      * @return true if the time span is in between the occupied time span, false otherwise
      */
     public boolean inBetween(long start, long end) {
-        return end >= this.start && this.end >= start;
+        return end >= this.START && this.END >= start;
     }
 }
