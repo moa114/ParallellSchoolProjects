@@ -26,8 +26,9 @@ public class PersonList extends AnchorPane implements Observer {
     @FXML ListView<EmployeeView> employeeViewPane;
     @FXML Button buttonCreateEmployee;
     @FXML AnchorPane paneDetailView;
+    private int sizeOfEmployees;
 
-    public PersonList(List<Employee> employees) {
+    public PersonList() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonList.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -40,7 +41,7 @@ public class PersonList extends AnchorPane implements Observer {
 
         this.employeeEmployeeViewMap = new HashMap<>();
         this.employeeViews = new ArrayList<>();
-        generatePersonViews(employees);
+        generatePersonViews();
         generateButtons();
         Admin.getInstance().addObserver(this);
     }
@@ -64,28 +65,33 @@ public class PersonList extends AnchorPane implements Observer {
         employees.sort(Comparator.comparing(Employee::getName));
     }
 
-    private void generatePersonViews(List<Employee> employees){
-        sortEmployeesAlphabetically(employees);
-        employeeViewPane.getItems().clear();
-        for (Employee e : employees) {
-            if (employeeEmployeeViewMap.get(e) == null) {
-                EmployeeView employeeView = new EmployeeView(e);
-                employeeEmployeeViewMap.put(e, employeeView);
-                employeeViews.add(employeeView);
-                employeeView.setOnMouseClicked(new EventHandler<MouseEvent>() {
-                    @Override
-                    public void handle(MouseEvent mouseEvent) {
-                        paneDetailView.getChildren().clear();
-                        paneDetailView.getChildren().add(new DetailEmployeeView(e));
-                    }
-                });
+    private void generatePersonViews(){
+        if (sizeOfEmployees != Admin.getInstance().getEmployeeListSize()) {
+            List<Employee> employees = new ArrayList<>();
+            for (int i = 0; i < Admin.getInstance().getEmployeeListSize() - 1; i++)
+                employees.add(Admin.getInstance().getEmployee(i));
+            sortEmployeesAlphabetically(employees);
+            employeeViewPane.getItems().clear();
+            for (Employee e : employees) {
+                if (employeeEmployeeViewMap.get(e) == null) {
+                    EmployeeView employeeView = new EmployeeView(e);
+                    employeeEmployeeViewMap.put(e, employeeView);
+                    employeeViews.add(employeeView);
+                    employeeView.setOnMouseClicked(new EventHandler<MouseEvent>() {
+                        @Override
+                        public void handle(MouseEvent mouseEvent) {
+                            paneDetailView.getChildren().clear();
+                            paneDetailView.getChildren().add(new DetailEmployeeView(e));
+                        }
+                    });
+                }
+                employeeViewPane.getItems().add(employeeEmployeeViewMap.get(e));
             }
-            employeeViewPane.getItems().add(employeeEmployeeViewMap.get(e));
         }
     }
 
     @Override
     public void update() {
-        generatePersonViews(Admin.getInstance().getEmployees());
+        generatePersonViews();
     }
 }
