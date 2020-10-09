@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
+import java.lang.reflect.Array;
 import java.util.*;
 /**
  * @author Oliver Andersson
@@ -86,6 +87,10 @@ public class PersonList extends AnchorPane implements Observer {
 
     @Override
     public void update() {
-        generatePersonViews(Admin.getInstance().getEmployees());
+        ArrayList<Employee> tempList = new ArrayList<Employee>();
+        for (int i = 0 ; i < Admin.getInstance().getEmployeeListSize() ; i++){
+            tempList.add(Admin.getInstance().getEmployee(i));
+        }
+        generatePersonViews(tempList);
     }
 }

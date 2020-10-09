@@ -66,5 +66,26 @@ public class testAdmin {
         admin.createWorkshift(admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
         admin.createWorkshift(admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
 
-        assertTrue(admin.getDepartmentByName("Kassa").getAllShifts().size()==3);}
+        assertTrue(admin.getDepartmentByName("Kassa").getAllShifts().size()==3);
+    }
+
+    @Test
+    public void removeDepartment() {
+        Admin a = Admin.getInstance();
+        a.createNewDepartment("Kassa", 2);
+        Date d = new Date();
+        boolean repeat[] = {true, true, true, true, true, true, true};
+        a.createWorkshift(a.getDepartmentByName("Kassa"),d.getTime()+(1000 * 60 * 60 * 1),d.getTime()+(1000 * 60 * 60 * 5), repeat);
+        assertEquals(1, a.getDepartmentListSize());
+        a.removeDepartment(a.getDepartmentByName("Kassa"));
+        OurCalendar.getInstance().getWorkday(d.getDate()).setWorkDay();
+        assertEquals(0, a.getDepartmentListSize());
+        boolean didItNotWork = false;
+        try {
+            OurCalendar.getInstance().getWorkday(d.getDate()).getWorkShifts(a.getDepartmentByName("Kassa")).size();
+        } catch(NullPointerException e){
+            didItNotWork = true;
+        }
+        assertTrue(didItNotWork);
+    }
 }

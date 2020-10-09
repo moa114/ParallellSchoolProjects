@@ -53,14 +53,14 @@ public class OurCalendar {
         }
     }
 
-    /**
-     * Gets the list of work days
-     *
-     * @return a list of work days
-     */
-    public List<WorkDay> getOurDates() {
-        return workDays;
+
+    public WorkDay getWorkday(int index) {
+        if (index < 0) index = -index;
+        index = index%365;
+        return workDays.get(index);
     }
+
+    public int getOurDateSize() { return workDays.size(); }
 
     /**
      * As we only want to get the day, month and year We reset seconds, minutes and hours
