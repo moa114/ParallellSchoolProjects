@@ -10,7 +10,7 @@ public class BreakHandler {
     private static BreakHandler instance = null;
 
 
-    public BreakHandler() {
+    private BreakHandler() {
     }
 
     public static BreakHandler getInstance() {

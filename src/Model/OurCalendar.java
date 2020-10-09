@@ -79,7 +79,23 @@ public class OurCalendar {
      * @param date The date
      * @return the work day of the date
      */
-    public WorkDay getDate(long date) {
-        return null;
+    public WorkDay getDate(Date date) {
+        for (WorkDay wd : workDays){
+            Date date2 = new Date(wd.DATE);
+            if(date.getDate() == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()){
+                return wd;
+            }
+        }
+        return null; //TODO exception
+    }
+
+    public int getDateIndex(Date date) {
+        for (int i = 0 ; i < workDays.size() ; i++){
+            Date date2 = new Date(workDays.get(i).DATE);
+            if(date.getDate() == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()){
+                return i;
+            }
+        }
+        return -1; //TODO exception
     }
 }

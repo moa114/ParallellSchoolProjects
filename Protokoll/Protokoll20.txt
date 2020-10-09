@@ -1,0 +1,32 @@
+# Meeting Agenda
+
+Group: 1 (gruppnamn: New Five)
+Date: 28/9 15:00-16:00
+Chair: TDA 367, Chalmers
+Participants: Moa Berglund, Markus Grahn, Victor Cousin, Christian Lind, Oliver Andersson
+Facilitator: Oliver Karmetun
+Sekreterare: Oliver Andersson
+
+## Objectives 
+
+- Fortsätta med utdelade user stories
+
+## Reports from previous meeting
+
+Oliver behöver börja skriva i SDD. Tester behöver skrivas (ID:17). Olika anställningstyper behövs implimenteras(ID:09)
+
+## Discussion items 
+
+N/A
+
+## Outcomes and assignments 
+
+1. Stötte på ett problem i koden och behöver hjälp av handledaren.
+2. User stories behöver uppdateras då nya motsägande regler kring dom har uppdagats.
+3. Christian och Markus har fortsatt med tester (User story ID:17). Fastnade vid ett problem
+4. Christian och Oliver har fortsatt skrivandet av SDD.
+5. Moa och Victor har börjat med (User story ID:09) och har fastnat med samma problem som "3."
+6. Oliver har mergat in GUI-1.0 efter strul med git.
+## Wrap up
+ 
+- Nästa möte: 29/9 10:00, Vi behöver formulera frågor inför nästa handledarmöte möte.

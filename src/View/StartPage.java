@@ -45,7 +45,7 @@ public class StartPage implements Observer, Initializable {
 
     private void setTabs(){
         //tabSchedule.setContent(); //TODO fixa scheduleView
-        PersonList personList = new PersonList(admin.getEmployees());
+        PersonList personList = new PersonList();
         DepartmentList departmentList = new DepartmentList(admin.getDepartments());
         tabEmployees.setContent(personList);
         tabEmployeesPane.getChildren().clear();
@@ -77,9 +77,6 @@ public class StartPage implements Observer, Initializable {
         defaultPage.setVisible(false);
         startPage.setVisible(true);
     }
-    public void loadPersonnelView(){}
-
-    public void loadScheduleView(){}
 
     private void exit(){
         System.exit(0);
