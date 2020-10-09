@@ -8,26 +8,26 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Represents a department with a specified name and a list for work shifts where the department can be manned. It also has a value of max persons who can be on break at the same time
+ * Represents a department with a specified name and a list for work shifts where the department can be manned. It also has a minimum value of persons that has to work at the same time
  */
 public class Department {
 
     private List<WorkShift> allShifts;
     private String name;
-    private int maxPersonsOnBreak;
+    private int minPersonsOnShift;
     private BreakHandler breakHandler;
     private Color paint=new Color(1, 1, 1, 1);
 
     /**
-     * Constructs a department with a list for the work shifts where the department can be manned and a specified name and a max value of persons who can be on break at the same time
+     * Constructs a department with a list for the work shifts where the department can be manned and a specified name and a minimum value of persons that has to work at the same time
      *
      * @param name              the name of the department
-     * @param maxPersonsOnBreak value of persons who can be on break at the same time
+     * @param minPersonsOnShift minimum value of persons who must work at the same time (not be on break)
      */
-    protected Department(String name, int maxPersonsOnBreak) {
+    protected Department(String name, int minPersonsOnShift) {
         this.allShifts = new ArrayList<>();
         this.name = name;
-        this.maxPersonsOnBreak = maxPersonsOnBreak;
+        this.minPersonsOnShift = minPersonsOnShift;
         this.breakHandler = BreakHandler.getInstance();
     }
 
@@ -54,27 +54,36 @@ public class Department {
     private OccupiedTime createBreak(long startForTheWorkShift, long stopForTheWorkShift) {
         long breakLength = breakHandler.calculateLengthOfBreak(startForTheWorkShift, stopForTheWorkShift);
         long breakStart = (((stopForTheWorkShift - startForTheWorkShift) / 2) - (breakLength / 2));
-        int count = 0;
+        int numberOfBreakTogether = 0;
+        int numberOfWorkingPersonel=countPersonelOnDepartment(startForTheWorkShift, stopForTheWorkShift);
         boolean created = false;
-        if (maxPersonsOnBreak == 0) {
+        if (minPersonsOnShift == 0) {
             return null;
         } //TODO exception?
         while (!created) {
             for (WorkShift s : allShifts) {
                 if (s.getBreakTime().inBetween(breakStart, breakStart + breakLength)) {
-                    count++;
+                    numberOfBreakTogether++;
                 }
             }
-            if (count < maxPersonsOnBreak) {
+            if (numberOfWorkingPersonel==0|| (numberOfWorkingPersonel-numberOfBreakTogether) >= minPersonsOnShift) {
                 created = true;
                 return new OccupiedTime(breakStart, breakStart + breakLength);
-
-            } else {
-                breakStart = breakStart + 1000 * 60 * 5;
-                count = 0;
             }
+                breakStart = breakStart + 1000 * 60 * 5;
+                numberOfBreakTogether = 0;
+
         }
         return null;
+    }
+
+    private int countPersonelOnDepartment(long startForTheWorkShift, long stopForTheWorkShift) {
+        int count=0;
+        for(WorkShift s : allShifts){
+            if(s.END>= startForTheWorkShift && stopForTheWorkShift>=s.START)
+                count++;
+        }
+        return count;
     }
 
     /**
@@ -146,12 +155,12 @@ public class Department {
         return true;
     }
 
-    public void setMaxPersonsOnBreak(int maxPersonsOnBreak1) {
-        maxPersonsOnBreak = maxPersonsOnBreak1;
+    public void setMinPersonsOnShift(int minPersonsOnShift) {
+        this.minPersonsOnShift = minPersonsOnShift;
     }
 
-    public int getMaxPersonsOnBreak() {
-        return maxPersonsOnBreak;
+    public int getMinPersonsOnShift() {
+        return minPersonsOnShift;
     }
 
     public BreakHandler getBreakHandler() {
