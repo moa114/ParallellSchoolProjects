@@ -178,8 +178,11 @@ public class WorkDay {
 
     public void setWorkDay() {
         updateDepartments();
+        WorkShift ws;
         for (Department d : this.departments) {
-            for (WorkShift ws : d.getAllShifts()) {
+
+            for(int i = 0; i< d.getSizeAllShifts(); i++){
+                ws = d.getShift(i);
                 Date wsDate = new Date(ws.START);
                 Date thisDate = new Date(this.DATE);
                 if ((ws.REPEAT && (wsDate.getDay() == thisDate.getDay())) || (!ws.REPEAT && (wsDate.getDay() == thisDate.getDay()) && (wsDate.getDate() == thisDate.getDate()))) {

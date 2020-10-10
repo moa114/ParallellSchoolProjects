@@ -66,7 +66,7 @@ public class testAdmin {
         admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (WeekHandler.plusHours(1)), date.getTime() + (WeekHandler.plusHours(5)), repeat);
         admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (WeekHandler.plusHours(1)), date.getTime() + (WeekHandler.plusHours(5)), repeat);
 
-        assertTrue(admin.getDepartmentByName("Kassa").getAllShifts().size() == 3);
+        assertTrue(admin.getDepartmentByName("Kassa").getSizeAllShifts() == 3);
     }
 
     @Test

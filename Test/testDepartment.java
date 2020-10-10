@@ -20,6 +20,6 @@ public class testDepartment {
         admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (WeekHandler.plusHours(1)), date.getTime() + (WeekHandler.plusHours(5)), repeat);
         admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (WeekHandler.plusHours(1)), date.getTime() + (WeekHandler.plusHours(5)), repeat);
 
-        assertTrue(admin.getDepartmentByName("Kassa").getAllShifts().get(0).getBreakTime().inBetween(admin.getDepartmentByName("Kassa").getAllShifts().get(2).getBreakTime().START, admin.getDepartmentByName("Kassa").getAllShifts().get(2).getBreakTime().END));
+        assertTrue(admin.getDepartmentByName("Kassa").getShift(0).getBreakTime().inBetween(admin.getDepartmentByName("Kassa").getShift(2).getBreakTime().START, admin.getDepartmentByName("Kassa").getShift(2).getBreakTime().END));
     }
 }
