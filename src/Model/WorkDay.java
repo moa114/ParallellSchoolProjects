@@ -23,7 +23,7 @@ public class WorkDay {
     }
 
     public void setGuaranteedFreeTime(int hours) {
-        this.guaranteedFreeTime = (plusHours(hours) - DATE);
+        this.guaranteedFreeTime = (WeekHandler.plusHours(hours));
     }
     /**
      * Checks if all departments are filled
@@ -87,18 +87,6 @@ public class WorkDay {
         for (Employee employee : employees)
             employee.occupiedTimes.add(workShift);
     }*/
-
-    private long plusHours(int hours) {
-        return DATE + 1000 * 60 * 60 * hours;
-    }
-
-    private long plusMinutes(int minutes) {
-        return DATE + 1000 * 60 * minutes;
-    }
-
-    private long plusHoursAndMinutes(int hours, int minutes) {
-        return DATE + 1000 * 60 * 60 * hours + 1000 * 60 * minutes;
-    }
 
     private void ScheduleEmployees(Collection<? extends Employee> employees, Department department) {
     }

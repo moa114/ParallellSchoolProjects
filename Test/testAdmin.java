@@ -61,10 +61,10 @@ public class testAdmin {
         admin.createNewDepartment("Kassa", 3);
         Date date = new Date();
         boolean repeat[] = {true, false, false, false, false, false, false};
-        admin.getDepartmentByName("Kassa").getBreakHandler().setMinBreakLength(1000 * 60 * 15);
-        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (1000 * 60 * 60 * 1), date.getTime() + (1000 * 60 * 60 * 5), repeat);
-        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (1000 * 60 * 60 * 1), date.getTime() + (1000 * 60 * 60 * 5), repeat);
-        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (1000 * 60 * 60 * 1), date.getTime() + (1000 * 60 * 60 * 5), repeat);
+        admin.getDepartmentByName("Kassa").getBreakHandler().setMinBreakLength(WeekHandler.plusMinutes(15));
+        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (WeekHandler.plusHours(1)), date.getTime() + (WeekHandler.plusHours(5)), repeat);
+        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (WeekHandler.plusHours(1)), date.getTime() + (WeekHandler.plusHours(5)), repeat);
+        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (WeekHandler.plusHours(1)), date.getTime() + (WeekHandler.plusHours(5)), repeat);
 
         assertTrue(admin.getDepartmentByName("Kassa").getAllShifts().size() == 3);
     }
@@ -75,7 +75,7 @@ public class testAdmin {
         a.createNewDepartment("Kassa", 2);
         Date d = new Date();
         boolean repeat[] = {true, true, true, true, true, true, true};
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + (1000 * 60 * 60 * 1), d.getTime() + (1000 * 60 * 60 * 5), repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + (WeekHandler.plusHours(1)), d.getTime() + (WeekHandler.plusHours(5)), repeat);
         assertEquals(1, a.getDepartmentListSize());
         a.removeDepartment(a.getDepartmentByName("Kassa"));
         OurCalendar.getInstance().getWorkday(d.getDate()).setWorkDay();

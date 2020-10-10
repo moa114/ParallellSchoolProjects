@@ -6,26 +6,28 @@ import java.util.*;
 
 public class WeekHandler {
 
-    private HashMap<DayOfWeek, ArrayList<WorkShift>> weekDays;
+    private WeekHandler() {
 
-    public WeekHandler() {
-        this.weekDays = new HashMap<>();
     }
 
-    public void setWeeklyWorkshift(DayOfWeek dow, WorkShift ws) {
-        weekDays.computeIfAbsent(dow, k -> new ArrayList<WorkShift>());
-        weekDays.get(dow).add(ws);
+    public static long plusMinutes(int minutes) {
+        return 1000 * 60 * minutes;
     }
 
-    public void setWeeklyWorkshift(ArrayList<DayOfWeek> dows, WorkShift ws) {
-        for (DayOfWeek dow : dows) {
-            weekDays.computeIfAbsent(dow, k -> new ArrayList<WorkShift>());
-            weekDays.get(dow).add(ws);
-        }
+    public static long plusHours(int hours) {
+        return 1000 * 60 * 60 * hours;
     }
 
-    public void setWorkDay(WorkDay wd) {
-        // wd.setWorkShifts(weekDays.get(DayOfWeek.of(new Date(wd.DATE).getDay())));
+    public static long plusDays(int days) {
+        return 1000 * 60 * 60 * 24 * days;
+    }
+
+    public static long plusHoursAndMinutes(int hours, int minutes) {
+        return 1000 * 60 * 60 * hours + 1000 * 60 * minutes;
+    }
+
+    public static long plusDaysAndHoursAndMinutes(int days, int hours, int minutes) {
+        return 1000 * 60 * 60 * hours + 1000 * 60 * minutes + 1000 * 60 * 60 * 24 * days;
     }
 
 

@@ -22,13 +22,13 @@ public class testWorkday {
         List<Certificate> allcert = new ArrayList<>();
         allcert.add(ch.getCertificate("Kassa"));
         a.createNewDepartment("Kassa", 1);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + (1000 * 60 * 60 * 8)), allcert, repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + WeekHandler.plusHours(8)), allcert, repeat);
         //WorkShift w= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),allcert,new OccupiedTime(2,2), true);
         WorkDay workday = OurCalendar.getInstance().getWorkday(d.getDate() - 1);
         workday.setWorkDay();
         workday.setGuaranteedFreeTime(10);
         workday.occupiesEmployee(workday.getWorkShifts(a.getDepartmentByName("Kassa")).get(0), a.getEmployeeByName("moa"));
-        assertTrue(a.getEmployeeByName("moa").isOccupied((d.getTime() + (1000 * 60 * 60 * (17))), (d.getTime() + (1000 * 60 * 60 * (8 + 23)))));
+        assertTrue(a.getEmployeeByName("moa").isOccupied((d.getTime() + WeekHandler.plusHours(17)), (d.getTime() + WeekHandler.plusHours(31))));
     }
 
     @Test
@@ -39,9 +39,9 @@ public class testWorkday {
         boolean repeat2[] = {true, false, true, false, false, false, false};
         a.createNewDepartment("Kassa", 1);
         a.createNewDepartment("Frukt", 1);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), OurCalendar.getInstance().getWorkday(dag).DATE + 100, OurCalendar.getInstance().getWorkday(dag).DATE + 1000 * 60 * 60, repeat);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), OurCalendar.getInstance().getWorkday(dag).DATE + 100, OurCalendar.getInstance().getWorkday(dag).DATE + 1000 * 60 * 60, repeat2);
-        a.createWorkshift(a.getDepartmentByName("Frukt"), OurCalendar.getInstance().getWorkday(dag).DATE + 100, OurCalendar.getInstance().getWorkday(dag).DATE + 1000 * 60 * 60, repeat2);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), OurCalendar.getInstance().getWorkday(dag).DATE + 100, OurCalendar.getInstance().getWorkday(dag).DATE + WeekHandler.plusMinutes(60), repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), OurCalendar.getInstance().getWorkday(dag).DATE + 100, OurCalendar.getInstance().getWorkday(dag).DATE + WeekHandler.plusMinutes(60), repeat2);
+        a.createWorkshift(a.getDepartmentByName("Frukt"), OurCalendar.getInstance().getWorkday(dag).DATE + 100, OurCalendar.getInstance().getWorkday(dag).DATE + WeekHandler.plusMinutes(60), repeat2);
         int countKassa[] = {0, 0, 0, 0, 0, 0, 0}; //counts all WorkShifts for Kassa, starts at "dag"s weekday
         int countFrukt[] = {0, 0, 0, 0, 0, 0, 0}; //counts all Workshifts for Frukt, starts at "dag"s weekday
         for (int i = 0; i < 7; i++) { //we set and check how many workshifts that actually have been set
@@ -80,9 +80,9 @@ public class testWorkday {
         List<Certificate> allcert = new ArrayList<>();
         allcert.add(ch.getCertificate("Kassa"));
         a.createNewDepartment("Kassa", 1);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + (1000 * 60 * 60 * 8)), allcert, repeat);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + 1000, (d.getTime() + 1000 + (1000 * 60 * 60 * 8)), allcert, repeat);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() - 1000, (d.getTime() - 1000 + (1000 * 60 * 60 * 8)), allcert, repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + WeekHandler.plusHours(8)), allcert, repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + 1000, (d.getTime() + 1000 + WeekHandler.plusHours(8)), allcert, repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() - 1000, (d.getTime() - 1000 + WeekHandler.plusHours(8)), allcert, repeat);
         WorkDay workday = OurCalendar.getInstance().getWorkday(d.getDate() - 1);
         workday.setWorkDay();
         workday.setGuaranteedFreeTime(10);
@@ -98,7 +98,7 @@ public class testWorkday {
         boolean repeat[] = {true, true, true, true, true, true, true};
         a.createNewEmployee("moa", "000211444444", "moa@email.com");
         Date d = new Date();
-        d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+        d.setTime(d.getTime() + (WeekHandler.plusHours(24)));
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
@@ -106,7 +106,7 @@ public class testWorkday {
         allcert.add(ch.getCertificate("Kassa"));
         allcert.add(ch.getCertificate("Frukt"));
         a.createNewDepartment("Kassa", 1);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + (1000 * 60 * 60 * 8)), allcert, repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + WeekHandler.plusHours(8)), allcert, repeat);
         a.createEmployeeCertificate(ch.getCertificate("Kassa"), a.getEmployeeByName("moa"));
         WorkDay workday = OurCalendar.getInstance().getWorkday(d.getDate());
         workday.setGuaranteedFreeTime(10);
@@ -123,7 +123,7 @@ public class testWorkday {
         a.createNewEmployee("sam", "000211444442", "sam@ntiskolan.se"); //e2
         a.createNewEmployee("mas", "000211444443", "mas@nej.com"); //e3
         Date d = new Date();
-        d.setTime(d.getTime() + (24 * 60 * 60 * 1000));
+        d.setTime(d.getTime() + (WeekHandler.plusHours(24)));
         CertificateHandler ch = CertificateHandler.getInstance();
         ch.createNewCertificate("Kassa");
         List<Certificate> allcert = new ArrayList<>();
@@ -131,10 +131,10 @@ public class testWorkday {
         a.createNewDepartment("Kassa", 1);
         a.createEmployeeCertificate(ch.getCertificate("Kassa"), a.getEmployeeByName("moa"));
         a.createEmployeeCertificate(ch.getCertificate("Kassa"), a.getEmployeeByName("sam"));
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + (1000 * 60 * 60 * 8)), repeat);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + (1000 * 60 * 60 * 8)), repeat);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + 1000 * 60 * 60 * 24 * 1, (d.getTime() + (1000 * 60 * 60 * 8) + 1000 * 60 * 60 * 24 * 1), allcert, repeat);
-        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + 1000 * 60 * 60 * 24 * 1, (d.getTime() + (1000 * 60 * 60 * 8) + 1000 * 60 * 60 * 24 * 1), repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + WeekHandler.plusHours(8)), repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime(), (d.getTime() + WeekHandler.plusHours(8)), repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + WeekHandler.plusDays(1), (d.getTime() + (WeekHandler.plusHours(8)) + WeekHandler.plusDays(1)), allcert, repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + WeekHandler.plusDays(1), (d.getTime() + (WeekHandler.plusHours(8)) + WeekHandler.plusDays(1)), repeat);
         //WorkShift w1= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),new OccupiedTime(2,2), false);
         //WorkShift w2= new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)),new OccupiedTime(2,2), false);
         //WorkShift w3= new WorkShift(d.getTime() + 1000*60*60*24*1,(d.getTime()+(1000 * 60 * 60 * 8) + 1000*60*60*24*1),allcert,new OccupiedTime(2,2), false);
