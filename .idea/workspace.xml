@@ -12,8 +12,15 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="ProjectId" id="1igwQiA2vynScWy13fpAka9Eobh" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../Program Files/Java/JavaFX-15/javafx-sdk-15/lib" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -83,25 +90,25 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="ServiceViewManager">
-    <option name="viewStates">
-      <list>
-        <serviceView>
-          <treeState>
-            <expand />
-            <select />
-          </treeState>
-        </serviceView>
-      </list>
-    </option>
-  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6d840153-421c-4db5-b7b3-7c686570cfb5" name="Default Changelist" comment="" />
+      <created>1602342530329</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602342530329</updated>
+    </task>
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="760" y="274" key="#Project_Structure" timestamp="1602342610915">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="760" y="274" key="#Project_Structure/0.0.2560.1400@0.0.2560.1400" timestamp="1602342610915" />
     <state x="264" y="146" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1602164644295">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -115,22 +122,30 @@
       <screen x="0" y="0" width="1500" height="960" />
     </state>
     <state x="545" y="340" width="408" height="286" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1500.960@0.0.1500.960" timestamp="1602060272750" />
-    <state width="1458" height="256" key="GridCell.Tab.0.bottom" timestamp="1602062987241">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state x="986" y="441" key="FileChooserDialogImpl" timestamp="1602342604853">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="986" y="441" key="FileChooserDialogImpl/0.0.2560.1400@0.0.2560.1400" timestamp="1602342604853" />
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom" timestamp="1602342649830">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1458" height="256" key="GridCell.Tab.0.bottom/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
-    <state width="1458" height="256" key="GridCell.Tab.0.center" timestamp="1602062987241">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state width="2517" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400@0.0.2560.1400" timestamp="1602342649830" />
+    <state width="2517" height="401" key="GridCell.Tab.0.center" timestamp="1602342649830">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1458" height="256" key="GridCell.Tab.0.center/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
-    <state width="1458" height="256" key="GridCell.Tab.0.left" timestamp="1602062987241">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state width="2517" height="401" key="GridCell.Tab.0.center/0.0.2560.1400@0.0.2560.1400" timestamp="1602342649830" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left" timestamp="1602342649830">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1458" height="256" key="GridCell.Tab.0.left/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
-    <state width="1458" height="256" key="GridCell.Tab.0.right" timestamp="1602062987241">
-      <screen x="0" y="0" width="1500" height="960" />
+    <state width="2517" height="401" key="GridCell.Tab.0.left/0.0.2560.1400@0.0.2560.1400" timestamp="1602342649830" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right" timestamp="1602342649830">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="1458" height="256" key="GridCell.Tab.0.right/0.0.1500.960@0.0.1500.960" timestamp="1602062987241" />
+    <state width="2517" height="401" key="GridCell.Tab.0.right/0.0.2560.1400@0.0.2560.1400" timestamp="1602342649830" />
     <state x="740" y="133" key="SettingsEditor" timestamp="1602164698628">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

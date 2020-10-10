@@ -37,36 +37,36 @@ public class testAdmin {
     }
 
 
-
     @Test
     public void testRemoveEmployeeCertificate() {
         Admin admin = Admin.getInstance();
-        admin.createNewEmployee("moa", "123456789231" , "moa@gmail.com"); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
-        admin.createNewEmployee("moa", "123456789235" , "moa2@gmail.com");
-        admin.createNewEmployee("crilllle", "123456789239" , "lll@gmail.com");
+        admin.createNewEmployee("moa", "123456789231", "moa@gmail.com"); //TODO det ska inte finnas dubletter av personnummer samt 10 siffror långt
+        admin.createNewEmployee("moa", "123456789235", "moa2@gmail.com");
+        admin.createNewEmployee("crilllle", "123456789239", "lll@gmail.com");
         CertificateHandler ch = admin.getCertificatehandler();
         ch.createNewCertificate("Kassa");
         ch.createNewCertificate("Frukt");
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789231"), new Date());
         admin.createEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789235"), new Date());
         admin.createEmployeeCertificate(ch.getCertificate("Frukt"), admin.getEmployeeByID("123456789235"), new Date());
-        assertTrue(ch.getEmployeeWithCertificateSize(ch.getCertificate("Kassa"))  == 2);
+        assertTrue(ch.getEmployeeWithCertificateSize(ch.getCertificate("Kassa")) == 2);
         admin.removeEmployeeCertificate(ch.getCertificate("Kassa"), admin.getEmployeeByID("123456789235"));
         assertTrue(ch.getEmployeeWithCertificateSize(ch.getCertificate("Kassa")) == 1);
         assertTrue(ch.getEmployeeWithCertificateSize(ch.getCertificate("Frukt")) == 1);
     }
+
     @Test
     public void testCreateWorkshift() {
-        Admin admin=Admin.getInstance();
+        Admin admin = Admin.getInstance();
         admin.createNewDepartment("Kassa", 3);
         Date date = new Date();
         boolean repeat[] = {true, false, false, false, false, false, false};
-        admin.getDepartmentByName("Kassa").getBreakHandler().setMinBreakLength(1000*60*15);
-        admin.createWorkshift(admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
-        admin.createWorkshift(admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
-        admin.createWorkshift(admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
+        admin.getDepartmentByName("Kassa").getBreakHandler().setMinBreakLength(1000 * 60 * 15);
+        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (1000 * 60 * 60 * 1), date.getTime() + (1000 * 60 * 60 * 5), repeat);
+        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (1000 * 60 * 60 * 1), date.getTime() + (1000 * 60 * 60 * 5), repeat);
+        admin.createWorkshift(admin.getDepartmentByName("Kassa"), date.getTime() + (1000 * 60 * 60 * 1), date.getTime() + (1000 * 60 * 60 * 5), repeat);
 
-        assertTrue(admin.getDepartmentByName("Kassa").getAllShifts().size()==3);
+        assertTrue(admin.getDepartmentByName("Kassa").getAllShifts().size() == 3);
     }
 
     @Test
@@ -75,7 +75,7 @@ public class testAdmin {
         a.createNewDepartment("Kassa", 2);
         Date d = new Date();
         boolean repeat[] = {true, true, true, true, true, true, true};
-        a.createWorkshift(a.getDepartmentByName("Kassa"),d.getTime()+(1000 * 60 * 60 * 1),d.getTime()+(1000 * 60 * 60 * 5), repeat);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), d.getTime() + (1000 * 60 * 60 * 1), d.getTime() + (1000 * 60 * 60 * 5), repeat);
         assertEquals(1, a.getDepartmentListSize());
         a.removeDepartment(a.getDepartmentByName("Kassa"));
         OurCalendar.getInstance().getWorkday(d.getDate()).setWorkDay();
@@ -83,7 +83,7 @@ public class testAdmin {
         boolean didItNotWork = false;
         try {
             OurCalendar.getInstance().getWorkday(d.getDate()).getWorkShifts(a.getDepartmentByName("Kassa")).size();
-        } catch(NullPointerException e){
+        } catch (NullPointerException e) {
             didItNotWork = true;
         }
         assertTrue(didItNotWork);

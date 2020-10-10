@@ -44,9 +44,13 @@ public class CertificateHandler {
         return employeeLinkCertificate.get(c).iterator();
     }
 
-    public int getEmployeeWithCertificateSize(Certificate c) { return employeeLinkCertificate.get(c).size(); }
+    public int getEmployeeWithCertificateSize(Certificate c) {
+        return employeeLinkCertificate.get(c).size();
+    }
 
-    public boolean checkEmployeeWithCertificate(Certificate c, Employee e) { return employeeLinkCertificate.get(c).contains(e); }
+    public boolean checkEmployeeWithCertificate(Certificate c, Employee e) {
+        return employeeLinkCertificate.get(c).contains(e);
+    }
 
     private CertificateHandler() {
         this.allCertificates = new ArrayList<>();

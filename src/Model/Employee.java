@@ -120,7 +120,7 @@ public class Employee {
         occupiedTimes.add(new OccupiedTime(start, end));
     }
 
-    public void registerOccupation(OccupiedTime ot){
+    public void registerOccupation(OccupiedTime ot) {
         occupiedTimes.add(ot);
     }
 
@@ -128,7 +128,9 @@ public class Employee {
         return certificates.get(index);
     }
 
-    public int getCertificatesSize(){ return this.certificates.size(); }
+    public int getCertificatesSize() {
+        return this.certificates.size();
+    }
 
     public void newName(String name) {
         this.name = name;
@@ -137,7 +139,7 @@ public class Employee {
     public boolean hasCertifices(List<Certificate> certificates) {
         for (Certificate c : certificates) {
             for (EmployeeCertificate ec : this.certificates) {
-                if (c!=ec.getCertificate()) {
+                if (c != ec.getCertificate()) {
                     return false;
                 }
             }

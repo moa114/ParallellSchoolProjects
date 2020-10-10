@@ -17,15 +17,15 @@ public class WorkShift {
     /**
      * Creates a new workshift
      *
-     * @param start        The starting time for the Workshift
-     * @param end          The ending time for the Workshift
+     * @param start       The starting time for the Workshift
+     * @param end         The ending time for the Workshift
      * @param certificate Required Certificates for the Workshift
      */
     protected WorkShift(long start, long end, Certificate certificate, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
         this.certificates.add(certificate);
-        this.breakTime= breakTime;
+        this.breakTime = breakTime;
         this.REPEAT = repeat;
     }
 
@@ -40,7 +40,7 @@ public class WorkShift {
         this.START = start;
         this.END = end;
         this.certificates.addAll(certificates);
-        this.breakTime=breakTime;
+        this.breakTime = breakTime;
         this.REPEAT = repeat;
     }
 
@@ -53,7 +53,7 @@ public class WorkShift {
     protected WorkShift(long start, long end, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
-        this.breakTime=breakTime;
+        this.breakTime = breakTime;
         this.REPEAT = repeat;
     }
 
@@ -65,17 +65,17 @@ public class WorkShift {
     protected WorkShift(WorkShift ws, long date) {
 
         Date wsStart = new Date(ws.START);
-        this.START = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
+        this.START = date + wsStart.getHours() * 60 * 60 * 1000 + wsStart.getMinutes() * 60 * 1000;
         wsStart.setTime(ws.END);
-        this.END = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
+        this.END = date + wsStart.getHours() * 60 * 60 * 1000 + wsStart.getMinutes() * 60 * 1000;
         this.certificates = ws.certificates;
         this.REPEAT = ws.REPEAT;
         this.breakTime = ws.breakTime;
     }
 
-    protected WorkShift(WorkShift ws, int date){
-        this.START = ws.START+ date*24*60*60*1000;
-        this.END = ws.END + date*24*60*60*1000;
+    protected WorkShift(WorkShift ws, int date) {
+        this.START = ws.START + date * 24 * 60 * 60 * 1000;
+        this.END = ws.END + date * 24 * 60 * 60 * 1000;
         this.certificates = ws.certificates;
         this.REPEAT = ws.REPEAT;
         this.breakTime = ws.breakTime;
@@ -120,7 +120,10 @@ public class WorkShift {
     public List<Certificate> getAllCertificate() {
         return certificates;
     }
-    public OccupiedTime getBreakTime(){return breakTime;}
+
+    public OccupiedTime getBreakTime() {
+        return breakTime;
+    }
 
     /**
      * Removes a specified certificate from being required by the employees
@@ -131,7 +134,9 @@ public class WorkShift {
         certificates.remove(c);
     }
 
-    public Employee getEmployee() {return employee;}
+    public Employee getEmployee() {
+        return employee;
+    }
 
     public OccupiedTime getOccupation() {
         return occupiedTime;

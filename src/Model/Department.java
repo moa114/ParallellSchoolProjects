@@ -32,9 +32,6 @@ public class Department {
     }
 
 
-
-
-
     /**
      * Creates a break for a work shift
      *
