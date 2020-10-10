@@ -23,10 +23,20 @@ public class Certificate {
         this.ID = idStart++;
     }
 
+    /**
+     * Returns the name of the certificate
+     *
+     * @return the name of the certificate
+     */
     public String getName() {
         return NAME;
     }
 
+    /**
+     * Returns the unique ID of yhe certificate
+     *
+     * @return the ID of the certificate
+     */
     public long getID() {
         return ID;
     }

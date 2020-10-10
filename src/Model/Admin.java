@@ -19,6 +19,11 @@ public class Admin implements Observable {
     private Exporter export;
     private static Admin instance = null;
 
+    /**
+     * Return the singleton object of Admin
+     *
+     * @return The instance of the Admin
+     */
     public static Admin getInstance() {
         if (instance == null)
             instance = new Admin();
@@ -72,18 +77,27 @@ public class Admin implements Observable {
         }
     } */
 
-    //Behöver vara public för att printa ut lista av alla anställda?
+    /**
+     * Returns an employee at the specified index
+     *
+     * @param index the index of employee in the arraylist
+     * @return An employee
+     */
     public Employee getEmployee(int index) {
         return employees.get(index);
 
     }
 
+    /**
+     * Change the name of a specified employee
+     *
+     * @param employee the employee to change the name
+     * @param name     the new name to give to the employee
+     */
     public void changeEmployeeName(Employee employee, String name) {
         employee.newName(name);
         notifyObservers();
     }
-
-    /*hej*/
 
     public void addObserver(Observer o) {
         toBeAdded.add(o);
@@ -101,18 +115,39 @@ public class Admin implements Observable {
         observers.forEach(Observer::update);
     }
 
+    /**
+     * Returns the size of the Arraylist holding all employees
+     *
+     * @return an integer on how many employees there are
+     */
     public int getEmployeeListSize() {
         return employees.size();
     }
 
+    /**
+     * Returns the size of the Arraylist holding all departments
+     *
+     * @return an integer on how many departments there are
+     */
     public int getDepartmentListSize() {
         return departments.size();
     }
 
+    /**
+     * Returns the EmployeeSorter which sorts employees into WorkShifts
+     *
+     * @return the employeesorter
+     */
     public EmployeeSorter getEmployeeSorter() {
         return employeeSorter;
     }
 
+    /**
+     * Returns an employee with the specified name if there is no duplicate names otherwise throws an exeption
+     *
+     * @param name The name of the employee
+     * @return An employee with the specified name if there is no duplicate names
+     */
     public Employee getEmployeeByName(String name) {
         int count = 0;
         Employee tmp = null;
@@ -130,6 +165,12 @@ public class Admin implements Observable {
     }
 
 
+    /**
+     * Returns the employee with the specified ID
+     *
+     * @param ID ID of the employee
+     * @return The employee with the specified ID
+     */
     public Employee getEmployeeByID(String ID) {
         for (Employee e : employees)
             if (e.getPersonalId().equals(ID))
@@ -382,13 +423,21 @@ public class Admin implements Observable {
         return d.getTime() <= start;
     }
 
-    public void setVacation(Employee e, long start, long end) {
+
+    /**
+     * Creates a vacation for the specified employee so he cannot be offered a job during the specified time
+     *
+     * @param employee The employee to get a veacation
+     * @param start    start of the vacation
+     * @param end      end of the vacation
+     */
+    public void setVacation(Employee employee, long start, long end) {
         Date startDate = new Date(start);
         Date endDate = new Date(end);
         int stop = calendar.getDateIndex(endDate);
-        e.registerOccupation(start, end);
+        employee.registerOccupation(start, end);
         for (int i = calendar.getDateIndex(startDate); i <= stop + 4; i++) {
-            calendar.getWorkday(i).unRegisterOccupations(e, start, end);
+            calendar.getWorkday(i).unRegisterOccupations(employee, start, end);
         }
     }
 }

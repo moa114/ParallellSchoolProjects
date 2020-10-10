@@ -58,7 +58,7 @@ public class Department {
                 return new OccupiedTime(breakStart, breakStart + breakLength);
 
             } else {
-                breakStart = breakStart + 1000 * 60 * 5;
+                breakStart = breakStart + WeekHandler.plusMinutes(5);
                 count = 0;
             }
         }
