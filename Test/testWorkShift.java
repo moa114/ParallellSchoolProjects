@@ -25,7 +25,7 @@ public class testWorkShift {
         //WorkShift ws = new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)), allcert,new OccupiedTime(2,2), true);
         ch.createNewCertificate("Kassa");
         a.getDepartmentByName("Frukt").getAllShifts().get(0).addCertificate(ch.getCertificate("Kassa"));
-        assertTrue(a.getDepartmentByName("Frukt").getAllShifts().get(0).getAllCertificate().size() == 2);
+        assertTrue(a.getDepartmentByName("Frukt").getAllShifts().get(0).getCertificatesSize() == 2);
     }
 
 
@@ -42,7 +42,7 @@ public class testWorkShift {
         a.createWorkshift(a.getDepartmentByName("Frukt"), d.getTime(), (d.getTime() + WeekHandler.plusHours(8)), allcert, repeat);
         //WorkShift ws = new WorkShift(d.getTime(),(d.getTime()+(1000 * 60 * 60 * 8)), allcert,new OccupiedTime(2,2), true);
         a.getDepartmentByName("Frukt").getAllShifts().get(0).removeCertificate(ch.getCertificate("Kassa"));
-        assertTrue(a.getDepartmentByName("Frukt").getAllShifts().get(0).getAllCertificate().size() == 0);
+        assertTrue(a.getDepartmentByName("Frukt").getAllShifts().get(0).getCertificatesSize() == 0);
     }
 
     @Test

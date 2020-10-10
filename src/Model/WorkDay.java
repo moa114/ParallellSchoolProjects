@@ -98,7 +98,11 @@ public class WorkDay {
      * @param e         An Employee
      */
     public void occupiesEmployee(WorkShift workShift, Employee e) {
-        if (!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(workShift.getAllCertificate())) {
+        ArrayList<Certificate> certificates = new ArrayList<>();
+        for(int i =0; i < workShift.getCertificatesSize(); i++){
+            certificates.add(workShift.getCertificate(i));
+        }
+        if (!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(certificates)) {
             long endOccupiedTime = (workShift.END) + guaranteedFreeTime;
             OccupiedTime ot = new OccupiedTime(workShift.START, endOccupiedTime);
             e.registerOccupation(ot);
@@ -115,7 +119,11 @@ public class WorkDay {
      * @param e         an Employee
      */
     public void reOccupieEmployee(WorkShift workShift, Employee e) {
-        if (!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(workShift.getAllCertificate())) {
+        ArrayList<Certificate> certificates = new ArrayList<>();
+        for(int i =0; i < workShift.getCertificatesSize(); i++){
+            certificates.add(workShift.getCertificate(i));
+        }
+        if (!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(certificates)) {
             workShift.clearWorkShiftOccupation();
             long endOccupiedTime = (workShift.END) + guaranteedFreeTime;
             OccupiedTime ot = new OccupiedTime(workShift.START, endOccupiedTime);
@@ -127,7 +135,15 @@ public class WorkDay {
     }
 
     public void swapOccupation(WorkShift ws1, WorkShift ws2) {
-        if (ws1.isOccupied() && ws2.isOccupied() && ws1.getEmployee().hasCertifices(ws2.getAllCertificate()) && ws2.getEmployee().hasCertifices(ws1.getAllCertificate())) {
+        ArrayList<Certificate> certificates = new ArrayList<>();
+        for(int i =0; i < ws1.getCertificatesSize(); i++){
+            certificates.add(ws1.getCertificate(i));
+        }
+        ArrayList<Certificate> certificates2 = new ArrayList<>();
+        for(int i =0; i < ws2.getCertificatesSize(); i++){
+            certificates2.add(ws2.getCertificate(i));
+        }
+        if (ws1.isOccupied() && ws2.isOccupied() && ws1.getEmployee().hasCertifices(certificates2) && ws2.getEmployee().hasCertifices(certificates)) {
             Employee e1 = ws1.getEmployee();
             Employee e2 = ws2.getEmployee();
             ws1.clearWorkShiftOccupation();

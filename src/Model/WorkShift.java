@@ -117,8 +117,12 @@ public class WorkShift {
         certificates.add(c);
     }
 
-    public List<Certificate> getAllCertificate() {
-        return certificates;
+    public Certificate getCertificate(int index) {
+        return certificates.get(index);
+    }
+
+    public int getCertificatesSize() {
+        return certificates.size();
     }
 
     public OccupiedTime getBreakTime() {

@@ -87,14 +87,16 @@ public class Employee {
      */
     public boolean isQualified(WorkShift ws) {
         int count = 0;
-        for (Certificate certificate : ws.getAllCertificate()) {
-            for (EmployeeCertificate certificate1 : certificates) {
-                if (certificate1.getCertificate() == certificate) {
-                    count++;
+        Certificate certificate;
+            for (int i=0; i<ws.getCertificatesSize(); i++) {
+                certificate = ws.getCertificate(i);
+                for (EmployeeCertificate certificate1 : certificates) {
+                    if (certificate1.getCertificate() == certificate) {
+                        count++;
+                    }
                 }
-            }
         }
-        if (count == ws.getAllCertificate().size()) {
+        if (count == ws.getCertificatesSize()) {
             return true;
         }
         return false;
