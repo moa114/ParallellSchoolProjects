@@ -32,9 +32,6 @@ public class Department {
     }
 
 
-
-
-
     /**
      * Creates a break for a work shift
      *
@@ -61,7 +58,7 @@ public class Department {
                 return new OccupiedTime(breakStart, breakStart + breakLength);
 
             } else {
-                breakStart = breakStart + 1000 * 60 * 5;
+                breakStart = breakStart + WeekHandler.plusMinutes(5);
                 count = 0;
             }
         }
@@ -96,6 +93,14 @@ public class Department {
         }
     }
 
+    protected void createShift(WorkShift ws) {
+        allShifts.add(new WorkShift(ws, 0));
+    }
+
+    protected void createShift(WorkShift ws, int i) {
+        allShifts.add(new WorkShift(ws, i));
+    }
+
     private boolean setRepeat(WorkShift ws, boolean[] repeat) {
         boolean single = true;
         int c = new Date(ws.START).getDay();
@@ -108,21 +113,17 @@ public class Department {
         return single;
     }
 
-    protected void createShift(WorkShift ws) {
-        allShifts.add(new WorkShift(ws, 0));
-    }
-
-    protected void createShift(WorkShift ws, int i) {
-        allShifts.add(new WorkShift(ws, i));
-    }
-
     protected void removeShift(WorkShift ws) {
         allShifts.remove(ws);
     }
 
-    public List<WorkShift> getAllShifts() {
-        return allShifts;
-    } //TODO one shift
+    public WorkShift getShift(int index){
+        return allShifts.get(index);
+    }
+
+    public int getSizeAllShifts(){
+        return allShifts.size();
+    }
 
     /**
      * Checks if all work shift of the department are manned

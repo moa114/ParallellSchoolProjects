@@ -12,7 +12,7 @@ public class testOurCalendar {
     public void testInit() {
         OurCalendar calendar = OurCalendar.getInstance();
         ArrayList<WorkDay> tempList = new ArrayList<>();
-        for (int i = 0 ; i < calendar.getOurDateSize() ; i++){
+        for (int i = 0; i < calendar.getOurDateSize(); i++) {
             tempList.add(calendar.getWorkday(i));
         }
         List<WorkDay> list = tempList.subList(0, 365);

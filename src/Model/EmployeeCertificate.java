@@ -45,9 +45,10 @@ public class EmployeeCertificate {
 
     /**
      * Converts the expiryDate to a string and returns it
+     *
      * @return the expiry date as a string
      */
-    public String getExpiryDateAsString(){
+    public String getExpiryDateAsString() {
         return expiryDate.toString();
     }
 }

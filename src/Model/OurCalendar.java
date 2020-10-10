@@ -24,10 +24,6 @@ public class OurCalendar {
     }
 
     private OurCalendar() {
-        init();
-    }
-
-    private void init() {
         this.calendar = java.util.Calendar.getInstance();
         this.workDays = new ArrayList<>();
         this.generateDates();
@@ -56,11 +52,13 @@ public class OurCalendar {
 
     public WorkDay getWorkday(int index) {
         if (index < 0) index = -index;
-        index = index%365;
+        index = index % 365;
         return workDays.get(index);
     }
 
-    public int getOurDateSize() { return workDays.size(); }
+    public int getOurDateSize() {
+        return workDays.size();
+    }
 
     /**
      * As we only want to get the day, month and year We reset seconds, minutes and hours
@@ -80,9 +78,9 @@ public class OurCalendar {
      * @return the work day of the date
      */
     public WorkDay getDate(Date date) {
-        for (WorkDay wd : workDays){
+        for (WorkDay wd : workDays) {
             Date date2 = new Date(wd.DATE);
-            if(date.getDate() == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()){
+            if (date.getDate() == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()) {
                 return wd;
             }
         }
@@ -90,9 +88,9 @@ public class OurCalendar {
     }
 
     public int getDateIndex(Date date) {
-        for (int i = 0 ; i < workDays.size() ; i++){
+        for (int i = 0; i < workDays.size(); i++) {
             Date date2 = new Date(workDays.get(i).DATE);
-            if(date.getDate() == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()){
+            if (date.getDate() == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()) {
                 return i;
             }
         }

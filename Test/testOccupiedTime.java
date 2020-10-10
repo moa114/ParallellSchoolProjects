@@ -19,7 +19,7 @@ public class testOccupiedTime {
         Date today = new Date();
         today.setHours(0);
 
-        a.createWorkshift(a.getDepartmentByName("Kassa"), (today.getTime() + 1000*60*60*24*2), (today.getTime() + 1000*60*60*24*2 + 1000*60*60*8), b);
+        a.createWorkshift(a.getDepartmentByName("Kassa"), (today.getTime() + WeekHandler.plusDays(2)), (today.getTime() + WeekHandler.plusDaysAndHoursAndMinutes(2, 8, 0)), b);
         for (int i = today.getDate()+1 ; i - today.getDate() <= 14 ; i++){
             OurCalendar.getInstance().getWorkday(i).setWorkDay();
             OurCalendar.getInstance().getWorkday(i).occupiesEmployee(OurCalendar.getInstance().getWorkday(i).getWorkShifts(a.getDepartmentByName("Kassa")).get(0), a.getEmployeeByID("000000131324"));
@@ -27,7 +27,7 @@ public class testOccupiedTime {
         assertEquals(14, a.getEmployeeByID("000000131324").getOccupiedTimes().size());
         assertEquals(a.getEmployeeByID("000000131324").getOccupiedTimes().get(2), OurCalendar.getInstance().getWorkday(today.getDate()+3).getWorkShifts(a.getDepartmentByName("Kassa")).get(0).getOccupation());
 
-        a.setVacation(a.getEmployeeByID("000000131324"), (today.getTime() + 1000*60*60*24*2), (today.getTime() + 1000*60*60*24*6));
+        a.setVacation(a.getEmployeeByID("000000131324"), (today.getTime() + WeekHandler.plusDays(2)), (today.getTime() + WeekHandler.plusDays(6)));
         assertEquals(4, 14-a.getEmployeeByID("000000131324").getOccupiedTimes().size());
     }
 

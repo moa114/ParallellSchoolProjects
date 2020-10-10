@@ -23,7 +23,7 @@ public class WorkDay {
     }
 
     public void setGuaranteedFreeTime(int hours) {
-        this.guaranteedFreeTime = (plusHours(hours) - DATE);
+        this.guaranteedFreeTime = (WeekHandler.plusHours(hours));
     }
     /**
      * Checks if all departments are filled
@@ -88,18 +88,6 @@ public class WorkDay {
             employee.occupiedTimes.add(workShift);
     }*/
 
-    private long plusHours(int hours) {
-        return DATE + 1000 * 60 * 60 * hours;
-    }
-
-    private long plusMinutes(int minutes) {
-        return DATE + 1000 * 60 * minutes;
-    }
-
-    private long plusHoursAndMinutes(int hours, int minutes) {
-        return DATE + 1000 * 60 * 60 * hours + 1000 * 60 * minutes;
-    }
-
     private void ScheduleEmployees(Collection<? extends Employee> employees, Department department) {
     }
 
@@ -110,7 +98,11 @@ public class WorkDay {
      * @param e         An Employee
      */
     public void occupiesEmployee(WorkShift workShift, Employee e) {
-        if(!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(workShift.getAllCertificate())){
+        ArrayList<Certificate> certificates = new ArrayList<>();
+        for(int i =0; i < workShift.getCertificatesSize(); i++){
+            certificates.add(workShift.getCertificate(i));
+        }
+        if (!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(certificates)) {
             long endOccupiedTime = (workShift.END) + guaranteedFreeTime;
             OccupiedTime ot = new OccupiedTime(workShift.START, endOccupiedTime);
             e.registerOccupation(ot);
@@ -127,7 +119,11 @@ public class WorkDay {
      * @param e         an Employee
      */
     public void reOccupieEmployee(WorkShift workShift, Employee e) {
-        if(!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(workShift.getAllCertificate())){
+        ArrayList<Certificate> certificates = new ArrayList<>();
+        for(int i =0; i < workShift.getCertificatesSize(); i++){
+            certificates.add(workShift.getCertificate(i));
+        }
+        if (!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(certificates)) {
             workShift.clearWorkShiftOccupation();
             long endOccupiedTime = (workShift.END) + guaranteedFreeTime;
             OccupiedTime ot = new OccupiedTime(workShift.START, endOccupiedTime);
@@ -138,13 +134,21 @@ public class WorkDay {
         }
     }
 
-    public void swapOccupation(WorkShift ws1, WorkShift ws2){
-        if (ws1.isOccupied() && ws2.isOccupied() && ws1.getEmployee().hasCertifices(ws2.getAllCertificate()) && ws2.getEmployee().hasCertifices(ws1.getAllCertificate())){
+    public void swapOccupation(WorkShift ws1, WorkShift ws2) {
+        ArrayList<Certificate> certificates = new ArrayList<>();
+        for(int i =0; i < ws1.getCertificatesSize(); i++){
+            certificates.add(ws1.getCertificate(i));
+        }
+        ArrayList<Certificate> certificates2 = new ArrayList<>();
+        for(int i =0; i < ws2.getCertificatesSize(); i++){
+            certificates2.add(ws2.getCertificate(i));
+        }
+        if (ws1.isOccupied() && ws2.isOccupied() && ws1.getEmployee().hasCertifices(certificates2) && ws2.getEmployee().hasCertifices(certificates)) {
             Employee e1 = ws1.getEmployee();
             Employee e2 = ws2.getEmployee();
             ws1.clearWorkShiftOccupation();
             ws2.clearWorkShiftOccupation();
-            if (e1.isOccupied(ws2.START, ws2.END) || e2.isOccupied(ws1.START, ws1.END)){
+            if (e1.isOccupied(ws2.START, ws2.END) || e2.isOccupied(ws1.START, ws1.END)) {
                 occupiesEmployee(ws1, e1);
                 occupiesEmployee(ws2, e2);
             } else {
@@ -174,8 +178,11 @@ public class WorkDay {
 
     public void setWorkDay() {
         updateDepartments();
+        WorkShift ws;
         for (Department d : this.departments) {
-            for (WorkShift ws : d.getAllShifts()) {
+
+            for(int i = 0; i< d.getSizeAllShifts(); i++){
+                ws = d.getShift(i);
                 Date wsDate = new Date(ws.START);
                 Date thisDate = new Date(this.DATE);
                 if ((ws.REPEAT && (wsDate.getDay() == thisDate.getDay())) || (!ws.REPEAT && (wsDate.getDay() == thisDate.getDay()) && (wsDate.getDate() == thisDate.getDate()))) {
@@ -195,19 +202,21 @@ public class WorkDay {
         departments.add(d);
     }
 
-    protected static void removeDepartment(Department d) { departments.remove(d); }
+    protected static void removeDepartment(Department d) {
+        departments.remove(d);
+    }
 
     public void unRegisterOccupations(Employee e, long start, long end) {
-        for (Department d : departments){
-            for (WorkShift ws : departmentLinks.get(d)){
-                if(ws.getOccupation().inBetween(start, end) && ws.getEmployee() == e){
+        for (Department d : departments) {
+            for (WorkShift ws : departmentLinks.get(d)) {
+                if (ws.getOccupation().inBetween(start, end) && ws.getEmployee() == e) {
                     ws.clearWorkShiftOccupation();
                 }
             }
         }
     }
 
-    protected void clearDay(){
+    protected void clearDay() {
         departmentLinks = new HashMap<>();
         updateDepartments();
     }

@@ -87,14 +87,16 @@ public class Employee {
      */
     public boolean isQualified(WorkShift ws) {
         int count = 0;
-        for (Certificate certificate : ws.getAllCertificate()) {
-            for (EmployeeCertificate certificate1 : certificates) {
-                if (certificate1.getCertificate() == certificate) {
-                    count++;
+        Certificate certificate;
+            for (int i=0; i<ws.getCertificatesSize(); i++) {
+                certificate = ws.getCertificate(i);
+                for (EmployeeCertificate certificate1 : certificates) {
+                    if (certificate1.getCertificate() == certificate) {
+                        count++;
+                    }
                 }
-            }
         }
-        if (count == ws.getAllCertificate().size()) {
+        if (count == ws.getCertificatesSize()) {
             return true;
         }
         return false;
@@ -120,7 +122,7 @@ public class Employee {
         occupiedTimes.add(new OccupiedTime(start, end));
     }
 
-    public void registerOccupation(OccupiedTime ot){
+    public void registerOccupation(OccupiedTime ot) {
         occupiedTimes.add(ot);
     }
 
@@ -128,7 +130,9 @@ public class Employee {
         return certificates.get(index);
     }
 
-    public int getCertificatesSize(){ return this.certificates.size(); }
+    public int getCertificatesSize() {
+        return this.certificates.size();
+    }
 
     public void newName(String name) {
         this.name = name;
@@ -137,7 +141,7 @@ public class Employee {
     public boolean hasCertifices(List<Certificate> certificates) {
         for (Certificate c : certificates) {
             for (EmployeeCertificate ec : this.certificates) {
-                if (c!=ec.getCertificate()) {
+                if (c != ec.getCertificate()) {
                     return false;
                 }
             }

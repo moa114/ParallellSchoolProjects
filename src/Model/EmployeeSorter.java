@@ -21,7 +21,7 @@ public class EmployeeSorter {
         List<Employee> newList = new ArrayList<>();
         for (Employee e : employees) {
             ArrayList<EmployeeCertificate> tempList = new ArrayList<>();
-            for (int i = 0; i < e.getCertificatesSize(); i++){
+            for (int i = 0; i < e.getCertificatesSize(); i++) {
                 tempList.add(e.getCertificate(i));
             }
             if (tempList.containsAll(certificates) && !e.isOccupied(start, stop))
