@@ -274,15 +274,15 @@ public class Admin implements Observable {
         }
         notifyObservers();
     }
-    public void createNewDepartment(String name, int maxPersonsOnBreak, Color c) {
-        Department d = new Department(name,maxPersonsOnBreak);
+    public void createNewDepartment(String name, int minPersonsOnShift, Color c) {
+        Department d = new Department(name,minPersonsOnShift);
         d.setColor(c);
         WorkDay.addDepartment(d);
         departments.add(d);
         notifyObservers();
     }
-    public void createNewDepartment(String name, int maxPersonsOnBreak) {
-        Department d = new Department(name, maxPersonsOnBreak);
+    public void createNewDepartment(String name, int minPersonsOnShift) {
+        Department d = new Department(name, minPersonsOnShift);
         WorkDay.addDepartment(d);
         departments.add(d);
     }

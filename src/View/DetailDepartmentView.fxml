@@ -21,8 +21,8 @@
                 <TextField fx:id="name" layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="266.0" promptText="Namn på avdelning" AnchorPane.topAnchor="29.0" />
                 <Button fx:id="saveChanges" layoutY="535.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Spara Ändringar" AnchorPane.bottomAnchor="0.0" />
                 <Button fx:id="deleteDepartment" layoutX="198.0" layoutY="535.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Ta bort avdelning" AnchorPane.bottomAnchor="0.0" />
-            <Spinner fx:id="maxPersonsOnBreak" editable="true" layoutX="215.0" layoutY="93.0" prefHeight="25.0" prefWidth="65.0" />
-            <Label layoutX="14.0" layoutY="97.0" text="Max persons on break:" />
+            <Spinner fx:id="minPersonsOnShift" editable="true" layoutX="215.0" layoutY="93.0" prefHeight="25.0" prefWidth="65.0" />
+            <Label layoutX="14.0" layoutY="97.0" text="Minst antal personer på avdelningen:" />
             <ColorPicker fx:id="colorPicker" editable="true" layoutX="14.0" layoutY="145.0" />
             </children>
         </AnchorPane>
