@@ -86,7 +86,7 @@ public class StartPage implements Observer, Initializable {
         //TODO implement
     }
 
-    void saveAndExit(){
+    private void saveAndExit(){
         save();
         exit();
     }
