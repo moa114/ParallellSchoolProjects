@@ -68,21 +68,31 @@ public class WorkShift {
     protected WorkShift(WorkShift workShift, long date) {
 
         Date wsStart = new Date(workShift.START);
+        Date wsEnd = new Date(workShift.END);
         this.START = date + WeekHandler.plusHours(wsStart.getHours()) + WeekHandler.plusMinutes(wsStart.getMinutes());
-        wsStart.setTime(workShift.END);
-        this.END = date + WeekHandler.plusHours(wsStart.getHours()) + WeekHandler.plusMinutes(wsStart.getMinutes());
+        long tempEnd = date + WeekHandler.plusHours(wsEnd.getHours()) + WeekHandler.plusMinutes(wsEnd.getMinutes());
+        this.END = setEnd(tempEnd);
         this.certificates = workShift.certificates;
         this.REPEAT = workShift.REPEAT;
         this.breakTime = workShift.breakTime;
     }
 
+    private long setEnd(long End){
+        if (End < this.START){
+            return End + WeekHandler.plusDays(1);
+        } else {
+            return End;
+        }
+    }
+
     /**
-     * Creates a copy of a previous Workshift without employee and occupation and moves it forward a week
+     * Creates a copy of a previous Workshift without employee and occupation and moves it forward
      *
      * @param workShift The Workshift you wish to copy and place on another day
      * @param date      The amount of days to add to worshift
      */
     protected WorkShift(WorkShift workShift, int date) {
+        if (date < 0) { date = -date; }
         this.START = workShift.START + WeekHandler.plusDays(date);
         this.END = workShift.END + WeekHandler.plusDays(date);
         this.certificates = workShift.certificates;
