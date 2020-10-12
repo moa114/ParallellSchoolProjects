@@ -1,11 +1,8 @@
 package Model;
 
-import java.util.Date;
-
 /**
  * Represents a certificate with a specified name and a ID value
  */
-
 public class Certificate {
     public final String NAME;
     private static long idStart = 0;

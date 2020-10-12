@@ -17,7 +17,6 @@ public class OccupiedTime {
         this.END = end;
     }
 
-
     /**
      * Checks if a start value and an end value is in between the occupied time
      *
