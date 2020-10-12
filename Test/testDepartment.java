@@ -1,11 +1,9 @@
 import Model.Admin;
-import Model.Department;
 import Model.WeekHandler;
 import org.junit.Test;
 
 import java.util.Date;
 
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class testDepartment {

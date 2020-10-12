@@ -1,7 +1,6 @@
 package Model;
 
 import java.util.*;
-import java.util.concurrent.Phaser;
 
 /**
  * Represents a work day with a specified date, a hash map(with departments, work shifts and employees),and a list of departments
@@ -99,7 +98,7 @@ public class WorkDay {
      */
     public void occupiesEmployee(WorkShift workShift, Employee e) {
         ArrayList<Certificate> certificates = new ArrayList<>();
-        for(int i =0; i < workShift.getCertificatesSize(); i++){
+        for (int i = 0; i < workShift.getCertificatesSize(); i++) {
             certificates.add(workShift.getCertificate(i));
         }
         if (!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(certificates)) {
@@ -120,7 +119,7 @@ public class WorkDay {
      */
     public void reOccupieEmployee(WorkShift workShift, Employee e) {
         ArrayList<Certificate> certificates = new ArrayList<>();
-        for(int i =0; i < workShift.getCertificatesSize(); i++){
+        for (int i = 0; i < workShift.getCertificatesSize(); i++) {
             certificates.add(workShift.getCertificate(i));
         }
         if (!e.isOccupied(workShift.START, workShift.END) && e.hasCertifices(certificates)) {
@@ -136,11 +135,11 @@ public class WorkDay {
 
     public void swapOccupation(WorkShift ws1, WorkShift ws2) {
         ArrayList<Certificate> certificates = new ArrayList<>();
-        for(int i =0; i < ws1.getCertificatesSize(); i++){
+        for (int i = 0; i < ws1.getCertificatesSize(); i++) {
             certificates.add(ws1.getCertificate(i));
         }
         ArrayList<Certificate> certificates2 = new ArrayList<>();
-        for(int i =0; i < ws2.getCertificatesSize(); i++){
+        for (int i = 0; i < ws2.getCertificatesSize(); i++) {
             certificates2.add(ws2.getCertificate(i));
         }
         if (ws1.isOccupied() && ws2.isOccupied() && ws1.getEmployee().hasCertifices(certificates2) && ws2.getEmployee().hasCertifices(certificates)) {
@@ -181,7 +180,7 @@ public class WorkDay {
         WorkShift ws;
         for (Department d : this.departments) {
 
-            for(int i = 0; i< d.getSizeAllShifts(); i++){
+            for (int i = 0; i < d.getSizeAllShifts(); i++) {
                 ws = d.getShift(i);
                 Date wsDate = new Date(ws.START);
                 Date thisDate = new Date(this.DATE);

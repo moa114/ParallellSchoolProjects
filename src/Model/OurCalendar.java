@@ -50,9 +50,15 @@ public class OurCalendar {
     }
 
 
+    /**
+     * Returns a workday at the specified index, returns modulo if bigger than and abs if lower than 0
+     *
+     * @param index the index of the workday to return
+     * @return A workday at the specified index
+     */
     public WorkDay getWorkday(int index) {
         if (index < 0) index = -index;
-        index = index % 365;
+        index = index % getOurDateSize();
         return workDays.get(index);
     }
 
@@ -74,19 +80,25 @@ public class OurCalendar {
     /**
      * Gets the work day of the specified date
      *
-     * @param date The date
+     * @param date The Java.Date
      * @return the work day of the date
      */
     public WorkDay getDate(Date date) {
-        for (WorkDay wd : workDays) {
-            Date date2 = new Date(wd.DATE);
+        for (WorkDay workdays : workDays) {
+            Date date2 = new Date(workdays.DATE);
             if (date.getDate() == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()) {
-                return wd;
+                return workdays;
             }
         }
         return null; //TODO exception
     }
 
+    /**
+     * Returns the index in the WorkDays list of the specified Date object
+     *
+     * @param date The Java.Date object to get the index from
+     * @return The index for the specified Java.Date object in the list over WorkDays
+     */
     public int getDateIndex(Date date) {
         for (int i = 0; i < workDays.size(); i++) {
             Date date2 = new Date(workDays.get(i).DATE);

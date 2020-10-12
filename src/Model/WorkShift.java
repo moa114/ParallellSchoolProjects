@@ -2,9 +2,11 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Represents a WorkShift in which an employee can work in if the have the specified certificates required
+ */
 public class WorkShift {
     private List<Certificate> certificates = new ArrayList<>();
     private Employee employee;
@@ -60,25 +62,32 @@ public class WorkShift {
     /**
      * Creates a copy of a previous Workshift without employee and occupation and moves it forward a week
      *
-     * @param ws The Workshift you wish to copy
+     * @param workShift The Workshift you wish to copy and place on another day
+     * @param date      The date in a long format for Java.Date
      */
-    protected WorkShift(WorkShift ws, long date) {
+    protected WorkShift(WorkShift workShift, long date) {
 
-        Date wsStart = new Date(ws.START);
-        this.START = date + wsStart.getHours() * 60 * 60 * 1000 + wsStart.getMinutes() * 60 * 1000;
-        wsStart.setTime(ws.END);
-        this.END = date + wsStart.getHours() * 60 * 60 * 1000 + wsStart.getMinutes() * 60 * 1000;
-        this.certificates = ws.certificates;
-        this.REPEAT = ws.REPEAT;
-        this.breakTime = ws.breakTime;
+        Date wsStart = new Date(workShift.START);
+        this.START = date + WeekHandler.plusHours(wsStart.getHours()) + WeekHandler.plusMinutes(wsStart.getMinutes());
+        wsStart.setTime(workShift.END);
+        this.END = date + WeekHandler.plusHours(wsStart.getHours()) + WeekHandler.plusMinutes(wsStart.getMinutes());
+        this.certificates = workShift.certificates;
+        this.REPEAT = workShift.REPEAT;
+        this.breakTime = workShift.breakTime;
     }
 
-    protected WorkShift(WorkShift ws, int date) {
-        this.START = ws.START + date * 24 * 60 * 60 * 1000;
-        this.END = ws.END + date * 24 * 60 * 60 * 1000;
-        this.certificates = ws.certificates;
-        this.REPEAT = ws.REPEAT;
-        this.breakTime = ws.breakTime;
+    /**
+     * Creates a copy of a previous Workshift without employee and occupation and moves it forward a week
+     *
+     * @param workShift The Workshift you wish to copy and place on another day
+     * @param date      The amount of days to add to worshift
+     */
+    protected WorkShift(WorkShift workShift, int date) {
+        this.START = workShift.START + WeekHandler.plusDays(date);
+        this.END = workShift.END + WeekHandler.plusDays(date);
+        this.certificates = workShift.certificates;
+        this.REPEAT = workShift.REPEAT;
+        this.breakTime = workShift.breakTime;
     }
 
     /**

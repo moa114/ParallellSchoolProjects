@@ -1,6 +1,5 @@
 package Model;
 
-import java.util.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -218,11 +217,7 @@ public class Admin implements Observable {
      * @return true if it's 12 characters long and false if it is not
      */
     private boolean checkLengthEmployeeId(String PersonalId) {
-        if (PersonalId.length() == 12) {
-            return true;
-        } else {
-            return false;
-        }
+        return PersonalId.length() == 12;
     }
 
     /**
@@ -385,10 +380,10 @@ public class Admin implements Observable {
     }
 
     /**
-     * Get a Department based on its name
+     * Get a Department based on its name if there aren´t multiple
      *
-     * @param name
-     * @return
+     * @param name The name of the department
+     * @return The department that matches name
      */
     public Department getDepartmentByName(String name) {
         for (Department d : departments) {
@@ -405,7 +400,7 @@ public class Admin implements Observable {
      *
      * @param start Starting time
      * @param end   Ending time
-     * @return Vailid or unvalid
+     * @return Vailid or invalid
      */
     private boolean validateTimeSpan(long start, long end) {
         return start < end;

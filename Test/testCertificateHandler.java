@@ -1,7 +1,5 @@
 import Model.Admin;
 import Model.CertificateHandler;
-import Model.Employee;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
