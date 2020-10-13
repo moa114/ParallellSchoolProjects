@@ -1,7 +1,6 @@
 package View;
 
-import Model.Admin;
-import Model.Observer;
+import Model.*;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -14,9 +13,13 @@ import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
 
 import java.time.YearMonth;
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
+import java.util.List;
 
 public class Schema extends AnchorPane implements Observer {
     @FXML Button next, previous;
@@ -86,10 +89,35 @@ public class Schema extends AnchorPane implements Observer {
         int index = Admin.getInstance().getWorkday(dateIndex).getDayOfWeekOffset();
         int secondIndex = 0;
         for (int i = -index; i<=7-index; i++){
-            weekGrid.add(new DayScheduleView(Admin.getInstance().getWorkday(i+dateIndex)), secondIndex, 0);
+            weekGrid.add(new DayScheduleView(Admin.getInstance().getWorkday(i+dateIndex)), 0, secondIndex);
         }
     }
-    private void updateDay(){}
+    private void updateDay(){
+        List<Employee> employeeList = new ArrayList<>();
+        for (int i = 0; i<Admin.getInstance().getEmployeeListSize(); i++){
+            employeeList.add(Admin.getInstance().getEmployee(i));
+        }
+        sortEmployeesAlphabetically(employeeList);
+        listOfPersons.getItems().clear();
+        List<WorkShift> allWorkShifts = new ArrayList<>();
+        for (Department d : Admin.getInstance().getDepartments()){
+            allWorkShifts.addAll(Admin.getInstance().getWorkday(dateIndex).getWorkShifts(d));
+        }
+        for (WorkShift s : allWorkShifts){
+            Color color = new Color(255, 255, 255, 255);
+            for (Department d : Admin.getInstance().getDepartments()){
+                if (d.getAllShifts().contains(s)){
+                    color = d.getColor();
+                    break;
+                }
+            }
+            listOfPersons.getItems().add(new PersonScheduleView(s, color));
+            employeeList.remove(s.getEmployee());
+        }
+        for (Employee e : employeeList){
+            listOfPersons.getItems().add(new PersonScheduleView(e));
+        }
+    }
 
     private void generateButtons(){
         next.setOnAction(new EventHandler<ActionEvent>() {
@@ -98,6 +126,10 @@ public class Schema extends AnchorPane implements Observer {
 
             }
         });
+    }
+
+    private void sortEmployeesAlphabetically(List<Employee> employees){
+        employees.sort(Comparator.comparing(Employee::getName));
     }
 
     private void generateMonth(){
