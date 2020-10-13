@@ -9,42 +9,42 @@
 
 <fx:root prefHeight="600.0" prefWidth="406.0" styleClass="DetailEmployeeView" type="javafx.scene.layout.AnchorPane" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1">
     <children>
-      <AnchorPane fx:id="registerVacation" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="396.0" style="-fx-background-color: #FFFFFF;">
+      <AnchorPane fx:id="certificatePicker" prefHeight="600.0" prefWidth="406.0" AnchorPane.bottomAnchor="0.0">
+         <children>
+            <ListView fx:id="availableCertificates" prefHeight="449.0" prefWidth="406.0" />
+            <DatePicker fx:id="datePicker" layoutY="447.0" prefHeight="25.0" prefWidth="406.0" />
+            <Button fx:id="createCertificate" layoutY="472.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="203.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Skapa" AnchorPane.bottomAnchor="22.0" />
+            <Button fx:id="discardCertificate" layoutX="203.0" layoutY="472.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="203.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Avbryt" AnchorPane.bottomAnchor="22.0" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="registerVacation" layoutX="10.0" layoutY="10.0" prefHeight="600.0" prefWidth="406.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0">
          <children>
             <ListView fx:id="availableCertificates1" layoutX="-10.0" prefHeight="471.0" prefWidth="406.0" />
             <Button fx:id="registerVacationButton" layoutX="-9.0" layoutY="472.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Registrera" AnchorPane.bottomAnchor="22.0" />
             <Button fx:id="discardVacationButton" layoutX="190.0" layoutY="472.0" mnemonicParsing="false" prefHeight="106.0" prefWidth="206.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Avbryt" AnchorPane.bottomAnchor="22.0" AnchorPane.leftAnchor="190.0" />
             <Label layoutX="30.0" layoutY="27.0" text="Registrera ledighet:" />
             <Label layoutX="30.0" layoutY="73.0" text="Från:" />
-            <DatePicker fx:id="date1" layoutX="69.0" layoutY="69.0" prefHeight="25.0" prefWidth="94.0" promptText="datum" />
-            <TextField fx:id="hour1" layoutX="214.0" layoutY="69.0" prefHeight="25.0" prefWidth="40.0" />
+            <DatePicker fx:id="date1" editable="false" layoutX="69.0" layoutY="69.0" prefHeight="25.0" prefWidth="94.0" promptText="datum" />
+            <TextField fx:id="hour1" layoutX="214.0" layoutY="69.0" prefHeight="25.0" prefWidth="40.0" promptText="12" />
             <Label layoutX="184.0" layoutY="73.0" text="Kl:" />
             <Label layoutX="269.0" layoutY="73.0" text=":" />
-            <TextField fx:id="min1" layoutX="287.0" layoutY="69.0" prefHeight="25.0" prefWidth="40.0" />
+            <TextField fx:id="min1" layoutX="287.0" layoutY="69.0" prefHeight="25.0" prefWidth="40.0" promptText="00" />
             <Label layoutX="30.0" layoutY="124.0" text="Till:" />
-            <DatePicker fx:id="date2" layoutX="69.0" layoutY="120.0" prefHeight="25.0" prefWidth="94.0" promptText="datum" />
+            <DatePicker fx:id="date2" editable="false" layoutX="69.0" layoutY="120.0" prefHeight="25.0" prefWidth="94.0" promptText="datum" />
             <Label layoutX="184.0" layoutY="124.0" text="Kl:" />
-            <TextField fx:id="hour2" layoutX="214.0" layoutY="120.0" prefHeight="25.0" prefWidth="40.0" />
+            <TextField fx:id="hour2" layoutX="214.0" layoutY="120.0" prefHeight="25.0" prefWidth="40.0" promptText="12" />
             <Label layoutX="271.0" layoutY="124.0" text=":" />
-            <TextField fx:id="min2" layoutX="287.0" layoutY="120.0" prefHeight="25.0" prefWidth="40.0" />
+            <TextField fx:id="min2" layoutX="287.0" layoutY="120.0" prefHeight="25.0" prefWidth="40.0" promptText="00" />
          </children>
       </AnchorPane>
-      <AnchorPane fx:id="certificatePicker" prefHeight="600.0" prefWidth="396.0" AnchorPane.bottomAnchor="0.0">
-         <children>
-            <ListView fx:id="availableCertificates" prefHeight="449.0" prefWidth="396.0" />
-            <DatePicker fx:id="datePicker" layoutY="447.0" prefHeight="25.0" prefWidth="396.0" />
-            <Button fx:id="createCertificate" layoutY="472.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Skapa" AnchorPane.bottomAnchor="0.0" />
-            <Button fx:id="discardCertificate" layoutX="198.0" layoutY="472.0" mnemonicParsing="false" prefHeight="128.0" prefWidth="198.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Avbryt" AnchorPane.bottomAnchor="0.0" />
-         </children>
-      </AnchorPane>
-          <AnchorPane fx:id="information" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="396.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0">
+          <AnchorPane fx:id="information" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="610.0" prefWidth="406.0" style="-fx-background-color: #FFFFFF;" AnchorPane.bottomAnchor="0.0">
               <children>
                   <ListView fx:id="certificateList" layoutY="132.0" prefHeight="328.0" prefWidth="396.0" />
                   <TextField fx:id="firstName" layoutX="14.0" layoutY="29.0" prefHeight="25.0" prefWidth="266.0" promptText="Förnamn" AnchorPane.topAnchor="20.0" />
                   <TextField fx:id="lastName" layoutX="14.0" layoutY="66.0" prefHeight="25.0" prefWidth="266.0" promptText="Efternamn" AnchorPane.topAnchor="60.0" />
                   <TextField fx:id="personalID" layoutX="14.0" layoutY="98.0" prefHeight="25.0" prefWidth="266.0" promptText="Personnummer" AnchorPane.topAnchor="100.0" />
             <Button fx:id="addCertificate" layoutY="460.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Nytt Certifikat" AnchorPane.bottomAnchor="86.0" />
-            <Button fx:id="removeCertificate" layoutX="198.0" layoutY="460.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="206.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Ta Bort Certifikat" />
+            <Button fx:id="removeCertificate" layoutX="198.0" layoutY="460.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="206.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Ta Bort Certifikat" AnchorPane.bottomAnchor="86.0" />
                   <Button fx:id="saveChanges" layoutY="524.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Spara Ändringar" AnchorPane.bottomAnchor="22.0" />
                   <Button fx:id="deleteEmployee" layoutX="198.0" layoutY="524.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="206.0" style="-fx-background-color: #FF0000; -fx-border-color: #000000;" text="Ta Bort Anställd" AnchorPane.bottomAnchor="22.0" />
             <Button fx:id="addVacation" layoutY="396.0" mnemonicParsing="false" prefHeight="64.0" prefWidth="198.0" style="-fx-background-color: #00FF00; -fx-border-color: #000000;" text="Registrera ledighet" visible="false" />
