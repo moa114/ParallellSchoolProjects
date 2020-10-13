@@ -1,6 +1,8 @@
 package View;
 
 import Model.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -48,6 +50,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         }
         generateFXMLObjects();
         generateButtons();
+        generateTextFields();
         generateCertificates();
         Admin.getInstance().addObserver(this);
     }
@@ -63,6 +66,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             e.printStackTrace();
         }
         generateButtons();
+        generateTextFields();
         generateCertificates();
         Admin.getInstance().addObserver(this);
     }
@@ -83,7 +87,47 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         }
     }
 
+
+    private  void generateTextFields(){
+        hour1.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    hour1.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+        hour2.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    hour2.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+        min1.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    min1.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+        min2.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    min2.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+            }
+        });
+    }
     private void generateButtons(){
+
         saveChanges.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
