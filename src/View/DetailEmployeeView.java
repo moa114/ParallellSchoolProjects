@@ -50,7 +50,10 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         }
         generateFXMLObjects();
         generateButtons();
-        generateTextFields();
+        generateTextFields(hour1);
+        generateTextFields(hour2);
+        generateTextFields(min1);
+        generateTextFields(min2);
         generateCertificates();
         Admin.getInstance().addObserver(this);
     }
@@ -66,7 +69,10 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             e.printStackTrace();
         }
         generateButtons();
-        generateTextFields();
+        generateTextFields(hour1);
+        generateTextFields(hour2);
+        generateTextFields(min1);
+        generateTextFields(min2);
         generateCertificates();
         Admin.getInstance().addObserver(this);
     }
@@ -88,44 +94,30 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
     }
 
 
-    private  void generateTextFields(){
-        hour1.textProperty().addListener(new ChangeListener<String>() {
+    private  void generateTextFields(TextField tf){
+
+                 tf.textProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
+                    if (tf.getText().length() > 2) {
+                        String s = tf.getText().substring(0, 2);
+                        tf.setText(s);
+                    }
+                }
+            });
+
+        tf.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue,
                                 String newValue) {
                 if (!newValue.matches("\\d*")) {
-                    hour1.setText(newValue.replaceAll("[^\\d]", ""));
+                    tf.setText(newValue.replaceAll("[^\\d]", ""));
                 }
-            }
-        });
-        hour2.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    hour2.setText(newValue.replaceAll("[^\\d]", ""));
-                }
-            }
-        });
-        min1.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    min1.setText(newValue.replaceAll("[^\\d]", ""));
-                }
-            }
-        });
-        min2.textProperty().addListener(new ChangeListener<String>() {
-            @Override
-            public void changed(ObservableValue<? extends String> observable, String oldValue,
-                                String newValue) {
-                if (!newValue.matches("\\d*")) {
-                    min2.setText(newValue.replaceAll("[^\\d]", ""));
-                }
+
             }
         });
     }
+    
     private void generateButtons(){
 
         saveChanges.setOnAction(new EventHandler<ActionEvent>() {
