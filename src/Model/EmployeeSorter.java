@@ -1,12 +1,40 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * A class that handles the sortation of employees
  */
 public class EmployeeSorter {
+    private ArrayList<WorkShift> workShifts = new ArrayList<>();
+    private HashMap<WorkShift, List<Employee>> potentialWorkShiftCandidate = new HashMap<>();
+
+
+    public void sortPotentialWorkShiftCandidate(ArrayList<Employee> employees, List<WorkDay> workDays) {
+        ArrayList<Certificate> certificates = new ArrayList<>();
+        for (int i = 0; i < workDays.size(); i++) {
+            for (int j = 0; j < workDays.get(i).getDepartmentSize(); j++) {
+                for (WorkShift ws : workDays.get(i).getWorkShifts(workDays.get(i).getDepartment(j))) {
+                    certificates.clear();
+                    for (int k1 = 0; k1 < ws.getCertificatesSize(); k1++) {
+                        certificates.add(ws.getCertificate(k1));
+                    }
+                    workShifts.add(ws);
+                    potentialWorkShiftCandidate.put(ws, getAvailableQualifiedPersonnel(employees, certificates, ws.START, ws.END));
+                }
+            }
+        }
+    }
+
+    public ArrayList<Integer> sortLowestAmountOfEmployees() {
+        List<Employee> employeeById = new ArrayList<>(potentialWorkShiftCandidate.values());
+
+        return null;
+    }
+
+    public HashMap<WorkShift, List<Employee>> getPotentialEmployees() {
+        return potentialWorkShiftCandidate;
+    }
 
     /**
      * Gets a list of employees that are both available at a given time span and are qualified with certain certificates
@@ -17,16 +45,17 @@ public class EmployeeSorter {
      * @param stop         Stop time of the time span
      * @return A list with employees that are available and qualified
      */
-    public static List<Employee> getAvailableQualifiedPersonnel(List<Employee> employees, List<String> certificates, long start, long stop) {
+    public static List<Employee> getAvailableQualifiedPersonnel(List<Employee> employees, List<Certificate> certificates, long start, long stop) {
         List<Employee> newList = new ArrayList<>();
         for (Employee e : employees) {
-            ArrayList<EmployeeCertificate> tempList = new ArrayList<>();
+            ArrayList<Certificate> tempList = new ArrayList<>();
             for (int i = 0; i < e.getCertificatesSize(); i++) {
-                tempList.add(e.getCertificate(i));
+                tempList.add(e.getCertificate(i).getCertificate());
             }
             if (tempList.containsAll(certificates) && !e.isOccupied(start, stop))
                 newList.add(e);
         }
+
         return newList;
     }
 
