@@ -66,10 +66,16 @@ public class Department {
                     numberOfBreakTogether++;
                 }
             }
-            if (numberOfWorkingPersonel==0|| (numberOfWorkingPersonel-numberOfBreakTogether) >= minPersonsOnShift) {
-                created = true;
-                return new OccupiedTime(breakStart, breakStart + breakLength);
+            if (numberOfWorkingPersonel >= minPersonsOnShift){
+                if (numberOfWorkingPersonel==0|| (numberOfWorkingPersonel-numberOfBreakTogether) >= minPersonsOnShift) {
+                    created = true;
+                    return new OccupiedTime(breakStart, breakStart + breakLength);
+                }
             }
+            else{
+                    created = true;
+                    return new OccupiedTime(breakStart, breakStart + breakLength);
+                }
                 breakStart = breakStart + 1000 * 60 * 5;
                 numberOfBreakTogether = 0;
 

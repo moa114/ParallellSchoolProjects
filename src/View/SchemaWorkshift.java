@@ -35,7 +35,7 @@ public class SchemaWorkshift extends AnchorPane {
         this.timeBar.setScaleX(sizeX*percentageOfDayFilled(workShift.START, workShift.END));
         this.timeBar.setLayoutX(getOffset(workShift.START));
         if (workShift.getEmployee()==null) {
-            this.timeBar.setStyle("-fx-background-color: #888888");
+            this.timeBar.setStyle("-fx-background-color: #BBBBBB");
             this.name.setText("Ledig!");
 
         }

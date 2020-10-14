@@ -28,13 +28,20 @@ public class Runnable extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
+        boolean repeat[] = {false, false, false, false, false, false, false};
+        long tmp = Admin.getInstance().getWorkday(13).DATE;
         Admin.getInstance().createNewDepartment("Disken", 2, new Color(1, 0, 0.4, 0.6));
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), Admin.getInstance().getWorkday(13).DATE+1000*3600*8, Admin.getInstance().getWorkday(13).DATE+1000*3600*16
-                , new boolean[7]);
-        System.out.println("Debug 1");
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), Admin.getInstance().getWorkday(13).DATE+1000*3600*8, Admin.getInstance().getWorkday(13).DATE+1000*3600*16
-                , new boolean[7]);
-        System.out.println("Debug 2");
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
+        System.out.println(Admin.getInstance().getDepartmentByName("Disken").getAllShifts().get(0).getBreakTime().start);
+        System.out.println(Admin.getInstance().getDepartmentByName("Disken").getAllShifts().get(1).getBreakTime().start);
+        System.out.println(Admin.getInstance().getDepartmentByName("Disken").getAllShifts().get(2).getBreakTime().start);
+        System.out.println(Admin.getInstance().getDepartmentByName("Disken").getAllShifts().get(3).getBreakTime().start);
+        System.out.println(Admin.getInstance().getDepartmentByName("Disken").getAllShifts().get(4).getBreakTime().start);
+
         /*
         for (int index = 0; index<10; index++)
             Admin.getInstance().createNewEmployee("Oliver Andersson", Long.toString(200006010000L+index));
