@@ -32,8 +32,9 @@ public class SchemaWorkshift extends AnchorPane {
         this.color = color;
         this.start.setText(new Date(workShift.START).toString());
         this.end.setText(new Date(workShift.END).toString());
-        this.timeBar.setScaleX(sizeX*percentageOfDayFilled(workShift.START, workShift.END));
-        this.timeBar.setLayoutX(getOffset(workShift.START));
+        this.timeBar.setPrefWidth(sizeX*percentageOfDayFilled(workShift.START, workShift.END));
+        this.timeBar.setTranslateX(getOffset(workShift.START)*sizeX);
+        this.timeBar.setTranslateX(200);
         if (workShift.getEmployee()==null) {
             this.timeBar.setStyle("-fx-background-color: #BBBBBB");
             this.name.setText("Ledig!");
@@ -48,7 +49,7 @@ public class SchemaWorkshift extends AnchorPane {
 
     private double percentageOfDayFilled(long start, long end){
         long difference = end-start;
-        return fullDay/difference;
+        return difference/fullDay;
     }
 
     private double getOffset(long start){
@@ -56,6 +57,6 @@ public class SchemaWorkshift extends AnchorPane {
         tmp.setHours(0);
         tmp.setMinutes(0);
         tmp.setSeconds(0);
-        return fullDay/(start-tmp.getTime());
+        return (start-tmp.getTime()/fullDay);
     }
 }

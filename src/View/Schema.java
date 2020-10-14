@@ -96,8 +96,8 @@ public class Schema extends AnchorPane implements Observer {
         Admin.getInstance().getWorkday(dateIndex).setWorkDay();
         listOfWorkshifts.getItems().clear();
         for (Department d : Admin.getInstance().getDepartments()){
-            List<WorkShift> workShifts = Admin.getInstance().getWorkday(dateIndex).getWorkShifts(d);
-            listOfWorkshifts.getItems().add(new SchemaDepartment(d, workShifts));
+            for (WorkShift w : Admin.getInstance().getWorkday(dateIndex).getWorkShifts(d))
+                listOfWorkshifts.getItems().add(new SchemaWorkshift(w, d.getColor()));
         }
     }
 

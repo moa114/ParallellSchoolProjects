@@ -31,11 +31,11 @@ public class Runnable extends Application {
         boolean repeat[] = {false, false, false, false, false, false, false};
         long tmp = Admin.getInstance().getWorkday(13).DATE;
         Admin.getInstance().createNewDepartment("Disken", 2, new Color(1, 0, 0.4, 0.6));
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*16, tmp+1000*3600*20, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*24, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*24, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*24, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*24, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*24, repeat);
         System.out.println(Admin.getInstance().getDepartmentByName("Disken").getAllShifts().get(0).getBreakTime().start);
         System.out.println(Admin.getInstance().getDepartmentByName("Disken").getAllShifts().get(1).getBreakTime().start);
         System.out.println(Admin.getInstance().getDepartmentByName("Disken").getAllShifts().get(2).getBreakTime().start);
