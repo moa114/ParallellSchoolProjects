@@ -5,10 +5,15 @@ import java.util.*;
 /**
  * A class that handles the sortation of employees
  */
-public class EmployeeSorter {
-    private ArrayList<WorkShift> workShifts = new ArrayList<>();
-    private HashMap<WorkShift, List<Employee>> potentialWorkShiftCandidate = new HashMap<>();
 
+public class EmployeeSorter implements Comparator<WorkShift> {
+    public ArrayList<WorkShift> workShifts = new ArrayList<>();
+    public HashMap<WorkShift, List<Employee>> potentialWorkShiftCandidate = new HashMap<>();
+
+    @Override
+    public int compare(WorkShift a, WorkShift b) {
+        return potentialWorkShiftCandidate.get(a).size() < potentialWorkShiftCandidate.get(b).size() ? -1 : potentialWorkShiftCandidate.get(a).size() == potentialWorkShiftCandidate.get(b).size() ? 0 : 1;
+    }
 
     public void sortPotentialWorkShiftCandidate(ArrayList<Employee> employees, List<WorkDay> workDays) {
         ArrayList<Certificate> certificates = new ArrayList<>();
@@ -26,10 +31,26 @@ public class EmployeeSorter {
         }
     }
 
-    public ArrayList<Integer> sortLowestAmountOfEmployees() {
-        List<Employee> employeeById = new ArrayList<>(potentialWorkShiftCandidate.values());
+    public void delegateEmployeeToWorkshift() {
+        Date d = new Date();
+        boolean isAllOccupied = true;
+        for (WorkShift workShift : workShifts) {
+            d.setTime(workShift.START);
+            WorkDay workday = OurCalendar.getInstance().getDate(d); //TODO sort employees after occupation, least to most
+            for (Employee employee : potentialWorkShiftCandidate.get(workShift)) {
+                if (!employee.isOccupied(workShift.START, workShift.END) && !workShift.isOccupied()) {
+                    workday.occupiesEmployee(workShift, employee);
+                }
+            }
+            if (!workShift.isOccupied()) {
+                isAllOccupied = false;
+            }
+        }
+        if (!isAllOccupied) {
+            //TODO Send notification
+            //TODO send list of workshifts
+        }
 
-        return null;
     }
 
     public HashMap<WorkShift, List<Employee>> getPotentialEmployees() {

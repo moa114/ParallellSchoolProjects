@@ -187,7 +187,6 @@ public class WorkDay {
         updateDepartments();
         WorkShift ws;
         for (Department d : this.departments) {
-
             for (int i = 0; i < d.getSizeAllShifts(); i++) {
                 ws = d.getShift(i);
                 Date wsDate = new Date(ws.START);

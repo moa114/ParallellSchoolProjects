@@ -84,10 +84,10 @@ public class OurCalendar {
      * @return the work day of the date
      */
     public WorkDay getDate(Date date) {
-        for (WorkDay workdays : workDays) {
-            Date date2 = new Date(workdays.DATE);
+        for (WorkDay workday : workDays) {
+            Date date2 = new Date(workday.DATE);
             if (date.getDate() == date2.getDate() && date.getMonth() == date2.getMonth() && date.getYear() == date2.getYear()) {
-                return workdays;
+                return workday;
             }
         }
         return null; //TODO exception

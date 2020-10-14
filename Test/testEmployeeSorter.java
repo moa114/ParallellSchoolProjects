@@ -4,10 +4,7 @@ import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertTrue;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 public class testEmployeeSorter {
     @Test
@@ -110,6 +107,20 @@ public class testEmployeeSorter {
         assertEquals(5, arr1.get(wd.get(0).getWorkShifts(admin.getDepartmentByName("Frukt")).get(0)).size());
         assertEquals(8, arr1.get(wd.get(0).getWorkShifts(admin.getDepartmentByName("Soffliggare")).get(0)).size());
         assertEquals(2, arr1.get(wd.get(0).getWorkShifts(admin.getDepartmentByName("Bilmekaniker")).get(0)).size());
+
+
+        // Test sort
+        Collections.sort(admin.getEmployeeSorter().workShifts, admin.getEmployeeSorter());
+
+        assertEquals(2, admin.getEmployeeSorter().potentialWorkShiftCandidate.get(admin.getEmployeeSorter().workShifts.get(0)).size());
+        assertEquals(4, admin.getEmployeeSorter().potentialWorkShiftCandidate.get(admin.getEmployeeSorter().workShifts.get(7)).size());
+        assertEquals(5, admin.getEmployeeSorter().potentialWorkShiftCandidate.get(admin.getEmployeeSorter().workShifts.get(14)).size());
+        assertEquals(8, admin.getEmployeeSorter().potentialWorkShiftCandidate.get(admin.getEmployeeSorter().workShifts.get(21)).size());
+
+        admin.getEmployeeSorter().delegateEmployeeToWorkshift();
+        for (int i = 0; i < admin.getEmployeeSorter().workShifts.size(); i++) {
+            assertTrue(admin.getEmployeeSorter().workShifts.get(i).isOccupied());
+        }
 
 
     }

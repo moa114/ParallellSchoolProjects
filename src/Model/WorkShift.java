@@ -106,7 +106,7 @@ public class WorkShift {
      * @param e  The Employee
      * @param ot The Employees OccupiedTime
      */
-    public void registerOccupation(Employee e, OccupiedTime ot) {
+    protected void registerOccupation(Employee e, OccupiedTime ot) {
         if (!occupied) {
             //TODO checka att employee har certificate via metod
             this.employee = e;
