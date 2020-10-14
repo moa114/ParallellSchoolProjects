@@ -206,6 +206,11 @@ public class WorkDay {
             }
         }
     }
+    public int getDayOfWeekOffset(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date(DATE));
+        return DayOfWeek.getDay(calendar.get(Calendar.DAY_OF_WEEK)).offset;
+    }
 
     protected void clearDay(){
         departmentLinks = new HashMap<>();
