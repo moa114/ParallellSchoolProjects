@@ -12,8 +12,8 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
-import javafx.scene.paint.Color;
 
 import java.time.YearMonth;
 import java.util.ArrayList;
@@ -27,7 +27,7 @@ public class Schema extends AnchorPane implements Observer {
     @FXML AnchorPane dayView, monthView, weekView;
     @FXML ComboBox<String> viewSelector;
     @FXML Label currentFormatInfo, year;
-    @FXML ListView listOfPersons;
+    @FXML ListView listOfWorkshifts;
 
     private int dateIndex;
     private Date currentIndex;
@@ -51,7 +51,7 @@ public class Schema extends AnchorPane implements Observer {
         currentIndex.setHours(0);
         currentIndex.setMinutes(0);
         currentIndex.setSeconds(0);
-        dateIndex = 0;
+        dateIndex = 13;
     }
 
     private void generateComboBox(){
@@ -93,29 +93,11 @@ public class Schema extends AnchorPane implements Observer {
         }
     }
     private void updateDay(){
-        List<Employee> employeeList = new ArrayList<>();
-        for (int i = 0; i<Admin.getInstance().getEmployeeListSize(); i++){
-            employeeList.add(Admin.getInstance().getEmployee(i));
-        }
-        sortEmployeesAlphabetically(employeeList);
-        listOfPersons.getItems().clear();
-        List<WorkShift> allWorkShifts = new ArrayList<>();
+        Admin.getInstance().getWorkday(dateIndex).setWorkDay();
+        listOfWorkshifts.getItems().clear();
         for (Department d : Admin.getInstance().getDepartments()){
-            allWorkShifts.addAll(Admin.getInstance().getWorkday(dateIndex).getWorkShifts(d));
-        }
-        for (WorkShift s : allWorkShifts){
-            Color color = new Color(255, 255, 255, 255);
-            for (Department d : Admin.getInstance().getDepartments()){
-                if (d.getAllShifts().contains(s)){
-                    color = d.getColor();
-                    break;
-                }
-            }
-            listOfPersons.getItems().add(new PersonScheduleView(s, color));
-            employeeList.remove(s.getEmployee());
-        }
-        for (Employee e : employeeList){
-            listOfPersons.getItems().add(new PersonScheduleView(e));
+            List<WorkShift> workShifts = Admin.getInstance().getWorkday(dateIndex).getWorkShifts(d);
+            listOfWorkshifts.getItems().add(new SchemaDepartment(d, workShifts));
         }
     }
 

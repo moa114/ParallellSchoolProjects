@@ -374,10 +374,8 @@ public class Admin implements Observable {
      * @param start WorkShift starting time
      * @return Valid or invalid
      */
-    private boolean validateStartTime(long start) {
-        Date d = new Date();
-        d.setSeconds(0);
-        return d.getTime() <= start;
+    private boolean validateStartTime(long start) { //skitfunktion
+        return getWorkday(0).DATE <= start;
     }
 
     /**

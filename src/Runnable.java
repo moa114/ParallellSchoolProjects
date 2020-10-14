@@ -2,10 +2,12 @@ import Model.Admin;
 import Model.Certificate;
 import Model.EmployeeCertificate;
 import Model.WorkShift;
+import View.Schema;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
 import java.awt.*;
@@ -26,6 +28,13 @@ public class Runnable extends Application {
     }
     @Override
     public void start(Stage primaryStage) throws Exception {
+        Admin.getInstance().createNewDepartment("Disken", 2, new Color(1, 0, 0.4, 0.6));
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), Admin.getInstance().getWorkday(13).DATE+1000*3600*8, Admin.getInstance().getWorkday(13).DATE+1000*3600*16
+                , new boolean[7]);
+        System.out.println("Debug 1");
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), Admin.getInstance().getWorkday(13).DATE+1000*3600*8, Admin.getInstance().getWorkday(13).DATE+1000*3600*16
+                , new boolean[7]);
+        System.out.println("Debug 2");
         /*
         for (int index = 0; index<10; index++)
             Admin.getInstance().createNewEmployee("Oliver Andersson", Long.toString(200006010000L+index));

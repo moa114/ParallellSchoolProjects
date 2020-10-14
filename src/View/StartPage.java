@@ -44,7 +44,8 @@ public class StartPage implements Observer, Initializable {
     }
 
     private void setTabs(){
-        //tabSchedule.setContent(); //TODO fixa scheduleView
+        Schema schema = new Schema();
+        tabSchedule.setContent(schema);
         PersonList personList = new PersonList();
         DepartmentList departmentList = new DepartmentList(admin.getDepartments());
         tabEmployees.setContent(personList);

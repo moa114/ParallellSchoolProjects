@@ -20,6 +20,7 @@ public class WorkDay {
     protected WorkDay(long date) {
         this.DATE = date;
         this.departmentLinks = new HashMap<>();
+        setWorkDay();
     }
 
     public void setGuaranteedFreeTime(int hours) {
