@@ -27,13 +27,13 @@ public class BreakHandler {
      * @return length of the break
      */
     public long calculateLengthOfBreak(long start, long stop) {
-        if ((stop - start >= 1000 * 60 * 60 * 3) && (stop - start <= 1000 * 60 * 60 * 5)) {
+        if ((stop - start >= WeekHandler.plusHours(3)) && (stop - start <= WeekHandler.plusHours(5))) {
             return minBreakLength;
         }
-        if (stop - start <= 1000 * 60 * 60 * 8) {
+        if (stop - start <= WeekHandler.plusHours(8)) {
             return midBreakLength;
         }
-        if (stop - start > 1000 * 60 * 60 * 8) {
+        if (stop - start > WeekHandler.plusHours(8)) {
             return maxBreakLength;
         }
 

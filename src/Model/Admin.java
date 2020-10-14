@@ -9,11 +9,11 @@ import java.util.List;
  */
 
 public class Admin implements Observable {
-    private List<Employee> employees;
-    private List<Department> departments;
-    private CertificateHandler certificateHandler;
-    private OurCalendar calendar;
-    private EmployeeSorter employeeSorter;
+    private final List<Employee> employees;
+    private final List<Department> departments;
+    private final CertificateHandler certificateHandler;
+    private final OurCalendar calendar;
+    private final EmployeeSorter employeeSorter;
     private List<Observer> observers, toBeAdded, toBeRemoved;
     private Exporter export;
     private static Admin instance = null;
@@ -39,7 +39,6 @@ public class Admin implements Observable {
         this.observers = new ArrayList<>();
         this.toBeAdded = new ArrayList<>();
         this.toBeRemoved = new ArrayList<>();
-        this.departments = new ArrayList<>();
     }
 
     /*

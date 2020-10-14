@@ -21,6 +21,14 @@ public class WorkDay {
         this.departmentLinks = new HashMap<>();
     }
 
+    public int getDepartmentSize(){
+        return departments.size();
+    }
+
+    public Department getDepartment( int index){
+        return departments.get(index);
+    }
+
     public void setGuaranteedFreeTime(int hours) {
         this.guaranteedFreeTime = (WeekHandler.plusHours(hours));
     }
@@ -179,7 +187,6 @@ public class WorkDay {
         updateDepartments();
         WorkShift ws;
         for (Department d : this.departments) {
-
             for (int i = 0; i < d.getSizeAllShifts(); i++) {
                 ws = d.getShift(i);
                 Date wsDate = new Date(ws.START);

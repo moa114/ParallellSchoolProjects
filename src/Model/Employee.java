@@ -163,13 +163,14 @@ public class Employee {
      * @return true if the employee has all the certificates, otherwise false
      */
     public boolean hasCertifices(List<Certificate> certificates) {
-        for (Certificate c : certificates) {
+        ArrayList<Certificate> certificates1 = new ArrayList<>();
             for (EmployeeCertificate ec : this.certificates) {
-                if (c != ec.getCertificate()) {
-                    return false;
-                }
+                certificates1.add(ec.getCertificate());
+
             }
+        if (certificates1.containsAll(certificates)) {
+            return true;
         }
-        return true;
+        return false;
     }
 }
