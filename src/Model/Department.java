@@ -53,34 +53,29 @@ public class Department {
      */
     private OccupiedTime createBreak(long startForTheWorkShift, long stopForTheWorkShift) {
         long breakLength = breakHandler.calculateLengthOfBreak(startForTheWorkShift, stopForTheWorkShift);
-        long breakStart = (((stopForTheWorkShift - startForTheWorkShift) / 2) - (breakLength / 2));
+        long breakStart = (((stopForTheWorkShift + startForTheWorkShift) / 2) - (breakLength / 2));
         int numberOfBreakTogether = 0;
         int numberOfWorkingPersonel=countPersonelOnDepartment(startForTheWorkShift, stopForTheWorkShift);
-        boolean created = false;
         if (minPersonsOnShift == 0) {
             return null;
         } //TODO exception?
-        while (!created) {
+        while (true) {
             for (WorkShift s : allShifts) {
                 if (s.getBreakTime().inBetween(breakStart, breakStart + breakLength)) {
                     numberOfBreakTogether++;
                 }
             }
             if (numberOfWorkingPersonel >= minPersonsOnShift){
-                if (numberOfWorkingPersonel==0|| (numberOfWorkingPersonel-numberOfBreakTogether) >= minPersonsOnShift) {
-                    created = true;
+                if ((numberOfWorkingPersonel==0)||((numberOfWorkingPersonel-numberOfBreakTogether)>=minPersonsOnShift)) {
                     return new OccupiedTime(breakStart, breakStart + breakLength);
                 }
             }
-            else{
-                    created = true;
-                    return new OccupiedTime(breakStart, breakStart + breakLength);
+            else{//mindre schemalagda än vad som krävs
+                 return new OccupiedTime((breakStart+1+breakLength*numberOfWorkingPersonel),( (breakStart+1+breakLength*numberOfWorkingPersonel) + breakLength));
                 }
-                breakStart = breakStart + 1000 * 60 * 5;
-                numberOfBreakTogether = 0;
-
+            breakStart = breakStart + 1000 * 60 * 5;
+            numberOfBreakTogether = 0;
         }
-        return null;
     }
 
     private int countPersonelOnDepartment(long startForTheWorkShift, long stopForTheWorkShift) {
