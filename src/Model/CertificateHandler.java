@@ -13,6 +13,23 @@ public class CertificateHandler {
     private List<Certificate> allCertificates;
     private HashMap<Certificate, List<Employee>> employeeLinkCertificate;
 
+
+    private CertificateHandler() {
+        this.allCertificates = new ArrayList<>();
+        this.employeeLinkCertificate = new HashMap<>();
+    }
+
+    /**
+     * Gets the instance of the CertificateHandler which handles all certificates
+     *
+     * @return the single instance of the CertificateHandler
+     */
+    public static CertificateHandler getInstance() {
+        if (single_instance == null)
+            single_instance = new CertificateHandler();
+        return single_instance;
+    }
+
     /**
      * Links the given employee to a certain certificate in the hash map
      *
@@ -39,25 +56,29 @@ public class CertificateHandler {
      * @param c A certificate
      * @return A list with employees that are linked to the certificate
      */
-    //TODO Immutable
-    public List<Employee> getEmployeeWithCertificate(Certificate c) {
-        return employeeLinkCertificate.get(c);
-    }
-
-    private CertificateHandler() {
-        this.allCertificates = new ArrayList<>();
-        this.employeeLinkCertificate = new HashMap<>();
+    public Iterator<Employee> getEmployeeWithCertificate(Certificate c) {
+        return employeeLinkCertificate.get(c).iterator();
     }
 
     /**
-     * Gets the instance of the CertificateHandler
+     * Takes in a certificate to check which employees has it
      *
-     * @return the single instance of the CertificateHandler
+     * @param certificate The certificate to check which employee has
+     * @return How many employees has the certificate
      */
-    public static CertificateHandler getInstance() {
-        if (single_instance == null)
-            single_instance = new CertificateHandler();
-        return single_instance;
+    public int getEmployeeWithCertificateSize(Certificate certificate) {
+        return employeeLinkCertificate.get(certificate).size();
+    }
+
+    /**
+     * Checks if a specified employee has a specified certificate
+     *
+     * @param certificate The certificate to check if the employee has
+     * @param employee    Employee to check if has certificate
+     * @return true if employee has the certificate or false if otherwise
+     */
+    public boolean checkEmployeeWithCertificate(Certificate certificate, Employee employee) {
+        return employeeLinkCertificate.get(certificate).contains(employee);
     }
 
     /**
@@ -114,7 +135,7 @@ public class CertificateHandler {
     public void createNewCertificate(String nameOfCertificate) {
         Certificate tmp = new Certificate(nameOfCertificate);
         this.allCertificates.add(tmp);
-        employeeLinkCertificate.put(tmp, new ArrayList<Employee>());
+        employeeLinkCertificate.put(tmp, new ArrayList<>());
     }
 
     /**

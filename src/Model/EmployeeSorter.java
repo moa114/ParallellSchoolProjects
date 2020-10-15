@@ -1,12 +1,60 @@
 package Model;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 /**
  * A class that handles the sortation of employees
  */
-public class EmployeeSorter {
+public class EmployeeSorter implements Comparator<WorkShift> {
+    public ArrayList<WorkShift> workShifts = new ArrayList<>();
+    public HashMap<WorkShift, List<Employee>> potentialWorkShiftCandidate = new HashMap<>(); //TODO sort List<Employees> after who has the least amount of workshifts
+
+    @Override
+    public int compare(WorkShift a, WorkShift b) {
+        return potentialWorkShiftCandidate.get(a).size() < potentialWorkShiftCandidate.get(b).size() ? -1 : potentialWorkShiftCandidate.get(a).size() == potentialWorkShiftCandidate.get(b).size() ? 0 : 1;
+    }
+
+    public void sortPotentialWorkShiftCandidate(ArrayList<Employee> employees, List<WorkDay> workDays) {
+        ArrayList<Certificate> certificates = new ArrayList<>();
+        for (int i = 0; i < workDays.size(); i++) {
+            for (int j = 0; j < workDays.get(i).getDepartmentSize(); j++) {
+                for (WorkShift ws : workDays.get(i).getWorkShifts(workDays.get(i).getDepartment(j))) {
+                    certificates.clear();
+                    for (int k1 = 0; k1 < ws.getCertificatesSize(); k1++) {
+                        certificates.add(ws.getCertificate(k1));
+                    }
+                    workShifts.add(ws);
+                    potentialWorkShiftCandidate.put(ws, getAvailableQualifiedPersonnel(employees, certificates, ws.START, ws.END));
+                }
+            }
+        }
+    }
+
+    public void delegateEmployeeToWorkshift() {
+        Date d = new Date();
+        boolean isAllOccupied = true;
+        for (WorkShift workShift : workShifts) {
+            d.setTime(workShift.START);
+            WorkDay workday = OurCalendar.getInstance().getDate(d); //TODO sort employees after occupation, least to most
+            for (Employee employee : potentialWorkShiftCandidate.get(workShift)) {
+                if (!employee.isOccupied(workShift.START, workShift.END) && !workShift.isOccupied()) {
+                    workday.occupiesEmployee(workShift, employee);
+                }
+            }
+            if (!workShift.isOccupied()) {
+                isAllOccupied = false;
+            }
+        }
+        if (!isAllOccupied) {
+            //TODO Send notification
+            //TODO send list of workshifts
+        }
+
+    }
+
+    public HashMap<WorkShift, List<Employee>> getPotentialEmployees() {
+        return potentialWorkShiftCandidate;
+    }
 
     /**
      * Gets a list of employees that are both available at a given time span and are qualified with certain certificates
@@ -17,12 +65,17 @@ public class EmployeeSorter {
      * @param stop         Stop time of the time span
      * @return A list with employees that are available and qualified
      */
-    public static List<Employee> getAvailableQualifiedPersonnel(List<Employee> employees, List<String> certificates, long start, long stop) {
+    public static List<Employee> getAvailableQualifiedPersonnel(List<Employee> employees, List<Certificate> certificates, long start, long stop) {
         List<Employee> newList = new ArrayList<>();
         for (Employee e : employees) {
-            if (e.getAllCertificates().containsAll(certificates) && !e.isOccupied(start, stop))
+            ArrayList<Certificate> tempList = new ArrayList<>();
+            for (int i = 0; i < e.getCertificatesSize(); i++) {
+                tempList.add(e.getCertificate(i).getCertificate());
+            }
+            if (tempList.containsAll(certificates) && !e.isOccupied(start, stop))
                 newList.add(e);
         }
+
         return newList;
     }
 

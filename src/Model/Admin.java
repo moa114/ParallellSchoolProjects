@@ -1,6 +1,7 @@
 package Model;
 
-import java.util.*;
+import javafx.scene.paint.Color;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,16 +11,21 @@ import java.util.List;
  */
 
 public class Admin implements Observable {
-    private List<Employee> employees;
-    private List<Department> departments;
-    private CertificateHandler certificateHandler;
-    private BreakHandler breakHandler;
-    private OurCalendar calendar;
-    private EmployeeSorter employeeSorter;
+    private final List<Employee> employees;
+    private final List<Department> departments;
+    private final CertificateHandler certificateHandler;
+    private final OurCalendar calendar;
+    private final EmployeeSorter employeeSorter;
+    public final Login loginHandler; //TODO private
     private List<Observer> observers, toBeAdded, toBeRemoved;
     private Exporter export;
     private static Admin instance = null;
 
+    /**
+     * Return the singleton object of Admin
+     *
+     * @return The instance of the Admin
+     */
     public static Admin getInstance() {
         if (instance == null)
             instance = new Admin();
@@ -28,8 +34,8 @@ public class Admin implements Observable {
 
     private Admin() {
         this.export = new Exporter();
+        this.loginHandler = new Login();
         this.certificateHandler = CertificateHandler.getInstance();
-        this.breakHandler = BreakHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
         this.employeeSorter = new EmployeeSorter();
@@ -37,12 +43,11 @@ public class Admin implements Observable {
         this.observers = new ArrayList<>();
         this.toBeAdded = new ArrayList<>();
         this.toBeRemoved = new ArrayList<>();
-        this.departments = new ArrayList<>();
     }
 
-    /**
+    /*
      * creates an employee based on input from the keyboard
-     */
+     *
     public void consoleCommandCreateEmployee() {
         Scanner sc = new Scanner(System.in);
         String name;
@@ -52,7 +57,7 @@ public class Admin implements Observable {
         name = sc.nextLine();
         System.out.println("Personnummer: ");
         personalId = sc.next();
-        createNewEmployee(name, personalId);
+        //createNewEmployee(name, personalId);
         sc.nextLine();
         System.out.println("Do you want to give this person A Certificate? (y/n)");
         if (sc.nextLine().contains("y")) {
@@ -72,20 +77,29 @@ public class Admin implements Observable {
             System.out.println(e.PERSONAL_ID);
             System.out.println(e.getAllCertificates());
         }
+    } */
+
+    /**
+     * Returns an employee at the specified index
+     *
+     * @param index the index of employee in the arraylist
+     * @return An employee
+     */
+    public Employee getEmployee(int index) {
+        return employees.get(index);
+
     }
 
-    //Behöver vara public för att printa ut lista av alla anställda?
-    public List<Employee> getEmployees() {
-        return employees;
-
-    }
-
+    /**
+     * Change the name of a specified employee
+     *
+     * @param employee the employee to change the name
+     * @param name     the new name to give to the employee
+     */
     public void changeEmployeeName(Employee employee, String name) {
         employee.newName(name);
         notifyObservers();
     }
-
-    /*hej*/
 
     public void addObserver(Observer o) {
         toBeAdded.add(o);
@@ -103,14 +117,39 @@ public class Admin implements Observable {
         observers.forEach(Observer::update);
     }
 
+    /**
+     * Returns the size of the Arraylist holding all employees
+     *
+     * @return an integer on how many employees there are
+     */
     public int getEmployeeListSize() {
         return employees.size();
     }
-    
+
+    /**
+     * Returns the size of the Arraylist holding all departments
+     *
+     * @return an integer on how many departments there are
+     */
+    public int getDepartmentListSize() {
+        return departments.size();
+    }
+
+    /**
+     * Returns the EmployeeSorter which sorts employees into WorkShifts
+     *
+     * @return the employeesorter
+     */
     public EmployeeSorter getEmployeeSorter() {
         return employeeSorter;
     }
 
+    /**
+     * Returns an employee with the specified name if there is no duplicate names otherwise throws an exeption
+     *
+     * @param name The name of the employee
+     * @return An employee with the specified name if there is no duplicate names
+     */
     public Employee getEmployeeByName(String name) {
         int count = 0;
         Employee tmp = null;
@@ -128,6 +167,12 @@ public class Admin implements Observable {
     }
 
 
+    /**
+     * Returns the employee with the specified ID
+     *
+     * @param ID ID of the employee
+     * @return The employee with the specified ID
+     */
     public Employee getEmployeeByID(String ID) {
         for (Employee e : employees)
             if (e.getPersonalId().equals(ID))
@@ -139,9 +184,6 @@ public class Admin implements Observable {
     public CertificateHandler getCertificatehandler() {
         return certificateHandler;
     }
-    public BreakHandler getBreakHandler() {
-        return breakHandler;
-    }
 
     /**
      * creates an employee with a specific name and a specific personal ID
@@ -149,9 +191,9 @@ public class Admin implements Observable {
      * @param name       name of the employee
      * @param personalId personal ID of the employee
      */
-    public void createNewEmployee(String name, String personalId) {
+    public void createNewEmployee(String name, String personalId, String email) {
         if (checkLengthEmployeeId(personalId) && checkIfExistsEmployeeId(personalId)) {
-            employees.add(new Employee(name, personalId));
+            employees.add(new Employee(name, personalId, email));
             notifyObservers();
         }
     }
@@ -178,11 +220,7 @@ public class Admin implements Observable {
      * @return true if it's 12 characters long and false if it is not
      */
     private boolean checkLengthEmployeeId(String PersonalId) {
-        if (PersonalId.length() == 12) {
-            return true;
-        } else {
-            return false;
-        }
+        return PersonalId.length() == 12;
     }
 
     /**
@@ -197,20 +235,23 @@ public class Admin implements Observable {
         certificateHandler.linkEmployeeToCertificate(certificate, e);
         notifyObservers();
     }
+
     /**
      * calls the certificatehandler and notifies the observers
+     *
      * @param name The name of the new certificate
      */
-    public void createCertificate(String name){
+    public void createCertificate(String name) {
         certificateHandler.createNewCertificate(name);
         notifyObservers();
     }
 
     /**
-     *  calls the certificatehandler and notifies the observers
+     * calls the certificatehandler and notifies the observers
+     *
      * @param certificate The certificate that will be removed
      */
-    public void deleteCertificate(Certificate certificate){
+    public void deleteCertificate(Certificate certificate) {
         certificateHandler.deleteCertificate(certificate);
         notifyObservers();
     }
@@ -259,34 +300,64 @@ public class Admin implements Observable {
 
     /**
      * Creates a new WorkShift for a Department with multible required Certificates
-     * @param d a Department
-     * @param start a starting time
-     * @param end an ending time
+     *
+     * @param d            a Department
+     * @param start        a starting time
+     * @param end          an ending time
      * @param certificates A list of Certificates
      */
     public void createWorkshift(Department d, long start, long end, List<Certificate> certificates, boolean[] repeat) {
-        if((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))){
+        if ((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))) {
             d.createShift(start, end, certificates, repeat); //TODO weekly booleans and not just true
         } else {
             //TODO exception
         }
         notifyObservers();
     }
+    /**
+     * Creates a new department and adds it to  workday
+     * @param name Name of the department
+     * @param minPersonsOnShift
+     * @param color
+     */
+    public void createNewDepartment(String name, int minPersonsOnShift, Color color) {
+        Department d = new Department(name,minPersonsOnShift);
+        d.setColor(color);
+        WorkDay.addDepartment(d);
+        departments.add(d);
+        notifyObservers();
+    }
 
-    public void createNewDepartment(String name, int maxPersonsOnBreak) {
-        Department d = new Department(name, maxPersonsOnBreak);
+    /**
+     * Creates a new department and adds it to  workday
+     * @param name Name of the department
+     * @param minPersonsOnShift Max amount of people aloud to have a break at the same time
+     */
+    public void createNewDepartment(String name, int minPersonsOnShift) {
+        Department d = new Department(name, minPersonsOnShift);
         WorkDay.addDepartment(d);
         departments.add(d);
     }
+
+    /**
+     * Removes the specified department
+     * @param department the department to remove
+     */
+    public void removeDepartment(Department department) {
+        WorkDay.removeDepartment(department);
+        departments.remove(department);
+    }
+
     /**
      * Creates a new WorkShift for a Department with a required Certificate
-     * @param d a Department
-     * @param start a starting time
-     * @param end an ending time
+     *
+     * @param d           a Department
+     * @param start       a starting time
+     * @param end         an ending time
      * @param certificate a Certificate
      */
     public void createWorkshift(Department d, long start, long end, Certificate certificate, boolean[] repeat) {
-        if((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))){
+        if ((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))) {
             d.createShift(start, end, certificate, repeat); //TODO weekly booleans and not just true
         } else {
             //TODO exception
@@ -294,15 +365,15 @@ public class Admin implements Observable {
         notifyObservers();
     }
 
-
     /**
      * Creates a new WorkShift for a Department
-     * @param d a Department
+     *
+     * @param d     a Department
      * @param start a starting time
-     * @param end an ending time
+     * @param end   an ending time
      */
     public void createWorkshift(Department d, long start, long end, boolean[] repeat) {
-        if((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))){
+        if ((repeat.length == 7) && (validateTimeSpan(start, end) && validateStartTime(start))) {
             d.createShift(start, end, repeat); //TODO weekly booleans and not just true
         } else {
             //TODO exception
@@ -312,7 +383,8 @@ public class Admin implements Observable {
 
     /**
      * Creates a copy of an existing WorkShift for an Department
-     * @param d a Department
+     *
+     * @param d  a Department
      * @param ws the WorkShift
      */
     public void createWorkshift(Department d, WorkShift ws) {
@@ -322,7 +394,8 @@ public class Admin implements Observable {
 
     /**
      * Removes a WorkShift
-     * @param d the Department where the WorkShift is
+     *
+     * @param d  the Department where the WorkShift is
      * @param ws the WorkShift
      */
     public void removeWorkshift(Department d, WorkShift ws) {
@@ -331,9 +404,10 @@ public class Admin implements Observable {
     }
 
     /**
-     * Get a Department based on its name
-     * @param name 
-     * @return
+     * Get a Department based on its name if there aren´t multiple
+     *
+     * @param name The name of the department
+     * @return The department that matches name
      */
     public Department getDepartmentByName(String name) {
         for (Department d : departments) {
@@ -347,9 +421,10 @@ public class Admin implements Observable {
 
     /**
      * Checks if the end time is after the start time
+     *
      * @param start Starting time
-     * @param end Ending time
-     * @return Vailid or unvalid
+     * @param end   Ending time
+     * @return Vailid or invalid
      */
     private boolean validateTimeSpan(long start, long end) {
         return start < end;
@@ -357,32 +432,36 @@ public class Admin implements Observable {
 
     /**
      * Checks if the start date is a valid date
+     *
      * @param start WorkShift starting time
      * @return Valid or invalid
      */
     private boolean validateStartTime(long start) {
-        Date d = new Date();
-        return d.getTime() <= start;
+        return new Date().getTime() <= start;
+    }
+
+    public List<Department> getDepartments(){
+        return departments;
+    }
+
+    public void changeDepartmentName(Department department, String name){
+        department.setName(name);
     }
 
     /**
-     * Gets a specific Workday by an index
-     * @param index
-     * @return
+     * Creates a vacation for the specified employee so he cannot be offered a job during the specified time
+     *
+     * @param employee The employee to get a veacation
+     * @param start    start of the vacation
+     * @param end      end of the vacation
      */
-    public WorkDay getWorkday(int index) {
-        if (index < 0) index = -index;
-        index = index%365;
-        return calendar.getOurDates().get(index);
-    }
-
-    public void setVacation(Employee e, long start, long end) {
+    public void setVacation(Employee employee, long start, long end) {
         Date startDate = new Date(start);
         Date endDate = new Date(end);
         int stop = calendar.getDateIndex(endDate);
-        e.registerOccupation(start, end);
-        for (int i = calendar.getDateIndex(startDate) ; i <= stop+4 ; i++){
-            calendar.getOurDates().get(i).unRegisterOccupations(e, start, end);
+        employee.registerOccupation(start, end);
+        for (int i = calendar.getDateIndex(startDate); i <= stop + 4; i++) {
+            calendar.getWorkday(i).unRegisterOccupations(employee, start, end);
         }
     }
 }

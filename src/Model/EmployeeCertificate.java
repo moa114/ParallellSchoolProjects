@@ -16,12 +16,12 @@ public class EmployeeCertificate {
      * @param c
      * @param expiryDate
      */
-    public EmployeeCertificate(Certificate c, Date expiryDate) {
+    protected EmployeeCertificate(Certificate c, Date expiryDate) {
         this.expiryDate = expiryDate;
         this.certificate = c;
     }
 
-    public EmployeeCertificate(Certificate c) {
+    protected EmployeeCertificate(Certificate c) {
         this.certificate = c;
     }
 
@@ -30,7 +30,7 @@ public class EmployeeCertificate {
      *
      * @return the certificate
      */
-    protected Certificate getCertificate() {
+    public Certificate getCertificate() {
         return certificate;
     }
 
@@ -41,5 +41,14 @@ public class EmployeeCertificate {
      */
     public String getCertificateName() {
         return this.certificate.NAME;
+    }
+
+    /**
+     * Converts the expiryDate to a string and returns it
+     *
+     * @return the expiry date as a string
+     */
+    public String getExpiryDateAsString() {
+        return expiryDate.toString();
     }
 }

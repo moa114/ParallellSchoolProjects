@@ -14,6 +14,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 
+import java.lang.reflect.Array;
 import java.util.*;
 
 public class PersonList extends AnchorPane implements Observer {
@@ -22,8 +23,9 @@ public class PersonList extends AnchorPane implements Observer {
     @FXML FlowPane employeeViewPane;
     @FXML Button buttonCreateEmployee;
     @FXML AnchorPane paneDetailView;
+    private int sizeOfEmployees = 0;
 
-    public PersonList(List<Employee> employees) {
+    public PersonList() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("PersonList.fxml"));
         fxmlLoader.setRoot(this);
         fxmlLoader.setController(this);
@@ -36,7 +38,7 @@ public class PersonList extends AnchorPane implements Observer {
 
         this.employeeEmployeeViewMap = new HashMap<>();
         this.employeeViews = new ArrayList<>();
-        generatePersonViews(employees);
+        generatePersonViews();
         generateButtons();
         Admin.getInstance().addObserver(this);
     }
@@ -60,7 +62,11 @@ public class PersonList extends AnchorPane implements Observer {
         employees.sort(Comparator.comparing(Employee::getName));
     }
 
-    private void generatePersonViews(List<Employee> employees){
+    private void generatePersonViews(){
+        List<Employee> employees = new ArrayList<>();
+        sizeOfEmployees = Admin.getInstance().getEmployeeListSize();
+        for (int i = 0; i < sizeOfEmployees; i++)
+            employees.add(Admin.getInstance().getEmployee(i));
         sortEmployeesAlphabetically(employees);
         employeeViewPane.getChildren().clear();
         for (Employee e : employees) {
@@ -82,6 +88,6 @@ public class PersonList extends AnchorPane implements Observer {
 
     @Override
     public void update() {
-        generatePersonViews(Admin.getInstance().getEmployees());
+        generatePersonViews();
     }
 }

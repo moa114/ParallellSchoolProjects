@@ -1,11 +1,8 @@
 package Model;
 
-import java.util.Date;
-
 /**
  * Represents a certificate with a specified name and a ID value
  */
-
 public class Certificate {
     public final String NAME;
     private static long idStart = 0;
@@ -18,15 +15,25 @@ public class Certificate {
      * @param name the name of the certificate
      */
 
-    public Certificate(String name) {
+    protected Certificate(String name) {
         this.NAME = name;
         this.ID = idStart++;
     }
 
+    /**
+     * Returns the name of the certificate
+     *
+     * @return the name of the certificate
+     */
     public String getName() {
         return NAME;
     }
 
+    /**
+     * Returns the unique ID of yhe certificate
+     *
+     * @return the ID of the certificate
+     */
     public long getID() {
         return ID;
     }

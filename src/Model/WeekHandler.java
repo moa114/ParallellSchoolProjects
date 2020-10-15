@@ -1,31 +1,65 @@
 package Model;
 
-import java.time.DayOfWeek;
-import java.util.*;
 
-
+/**
+ * Represents a static WeekHandler which is used to add time to the Java.Date object
+ */
 public class WeekHandler {
 
-    private HashMap<DayOfWeek, ArrayList<WorkShift>> weekDays;
-
-    public WeekHandler() {
-        this.weekDays = new HashMap<>();
+    private WeekHandler() {
     }
 
-    public void setWeeklyWorkshift(DayOfWeek dow, WorkShift ws) {
-        weekDays.computeIfAbsent(dow, k -> new ArrayList<WorkShift>());
-        weekDays.get(dow).add(ws);
+    /**
+     * Converts the specified amount of minutes to a Java.Date object
+     *
+     * @param minutes The amount of minutes to add to the Date object
+     * @return The calculated number of minutes to add to the Date object
+     */
+    public static long plusMinutes(int minutes) {
+        return 1000 * 60 * minutes;
     }
 
-    public void setWeeklyWorkshift(ArrayList<DayOfWeek> dows, WorkShift ws) {
-        for (DayOfWeek dow : dows) {
-            weekDays.computeIfAbsent(dow, k -> new ArrayList<WorkShift>());
-            weekDays.get(dow).add(ws);
-        }
+    /**
+     * Converts the specified amount of hours to a Java.Date object
+     *
+     * @param hours The amount of hours to add to the Date object
+     * @return The calculated number of hours to add to the Date object
+     */
+    public static long plusHours(int hours) {
+        return 1000 * 60 * 60 * hours;
     }
 
-    public void setWorkDay(WorkDay wd) {
-       // wd.setWorkShifts(weekDays.get(DayOfWeek.of(new Date(wd.DATE).getDay())));
+    /**
+     * Converts the specified amount of days to a Java.Date object
+     *
+     * @param days The amount of days to add to the Date object
+     * @return The calculated number of days to add to the Date object
+     */
+    public static long plusDays(int days) {
+        return 1000 * 60 * 60 * 24 * days;
+    }
+
+    /**
+     * Converts the specified amount of hours and minutes to a Java.Date object
+     *
+     * @param hours   The amount of hours to add to the Date object
+     * @param minutes The amount of minutes to add to the Date object
+     * @return The calculated number of hours and minutes to add to the Date object
+     */
+    public static long plusHoursAndMinutes(int hours, int minutes) {
+        return 1000 * 60 * 60 * hours + 1000 * 60 * minutes;
+    }
+
+    /**
+     * Converts the specified amount of days, hours and minutes to a Java.Date object
+     *
+     * @param days    The amount of days to add to the Date object
+     * @param hours   The amount of hours to add to the Date object
+     * @param minutes The amount of minutes to add to the Date object
+     * @return The calculated number of days, hours and minutes to add to the Date object
+     */
+    public static long plusDaysAndHoursAndMinutes(int days, int hours, int minutes) {
+        return 1000 * 60 * 60 * hours + 1000 * 60 * minutes + 1000 * 60 * 60 * 24 * days;
     }
 
 

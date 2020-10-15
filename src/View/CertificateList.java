@@ -32,6 +32,10 @@ public class CertificateList extends AnchorPane implements Observer {
     Label iD;
     private CertificateObject selected;
 
+    /**
+     * Constructs a Certificates pane and loads in certificates from Admin
+     *
+     */
     public CertificateList() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("CertificateList.fxml"));
         fxmlLoader.setRoot(this);
