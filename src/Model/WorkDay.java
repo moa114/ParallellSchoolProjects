@@ -190,7 +190,7 @@ public class WorkDay implements Observer{
     public void setWorkDay() { //funkar inte
         updateDepartments();
         WorkShift ws;
-        for (Department d : this.departments) {
+        for (Department d : departments) {
             for (int i = 0; i < d.getSizeAllShifts(); i++) {
                 ws = d.getShift(i);
                 Date wsDate = new Date(ws.START);
@@ -228,6 +228,7 @@ public class WorkDay implements Observer{
                 }
         }}
     }
+
     public int getDayOfWeekOffset(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date(DATE));
