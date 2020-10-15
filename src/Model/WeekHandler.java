@@ -42,8 +42,8 @@ public class WeekHandler {
     /**
      * Converts the specified amount of hours and minutes to a Java.Date object
      *
-     * @param hours
-     * @param minutes
+     * @param hours   The amount of hours to add to the Date object
+     * @param minutes The amount of minutes to add to the Date object
      * @return The calculated number of hours and minutes to add to the Date object
      */
     public static long plusHoursAndMinutes(int hours, int minutes) {
@@ -53,9 +53,9 @@ public class WeekHandler {
     /**
      * Converts the specified amount of days, hours and minutes to a Java.Date object
      *
-     * @param days
-     * @param hours
-     * @param minutes
+     * @param days    The amount of days to add to the Date object
+     * @param hours   The amount of hours to add to the Date object
+     * @param minutes The amount of minutes to add to the Date object
      * @return The calculated number of days, hours and minutes to add to the Date object
      */
     public static long plusDaysAndHoursAndMinutes(int days, int hours, int minutes) {

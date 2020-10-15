@@ -87,7 +87,7 @@ public class testWorkday {
         workday.occupiesEmployee(workday.getWorkShifts(a.getDepartmentByName("Kassa")).get(0), a.getEmployeeByName("moa"));
         workday.occupiesEmployee(workday.getWorkShifts(a.getDepartmentByName("Kassa")).get(1), a.getEmployeeByName("moa"));
         workday.occupiesEmployee(workday.getWorkShifts(a.getDepartmentByName("Kassa")).get(2), a.getEmployeeByName("moa"));
-        assertTrue(a.getEmployeeByName("moa").getOccupiedTimes().size() == 1);
+        assertTrue(a.getEmployeeByName("moa").getOccupiedTimesSize() == 1);
     }
 
     @Test

@@ -7,14 +7,14 @@ import java.util.List;
  * Represents an employee with a specified name, email, personal ID, certificates and time span where the employee is not available for work
  */
 public class Employee {
-    private List<OccupiedTime> occupiedTimes; //TODO should vacation be seperate?
+    private final List<OccupiedTime> occupiedTimes; //TODO should vacation be seperate?
     private String name;
     private String email;
     public final String PERSONAL_ID;
     private List<EmployeeCertificate> certificates;
 
     /**
-     * constructs an employee with a list for time span where the employee is not available for work, a specified name, specified personal ID and a list for provided certificates
+     * Constructs an employee with a list for time span where the employee is not available for work, a specified name, specified personal ID and a list for provided certificates
      *
      * @param name       the employee's name
      * @param personalId the employee's personal ID
@@ -27,13 +27,20 @@ public class Employee {
         this.email = email;
     }
 
+
+    /**
+     * Returns the specified EmployeeCertificate if the list of EmployeeCertificates has the specified certificate
+     *
+     * @param certificate The certificate to see if the employee has
+     * @return The EmployeeCertificate which holds the certificate
+     */
     public EmployeeCertificate getEmployeeCertificate(Certificate certificate) {
         for (EmployeeCertificate c : certificates) {
             if (c.getCertificate() == certificate) {
                 return c;
             }
         }
-        return null;
+        return null; //TODO exeption
     }
 
     /**
@@ -126,23 +133,59 @@ public class Employee {
         this.name = name;
     }
 
-    public void unRegisterOccupation(OccupiedTime ot) {
-        occupiedTimes.remove(ot);
+    /**
+     * Unregister the Employee at the time the Employee is occupied
+     *
+     * @param occupiedTime The OccupiedTime in which the employee should no longer have
+     */
+    public void unRegisterOccupation(OccupiedTime occupiedTime) {
+        occupiedTimes.remove(occupiedTime);
     }
 
-    public List<OccupiedTime> getOccupiedTimes() {
-        return occupiedTimes;
+    /**
+     * Get the size of
+     *
+     * @return The size of OccupiedTime
+     */
+    public int getOccupiedTimesSize() {
+        return occupiedTimes.size();
     }
 
-    public void registerOccupation(long start, long end) {
+    /**
+     * Get an occupiedTime at the index in the ArrayList of occupiedTimes
+     *
+     * @param index Index of the EmployeeCertificate to return
+     * @return The OccupiedTime at the specified index
+     */
+    public OccupiedTime getOccupiedTime(int index) {//TODO immutable
+        return occupiedTimes.get(index);
+    }
+
+    /**
+     * Registers the employee to the time OccupiedTime of Start and end times
+     *
+     * @param start The start time of the shift
+     * @param end   The end time of the shift
+     */
+    protected void registerOccupation(long start, long end) {
         occupiedTimes.add(new OccupiedTime(start, end));
     }
 
-    public void registerOccupation(OccupiedTime ot) {
-        occupiedTimes.add(ot);
+    /**
+     * Registers the employee to the time OccupiedTime
+     *
+     * @param occupiedTime The occupiedTime the Employee is to be non avalible
+     */
+    protected void registerOccupation(OccupiedTime occupiedTime) {
+        occupiedTimes.add(occupiedTime);
     }
 
-
+    /**
+     * Get an EmployeeCertificate at the index in the ArrayList of EmployeeCertificates
+     *
+     * @param index Index of the EmployeeCertificate to return
+     * @return The EmployeeCertificate at the specified index
+     */
     public EmployeeCertificate getCertificate(int index) {
         return certificates.get(index);
     }
@@ -164,13 +207,10 @@ public class Employee {
      */
     public boolean hasCertifices(List<Certificate> certificates) {
         ArrayList<Certificate> certificates1 = new ArrayList<>();
-            for (EmployeeCertificate ec : this.certificates) {
-                certificates1.add(ec.getCertificate());
+        for (EmployeeCertificate ec : this.certificates) {
+            certificates1.add(ec.getCertificate());
 
-            }
-        if (certificates1.containsAll(certificates)) {
-            return true;
         }
-        return false;
+        return certificates1.containsAll(certificates);
     }
 }

@@ -32,7 +32,8 @@ public class WorkDay {
     public void setGuaranteedFreeTime(int hours) {
         this.guaranteedFreeTime = (WeekHandler.plusHours(hours));
     }
-    /**
+
+    /*
      * Checks if all departments are filled
      * @return true if all the departments are filled and otherwise false
      */
@@ -214,12 +215,15 @@ public class WorkDay {
 
     public void unRegisterOccupations(Employee e, long start, long end) {
         for (Department d : departments) {
+            if(!(departmentLinks.isEmpty())){
             for (WorkShift ws : departmentLinks.get(d)) {
-                if (ws.getOccupation().inBetween(start, end) && ws.getEmployee() == e) {
+                if(ws.isOccupied()){
+                    if (ws.getOccupation().inBetween(start, end) && ws.getEmployee() == e) {
                     ws.clearWorkShiftOccupation();
+                    }
                 }
-            }
-        }
+                }
+        }}
     }
     public int getDayOfWeekOffset(){
         Calendar calendar = Calendar.getInstance();

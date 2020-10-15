@@ -20,7 +20,7 @@ public class CertificateHandler {
     }
 
     /**
-     * Gets the instance of the CertificateHandler
+     * Gets the instance of the CertificateHandler which handles all certificates
      *
      * @return the single instance of the CertificateHandler
      */
@@ -62,6 +62,7 @@ public class CertificateHandler {
 
     /**
      * Takes in a certificate to check which employees has it
+     *
      * @param certificate The certificate to check which employee has
      * @return How many employees has the certificate
      */
@@ -71,8 +72,9 @@ public class CertificateHandler {
 
     /**
      * Checks if a specified employee has a specified certificate
+     *
      * @param certificate The certificate to check if the employee has
-     * @param employee Employee to check if has certificate
+     * @param employee    Employee to check if has certificate
      * @return true if employee has the certificate or false if otherwise
      */
     public boolean checkEmployeeWithCertificate(Certificate certificate, Employee employee) {
