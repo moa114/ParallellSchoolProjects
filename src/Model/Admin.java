@@ -2,7 +2,6 @@ package Model;
 
 import javafx.scene.paint.Color;
 
-import java.util.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -17,6 +16,7 @@ public class Admin implements Observable {
     private final CertificateHandler certificateHandler;
     private final OurCalendar calendar;
     private final EmployeeSorter employeeSorter;
+    public final Login loginHandler; //TODO private
     private List<Observer> observers, toBeAdded, toBeRemoved;
     private Exporter export;
     private static Admin instance = null;
@@ -34,6 +34,7 @@ public class Admin implements Observable {
 
     private Admin() {
         this.export = new Exporter();
+        this.loginHandler = new Login();
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
         this.calendar = OurCalendar.getInstance();
@@ -313,22 +314,38 @@ public class Admin implements Observable {
         }
         notifyObservers();
     }
-    public void createNewDepartment(String name, int minPersonsOnShift, Color c) {
+    /**
+     * Creates a new department and adds it to  workday
+     * @param name Name of the department
+     * @param minPersonsOnShift
+     * @param color
+     */
+    public void createNewDepartment(String name, int minPersonsOnShift, Color color) {
         Department d = new Department(name,minPersonsOnShift);
-        d.setColor(c);
+        d.setColor(color);
         WorkDay.addDepartment(d);
         departments.add(d);
         notifyObservers();
     }
+
+    /**
+     * Creates a new department and adds it to  workday
+     * @param name Name of the department
+     * @param minPersonsOnShift Max amount of people aloud to have a break at the same time
+     */
     public void createNewDepartment(String name, int minPersonsOnShift) {
         Department d = new Department(name, minPersonsOnShift);
         WorkDay.addDepartment(d);
         departments.add(d);
     }
 
-    public void removeDepartment(Department d) {
-        WorkDay.removeDepartment(d);
-        departments.remove(d);
+    /**
+     * Removes the specified department
+     * @param department the department to remove
+     */
+    public void removeDepartment(Department department) {
+        WorkDay.removeDepartment(department);
+        departments.remove(department);
     }
 
     /**
@@ -347,13 +364,6 @@ public class Admin implements Observable {
         }
         notifyObservers();
     }
-    public void deleteDepartment(Department department) {
-        WorkDay.removeDepartment(department);
-        departments.remove(department);
-        notifyObservers();
-    }
-
-
 
     /**
      * Creates a new WorkShift for a Department

@@ -226,6 +226,7 @@ public class WorkDay {
                 }
         }}
     }
+
     public int getDayOfWeekOffset(){
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(new Date(DATE));

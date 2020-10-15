@@ -5,7 +5,6 @@ import java.util.*;
 /**
  * A class that handles the sortation of employees
  */
-
 public class EmployeeSorter implements Comparator<WorkShift> {
     public ArrayList<WorkShift> workShifts = new ArrayList<>();
     public HashMap<WorkShift, List<Employee>> potentialWorkShiftCandidate = new HashMap<>(); //TODO sort List<Employees> after who has the least amount of workshifts
