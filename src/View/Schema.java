@@ -86,17 +86,17 @@ public class Schema extends AnchorPane implements Observer {
         }
     }
     private void updateWeek(){
-        int index = Admin.getInstance().getWorkday(dateIndex).getDayOfWeekOffset();
+        int index = OurCalendar.getInstance().getWorkday(dateIndex).getDayOfWeekOffset();
         int secondIndex = 0;
         for (int i = -index; i<=7-index; i++){
-            weekGrid.add(new DayScheduleView(Admin.getInstance().getWorkday(i+dateIndex)), 0, secondIndex);
+            weekGrid.add(new DayScheduleView(OurCalendar.getInstance().getWorkday(i+dateIndex)), 0, secondIndex);
         }
     }
     private void updateDay(){
-        Admin.getInstance().getWorkday(dateIndex).setWorkDay();
+        OurCalendar.getInstance().getWorkday(dateIndex).setWorkDay();
         listOfWorkshifts.getItems().clear();
         for (Department d : Admin.getInstance().getDepartments()){
-            for (WorkShift w : Admin.getInstance().getWorkday(dateIndex).getWorkShifts(d))
+            for (WorkShift w : OurCalendar.getInstance().getWorkday(dateIndex).getWorkShifts(d))
                 listOfWorkshifts.getItems().add(new SchemaWorkshift(w, d.getColor()));
         }
     }

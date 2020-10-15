@@ -26,7 +26,7 @@ public class Runnable extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         boolean repeat[] = {false, false, false, false, false, false, false};
-        long tmp = Admin.getInstance().getWorkday(14).DATE;
+        long tmp = OurCalendar.getInstance().getWorkday(14).DATE;
         Admin.getInstance().createNewDepartment("Disken", 2, new Color(1, 0.8, 0.4, 0.6));
         Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*23, repeat);
         Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*23, repeat);
@@ -36,7 +36,7 @@ public class Runnable extends Application {
         Admin.getInstance().createNewEmployee("Oliver Andersson", "200011221122", "oliver@gallerit.se");
         Department tmpDepartment = Admin.getInstance().getDepartmentByName("Disken");
         Employee tmpEmployee = Admin.getInstance().getEmployee(0);
-        WorkDay tmpWorkDay = Admin.getInstance().getWorkday(14);
+        WorkDay tmpWorkDay = OurCalendar.getInstance().getWorkday(14);
         tmpWorkDay.setWorkDay();
         WorkShift tmpWorkshift = tmpWorkDay.getWorkShifts(tmpDepartment).get(0);
         tmpWorkDay.occupiesEmployee(tmpWorkshift, tmpEmployee);

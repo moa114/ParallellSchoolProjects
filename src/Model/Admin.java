@@ -348,7 +348,7 @@ public class Admin implements Observable {
         notifyObservers();
     }
     public void deleteDepartment(Department department) {
-        WorkDay.deleteDepartment(department);
+        WorkDay.removeDepartment(department);
         departments.remove(department);
         notifyObservers();
     }
@@ -426,10 +426,17 @@ public class Admin implements Observable {
      * @param start WorkShift starting time
      * @return Valid or invalid
      */
-    private boolean validateStartTime(long start) { //skitfunktion
-        return getWorkday(0).DATE <= start;
+    private boolean validateStartTime(long start) {
+        return new Date().getTime() <= start;
     }
 
+    public List<Department> getDepartments(){
+        return departments;
+    }
+
+    public void changeDepartmentName(Department department, String name){
+        department.setName(name);
+    }
 
     /**
      * Creates a vacation for the specified employee so he cannot be offered a job during the specified time
@@ -438,19 +445,6 @@ public class Admin implements Observable {
      * @param start    start of the vacation
      * @param end      end of the vacation
      */
-    public WorkDay getWorkday(int index) {
-        if (index < 0) index = -index;
-        index = index%365;
-        return calendar.getOurDates().get(index);
-    }
-
-    public List<Department> getDepartments(){
-        return departments;
-    }
-    public void changeDepartmentName(Department department, String name){
-        department.setName(name);
-    }
-
     public void setVacation(Employee employee, long start, long end) {
         Date startDate = new Date(start);
         Date endDate = new Date(end);
