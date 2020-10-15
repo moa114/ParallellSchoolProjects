@@ -14,6 +14,7 @@ public class Admin implements Observable {
     private final CertificateHandler certificateHandler;
     private final OurCalendar calendar;
     private final EmployeeSorter employeeSorter;
+    public final Login loginHandler;
     private List<Observer> observers, toBeAdded, toBeRemoved;
     private Exporter export;
     private static Admin instance = null;
@@ -30,6 +31,7 @@ public class Admin implements Observable {
     }
 
     private Admin() {
+        this.loginHandler = new Login();
         this.export = new Exporter();
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
