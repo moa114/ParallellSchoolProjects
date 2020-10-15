@@ -19,6 +19,7 @@ public class WorkDay {
     protected WorkDay(long date) {
         this.DATE = date;
         this.departmentLinks = new HashMap<>();
+        setWorkDay();
     }
 
     public int getDepartmentSize(){
@@ -184,7 +185,7 @@ public class WorkDay {
         return departmentLinks.get(d);
     }
 
-    public void setWorkDay() {
+    public void setWorkDay() { //funkar inte
         updateDepartments();
         WorkShift ws;
         for (Department d : this.departments) {
@@ -215,16 +216,25 @@ public class WorkDay {
 
     public void unRegisterOccupations(Employee e, long start, long end) {
         for (Department d : departments) {
+            if(!(departmentLinks.isEmpty())){
             for (WorkShift ws : departmentLinks.get(d)) {
-                if (ws.getOccupation().inBetween(start, end) && ws.getEmployee() == e) {
+                if(ws.isOccupied()){
+                    if (ws.getOccupation().inBetween(start, end) && ws.getEmployee() == e) {
                     ws.clearWorkShiftOccupation();
+                    }
                 }
-            }
-        }
+                }
+        }}
+    }
+    public int getDayOfWeekOffset(){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(new Date(DATE));
+        return DayOfWeek.getDay(calendar.get(Calendar.DAY_OF_WEEK)).offset;
     }
 
     protected void clearDay() {
         departmentLinks = new HashMap<>();
         updateDepartments();
     }
+
 }

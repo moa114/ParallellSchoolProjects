@@ -34,6 +34,7 @@ public class StartPage implements Observer, Initializable {
     @FXML Tab tabDepartments;
     @FXML Tab tabCertificates;
     @FXML AnchorPane tabEmployeesPane;
+    @FXML AnchorPane tabDepartmentsPane;
     private Admin admin;
 
     @Override
@@ -45,16 +46,17 @@ public class StartPage implements Observer, Initializable {
     }
 
     private void setTabs(){
-        //tabSchedule.setContent(); //TODO fixa scheduleView
-        ArrayList<Employee> tempList = new ArrayList<>();
-        for (int i = 0 ; i < admin.getEmployeeListSize() ; i++){
-            tempList.add(admin.getEmployee(i));
-        }
-        PersonList personList = new PersonList(tempList);
+        Schema schema = new Schema();
+        tabSchedule.setContent(schema);
+        PersonList personList = new PersonList();
+        DepartmentList departmentList = new DepartmentList(admin.getDepartments());
         tabEmployees.setContent(personList);
         tabEmployeesPane.getChildren().clear();
         tabEmployeesPane.getChildren().add(personList);
         tabCertificates.setContent(new CertificateList());
+        tabDepartmentsPane.getChildren().clear();
+        tabDepartmentsPane.getChildren().add(departmentList);
+
     }
 
     private void setButtons(){
@@ -87,7 +89,7 @@ public class StartPage implements Observer, Initializable {
         //TODO implement
     }
 
-    void saveAndExit(){
+    private void saveAndExit(){
         save();
         exit();
     }

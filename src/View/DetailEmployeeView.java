@@ -1,6 +1,8 @@
 package View;
 
 import Model.*;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -25,12 +27,15 @@ import java.util.Iterator;
 public class DetailEmployeeView extends AnchorPane implements Observer {
     Employee employee;
 
-    @FXML DatePicker datePicker;
+    @FXML DatePicker datePicker, date1, date2;
     @FXML javafx.scene.control.TextField firstName, lastName, personalID;
-    @FXML Button saveChanges, deleteEmployee, addCertificate, removeCertificate, createCertificate, discardCertificate;
+    @FXML Button saveChanges, deleteEmployee, addCertificate, removeCertificate, createCertificate, discardCertificate, addVacation, registerVacationButton, discardVacationButton;
     @FXML ListView<EmployeeCertificateObject> certificateList;
     @FXML ListView<CertificateObject> availableCertificates;
-    @FXML AnchorPane certificatePicker, information;
+    @FXML AnchorPane certificatePicker, information, registerVacation;
+    @FXML TextField hour1, hour2, min1, min2;
+    @FXML Label confirmVacText;
+
     Certificate selected;
 
     public DetailEmployeeView(Employee employee) {
@@ -46,6 +51,10 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         }
         generateFXMLObjects();
         generateButtons();
+        generateTextFields(hour1);
+        generateTextFields(hour2);
+        generateTextFields(min1);
+        generateTextFields(min2);
         generateCertificates();
         Admin.getInstance().addObserver(this);
     }
@@ -61,6 +70,10 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
             e.printStackTrace();
         }
         generateButtons();
+        generateTextFields(hour1);
+        generateTextFields(hour2);
+        generateTextFields(min1);
+        generateTextFields(min2);
         generateCertificates();
         Admin.getInstance().addObserver(this);
     }
@@ -81,7 +94,33 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
         }
     }
 
+
+    private  void generateTextFields(TextField tf){
+
+                 tf.textProperty().addListener(new ChangeListener<String>() {
+                @Override
+                public void changed(final ObservableValue<? extends String> ov, final String oldValue, final String newValue) {
+                    if (tf.getText().length() > 2) {
+                        String s = tf.getText().substring(0, 2);
+                        tf.setText(s);
+                    }
+                }
+            });
+
+        tf.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observable, String oldValue,
+                                String newValue) {
+                if (!newValue.matches("\\d*")) {
+                    tf.setText(newValue.replaceAll("[^\\d]", ""));
+                }
+
+            }
+        });
+    }
+    
     private void generateButtons(){
+
         saveChanges.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -93,6 +132,28 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
                 }
             }
         });
+
+        registerVacationButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                LocalDate localDate = date1.getValue();
+                Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+                Date date = Date.from(instant);
+                long vacStart= date.getTime()+ ((Long.parseLong(min1.getText()))*1000*60) + ((Long.parseLong(hour1.getText()))*1000*60*60); //TODO weekhandlder
+                long vacStop= date.getTime()+ ((Long.parseLong(min2.getText()))*1000*60) + ((Long.parseLong(hour2.getText()))*1000*60*60);
+                Admin.getInstance().setVacation(employee,vacStart,vacStop);
+                confirmVacText.setVisible(true);
+                registerVacation.toBack();
+            }
+        });
+
+        addVacation.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                registerVacation.toFront();
+            }
+        });
+
         deleteEmployee.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -124,6 +185,13 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
                 certificatePicker.toBack();
             }
         });
+        discardVacationButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                information.toFront();
+                registerVacation.toBack();
+            }
+        });
         createCertificate.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
@@ -131,8 +199,9 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
                 Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
                 Date date = Date.from(instant);
                 Admin.getInstance().createEmployeeCertificate(selected, employee, date);
-                information.toFront();
+                registerVacation.toBack();
                 certificatePicker.toBack();
+                information.toFront();
             }
         });
     }
@@ -159,6 +228,7 @@ public class DetailEmployeeView extends AnchorPane implements Observer {
                 EmployeeCertificate employeeCertificate = employee.getCertificate(i);
                 this.certificateList.getItems().add(new EmployeeCertificateObject(employeeCertificate));
             }
+            addVacation.setVisible(true);
         }
     }
 

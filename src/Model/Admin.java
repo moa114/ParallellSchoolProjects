@@ -1,5 +1,8 @@
 package Model;
 
+import javafx.scene.paint.Color;
+
+import java.util.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -14,7 +17,6 @@ public class Admin implements Observable {
     private final CertificateHandler certificateHandler;
     private final OurCalendar calendar;
     private final EmployeeSorter employeeSorter;
-    public final Login loginHandler;
     private List<Observer> observers, toBeAdded, toBeRemoved;
     private Exporter export;
     private static Admin instance = null;
@@ -31,7 +33,6 @@ public class Admin implements Observable {
     }
 
     private Admin() {
-        this.loginHandler = new Login();
         this.export = new Exporter();
         this.certificateHandler = CertificateHandler.getInstance();
         this.employees = new ArrayList<>();
@@ -312,25 +313,22 @@ public class Admin implements Observable {
         }
         notifyObservers();
     }
-
-    /**
-     * Creates a new department and adds it to  workday
-     * @param name Name of the department
-     * @param maxPersonsOnBreak Max amount of people aloud to have a break at the same time
-     */
-    public void createNewDepartment(String name, int maxPersonsOnBreak) {
-        Department d = new Department(name, maxPersonsOnBreak);
+    public void createNewDepartment(String name, int minPersonsOnShift, Color c) {
+        Department d = new Department(name,minPersonsOnShift);
+        d.setColor(c);
+        WorkDay.addDepartment(d);
+        departments.add(d);
+        notifyObservers();
+    }
+    public void createNewDepartment(String name, int minPersonsOnShift) {
+        Department d = new Department(name, minPersonsOnShift);
         WorkDay.addDepartment(d);
         departments.add(d);
     }
 
-    /**
-     * Removes the specified department
-     * @param department the department to remove
-     */
-    public void removeDepartment(Department department) {
-        WorkDay.removeDepartment(department);
-        departments.remove(department);
+    public void removeDepartment(Department d) {
+        WorkDay.removeDepartment(d);
+        departments.remove(d);
     }
 
     /**
@@ -349,6 +347,12 @@ public class Admin implements Observable {
         }
         notifyObservers();
     }
+    public void deleteDepartment(Department department) {
+        WorkDay.removeDepartment(department);
+        departments.remove(department);
+        notifyObservers();
+    }
+
 
 
     /**
@@ -423,11 +427,16 @@ public class Admin implements Observable {
      * @return Valid or invalid
      */
     private boolean validateStartTime(long start) {
-        Date d = new Date();
-        d.setSeconds(0);
-        return d.getTime() <= start;
+        return new Date().getTime() <= start;
     }
 
+    public List<Department> getDepartments(){
+        return departments;
+    }
+
+    public void changeDepartmentName(Department department, String name){
+        department.setName(name);
+    }
 
     /**
      * Creates a vacation for the specified employee so he cannot be offered a job during the specified time
