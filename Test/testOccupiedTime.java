@@ -21,11 +21,11 @@ public class testOccupiedTime {
             OurCalendar.getInstance().getWorkday(i).setWorkDay();
             OurCalendar.getInstance().getWorkday(i).occupiesEmployee(OurCalendar.getInstance().getWorkday(i).getWorkShifts(a.getDepartmentByName("Kassa")).get(0), a.getEmployeeByID("000000131324"));
         }
-        assertEquals(14, a.getEmployeeByID("000000131324").getOccupiedTimes().size());
-        assertEquals(a.getEmployeeByID("000000131324").getOccupiedTimes().get(2), OurCalendar.getInstance().getWorkday(today.getDate()+3).getWorkShifts(a.getDepartmentByName("Kassa")).get(0).getOccupation());
+        assertEquals(14, a.getEmployeeByID("000000131324").getOccupiedTimesSize());
+        assertEquals(a.getEmployeeByID("000000131324").getOccupiedTime(2), OurCalendar.getInstance().getWorkday(today.getDate()+3).getWorkShifts(a.getDepartmentByName("Kassa")).get(0).getOccupation());
 
         a.setVacation(a.getEmployeeByID("000000131324"), (today.getTime() + WeekHandler.plusDays(2)), (today.getTime() + WeekHandler.plusDays(6)));
-        assertEquals(4, 14-a.getEmployeeByID("000000131324").getOccupiedTimes().size());
+        assertEquals(4, 14-a.getEmployeeByID("000000131324").getOccupiedTimesSize());
     }
 
 }
