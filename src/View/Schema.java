@@ -16,11 +16,14 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
+import java.time.Instant;
+import java.time.LocalDate;
 import java.time.YearMonth;
+import java.time.ZoneId;
 import java.util.*;
 
 public class Schema extends AnchorPane implements Observer {
-    @FXML Button next, previous, createWorkshift;
+    @FXML Button next, previous, createWorkshift,discardButtonCreateNewShift,saveButtonCreateNewShift;
     @FXML GridPane monthGrid, weekGrid;
     @FXML AnchorPane dayView, monthView, weekView, workshiftPane;
     @FXML ComboBox<String> viewSelector;
@@ -172,12 +175,31 @@ public class Schema extends AnchorPane implements Observer {
                 previous();
             }
         });
+        discardButtonCreateNewShift.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                workshiftPane.setVisible(false);
+                workshiftPane.toBack();
+            }
+        });
+        saveButtonCreateNewShift.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+               CreateShiftView createShiftView= (CreateShiftView) workshiftPane.getChildren().get(0);
+               createShiftView.save();
+                workshiftPane.setVisible(false);
+               workshiftPane.toBack();
+
+            }
+        });
         createWorkshift.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-                workshiftPane = new CreateShiftView();
+                workshiftPane.getChildren().add(new CreateShiftView());
                 workshiftPane.setVisible(true);
                 workshiftPane.toFront();
+                discardButtonCreateNewShift.toFront();
+                saveButtonCreateNewShift.toFront();
             }
         });
     }

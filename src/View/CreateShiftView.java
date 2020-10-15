@@ -26,15 +26,13 @@ public class CreateShiftView extends AnchorPane implements Observer {
     @FXML DatePicker datePicker;
     @FXML TextField hour1,hour2,min1,min2;
     @FXML Spinner numberPersonel;
-    @FXML RadioButton oneTime;
-    @FXML RadioButton repeating;
     @FXML CheckBox monday,tuesday,wednesday,thursday,friday,saturday,sunday;
-    @FXML Button saveButton, discardButton,addCertificate,discardCertificateButton,saveCertificateButton;
+    @FXML Button saveButton, addCertificate,discardCertificateButton,saveCertificateButton;
     @FXML AnchorPane ListOfCertificatesAnchorPane,StartPage;
     @FXML ListView<CertificateObject> listOfCertificates;
     private List<Certificate> certificates= new ArrayList<>();
     private List<CertificateObject>certificateObjects= new ArrayList<>();
-    @FXML SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,Admin.getInstance().getEmployeeListSize()+100,1,1);
+    SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,Admin.getInstance().getEmployeeListSize()+100,1,1);
 
 
 
@@ -58,6 +56,7 @@ public class CreateShiftView extends AnchorPane implements Observer {
         generateComboBox(Admin.getInstance().getDepartments());
         loadCertificates();
         generateButtons();
+
         Admin.getInstance().addObserver(this);
     }
 
@@ -90,21 +89,7 @@ public class CreateShiftView extends AnchorPane implements Observer {
         }
     }
     private void generateButtons(){
-        saveButton.setOnAction(new EventHandler<ActionEvent>() {
-            @Override
-            public void handle(ActionEvent actionEvent) {
-                LocalDate localDate = datePicker.getValue();
-                Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
-                Date date = Date.from(instant);
-                long workStart= date.getTime()+ ((Long.parseLong(min1.getText()))*1000*60) + ((Long.parseLong(hour1.getText()))*1000*60*60); //TODO weekhandlder
-                long workStop= date.getTime()+ ((Long.parseLong(min2.getText()))*1000*60) + ((Long.parseLong(hour2.getText()))*1000*60*60);
-                Department d= Admin.getInstance().getDepartmentByName(departmentComboBox.getValue().toString());
-                boolean repeat []={sunday.isSelected(),monday.isSelected(),tuesday.isSelected(),wednesday.isSelected(),thursday.isSelected(),friday.isSelected(),saturday.isSelected()};
-               for(int i = 0; i<Integer.parseInt(numberPersonel.getEditor().getText());i++){
-                Admin.getInstance().createWorkshift(d,workStart,workStop,certificates,repeat);
-               }
-            }
-        });
+
         addCertificate.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent){
@@ -144,6 +129,21 @@ public class CreateShiftView extends AnchorPane implements Observer {
     }
 
 
+    public List<Certificate> getCertificates(){return certificates;}
+
+    public void save(){
+
+            LocalDate localDate = datePicker.getValue();
+            Instant instant = Instant.from(localDate.atStartOfDay(ZoneId.systemDefault()));
+            Date date = Date.from(instant);
+            long workStart= date.getTime()+ ((Long.parseLong(min1.getText()))*1000*60) + ((Long.parseLong(hour1.getText()))*1000*60*60); //TODO weekhandlder
+            long workStop= date.getTime()+ ((Long.parseLong(min2.getText()))*1000*60) + ((Long.parseLong(hour2.getText()))*1000*60*60);
+            Department d= Admin.getInstance().getDepartmentByName(departmentComboBox.getValue().toString());
+            boolean repeat []={sunday.isSelected(),monday.isSelected(),tuesday.isSelected(),wednesday.isSelected(),thursday.isSelected(),friday.isSelected(),saturday.isSelected()};
+            for(int i = 0; i<Integer.parseInt(numberPersonel.getEditor().getText());i++){
+                Admin.getInstance().createWorkshift(d,workStart,workStop,certificates,repeat);
+            }
+        }
 
 
 
