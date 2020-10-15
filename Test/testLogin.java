@@ -13,7 +13,6 @@ public class testLogin {
         assertTrue(admin.loginHandler.isLoginInformationCorrect("Markus", "Hemligt!"));
         admin.loginHandler.removeUser("Markus", "Hemligt!");
         assertTrue(admin.loginHandler.isLoginInformationCorrect("Markus", "Hemligt!") == false);
-
     }
 
 }
