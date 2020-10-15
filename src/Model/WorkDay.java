@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Represents a work day with a specified date, a hash map(with departments, work shifts and employees),and a list of departments
  */
-public class WorkDay {
+public class WorkDay implements Observer{
     public final long DATE;
     private static List<Department> departments = new ArrayList<>();
     private HashMap<Department, List<WorkShift>> departmentLinks;
@@ -19,6 +19,9 @@ public class WorkDay {
     protected WorkDay(long date) {
         this.DATE = date;
         this.departmentLinks = new HashMap<>();
+        for (Department d : departments){
+            d.addObserver(this);
+        }
     }
 
     public int getDepartmentSize(){
@@ -237,4 +240,35 @@ public class WorkDay {
         updateDepartments();
     }
 
+    @Override
+    public void update() {
+        updateDepartments();
+        for (Department d : departments) {
+            if (d.getAddWorkShiftSize() > 0) {
+                ArrayList<WorkShift> addShifts = new ArrayList<>();
+                for (int i = 0 ; i < d.getAddWorkShiftSize() ; i++){
+                    addShifts.add(d.getAddWorkShift(i));
+                }
+                for (WorkShift addWorkShift : addShifts) {
+                    Date wsDate = new Date(addWorkShift.START);
+                    Date thisDate = new Date(this.DATE);
+                    if ((addWorkShift.REPEAT && (wsDate.getDay() == thisDate.getDay())) || (!addWorkShift.REPEAT && (wsDate.getDay() == thisDate.getDay()) && (wsDate.getDate() == thisDate.getDate()))) {
+                        this.departmentLinks.get(d).add(new WorkShift(addWorkShift, this.DATE));
+                    }
+                }
+            } if (d.getRemoveWorkShiftSize() > 0){
+                ArrayList<WorkShift> removeShifts = new ArrayList<>();
+                for (int i = 0 ; i < d.getRemoveWorkShiftSize() ; i++){
+                    removeShifts.add(d.getRemoveWorkShift(i));
+                }
+                for (WorkShift removeShift : removeShifts){
+                    for (WorkShift checkShift : departmentLinks.get(d)){
+                        if (removeShift.ID == checkShift.ID){
+                            departmentLinks.get(d).remove(checkShift);
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
