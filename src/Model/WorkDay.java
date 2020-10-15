@@ -32,7 +32,8 @@ public class WorkDay {
     public void setGuaranteedFreeTime(int hours) {
         this.guaranteedFreeTime = (WeekHandler.plusHours(hours));
     }
-    /**
+
+    /*
      * Checks if all departments are filled
      * @return true if all the departments are filled and otherwise false
      */
