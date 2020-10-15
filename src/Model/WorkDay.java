@@ -19,7 +19,6 @@ public class WorkDay {
     protected WorkDay(long date) {
         this.DATE = date;
         this.departmentLinks = new HashMap<>();
-        setWorkDay();
     }
 
     public int getDepartmentSize(){
@@ -187,7 +186,7 @@ public class WorkDay {
     public void setWorkDay() { //funkar inte
         updateDepartments();
         WorkShift ws;
-        for (Department d : this.departments) {
+        for (Department d : departments) {
             for (int i = 0; i < d.getSizeAllShifts(); i++) {
                 ws = d.getShift(i);
                 Date wsDate = new Date(ws.START);

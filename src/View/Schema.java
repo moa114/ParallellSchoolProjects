@@ -1,6 +1,7 @@
 package View;
 
 import Model.*;
+import Model.Observer;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
@@ -16,21 +17,19 @@ import javafx.scene.layout.FlowPane;
 import javafx.scene.layout.GridPane;
 
 import java.time.YearMonth;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class Schema extends AnchorPane implements Observer {
-    @FXML Button next, previous;
+    @FXML Button next, previous, createWorkshift;
     @FXML GridPane monthGrid, weekGrid;
-    @FXML AnchorPane dayView, monthView, weekView;
+    @FXML AnchorPane dayView, monthView, weekView, workshiftPane;
     @FXML ComboBox<String> viewSelector;
-    @FXML Label currentFormatInfo, year;
+    @FXML Label currentFormatInfo;
     @FXML ListView listOfWorkshifts;
 
     private int dateIndex;
     private Date currentIndex;
+    private String mode = "";
 
     public Schema() {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Schema.fxml"));
@@ -44,14 +43,27 @@ public class Schema extends AnchorPane implements Observer {
         }
         generateDate();
         generateComboBox();
+        generateLabels();
+        generateButtons();
+    }
+
+    private void generateLabels(){
+        switch (mode){
+            case "Dag":
+                currentFormatInfo.setText(currentIndex.toString());
+                break;
+            case "Vecka":
+                Calendar.getInstance().setTime(currentIndex);
+                currentFormatInfo.setText("Vecka " + Calendar.getInstance().get(Calendar.WEEK_OF_YEAR));
+                break;
+            case "Månad":
+                currentFormatInfo.setText(currentIndex.getYear() + "/" + currentIndex.getMonth());
+        }
     }
 
     private void generateDate(){
-        currentIndex = new Date();
-        currentIndex.setHours(0);
-        currentIndex.setMinutes(0);
-        currentIndex.setSeconds(0);
-        dateIndex = 14;
+        currentIndex = new Date(OurCalendar.getInstance().getWorkday(0).DATE);
+        dateIndex = 0;
     }
 
     private void generateComboBox(){
@@ -62,22 +74,68 @@ public class Schema extends AnchorPane implements Observer {
         viewSelector.valueProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observableValue, String oldValue, String newValue) {
+                mode = newValue;
                 switch (newValue) {
                     case "Månad":
                         monthView.toFront();
+                        monthView.setVisible(true);
+                        dayView.setVisible(false);
+                        weekView.setVisible(false);
+                        workshiftPane.setVisible(false);
                         updateMonth();
                         break;
                     case "Vecka":
                         weekView.toFront();
+                        weekView.setVisible(true);
+                        dayView.setVisible(false);
+                        monthView.setVisible(false);
+                        workshiftPane.setVisible(false);
                         updateWeek();
                         break;
                     case "Dag":
                         dayView.toFront();
+                        dayView.setVisible(true);
+                        weekView.setVisible(false);
+                        monthView.setVisible(false);
+                        workshiftPane.setVisible(false);
                         updateDay();
                         break;
                 }
             }
         });
+    }
+
+    public void next(){
+        switch (mode){
+            case "Dag":
+                this.dateIndex++;
+                updateDay();
+                break;
+            case "Vecka":
+                this.dateIndex+=7;
+                updateWeek();
+                break;
+            case "Månad":
+                this.dateIndex+= YearMonth.of(new Date(OurCalendar.getInstance().getWorkday(dateIndex).DATE).getYear(), new Date(OurCalendar.getInstance().getWorkday(dateIndex).DATE).getMonth()).lengthOfMonth();
+                updateMonth();
+                break;
+        }
+    }
+    public void previous(){
+        switch (mode){
+            case "Dag":
+                this.dateIndex--;
+                updateDay();
+                break;
+            case "Vecka":
+                this.dateIndex-=7;
+                updateWeek();
+                break;
+            case "Månad":
+                this.dateIndex-= YearMonth.of(new Date(OurCalendar.getInstance().getWorkday(dateIndex).DATE).getYear(), new Date(OurCalendar.getInstance().getWorkday(dateIndex).DATE).getMonth()).lengthOfMonth();
+                updateMonth();
+                break;
+        }
     }
 
     private void updateMonth(){
@@ -105,7 +163,21 @@ public class Schema extends AnchorPane implements Observer {
         next.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent actionEvent) {
-
+                next();
+            }
+        });
+        previous.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                previous();
+            }
+        });
+        createWorkshift.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                workshiftPane = new CreateShiftView();
+                workshiftPane.setVisible(true);
+                workshiftPane.toFront();
             }
         });
     }
