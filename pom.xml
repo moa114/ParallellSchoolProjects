@@ -5,10 +5,27 @@
     <modelVersion>4.0.0</modelVersion>
 
 
-    <groupId>com.jenkov</groupId>
+    <groupId>NEWFive</groupId>
 
     <artifactId>ParallellSchoolProjects</artifactId>
 
-    <version>0.1.0</version>
+    <version>1.0</version>
+	
+	<dependencies>
+		<dependency>
+            <groupId>com.sun.mail</groupId>
+            <artifactId>javax.mail</artifactId>
+            <version>1.6.2</version>
+        </dependency>
+  </dependencies>
+  
+  <plugin>
+    <groupId>org.apache.maven.plugins</groupId>
+    <artifactId>maven-compiler-plugin</artifactId>
+    <version>3.8.0</version>
+    <configuration>
+        <release>14</release>
+    </configuration>
+</plugin>
 
 </project>

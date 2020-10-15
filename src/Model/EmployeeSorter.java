@@ -8,7 +8,7 @@ import java.util.*;
 
 public class EmployeeSorter implements Comparator<WorkShift> {
     public ArrayList<WorkShift> workShifts = new ArrayList<>();
-    public HashMap<WorkShift, List<Employee>> potentialWorkShiftCandidate = new HashMap<>();
+    public HashMap<WorkShift, List<Employee>> potentialWorkShiftCandidate = new HashMap<>(); //TODO sort List<Employees> after who has the least amount of workshifts
 
     @Override
     public int compare(WorkShift a, WorkShift b) {
