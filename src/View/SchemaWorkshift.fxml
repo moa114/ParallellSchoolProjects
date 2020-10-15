@@ -7,9 +7,9 @@
    <children>
       <AnchorPane fx:id="timeBar" prefHeight="60.0" prefWidth="200.0">
          <children>
-            <Label fx:id="start" text="Label" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="20.0" />
-            <Label fx:id="end" text="Label" AnchorPane.bottomAnchor="23.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="20.0" />
-            <Label fx:id="name" layoutX="336.0" layoutY="22.0" text="Label" />
+            <Label fx:id="start" layoutY="38.0" text="Label" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="38.0" />
+            <Label fx:id="end" layoutX="172.0" layoutY="38.0" text="Label" AnchorPane.bottomAnchor="5.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="38.0" />
+            <Label fx:id="name" layoutY="6.0" text="Label" />
          </children>
       </AnchorPane>
    </children>

@@ -2,6 +2,7 @@ package View;
 
 import Model.Employee;
 import Model.WorkShift;
+import com.sun.javafx.scene.control.IntegerField;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Label;
@@ -13,7 +14,7 @@ import java.util.Date;
 public class SchemaWorkshift extends AnchorPane {
     private Employee employee;
     private Color color;
-    private double sizeX = 700, fullDay = 1000*60*60*24;;
+    private double sizeX = 900, fullDay = 1000*60*60*24;;
 
     @FXML AnchorPane timeBar;
     @FXML Label start, end, name;
@@ -34,15 +35,35 @@ public class SchemaWorkshift extends AnchorPane {
         this.end.setText(new Date(workShift.END).toString());
         this.timeBar.setPrefWidth(sizeX*percentageOfDayFilled(workShift.START, workShift.END));
         this.timeBar.setTranslateX(getOffset(workShift.START)*sizeX);
-        this.timeBar.setTranslateX(200);
         if (workShift.getEmployee()==null) {
             this.timeBar.setStyle("-fx-background-color: #BBBBBB");
             this.name.setText("Ledig!");
-
         }
         else {
-            this.timeBar.setStyle("-fx-background-color: #" + Integer.toHexString((int) color.getRed()*255) +
-                    Integer.toHexString((int) color.getGreen()*255) + Integer.toHexString((int) color.getBlue()*255));
+            StringBuilder red = new StringBuilder(), blue = new StringBuilder(), green = new StringBuilder();
+            if (color.getRed()< 1/16.0)
+                red.append("0");
+            if (color.getRed()==0)
+                red.append("0");
+            red.append(Integer.toHexString((int)(color.getRed()*255)));
+            if (color.getGreen()< 1/16.0)
+                green.append("0");
+            if (color.getGreen()==0)
+                green.append("0");
+            green.append(Integer.toHexString((int)(color.getGreen()*255)));
+            if (color.getBlue()< 1/16.0) {
+                blue.append("0");
+            }
+            if (color.getBlue()==0) {
+                blue.append("0");
+            }
+            blue.append(Integer.toHexString((int)(color.getBlue()*255)));
+            /*
+            System.out.println(Integer.toHexString((int)(color.getRed()*255)));
+            System.out.println(Integer.toHexString((int)(color.getGreen()*255)));
+            System.out.println(Integer.toHexString((int)(color.getBlue()*255)));
+            */
+            this.timeBar.setStyle("-fx-background-color: #"+red.toString()+green.toString()+blue.toString());
             this.name.setText(workShift.getEmployee().getPersonalId());
         }
     }
@@ -57,6 +78,7 @@ public class SchemaWorkshift extends AnchorPane {
         tmp.setHours(0);
         tmp.setMinutes(0);
         tmp.setSeconds(0);
-        return (start-tmp.getTime()/fullDay);
+        System.out.println(start-tmp.getTime());
+        return ((start-tmp.getTime())/fullDay);
     }
 }

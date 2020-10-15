@@ -173,7 +173,7 @@ public class WorkDay {
         return departmentLinks.get(d);
     }
 
-    public void setWorkDay() {
+    public void setWorkDay() { //funkar inte
         updateDepartments();
         for (Department d : this.departments) {
             for (WorkShift ws : d.getAllShifts()) {

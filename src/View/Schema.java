@@ -51,7 +51,7 @@ public class Schema extends AnchorPane implements Observer {
         currentIndex.setHours(0);
         currentIndex.setMinutes(0);
         currentIndex.setSeconds(0);
-        dateIndex = 13;
+        dateIndex = 14;
     }
 
     private void generateComboBox(){
