@@ -28,11 +28,11 @@ public class Runnable extends Application {
         boolean repeat[] = {false, false, false, false, false, false, false};
         long tmp = OurCalendar.getInstance().getWorkday(16).DATE;
         Admin.getInstance().createNewDepartment("Disken", 2, new Color(1, 0.8, 0.4, 0.6));
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*23, repeat);
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*23, repeat);
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*9, tmp+1000*3600*20, repeat);
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*8, tmp+1000*3600*23, repeat);
-        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*6, tmp+1000*3600*23, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*18, tmp+1000*3600*23, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*17, tmp+1000*3600*23, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*18, tmp+1000*3600*20, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*19, tmp+1000*3600*23, repeat);
+        Admin.getInstance().createWorkshift(Admin.getInstance().getDepartmentByName("Disken"), tmp+1000*3600*18, tmp+1000*3600*23, repeat);
         Admin.getInstance().createNewEmployee("Oliver Andersson", "200011221122", "oliver@gallerit.se");
         Department tmpDepartment = Admin.getInstance().getDepartmentByName("Disken");
         Employee tmpEmployee = Admin.getInstance().getEmployee(0);
