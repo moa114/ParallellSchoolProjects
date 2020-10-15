@@ -103,7 +103,7 @@ public class DetailDepartmentView extends AnchorPane implements Observer {
             minPersonsOnShift.getEditor().setText("");
         }
         else
-            Admin.getInstance().deleteDepartment(department);
+            Admin.getInstance().removeDepartment(department);
         Admin.getInstance().removeObserver(this);
     }
 

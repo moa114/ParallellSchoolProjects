@@ -22,20 +22,19 @@ import java.util.List;
 
 public class CreateShiftView extends AnchorPane implements Observer {
 
-    @FXML
-    ComboBox departmentComboBox;
-    DatePicker datePicker;
-    TextField hour1,hour2,min1,min2;
-    Spinner numberPersonel;
-    RadioButton oneTime;
-    RadioButton repeating;
-    CheckBox monday,tuesday,wednesday,thursday,friday,saturday,sunday;
-    Button saveButton, discardButton,addCertificate,discardCertificateButton,saveCertificateButton;
-    AnchorPane ListOfCertificatesAnchorPane,StartPage;
-    ListView<CertificateObject> listOfCertificates;
+    @FXML ComboBox departmentComboBox;
+    @FXML DatePicker datePicker;
+    @FXML TextField hour1,hour2,min1,min2;
+    @FXML Spinner numberPersonel;
+    @FXML RadioButton oneTime;
+    @FXML RadioButton repeating;
+    @FXML CheckBox monday,tuesday,wednesday,thursday,friday,saturday,sunday;
+    @FXML Button saveButton, discardButton,addCertificate,discardCertificateButton,saveCertificateButton;
+    @FXML AnchorPane ListOfCertificatesAnchorPane,StartPage;
+    @FXML ListView<CertificateObject> listOfCertificates;
     private List<Certificate> certificates= new ArrayList<>();
     private List<CertificateObject>certificateObjects= new ArrayList<>();
-    SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,Admin.getInstance().getEmployeeListSize()+100,1,1);
+    @FXML SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(1,Admin.getInstance().getEmployeeListSize()+100,1,1);
 
 
 
