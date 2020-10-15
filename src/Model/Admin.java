@@ -313,15 +313,24 @@ public class Admin implements Observable {
         notifyObservers();
     }
 
+    /**
+     * Creates a new department and adds it to  workday
+     * @param name Name of the department
+     * @param maxPersonsOnBreak Max amount of people aloud to have a break at the same time
+     */
     public void createNewDepartment(String name, int maxPersonsOnBreak) {
         Department d = new Department(name, maxPersonsOnBreak);
         WorkDay.addDepartment(d);
         departments.add(d);
     }
 
-    public void removeDepartment(Department d) {
-        WorkDay.removeDepartment(d);
-        departments.remove(d);
+    /**
+     * Removes the specified department
+     * @param department the department to remove
+     */
+    public void removeDepartment(Department department) {
+        WorkDay.removeDepartment(department);
+        departments.remove(department);
     }
 
     /**

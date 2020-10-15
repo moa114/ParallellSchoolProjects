@@ -77,8 +77,8 @@ public class WorkShift {
         this.breakTime = workShift.breakTime;
     }
 
-    private long setEnd(long End){
-        if (End < this.START){
+    private long setEnd(long End) {
+        if (End < this.START) {
             return End + WeekHandler.plusDays(1);
         } else {
             return End;
@@ -92,7 +92,9 @@ public class WorkShift {
      * @param date      The amount of days to add to worshift
      */
     protected WorkShift(WorkShift workShift, int date) {
-        if (date < 0) { date = -date; }
+        if (date < 0) {
+            date = -date;
+        }
         this.START = workShift.START + WeekHandler.plusDays(date);
         this.END = workShift.END + WeekHandler.plusDays(date);
         this.certificates = workShift.certificates;
@@ -132,14 +134,30 @@ public class WorkShift {
         occupied = false;
     }
 
-    public void addCertificate(Certificate c) {
-        certificates.add(c);
+    /**
+     * Adds a certificate that is required for the workshift
+     *
+     * @param certificate The certificate to add to be requiredfor the workshift
+     */
+    public void addCertificate(Certificate certificate) {
+        certificates.add(certificate);
     }
 
+    /**
+     * Gets a certificate at the specified index that is required for the workshift
+     *
+     * @param index the index to get the specified wprkshift
+     * @return The workshift at the specified index
+     */
     public Certificate getCertificate(int index) {
         return certificates.get(index);
     }
 
+    /**
+     * Returns the amount of certificates required for the workshift
+     *
+     * @return the amount of certificates required for the workshift
+     */
     public int getCertificatesSize() {
         return certificates.size();
     }
@@ -157,10 +175,20 @@ public class WorkShift {
         certificates.remove(c);
     }
 
+    /**
+     * Get the Employee that is occupied to the workshift
+     *
+     * @return The employee that occupies this workshift
+     */
     public Employee getEmployee() {
         return employee;
     }
 
+    /**
+     * Get the time this workshift is in between
+     *
+     * @return The OccupiedTime this workshift has
+     */
     public OccupiedTime getOccupation() {
         return occupiedTime;
     }
