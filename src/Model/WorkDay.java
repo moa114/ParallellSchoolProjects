@@ -216,12 +216,15 @@ public class WorkDay {
 
     public void unRegisterOccupations(Employee e, long start, long end) {
         for (Department d : departments) {
+            if(!(departmentLinks.isEmpty())){
             for (WorkShift ws : departmentLinks.get(d)) {
-                if (ws.getOccupation().inBetween(start, end) && ws.getEmployee() == e) {
+                if(ws.isOccupied()){
+                    if (ws.getOccupation().inBetween(start, end) && ws.getEmployee() == e) {
                     ws.clearWorkShiftOccupation();
+                    }
                 }
-            }
-        }
+                }
+        }}
     }
     public int getDayOfWeekOffset(){
         Calendar calendar = Calendar.getInstance();
