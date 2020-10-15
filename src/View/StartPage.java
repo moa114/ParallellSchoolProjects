@@ -2,6 +2,7 @@ package View;
 
 import Controller.AdminController;
 import Model.Admin;
+import Model.Employee;
 import Model.Observer;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -13,6 +14,7 @@ import javafx.scene.control.Tab;
 import javafx.scene.layout.AnchorPane;
 
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 /**

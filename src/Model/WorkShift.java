@@ -2,9 +2,11 @@ package Model;
 
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 
+/**
+ * Represents a WorkShift in which an employee can work in if the have the specified certificates required
+ */
 public class WorkShift {
     private List<Certificate> certificates = new ArrayList<>();
     private Employee employee;
@@ -17,15 +19,15 @@ public class WorkShift {
     /**
      * Creates a new workshift
      *
-     * @param start        The starting time for the Workshift
-     * @param end          The ending time for the Workshift
+     * @param start       The starting time for the Workshift
+     * @param end         The ending time for the Workshift
      * @param certificate Required Certificates for the Workshift
      */
     protected WorkShift(long start, long end, Certificate certificate, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
         this.certificates.add(certificate);
-        this.breakTime= breakTime;
+        this.breakTime = breakTime;
         this.REPEAT = repeat;
     }
 
@@ -40,7 +42,7 @@ public class WorkShift {
         this.START = start;
         this.END = end;
         this.certificates.addAll(certificates);
-        this.breakTime=breakTime;
+        this.breakTime = breakTime;
         this.REPEAT = repeat;
     }
 
@@ -53,32 +55,49 @@ public class WorkShift {
     protected WorkShift(long start, long end, OccupiedTime breakTime, boolean repeat) {
         this.START = start;
         this.END = end;
-        this.breakTime=breakTime;
+        this.breakTime = breakTime;
         this.REPEAT = repeat;
     }
 
     /**
      * Creates a copy of a previous Workshift without employee and occupation and moves it forward a week
      *
-     * @param ws The Workshift you wish to copy
+     * @param workShift The Workshift you wish to copy and place on another day
+     * @param date      The date in a long format for Java.Date
      */
-    protected WorkShift(WorkShift ws, long date) {
+    protected WorkShift(WorkShift workShift, long date) {
 
-        Date wsStart = new Date(ws.START);
-        this.START = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
-        wsStart.setTime(ws.END);
-        this.END = date + wsStart.getHours()*60*60*1000 + wsStart.getMinutes()*60*1000;
-        this.certificates = ws.certificates;
-        this.REPEAT = ws.REPEAT;
-        this.breakTime = ws.breakTime;
+        Date wsStart = new Date(workShift.START);
+        Date wsEnd = new Date(workShift.END);
+        this.START = date + WeekHandler.plusHours(wsStart.getHours()) + WeekHandler.plusMinutes(wsStart.getMinutes());
+        long tempEnd = date + WeekHandler.plusHours(wsEnd.getHours()) + WeekHandler.plusMinutes(wsEnd.getMinutes());
+        this.END = setEnd(tempEnd);
+        this.certificates = workShift.certificates;
+        this.REPEAT = workShift.REPEAT;
+        this.breakTime = workShift.breakTime;
     }
 
-    protected WorkShift(WorkShift ws, int date){
-        this.START = ws.START+ date*24*60*60*1000;
-        this.END = ws.END + date*24*60*60*1000;
-        this.certificates = ws.certificates;
-        this.REPEAT = ws.REPEAT;
-        this.breakTime = ws.breakTime;
+    private long setEnd(long End){
+        if (End < this.START){
+            return End + WeekHandler.plusDays(1);
+        } else {
+            return End;
+        }
+    }
+
+    /**
+     * Creates a copy of a previous Workshift without employee and occupation and moves it forward
+     *
+     * @param workShift The Workshift you wish to copy and place on another day
+     * @param date      The amount of days to add to worshift
+     */
+    protected WorkShift(WorkShift workShift, int date) {
+        if (date < 0) { date = -date; }
+        this.START = workShift.START + WeekHandler.plusDays(date);
+        this.END = workShift.END + WeekHandler.plusDays(date);
+        this.certificates = workShift.certificates;
+        this.REPEAT = workShift.REPEAT;
+        this.breakTime = workShift.breakTime;
     }
 
     /**
@@ -87,7 +106,7 @@ public class WorkShift {
      * @param e  The Employee
      * @param ot The Employees OccupiedTime
      */
-    public void registerOccupation(Employee e, OccupiedTime ot) {
+    protected void registerOccupation(Employee e, OccupiedTime ot) {
         if (!occupied) {
             //TODO checka att employee har certificate via metod
             this.employee = e;
@@ -117,10 +136,17 @@ public class WorkShift {
         certificates.add(c);
     }
 
-    public List<Certificate> getAllCertificate() {
-        return certificates;
+    public Certificate getCertificate(int index) {
+        return certificates.get(index);
     }
-    public OccupiedTime getBreakTime(){return breakTime;}
+
+    public int getCertificatesSize() {
+        return certificates.size();
+    }
+
+    public OccupiedTime getBreakTime() {
+        return breakTime;
+    }
 
     /**
      * Removes a specified certificate from being required by the employees
@@ -131,7 +157,9 @@ public class WorkShift {
         certificates.remove(c);
     }
 
-    public Employee getEmployee() {return employee;}
+    public Employee getEmployee() {
+        return employee;
+    }
 
     public OccupiedTime getOccupation() {
         return occupiedTime;

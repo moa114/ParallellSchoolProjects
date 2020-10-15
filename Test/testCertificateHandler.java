@@ -1,7 +1,5 @@
 import Model.Admin;
 import Model.CertificateHandler;
-import Model.Employee;
-import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Date;
@@ -14,8 +12,8 @@ public class testCertificateHandler {
     @Test
     public void testWhoHasCertificate() {
         Admin admin = Admin.getInstance();
-        admin.createNewEmployee("moa", "123456789231" , "moa@gmail.com");
-        admin.createNewEmployee("moa", "213456789123" , "moa3@gmail.com");
+        admin.createNewEmployee("moa", "123456789231", "moa@gmail.com");
+        admin.createNewEmployee("moa", "213456789123", "moa3@gmail.com");
         admin.createNewEmployee("crilllle", "312123456789", "llllllll@gmail.com");
         CertificateHandler ch = admin.getCertificatehandler();
         ch.createNewCertificate("Kassa");

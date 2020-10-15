@@ -1,11 +1,11 @@
 import Model.Admin;
 import Model.Department;
 import Model.WorkShift;
+import Model.WeekHandler;
 import org.junit.Test;
 
 import java.util.Date;
 
-import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 public class testDepartment {
@@ -16,11 +16,11 @@ public class testDepartment {
         Date date = (new Date());
         date.setTime(date.getTime()+(1000*60*60*24));
         boolean repeat[] = {false, false, false, false, true, false, false}; //TODO Markus fixar ordentlig repeat
-        admin.getDepartmentByName("Kassa").getBreakHandler().setMinBreakLength(1000*60*15);
-        admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
-        admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
-        admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
-        admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(1000 * 60 * 60 * 1),date.getTime()+(1000 * 60 * 60 * 5), repeat);
+        admin.getDepartmentByName("Kassa").getBreakHandler().setMinBreakLength(WeekHandler.plusMinutes(15));
+        admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(WeekHandler.plusHours(1)),date.getTime()+(WeekHandler.plusHours(5)), repeat);
+        admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(WeekHandler.plusHours(1)),date.getTime()+(WeekHandler.plusHours(5)), repeat);
+        admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(WeekHandler.plusHours(1)),date.getTime()+(WeekHandler.plusHours(5)), repeat);
+        admin.createWorkshift( admin.getDepartmentByName("Kassa"),date.getTime()+(WeekHandler.plusHours(1)),date.getTime()+(WeekHandler.plusHours(5)), repeat);
 
         System.out.println(admin.getDepartmentByName("Kassa").getAllShifts().get(0).getBreakTime().start);
         System.out.println(admin.getDepartmentByName("Kassa").getAllShifts().get(1).getBreakTime().start);
